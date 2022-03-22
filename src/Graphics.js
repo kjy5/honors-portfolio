@@ -51,11 +51,13 @@ export default function Graphics() {
         textMesh.position.y = pos.y
         textMesh.position.z = pos.z
 
-        const boxHelper = new THREE.BoxHelper(textMesh, 0xffff00)
-        const gridHelper = new THREE.GridHelper(10, 10)
         scene.add(textMesh)
-        scene.add(boxHelper)
-        scene.add(gridHelper)
+
+        // Visualization helpers
+        // const boxHelper = new THREE.BoxHelper(textMesh, 0xffff00)
+        // const gridHelper = new THREE.GridHelper(10, 10)
+        // scene.add(boxHelper)
+        // scene.add(gridHelper)
     })
 
 
