@@ -7,12 +7,10 @@ import WebGL from "three/examples/jsm/capabilities/WebGL.js";
 export default function Graphics() {
     // Setup Three
     const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+    const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 1000)
     const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('canvas')})
 
-    // Setup Camera and renderer
-    renderer.setPixelRatio(window.devicePixelRatio)
-    renderer.setSize(window.innerWidth, window.innerHeight)
+    // Setup Camera
     camera.position.z = 5
 
     // Add OrbitControls
@@ -62,16 +60,34 @@ export default function Graphics() {
 
 
     // Render
+    function resizeRendererToDisplaySize(renderer) {
+        const canvas = renderer.domElement;
+        const pixelRatio = window.devicePixelRatio;
+        const width = canvas.clientWidth * pixelRatio | 0;
+        const height = canvas.clientHeight * pixelRatio | 0;
+        const needResize = canvas.width !== width || canvas.height !== height;
+        if (needResize) {
+            renderer.setSize(width, height, false);
+        }
+        return needResize;
+    }
+
     function animate() {
-        requestAnimationFrame(animate);
+        if (resizeRendererToDisplaySize(renderer)) {
+            const canvas = renderer.domElement;
+            camera.aspect = canvas.clientWidth / canvas.clientHeight;
+            camera.updateProjectionMatrix();
+        }
 
         controls.update()
 
         renderer.render(scene, camera);
+
+        requestAnimationFrame(animate);
     }
 
     if (WebGL.isWebGLAvailable()) {
-        animate()
+        requestAnimationFrame(animate);
     } else {
         document.body.appendChild(WebGL.getWebGLErrorMessage())
     }
