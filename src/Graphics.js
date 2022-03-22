@@ -42,7 +42,16 @@ export default function Graphics() {
         const textMesh = new THREE.Mesh(textGeometry, textMaterial)
         textMesh.geometry.computeBoundingBox()
 
+        const vec = new THREE.Vector3()
+        vec.set(0, .6, 0.5)
+        vec.unproject(camera)
+        vec.sub(camera.position).normalize()
+        const distance = -camera.position.z / vec.z
+        const pos = camera.position.clone().add(vec.multiplyScalar(distance))
+
         textMesh.position.x = -textMesh.geometry.boundingBox.max.x / 2
+        textMesh.position.y = pos.y
+        textMesh.position.z = pos.z
 
         const boxHelper = new THREE.BoxHelper(textMesh, 0xffff00)
         const gridHelper = new THREE.GridHelper(10, 10)
@@ -50,6 +59,7 @@ export default function Graphics() {
         scene.add(boxHelper)
         scene.add(gridHelper)
     })
+
 
     // Render
     function animate() {
