@@ -28,7 +28,7 @@ export default function Graphics() {
     fontLoader.load('src/assets/fonts/Coolvetica Rg_Regular.json', function (font) {
         const textGeometry = new TextGeometry("Kenneth's Honors Portfolio", {
             font: font,
-            size: .75,
+            size: 0.75,
             height: 0.075,
             curveSegments: 8,
             bevelEnabled: false,
@@ -41,7 +41,7 @@ export default function Graphics() {
         textMesh.geometry.computeBoundingBox()
 
         const vec = new THREE.Vector3()
-        vec.set(0, .6, 0.5)
+        vec.set(0, 0.6, 0.5)
         vec.unproject(camera)
         vec.sub(camera.position).normalize()
         const distance = -camera.position.z / vec.z
