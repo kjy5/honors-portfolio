@@ -1,4 +1,7 @@
 import * as THREE from "three";
+import {FontLoader} from "three/examples/jsm/loaders/FontLoader";
+import {TextGeometry} from "three/examples/jsm/geometries/TextGeometry";
+import WebGL from "three/examples/jsm/capabilities/WebGL.js";
 
 export default function Graphics() {
     // Setup Three
@@ -11,13 +14,25 @@ export default function Graphics() {
     renderer.setSize(window.innerWidth, window.innerHeight)
     camera.position.z = 5
 
-    // Add a cube
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
-    const cube = new THREE.Mesh(geometry, material);
-    cube.rotation.y = Math.PI / 4
-    cube.rotation.x = Math.PI / 4
-    scene.add(cube);
+    // Add Title
+    const fontLoader = new FontLoader()
+    fontLoader.load('node_modules/three/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+        const textGeometry = new TextGeometry('Hello World', {
+            font: font,
+            size: 1,
+            height: 0.1,
+            curveSegments: 12,
+            bevelEnabled: true,
+            bevelThickness: 0.1,
+            bevelSize: 0.1,
+            bevelSegments: 5
+        })
+        const textMaterial = new THREE.MeshBasicMaterial({color: 0xffffff})
+        const textMesh = new THREE.Mesh(textGeometry, textMaterial)
+        textMesh.position.x = -2
+        textMesh.position.y = 2
+        scene.add(textMesh)
+    })
 
     // Render
     function animate() {
@@ -26,5 +41,9 @@ export default function Graphics() {
         renderer.render(scene, camera);
     }
 
-    animate();
+    if (WebGL.isWebGLAvailable()) {
+        animate()
+    } else {
+        document.body.appendChild(WebGL.getWebGLErrorMessage())
+    }
 }
