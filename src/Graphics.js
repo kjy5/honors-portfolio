@@ -11,20 +11,20 @@ export default function Graphics() {
     renderer.setSize(window.innerWidth, window.innerHeight)
     camera.position.z = 5
 
-    // Add geometry
+    // Add a cube
     const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-    const cube = new THREE.Mesh( geometry, material );
-    scene.add( cube );
+    const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+    const cube = new THREE.Mesh(geometry, material);
+    cube.rotation.y = Math.PI / 4
+    cube.rotation.x = Math.PI / 4
+    scene.add(cube);
 
     // Render
     function animate() {
-        requestAnimationFrame( animate );
+        requestAnimationFrame(animate);
 
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
-
-        renderer.render( scene, camera );
+        renderer.render(scene, camera);
     }
+
     animate();
 }
