@@ -1,5 +1,4 @@
 .artifact-card {
-    grid-row: 3;
 
     color: white;
 
@@ -17,13 +16,13 @@
 
 .artifact-card__title {
     grid-area: title;
-    justify-self: center;
+    justify-self: start;
     align-self: end;
 }
 
 .artifact-card__subtitle {
     grid-area: subtitle;
-    justify-self: center;
+    justify-self: start;
     align-self: start;
     opacity: 0.75;
 }

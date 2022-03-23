@@ -1,6 +1,6 @@
-import './styles/App.css'
+import '../styles/App.css';
 
-import React from 'react'
+import React from 'react';
 
 /**
  * @description Website base component; where all other components are composed.
@@ -15,5 +15,5 @@ export default function App() {
                 to complete this one!</p>
             <h2>See ya soon!</h2>
         </div>
-    )
+    );
 }
