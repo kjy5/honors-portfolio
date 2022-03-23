@@ -1,0 +1,29 @@
+.artifact-card {
+    grid-row: 3;
+
+    color: white;
+
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+    grid-template-areas:
+        "graphics . title"
+        "graphics . subtitle";
+}
+
+.artifact-card__graphics {
+    grid-area: graphics;
+    justify-self: stretch;
+}
+
+.artifact-card__title {
+    grid-area: title;
+    justify-self: center;
+    align-self: end;
+}
+
+.artifact-card__subtitle {
+    grid-area: subtitle;
+    justify-self: center;
+    align-self: start;
+    opacity: 0.75;
+}

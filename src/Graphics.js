@@ -21,6 +21,9 @@ function resizeRendererToDisplaySize(renderer) {
     return needResize;
 }
 
+/**
+ * @description Creates a ThreeJS scene and runs the render loop
+ */
 export default function Graphics() {
     // Setup Three
     const scene = new THREE.Scene()
@@ -79,7 +82,7 @@ export default function Graphics() {
 
 
     /**
-     * Render Loop
+     * @description Render Loop
      */
     function animate() {
         if (resizeRendererToDisplaySize(renderer)) {

@@ -3,10 +3,10 @@ import './styles/App.css'
 import React from 'react'
 
 /**
- * Website base component; where all other components are composed.
+ * @description Website base component; where all other components are composed.
  * @returns {JSX.Element}
  */
-function App() {
+export default function App() {
 
     return (
         <div className="App">
@@ -17,5 +17,3 @@ function App() {
         </div>
     )
 }
-
-export default App
