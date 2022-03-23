@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import CoolveticaFont from "./assets/fonts/Coolvetica Rg_Regular.json?url";
 import {FontLoader} from "three/examples/jsm/loaders/FontLoader";
-import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {TextGeometry} from "three/examples/jsm/geometries/TextGeometry";
 import WebGL from "three/examples/jsm/capabilities/WebGL.js";
 
@@ -32,7 +31,7 @@ export default function Graphics() {
     camera.position.z = 5
 
     // Add OrbitControls
-    const controls = new OrbitControls(camera, renderer.domElement)
+    // const controls = new OrbitControls(camera, renderer.domElement)
 
     // Add a light
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
@@ -89,7 +88,7 @@ export default function Graphics() {
             camera.updateProjectionMatrix();
         }
 
-        controls.update()
+        // controls.update()
 
         renderer.render(scene, camera);
 

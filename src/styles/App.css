@@ -1,6 +1,6 @@
 .App {
     grid-column: span 12;
-    grid-row: 4 / 6;
+    grid-row: 2;
 
     color: white;
     text-align: center;
