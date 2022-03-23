@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import CoolveticaFont from "./assets/fonts/Coolvetica Rg_Regular.json?url";
 import {FontLoader} from "three/examples/jsm/loaders/FontLoader";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {TextGeometry} from "three/examples/jsm/geometries/TextGeometry";
@@ -42,7 +43,7 @@ export default function Graphics() {
 
     // Add Title
     const fontLoader = new FontLoader()
-    fontLoader.load('src/assets/fonts/Coolvetica Rg_Regular.json', (font) => {
+    fontLoader.load(CoolveticaFont, (font) => {
         const textGeometry = new TextGeometry("Kenneth's Honors Portfolio", {
             font,
             size: 0.75,
