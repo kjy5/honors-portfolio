@@ -4,6 +4,11 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {TextGeometry} from "three/examples/jsm/geometries/TextGeometry";
 import WebGL from "three/examples/jsm/capabilities/WebGL.js";
 
+/**
+ * Responsive resizing of ThreeJS render output (canvas)
+ * @param {THREE.WebGLRenderer} renderer The renderer to resize
+ * @returns {boolean} If the renderer needed to be resized
+ */
 function resizeRendererToDisplaySize(renderer) {
     const canvas = renderer.domElement;
     const pixelRatio = window.devicePixelRatio;
