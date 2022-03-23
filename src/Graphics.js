@@ -4,6 +4,18 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {TextGeometry} from "three/examples/jsm/geometries/TextGeometry";
 import WebGL from "three/examples/jsm/capabilities/WebGL.js";
 
+function resizeRendererToDisplaySize(renderer) {
+    const canvas = renderer.domElement;
+    const pixelRatio = window.devicePixelRatio;
+    const width = canvas.clientWidth * pixelRatio | 0;
+    const height = canvas.clientHeight * pixelRatio | 0;
+    const needResize = canvas.width !== width || canvas.height !== height;
+    if (needResize) {
+        renderer.setSize(width, height, false);
+    }
+    return needResize;
+}
+
 export default function Graphics() {
     // Setup Three
     const scene = new THREE.Scene()
@@ -25,9 +37,9 @@ export default function Graphics() {
 
     // Add Title
     const fontLoader = new FontLoader()
-    fontLoader.load('src/assets/fonts/Coolvetica Rg_Regular.json', function (font) {
+    fontLoader.load('src/assets/fonts/Coolvetica Rg_Regular.json', (font) => {
         const textGeometry = new TextGeometry("Kenneth's Honors Portfolio", {
-            font: font,
+            font,
             size: .75,
             height: 0.075,
             curveSegments: 8,
@@ -61,19 +73,9 @@ export default function Graphics() {
     })
 
 
-    // Render
-    function resizeRendererToDisplaySize(renderer) {
-        const canvas = renderer.domElement;
-        const pixelRatio = window.devicePixelRatio;
-        const width = canvas.clientWidth * pixelRatio | 0;
-        const height = canvas.clientHeight * pixelRatio | 0;
-        const needResize = canvas.width !== width || canvas.height !== height;
-        if (needResize) {
-            renderer.setSize(width, height, false);
-        }
-        return needResize;
-    }
-
+    /**
+     * Render Loop
+     */
     function animate() {
         if (resizeRendererToDisplaySize(renderer)) {
             const canvas = renderer.domElement;
