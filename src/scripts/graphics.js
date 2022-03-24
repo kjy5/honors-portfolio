@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import CoolveticaFont from "./assets/fonts/Coolvetica Rg_Regular.json?url";
+import CoolveticaFont from "../assets/fonts/Coolvetica Rg_Regular.json?url";
 import {FontLoader} from "three/examples/jsm/loaders/FontLoader";
 import {TextGeometry} from "three/examples/jsm/geometries/TextGeometry";
 import WebGL from "three/examples/jsm/capabilities/WebGL.js";

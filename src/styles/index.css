@@ -18,7 +18,7 @@ main {
     margin-left: 2.5vw;
 
     display: grid;
-    grid-auto-rows: 144pt;
+    grid-auto-rows: auto;
 
     /* Allow Orbit controls to still work */
     pointer-events: none;

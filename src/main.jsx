@@ -1,9 +1,10 @@
 import './styles/index.css';
 
 import App from './components/App';
-import {getContentData} from "./scripts/artifacts";
-import Graphics from './Graphics';
-import ArtifactCard from './components/ArtifactCard';
+import ArtifactCard from "./components/ArtifactCard";
+import ArtifactContents from "./components/ArtifactContents";
+import {getContentData} from "./scripts/data-manager";
+import Graphics from './scripts/graphics';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -13,8 +14,11 @@ Graphics();
 // Get content data and render
 getContentData().then(data => {
     // Create artifact cards
-    let artifactCardsDOM = data.map((artifact) => {
-        return <ArtifactCard key={artifact.title} title={artifact.title} subtitle={artifact.subtitle}/>;
+    let artifactsDOM = data.map((artifact) => {
+        return [
+            <ArtifactCard key={artifact.title} title={artifact.title} subtitle={artifact.subtitle}/>,
+            <ArtifactContents key={artifact.text} title={artifact.title} text={artifact.text}/>
+        ];
     });
 
     // Render HTML
@@ -22,7 +26,7 @@ getContentData().then(data => {
         <React.StrictMode>
             <div/>
             <App/>
-            {artifactCardsDOM}
+            {artifactsDOM}
         </React.StrictMode>,
         document.querySelector('main')
     );
