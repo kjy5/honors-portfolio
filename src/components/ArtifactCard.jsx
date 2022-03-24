@@ -2,6 +2,12 @@ import "../styles/ArtifactCard.css";
 
 import React from 'react';
 
+function toggleContents(id) {
+    const contentElement = document.getElementById(id);
+    const displayState = contentElement.style.display;
+    contentElement.style.display = displayState === "none" ? "block" : "none";
+}
+
 /**
  * @description - Overview card for an Artifact
  * @param {object} props - props passed in from parent component
@@ -9,7 +15,7 @@ import React from 'react';
  */
 export default function ArtifactCard(props) {
     return (
-        <div className="artifact-card">
+        <div className="artifact-card" onClick={() => toggleContents(props.title)}>
             <div className="artifact-card__graphics"/>
             <div className="artifact-card__title">
                 <h1>{props.title}</h1>

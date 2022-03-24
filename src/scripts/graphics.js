@@ -61,7 +61,7 @@ export default function Graphics() {
         textMesh.geometry.computeBoundingBox();
 
         const vec = new THREE.Vector3();
-        vec.set(0, 0.6, 0.5);
+        vec.set(0, 0.7, 0.5);
         vec.unproject(camera);
         vec.sub(camera.position).normalize();
         const distance = -camera.position.z / vec.z;

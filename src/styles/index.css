@@ -18,10 +18,11 @@ main {
     margin-left: 2.5vw;
 
     display: grid;
+    grid-template-rows: 15%;
     grid-auto-rows: auto;
 
     /* Allow Orbit controls to still work */
-    pointer-events: none;
+    /*pointer-events: none;*/
 }
 
 body {
