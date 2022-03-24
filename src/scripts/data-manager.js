@@ -7,24 +7,14 @@ export async function getContentData() {
     return await tsv(content);
 }
 
-export async function importImage(url) {
-    try {
-        const image = await import(url + ".webp?url");
-        return image.default;
-    } catch (e) {
-        console.error(e);
-    }
+export function importImage(url) {
+    return new URL(url + ".webp", import.meta.url).href;
 }
 
-export async function importImages(urlBase, count) {
-    try {
-        const images = [];
-        for (let i = 0; i < count; i++) {
-            const image = await importImage(urlBase + i);
-            images.push(image);
-        }
-        return images;
-    } catch (e) {
-        console.error(e);
+export function importImages(urlBase, count) {
+    const images = [];
+    for (let i = 0; i < count; i++) {
+        images.push(importImage(urlBase + i));
     }
+    return images;
 }

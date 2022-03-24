@@ -13,8 +13,8 @@ export default function ArtifactContents(props) {
     useEffect(() => {
         // Get image srcs
         if (props.imageCount !== "") {
-            const sourceBase = "../src/assets/images/" + props.year + "/" + props.quarter + "/" + props.title + "/";
-            importImages(sourceBase, props.imageCount).then(srcs => setImageSrcs(srcs));
+            const sourceBase = "../assets/images/" + props.year + "/" + props.quarter + "/" + props.title + "/";
+            setImageSrcs(importImages(sourceBase, props.imageCount));
         }
 
         // Get embed srcs
