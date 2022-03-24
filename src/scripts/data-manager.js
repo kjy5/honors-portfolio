@@ -9,7 +9,8 @@ export async function getContentData() {
 
 export async function importImage(url) {
     try {
-        return await import(url + ".webp?url");
+        const image = await import(url + ".webp?url");
+        return image.default;
     } catch (e) {
         console.error(e);
     }
@@ -19,9 +20,9 @@ export async function importImages(urlBase, count) {
     try {
         const images = [];
         for (let i = 0; i < count; i++) {
-            images.push(await importImage(urlBase + i));
+            const image = await importImage(urlBase + i);
+            images.push(image);
         }
-        console.log(images);
         return images;
     } catch (e) {
         console.error(e);

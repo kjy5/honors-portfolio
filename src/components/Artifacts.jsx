@@ -10,9 +10,7 @@ export default function Artifacts() {
 
     // Get content data on load
     useEffect(() => {
-        getContentData("artifact-data").then(data => {
-            setContentData(data);
-        });
+        getContentData().then(data => setContentData(data));
     }, []);
 
     // Render Artifacts
