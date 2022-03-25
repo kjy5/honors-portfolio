@@ -26,8 +26,8 @@ export default function Artifacts() {
                               text={artifact.text}
                               year={artifact.year}
                               quarter={artifact.quarter}
-                              imageCount={artifact.imageCount}
-                              embedUrl={artifact.embedUrl}
+                              hasImages={artifact.hasImages}
+                              hasEmbed={artifact.hasEmbed}
             />
         ];
     });
