@@ -1,7 +1,7 @@
-import ArtifactCard from "./ArtifactCard";
-import ArtifactContents from "./ArtifactContents";
-import {getContentData} from "../scripts/data-manager";
-import React, {useEffect, useState} from "react";
+import ArtifactCard from './ArtifactCard';
+import ArtifactContents from './ArtifactContents';
+import {getContentData} from '../scripts/data-manager';
+import React, {useEffect, useState} from 'react';
 
 export default function Artifacts() {
 

@@ -8,7 +8,7 @@ export async function getContentData() {
 }
 
 export function importImage(url) {
-    return new URL(url + ".webp", import.meta.url).href;
+    return new URL(url + '.webp', import.meta.url).href;
 }
 
 export function importImages(urlBase, count) {

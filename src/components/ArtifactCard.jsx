@@ -1,11 +1,11 @@
-import "../styles/ArtifactCard.css";
+import '../styles/ArtifactCard.css';
 
 import React from 'react';
 
 function toggleContents(id) {
     const contentElement = document.getElementById(id);
     const displayState = contentElement.style.display;
-    contentElement.style.display = displayState === "none" || displayState === "" ? "grid" : "none";
+    contentElement.style.display = displayState === 'none' || displayState === "" ? 'grid' : 'none';
 }
 
 /**

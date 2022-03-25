@@ -1,7 +1,7 @@
 .artifact-contents {
     color: white;
     display: none;
-    grid-template-rows: auto auto;
+    grid-template-rows: repeat(3, auto);
 }
 
 .artifact-image {
