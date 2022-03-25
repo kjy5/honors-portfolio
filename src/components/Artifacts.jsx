@@ -1,10 +1,12 @@
 import '../styles/Artifacts.css';
 
+import React, {useEffect, useState} from 'react';
+
 import ArtifactCard from './ArtifactCard';
 import ArtifactContents from './ArtifactContents';
 import content from '../assets/content.tsv?url';
+// noinspection ES6CheckImport
 import {tsv} from 'd3';
-import React, {useEffect, useState} from 'react';
 
 export default function Artifacts() {
 
@@ -17,21 +19,21 @@ export default function Artifacts() {
     }, []);
 
     // Render Artifacts
-    let output = [];
+    const output = [];
     let curYear = -1;
     let curQuarter = -1;
     contentData.forEach(artifact => {
         // Insert year header if necessary
         if (artifact.year !== curYear) {
             curYear = artifact.year;
-            output.push(<div className="Artifacts__year-header" key={"year_" + curYear}/>);
+            output.push(<div className="Artifacts__year-header" key={`year_${curYear}`}/>);
         }
 
         // Insert quarter header if necessary
         if (artifact.quarter !== curQuarter) {
             curQuarter = artifact.quarter;
             output.push(<div className="Artifacts__quarter-header"
-                             key={"year_" + curYear + "_quarter_" + curQuarter}/>);
+                             key={`year_${curYear}_quarter_${curQuarter}`}/>);
         }
 
         // Insert artifact card, contents, and divider
