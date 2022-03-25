@@ -1,3 +1,5 @@
+import '../styles/Artifacts.css';
+
 import ArtifactCard from './ArtifactCard';
 import ArtifactContents from './ArtifactContents';
 import {getContentData} from '../scripts/data-manager';
@@ -28,7 +30,8 @@ export default function Artifacts() {
                               quarter={artifact.quarter}
                               hasImages={artifact.hasImages}
                               hasEmbed={artifact.hasEmbed}
-            />
+            />,
+            <div key={artifact.subtitle} className="artifact-spacers"/>
         ];
     });
 }

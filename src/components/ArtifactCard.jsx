@@ -21,7 +21,7 @@ export default function ArtifactCard(props) {
                 <h1>{props.title}</h1>
             </div>
             <div className="artifact-card__subtitle">
-                <h2>{props.subtitle}</h2>
+                <h3>{props.subtitle}</h3>
             </div>
         </div>
     );
