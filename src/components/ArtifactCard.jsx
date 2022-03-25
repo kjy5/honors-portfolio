@@ -15,12 +15,12 @@ function toggleContents(id) {
  */
 export default function ArtifactCard(props) {
     return (
-        <div className="artifact-card" onClick={() => toggleContents(props.title)}>
-            <div className="artifact-card__graphics"/>
-            <div className="artifact-card__title">
+        <div className="ArtifactCard" onClick={() => toggleContents(props.title)}>
+            <div className="ArtifactCard__graphics" id={props.title + " card graphics"}/>
+            <div className="ArtifactCard__title">
                 <h1>{props.title}</h1>
             </div>
-            <div className="artifact-card__subtitle">
+            <div className="ArtifactCard__subtitle">
                 <h3>{props.subtitle}</h3>
             </div>
         </div>

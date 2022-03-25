@@ -12,7 +12,7 @@ Graphics();
 // Render HTML
 ReactDOM.render(
     <React.StrictMode>
-        <div/>
+        <div id="top"/>
         <App/>
         <Artifacts/>
     </React.StrictMode>,

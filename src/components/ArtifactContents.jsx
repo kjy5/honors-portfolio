@@ -6,10 +6,10 @@ import {embedAssets, imageAssets} from '../scripts/asset-imports';
 export default function ArtifactContents(props) {
 
     return (
-        <div className="artifact-contents" id={props.title}>
+        <div className="ArtifactContents" id={props.title}>
             <div className="artifact-images">
                 {props.hasImages !== "" && imageAssets[props.title].map(imageSrc => <img key={imageSrc}
-                                                                                         className="artifact-image"
+                                                                                         className="ArtifactContents__image"
                                                                                          src={imageSrc}
                                                                                          alt={props.title}/>)}
             </div>
@@ -20,7 +20,7 @@ export default function ArtifactContents(props) {
                             External Link for Mobile View
                         </a>,
                         <iframe key={embedSrc}
-                                className="artifact-iframe"
+                                className="ArtifactContents__iframe"
                                 src={embedSrc}
                                 frameBorder="0"/>
                     ];
