@@ -19,7 +19,8 @@ export default function ArtifactCard(props) {
     }, []);
 
     return (
-        <div className="ArtifactCard" onClick={toggleContents(title)} onKeyPress={toggleContents(title)} role="button">
+        <div className="ArtifactCard" onClick={toggleContents(title)} onKeyPress={toggleContents(title)} role="button"
+             tabIndex="0">
             <div className="ArtifactCard__graphics" id={`${title}_card_graphics`}/>
             <div className="ArtifactCard__title">
                 <h1>{title}</h1>
