@@ -2,7 +2,8 @@ import '../styles/Artifacts.css';
 
 import ArtifactCard from './ArtifactCard';
 import ArtifactContents from './ArtifactContents';
-import {getContentData} from '../scripts/data-manager';
+import content from '../assets/content.tsv?url';
+import {tsv} from 'd3';
 import React, {useEffect, useState} from 'react';
 
 export default function Artifacts() {
@@ -12,7 +13,7 @@ export default function Artifacts() {
 
     // Get content data on load
     useEffect(() => {
-        getContentData().then(data => setContentData(data));
+        tsv(content).then(data => setContentData(data));
     }, []);
 
     // Render Artifacts
