@@ -1,5 +1,5 @@
 import "../styles/ArtifactContents.css";
-import { embedAssets, imageAssets } from "../scripts/asset-imports";
+import {embedAssets} from "../scripts/asset-imports";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -9,50 +9,42 @@ import React from "react";
  * @returns {JSX.Element} Artifact contents component
  */
 export default function ArtifactContents(props) {
-  const { title, hasEmbed, hasImages, text } = props;
+    const {title, hasEmbed, hasImages, text} = props;
 
-  return (
-    <div className="ArtifactContents" id={title}>
-      <div className="artifact-images">
-        {hasImages !== "" &&
-          imageAssets[title].map((imageSrc) => (
-            <img
-              key={imageSrc}
-              className="ArtifactContents__image"
-              src={imageSrc}
-              alt={title}
-            />
-          ))}
-      </div>
-      <div className="artifact-embed">
-        {hasEmbed !== "" &&
-          embedAssets[title].map((embedSrc) => {
-            return [
-              <a
-                className="artifact-embed-backup-link"
-                key={`backup_${embedSrc}`}
-                href={embedSrc}
-              >
-                External Link for Mobile View
-              </a>,
-              <iframe
-                key={embedSrc}
-                className="ArtifactContents__iframe"
-                src={embedSrc}
-                frameBorder="0"
-                title={title}
-              />,
-            ];
-          })}
-      </div>
-      <p>{text}</p>
-    </div>
-  );
+    return (
+        <div className="ArtifactContents" id={title}>
+            <div className="artifact-images">
+                {hasImages !== "" && <Gallery title={title}/>}
+            </div>
+            <div className="artifact-embed">
+                {hasEmbed !== "" &&
+                    embedAssets[title].map((embedSrc) => {
+                        return [
+                            <a
+                                className="artifact-embed-backup-link"
+                                key={`backup_${embedSrc}`}
+                                href={embedSrc}
+                            >
+                                External Link for Mobile View
+                            </a>,
+                            <iframe
+                                key={embedSrc}
+                                className="ArtifactContents__iframe"
+                                src={embedSrc}
+                                frameBorder="0"
+                                title={title}
+                            />,
+                        ];
+                    })}
+            </div>
+            <p>{text}</p>
+        </div>
+    );
 }
 
 ArtifactContents.propTypes = {
-  title: PropTypes.string.isRequired,
-  hasEmbed: PropTypes.string.isRequired,
-  hasImages: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    hasEmbed: PropTypes.string.isRequired,
+    hasImages: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
 };
