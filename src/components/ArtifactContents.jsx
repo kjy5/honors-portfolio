@@ -14,10 +14,10 @@ export default function ArtifactContents(props) {
 
     return (
         <div className="ArtifactContents" id={title}>
-            <div className="artifact-images">
+            <div className="ArtifactContents__images">
                 {hasImages !== "" && <Gallery title={title}/>}
             </div>
-            <div className="artifact-embed">
+            <div className="ArtifactContents__embeds">
                 {hasEmbed !== "" &&
                     embedAssets[title].map((embedSrc) => {
                         return [

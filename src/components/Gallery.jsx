@@ -1,4 +1,5 @@
 import 'photoswipe/dist/photoswipe.css'
+import '../styles/Gallery.css'
 import { imageAssetMetas, imageAssets } from '../scripts/asset-imports'
 import React, { useEffect, useState } from 'react'
 import PhotoSwipeLightbox from 'photoswipe/lightbox'
@@ -31,7 +32,7 @@ export default function Gallery (props) {
   }, [])
 
   return (
-    <div className="pswp-gallery" id={idTitle}>
+    <div className="ArtifactContents__Gallery" id={idTitle}>
       {images.map((image, index) => (
         <a key={`${title}_gallery_${index}`}
            href={image}
@@ -40,7 +41,7 @@ export default function Gallery (props) {
            target="_blank"
            rel="noreferrer"
         >
-          <img src={image} alt={metaData[index]?.name}/>
+          <img className="ArtifactContents__Gallery-thumbnail" src={image} alt={metaData[index]?.name}/>
         </a>
       ))}
     </div>
