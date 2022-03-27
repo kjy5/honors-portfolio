@@ -23,14 +23,8 @@ export default function Gallery (props) {
     let lightbox = new PhotoSwipeLightbox({
       gallery: `#${idTitle}`,
       children: 'a',
-      paddingFn: () => {
-        return {
-          top: 30,
-          right: 70,
-          bottom: 30,
-          left: 70
-        }
-      },
+      padding: { top: 30, right: 70, bottom: 30, left: 70 },
+      preloaderDelay: 0,
       pswpModule: () => import('photoswipe'),
     })
     // noinspection JSUnusedLocalSymbols
