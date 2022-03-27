@@ -1,5 +1,6 @@
 import "../styles/ArtifactContents.css";
-import { embedAssets, imageAssets } from "../scripts/asset-imports";
+import { embedAssets } from "../scripts/asset-imports";
+import Gallery from "./Gallery";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -13,18 +14,10 @@ export default function ArtifactContents(props) {
 
   return (
     <div className="ArtifactContents" id={title}>
-      <div className="artifact-images">
-        {hasImages !== "" &&
-          imageAssets[title].map((imageSrc) => (
-            <img
-              key={imageSrc}
-              className="ArtifactContents__image"
-              src={imageSrc}
-              alt={title}
-            />
-          ))}
+      <div className="ArtifactContents__images">
+        {hasImages !== "" && <Gallery title={title} />}
       </div>
-      <div className="artifact-embed">
+      <div className="ArtifactContents__embeds">
         {hasEmbed !== "" &&
           embedAssets[title].map((embedSrc) => {
             return [

@@ -4,9 +4,9 @@
   grid-template-rows: repeat(3, auto);
 }
 
-.ArtifactContents__image {
-  width: 30vw;
-  aspect-ratio: initial;
+.ArtifactContents__images {
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .ArtifactContents__iframe {

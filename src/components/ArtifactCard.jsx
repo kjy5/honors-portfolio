@@ -10,6 +10,7 @@ import React, { useCallback } from "react";
  */
 export default function ArtifactCard(props) {
   const { title, subtitle } = props;
+  const idTitle = title.replace(/\s/g, "_");
 
   const toggleContents = useCallback(
     (id) => () => {
@@ -29,7 +30,7 @@ export default function ArtifactCard(props) {
       role="button"
       tabIndex="0"
     >
-      <div className="ArtifactCard__graphics" id={`${title}_card_graphics`} />
+      <div className="ArtifactCard__graphics" id={idTitle} />
       <div className="ArtifactCard__title">
         <h1>{title}</h1>
       </div>

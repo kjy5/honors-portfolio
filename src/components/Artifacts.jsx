@@ -63,22 +63,4 @@ export default function Artifacts() {
   });
 
   return output;
-  // return contentData.map(artifact => {
-  //     return [
-  //         <ArtifactCard key={artifact.title}
-  //                       title={artifact.title}
-  //                       subtitle={artifact.subtitle}
-  //                       graphicsName={artifact.graphicsName}
-  //         />,
-  //         <ArtifactContents key={artifact.text}
-  //                           title={artifact.title}
-  //                           text={artifact.text}
-  //                           year={artifact.year}
-  //                           quarter={artifact.quarter}
-  //                           hasImages={artifact.hasImages}
-  //                           hasEmbed={artifact.hasEmbed}
-  //         />,
-  //         <div key={artifact.subtitle} className="artifact-spacers"/>
-  //     ];
-  // });
 }

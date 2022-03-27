@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "d3": "^7.3.0",
+    "photoswipe": "^5.2.2",
+    "photoswipe-dynamic-caption-plugin": "^1.1.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

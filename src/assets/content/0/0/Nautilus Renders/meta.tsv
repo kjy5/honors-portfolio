@@ -1,7 +1,7 @@
-name	description
-Nautilus
-Top Down View of ROV
-Main ROV Electronics	Raspberry Pi 4 Model B and two cameras (one facing forward, another pointing at the gripper).
-ROV Gripper and Camera	Magnetic coupled gripper and viewing camera (top right of picture).
-Propulsion Systems	The ROV is driven by 6 motors. Two pairs of cross-axis mounted motors help direct movement planar-ly while a pair of vertically mounted motors provide the ROV with lift.
-Rear Electronics and Tether Port
+width	height	name	description
+1000	750	Nautilus
+1000	750	Top Down View of ROV
+1000	750	Main ROV Electronics	Raspberry Pi 4 Model B and two cameras (one facing forward, another pointing at the gripper).
+1000	750	ROV Gripper and Camera	Magnetic coupled gripper and viewing camera (top right of picture).
+1000	750	Propulsion Systems	The ROV is driven by 6 motors. Two pairs of cross-axis mounted motors help direct movement planar-ly while a pair of vertically mounted motors provide the ROV with lift.
+1000	750	Rear Electronics and Tether Port
