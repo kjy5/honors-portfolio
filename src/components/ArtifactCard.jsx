@@ -1,15 +1,16 @@
-import "../styles/ArtifactCard.css";
+import '../styles/ArtifactCard.css'
 
-import PropTypes from "prop-types";
-import React, { useCallback } from "react";
+import PropTypes from 'prop-types'
+import React, { useCallback } from 'react'
 
 /**
  * @description - Overview card for an Artifact
  * @param {object} props - props passed in from parent component
  * @returns {JSX.Element} The card
  */
-export default function ArtifactCard(props) {
-  const { title, subtitle } = props;
+export default function ArtifactCard (props) {
+  const { title, subtitle } = props
+  const idTitle = title.replace(/\s/g, '_')
 
   const toggleContents = useCallback(
     (id) => () => {
@@ -29,7 +30,7 @@ export default function ArtifactCard(props) {
       role="button"
       tabIndex="0"
     >
-      <div className="ArtifactCard__graphics" id={`${title}_card_graphics`} />
+      <div className="ArtifactCard__graphics" id={idTitle}/>
       <div className="ArtifactCard__title">
         <h1>{title}</h1>
       </div>

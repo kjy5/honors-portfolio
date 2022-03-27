@@ -7,8 +7,9 @@ import { tsv } from 'd3'
 
 export default function Gallery (props) {
   const { title } = props
+  const idTitle = title.replace(/\s/g, '_')
 
-  const [metaData, setMetaData] = useState({ width: 0, height: 0, name: '', description: '' })
+  const [metaData, setMetaData] = useState([])
 
   const images = imageAssets[title]
 
@@ -17,8 +18,8 @@ export default function Gallery (props) {
     tsv(imageAssetMetas[title]).then(meta => setMetaData(meta))
 
     let lightbox = new PhotoSwipeLightbox({
-      gallery: `#${props.title}_gallery`,
-      child: 'a',
+      gallery: `#${idTitle}`,
+      children: 'a',
       pswpModule: () => import('photoswipe'),
     })
     lightbox.init()
@@ -30,16 +31,16 @@ export default function Gallery (props) {
   }, [])
 
   return (
-    <div className="pswp-gallery" id={`${title}_gallery`}>
+    <div className="pswp-gallery" id={idTitle}>
       {images.map((image, index) => (
         <a key={`${title}_gallery_${index}`}
            href={image}
-           data-pswp-width={metaData.width}
-           data-pswp-height={metaData.height}
+           data-pswp-width={metaData[index]?.width}
+           data-pswp-height={metaData[index]?.height}
            target="_blank"
-           rel="noopener noreferrer"
+           rel="noreferrer"
         >
-          <img src={image} alt={metaData.name}/>
+          <img src={image} alt={metaData[index]?.name}/>
         </a>
       ))}
     </div>

@@ -1,5 +1,6 @@
 import "../styles/ArtifactContents.css";
 import {embedAssets} from "../scripts/asset-imports";
+import Gallery from "./Gallery"
 import PropTypes from "prop-types";
 import React from "react";
 
