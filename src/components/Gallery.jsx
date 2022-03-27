@@ -3,11 +3,17 @@ import 'photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css'
 import '../styles/Gallery.css'
 import { imageAssetMetas, imageAssets } from '../scripts/asset-imports'
 import React, { useEffect, useState } from 'react'
-import PhotoSwipeLightbox from 'photoswipe/lightbox'
 import PhotoSwipeDynamicCaption from 'photoswipe-dynamic-caption-plugin'
+import PhotoSwipeLightbox from 'photoswipe/lightbox'
+import PropTypes from 'prop-types'
 // noinspection ES6CheckImport
 import { tsv } from 'd3'
 
+/**
+ * PhotoSwipe power image gallery.
+ * @param {object} props
+ * @returns {JSX.Element} gallery as a React component
+ */
 export default function Gallery (props) {
   const { title } = props
   const idTitle = title.replace(/\s/g, '_')
@@ -43,7 +49,7 @@ export default function Gallery (props) {
   return (
     <div className="ArtifactContents__Gallery" id={idTitle}>
       {images.map((image, index) => (
-        <a key={`${title}_gallery_${index}`}
+        <a key={`${title}_gallery_${image}`}
            href={image}
            data-pswp-width={metaData[index]?.width}
            data-pswp-height={metaData[index]?.height}
@@ -59,4 +65,8 @@ export default function Gallery (props) {
       ))}
     </div>
   )
+}
+
+Gallery.propTypes = {
+  title: PropTypes.string.isRequired,
 }
