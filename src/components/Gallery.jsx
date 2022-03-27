@@ -5,7 +5,7 @@ import { imageAssetMetas, imageAssets } from "../scripts/asset-imports";
 import React, { useEffect, useState } from "react";
 import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 // noinspection ES6CheckImport
 import { tsv } from "d3";
 
@@ -51,11 +51,11 @@ export default function Gallery(props) {
       {images.map((image, index) => (
         <a
           key={`${title}_gallery_${image}`}
-           href={image}
-           data-pswp-width={metaData[index]?.width}
-           data-pswp-height={metaData[index]?.height}
-           target="_blank"
-           rel="noreferrer"
+          href={image}
+          data-pswp-width={metaData[index]?.width}
+          data-pswp-height={metaData[index]?.height}
+          target="_blank"
+          rel="noreferrer"
         >
           <img
             className="ArtifactContents__Gallery-thumbnail"
@@ -75,4 +75,4 @@ export default function Gallery(props) {
 
 Gallery.propTypes = {
   title: PropTypes.string.isRequired,
-}
+};
