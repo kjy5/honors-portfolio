@@ -1,8 +1,8 @@
 import "./styles/index.css";
 
-import App from "./components/App";
 import Artifacts from "./components/Artifacts";
 import Graphics from "./scripts/graphics";
+import InProgress from "./components/InProgress";
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -13,7 +13,7 @@ Graphics();
 ReactDOM.render(
   <React.StrictMode>
     <div id="top" />
-    <App />
+    <InProgress />
     <Artifacts />
   </React.StrictMode>,
   document.querySelector("main")

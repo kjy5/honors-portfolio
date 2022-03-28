@@ -20,7 +20,6 @@ main {
   display: grid;
   grid-template-rows: 15%;
   grid-auto-rows: auto;
-  /*grid-row-gap: 30px;*/
 
   /* Allow Orbit controls to still work */
   /*pointer-events: none;*/

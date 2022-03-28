@@ -8,19 +8,29 @@ import content from "../assets/content.tsv?url";
 // noinspection ES6CheckImport
 import { tsv } from "d3";
 
+/**
+ * @description Parent component holding Artifact Card and Artifact Contents
+ * @returns {JSX.Element[]} Array of Artifacts
+ * @constructor
+ */
 export default function Artifacts() {
-  // Manage content data
+  // Update against new content data
   const [contentData, setContentData] = useState([]);
 
-  // Get content data on load
+  // Get content data
   useEffect(() => {
     tsv(content).then((data) => setContentData(data));
   }, []);
 
   // Render Artifacts
+  // Hold artifacts as they are created
   const output = [];
+
+  // Year and quarter tracker
   let curYear = -1;
   let curQuarter = -1;
+
+  // Iterate through content data
   contentData.forEach((artifact) => {
     // Insert year header if necessary
     if (artifact.year !== curYear) {
@@ -62,5 +72,6 @@ export default function Artifacts() {
     );
   });
 
+  // Return artifacts
   return output;
 }

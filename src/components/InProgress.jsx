@@ -3,10 +3,10 @@ import "../styles/App.css";
 import React from "react";
 
 /**
- * @description Website base component; where all other components are composed.
+ * @description "Website in progress" message
  * @returns {JSX.Element}
  */
-export default function App() {
+export default function InProgress() {
   return (
     <div className="App">
       <p>
