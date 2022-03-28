@@ -7,14 +7,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 // Run Graphics
-Graphics()
+Graphics();
 
 // Render HTML
 ReactDOM.render(
   <React.StrictMode>
-    <div id="top"/>
-    <InProgress/>
-    <Artifacts/>
+    <div id="top" />
+    <InProgress />
+    <Artifacts />
   </React.StrictMode>,
   document.querySelector("main")
 );
