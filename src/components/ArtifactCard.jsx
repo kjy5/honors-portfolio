@@ -1,30 +1,30 @@
-import '../styles/ArtifactCard.css'
+import "../styles/ArtifactCard.css";
 
-import PropTypes from 'prop-types'
-import React, { useCallback } from 'react'
+import PropTypes from "prop-types";
+import React, { useCallback } from "react";
 
 /**
  * @description - Overview card for an Artifact
  * @param {object} props - props passed in from parent component
  * @returns {JSX.Element} The card
  */
-export default function ArtifactCard (props) {
+export default function ArtifactCard(props) {
   // Destructure props
-  const { title, subtitle } = props
+  const { title, subtitle } = props;
 
   // Make title ID compatible
-  const idTitle = title.replace(/\s/g, '_')
+  const idTitle = title.replace(/\s/g, "_");
 
   // Hide/show Artifact Contents on click
   const toggleContents = useCallback(
     (id) => () => {
       // Get contents element and display property
-      const contentElement = document.getElementById(id)
-      const displayState = contentElement.style.display
+      const contentElement = document.getElementById(id);
+      const displayState = contentElement.style.display;
 
       // Toggle between "none" and "grid"
       contentElement.style.display =
-        displayState === 'none' || displayState === '' ? 'grid' : 'none'
+        displayState === "none" || displayState === "" ? "grid" : "none";
     },
     []
   );
@@ -37,15 +37,15 @@ export default function ArtifactCard (props) {
       role="button"
       tabIndex="0"
     >
-      {/*3D graphics element*/}
-      <div className="ArtifactCard__graphics" id={idTitle}/>
+      {/* 3D graphics element */}
+      <div className="ArtifactCard__graphics" id={idTitle} />
 
-      {/*Title*/}
+      {/* Title */}
       <div className="ArtifactCard__title">
         <h1>{title}</h1>
       </div>
 
-      {/*Subtitle*/}
+      {/* Subtitle */}
       <div className="ArtifactCard__subtitle">
         <h3>{subtitle}</h3>
       </div>
