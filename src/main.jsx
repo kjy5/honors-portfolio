@@ -1,7 +1,7 @@
 import './styles/index.css'
 
-import InProgress from './components/InProgress'
 import Artifacts from './components/Artifacts'
+import InProgress from './components/InProgress'
 import Graphics from './scripts/graphics'
 import React from 'react'
 import ReactDOM from 'react-dom'
