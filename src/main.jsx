@@ -1,10 +1,10 @@
-import './styles/index.css'
+import "./styles/index.css";
 
-import Artifacts from './components/Artifacts'
-import InProgress from './components/InProgress'
-import Graphics from './scripts/graphics'
-import React from 'react'
-import ReactDOM from 'react-dom'
+import Artifacts from "./components/Artifacts";
+import InProgress from "./components/InProgress";
+import Graphics from "./scripts/graphics";
+import React from "react";
+import ReactDOM from "react-dom";
 
 // Run Graphics
 Graphics();
