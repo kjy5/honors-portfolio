@@ -1,18 +1,18 @@
-import * as THREE from "three";
-import CoolveticaFont from "../assets/fonts/Coolvetica Rg_Regular.json?url";
-import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
-import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
-import WebGL from "three/examples/jsm/capabilities/WebGL.js";
+import * as THREE from 'three'
+import CoolveticaFont from '../assets/fonts/Coolvetica Rg_Regular.json?url'
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
+import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
 
 /**
  * Responsive resizing of ThreeJS render output (canvas)
  * @param {THREE.WebGLRenderer} renderer The renderer to resize
  * @returns {boolean} If the renderer needed to be resized
  */
-function resizeRendererToDisplaySize(renderer) {
-  const canvas = renderer.domElement;
-  const pixelRatio = window.devicePixelRatio;
-  const width = (canvas.clientWidth * pixelRatio) | 0;
+function resizeRendererToDisplaySize (renderer) {
+  const canvas = renderer.domElement
+  const pixelRatio = window.devicePixelRatio
+  const width = (canvas.clientWidth * pixelRatio) | 0
   const height = (canvas.clientHeight * pixelRatio) | 0;
   const needResize = canvas.width !== width || canvas.height !== height;
   if (needResize) {
@@ -45,7 +45,7 @@ export default function Graphics() {
   scene.add(ambientLight);
   scene.add(directionalLight);
 
-  // Add Title
+  // Add title
   const fontLoader = new FontLoader();
   fontLoader.load(CoolveticaFont, (font) => {
     const textGeometry = new TextGeometry("Kenneth's Honors Portfolio", {
@@ -62,6 +62,7 @@ export default function Graphics() {
     const textMesh = new THREE.Mesh(textGeometry, textMaterial);
     textMesh.geometry.computeBoundingBox();
 
+    // Place based on 2D screen coordinates
     const vec = new THREE.Vector3();
     vec.set(0, 0.7, 0.5);
     vec.unproject(camera);
@@ -73,6 +74,7 @@ export default function Graphics() {
     textMesh.position.y = pos.y;
     textMesh.position.z = pos.z;
 
+    // Add to scene
     scene.add(textMesh);
 
     // Visualization helpers
@@ -86,6 +88,7 @@ export default function Graphics() {
    * @description Render Loop
    */
   function animate() {
+    // Resize renderer to fit window
     if (resizeRendererToDisplaySize(renderer)) {
       const canvas = renderer.domElement;
       camera.aspect = canvas.clientWidth / canvas.clientHeight;
@@ -99,6 +102,7 @@ export default function Graphics() {
     requestAnimationFrame(animate);
   }
 
+  // Run loop if WebGL is available
   if (WebGL.isWebGLAvailable()) {
     requestAnimationFrame(animate);
   } else {

@@ -15,19 +15,28 @@ import { tsv } from 'd3'
  * @returns {JSX.Element} gallery as a React component
  */
 export default function Gallery (props) {
+  // Destructure title from props
   const { title } = props
+
+  // Make title ID compatible
   const idTitle = title.replace(/\s/g, '_')
 
+  // Update against meta data
   const [metaData, setMetaData] = useState([])
 
+  // Grab images and metadata for artifact
   const images = imageAssets[title]
   const thumbnails = imageAssetThumbnails[title]
+
+  // Google Drive URL prefix
   const GOOGLE_DRIVE_PREFIX = 'https://drive.google.com/uc?id='
 
   // Initialize the gallery
   useEffect(() => {
+    // Load metadata
     tsv(imageAssetMetas[title]).then((meta) => setMetaData(meta))
 
+    // Initialize the gallery
     let lightbox = new PhotoSwipeLightbox({
       gallery: `#${idTitle}`,
       children: 'a',
@@ -35,6 +44,7 @@ export default function Gallery (props) {
       preloaderDelay: 0,
       pswpModule: () => import("photoswipe"),
     });
+    // Add caption plugin
     // noinspection JSUnusedLocalSymbols
     const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
       type: "auto",
@@ -42,6 +52,7 @@ export default function Gallery (props) {
     });
     lightbox.init();
 
+    // Clean up gallery
     return () => {
       lightbox.destroy();
       lightbox = null;
@@ -50,6 +61,7 @@ export default function Gallery (props) {
 
   return (
     <div className="ArtifactContents__Gallery" id={idTitle}>
+      {/*Loop through images and thumbnails*/}
       {images.map((image, index) => (
         <a
           key={`${title}_gallery_${image}`}
@@ -59,11 +71,13 @@ export default function Gallery (props) {
           target="_blank"
           rel="noreferrer"
         >
+          {/*Thumbnail image*/}
           <img
             className="ArtifactContents__Gallery-thumbnail"
             src={`${GOOGLE_DRIVE_PREFIX}${thumbnails[index]}`}
             alt={metaData[index]?.name}
           />
+          {/*Caption*/}
           <span className="pswp-caption-content">
             <h2>{metaData[index]?.name}</h2>
             <br />
