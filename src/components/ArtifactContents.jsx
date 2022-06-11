@@ -1,17 +1,17 @@
-import '../styles/ArtifactContents.css'
-import { embedAssets } from '../scripts/asset-imports'
-import Gallery from './Gallery'
-import PropTypes from 'prop-types'
-import React from 'react'
+import "../styles/ArtifactContents.css";
+import { embedAssets } from "../scripts/asset-imports";
+import Gallery from "./Gallery";
+import PropTypes from "prop-types";
+import React from "react";
 
 /**
  * Contents of an artifact including images, embedded items, and text
  * @param {object} props
  * @returns {JSX.Element} Artifact contents component
  */
-export default function ArtifactContents (props) {
+export default function ArtifactContents(props) {
   // Destructure props
-  const { title, hasEmbed, hasImages, text } = props
+  const { title, hasEmbed, hasImages, text } = props;
 
   return (
     <div className="ArtifactContents" id={title}>
