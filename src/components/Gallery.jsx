@@ -1,32 +1,28 @@
-import "photoswipe/dist/photoswipe.css";
-import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
-import "../styles/Gallery.css";
-import {
-  imageAssetMetas,
-  imageAssets,
-  imageAssetThumbnails,
-} from "../scripts/asset-imports";
-import React, { useEffect, useState } from "react";
-import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
-import PhotoSwipeLightbox from "photoswipe/lightbox";
-import PropTypes from "prop-types";
+import 'photoswipe/dist/photoswipe.css'
+import 'photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css'
+import '../styles/Gallery.css'
+import { imageAssetMetas, imageAssets, imageAssetThumbnails, } from '../scripts/asset-imports'
+import React, { useEffect, useState } from 'react' // skipcq: JS-0249
+import PhotoSwipeDynamicCaption from 'photoswipe-dynamic-caption-plugin'
+import PhotoSwipeLightbox from 'photoswipe/lightbox'
+import PropTypes from 'prop-types'
 // noinspection ES6CheckImport
-import { tsv } from "d3";
+import { tsv } from 'd3'
 
 /**
  * PhotoSwipe power image gallery.
  * @param {object} props
  * @returns {JSX.Element} gallery as a React component
  */
-export default function Gallery(props) {
+export default function Gallery (props) {
   // Destructure title from props
-  const { title } = props;
+  const { title } = props
 
   // Make title ID compatible
-  const idTitle = title.replace(/\s/g, "_");
+  const idTitle = title.replace(/\s/g, '_')
 
   // Update against meta data
-  const [metaData, setMetaData] = useState([]);
+  const [metaData, setMetaData] = useState([])
 
   // Grab images and metadata for artifact
   const images = imageAssets[title];
@@ -51,8 +47,8 @@ export default function Gallery(props) {
     // Add caption plugin
     // noinspection JSUnusedLocalSymbols
     const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
-      type: "auto",
-      captionContent: ".pswp-caption-content",
+      type: 'auto',
+      captionContent: '.pswp-caption-content', // skipcq: JS-0128
     });
     lightbox.init();
 
