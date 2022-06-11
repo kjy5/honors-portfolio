@@ -1,20 +1,23 @@
 // Metas import
-import startingANewHonorsPortfolioWebsiteMeta from "../assets/metas/Starting a New Honors Portfolio Website.tsv?url";
-import nautilusRendersMeta from "../assets/metas/Nautilus Renders.tsv?url";
-import cosmosInterfaceMeta from "../assets/metas/COSMOS Interface.tsv?url";
+import startingANewHonorsPortfolioWebsiteMeta from '../assets/metas/Starting a New Honors Portfolio Website.tsv?url'
+import nautilusRendersMeta from '../assets/metas/Nautilus Renders.tsv?url'
+import cosmosInterfaceMeta from '../assets/metas/COSMOS Interface.tsv?url'
 
 // Google Drive prefix
-const GOOGLE_DRIVE_PREFIX = "https://drive.google.com/uc?id=";
+const GOOGLE_DRIVE_PREFIX = 'https://drive.google.com/uc?id='
+
+// Multimodality Final Portfolio
+const MULTIMODALITY_FINAL_PORTFOLIO = 'https://canvas.uw.edu/eportfolios/71109'
 
 // Starting a New Honors Portfolio Website
 const STARTING_A_NEW_HONORS_PORTFOLIO_WEBSITE_0_THUMB =
-  "13ZxzfGabLqeNTpKN9IISGRRFaht4ScTA";
+  '13ZxzfGabLqeNTpKN9IISGRRFaht4ScTA'
 const STARTING_A_NEW_HONORS_PORTFOLIO_WEBSITE_1_THUMB =
-  "13YYUhYGfAcTkPfPPLye8Sjlo5ZrKJuzV";
+  '13YYUhYGfAcTkPfPPLye8Sjlo5ZrKJuzV'
 const STARTING_A_NEW_HONORS_PORTFOLIO_WEBSITE_0 =
-  "13MxL5x1HbaDFF_15hc8z1qjwBbqktxqP";
+  '13MxL5x1HbaDFF_15hc8z1qjwBbqktxqP'
 const STARTING_A_NEW_HONORS_PORTFOLIO_WEBSITE_1 =
-  "13VqvvQpnzL67eMxOOP-0whKZg2Kq7Xbu";
+  '13VqvvQpnzL67eMxOOP-0whKZg2Kq7Xbu'
 
 // ROV22 Simulation Demo
 const ROV22_SIMULATION_DEMO_0 = "https://www.youtube.com/embed/ygnG9eYG1sI";
@@ -86,10 +89,9 @@ export const imageAssetMetas = {
   "COSMOS Interface": cosmosInterfaceMeta,
 };
 export const embedAssets = {
-  "ROV22 Simulation Demo": [ROV22_SIMULATION_DEMO_0],
-  "Leadership and Democracy Final Paper": [
-    LEADERSHIP_AND_DEMOCRACY_FINAL_PAPER_0,
-  ],
-  "Evil Hangman": [EVIL_HANGMAN_0],
-  "Fall Quarter Reflection": [FALL_QUARTER_REFLECTION_0],
+  'Multimodality Final Portfolio': [MULTIMODALITY_FINAL_PORTFOLIO],
+  'ROV22 Simulation Demo': [ROV22_SIMULATION_DEMO_0],
+  'Leadership and Democracy Final Paper': [LEADERSHIP_AND_DEMOCRACY_FINAL_PAPER_0],
+  'Evil Hangman': [EVIL_HANGMAN_0],
+  'Fall Quarter Reflection': [FALL_QUARTER_REFLECTION_0],
 };
