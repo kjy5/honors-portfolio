@@ -1,62 +1,66 @@
-import 'photoswipe/dist/photoswipe.css'
-import 'photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css'
-import '../styles/Gallery.css'
-import { imageAssetMetas, imageAssets, imageAssetThumbnails, } from '../scripts/asset-imports'
-import React, { useEffect, useState } from 'react' // skipcq: JS-0249
-import PhotoSwipeDynamicCaption from 'photoswipe-dynamic-caption-plugin'
-import PhotoSwipeLightbox from 'photoswipe/lightbox'
-import PropTypes from 'prop-types'
-import { tsv } from 'd3' // noinspection ES6CheckImport
+import "photoswipe/dist/photoswipe.css";
+import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
+import "../styles/Gallery.css";
+import {
+  imageAssetMetas,
+  imageAssets,
+  imageAssetThumbnails,
+} from "../scripts/asset-imports";
+import React, { useEffect, useState } from "react"; // skipcq: JS-0249
+import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
+import PhotoSwipeLightbox from "photoswipe/lightbox";
+import PropTypes from "prop-types";
+import { tsv } from "d3"; // noinspection ES6CheckImport
 
 /**
  * PhotoSwipe power image gallery.
  * @param {object} props
  * @returns {JSX.Element} gallery as a React component
  */
-export default function Gallery (props) {
+export default function Gallery(props) {
   // Destructure title from props
-  const { title } = props
+  const { title } = props;
 
   // Make title ID compatible
-  const idTitle = title.replace(/\s/g, '_')
+  const idTitle = title.replace(/\s/g, "_");
 
   // Update against meta data
-  const [metaData, setMetaData] = useState([])
+  const [metaData, setMetaData] = useState([]);
 
   // Grab images and metadata for artifact
-  const images = imageAssets[title]
-  const thumbnails = imageAssetThumbnails[title]
+  const images = imageAssets[title];
+  const thumbnails = imageAssetThumbnails[title];
 
   // Google Drive URL prefix
-  const GOOGLE_DRIVE_PREFIX = 'https://drive.google.com/uc?id='
+  const GOOGLE_DRIVE_PREFIX = "https://drive.google.com/uc?id=";
 
   // Initialize the gallery
   useEffect(() => {
     // Load metadata
-    tsv(imageAssetMetas[title]).then((meta) => setMetaData(meta))
+    tsv(imageAssetMetas[title]).then((meta) => setMetaData(meta));
 
     // Initialize the gallery
     let lightbox = new PhotoSwipeLightbox({
       gallery: `#${idTitle}`,
-      children: 'a',
+      children: "a",
       padding: { top: 30, right: 70, bottom: 30, left: 70 },
       preloaderDelay: 0,
-      pswpModule: () => import('photoswipe'),
-    })
+      pswpModule: () => import("photoswipe"),
+    });
     // Add caption plugin
     // noinspection JSUnusedLocalSymbols
     const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
-      type: 'auto',
-      captionContent: '.pswp-caption-content', // skipcq: JS-0128
-    })
-    lightbox.init()
+      type: "auto",
+      captionContent: ".pswp-caption-content", // skipcq: JS-0128
+    });
+    lightbox.init();
 
     // Clean up gallery
     return () => {
-      lightbox.destroy()
-      lightbox = null
-    }
-  }, [])
+      lightbox.destroy();
+      lightbox = null;
+    };
+  }, []);
 
   return (
     <div className="ArtifactContents__Gallery" id={idTitle}>
@@ -79,15 +83,15 @@ export default function Gallery (props) {
           {/* Caption */}
           <span className="pswp-caption-content">
             <h2>{metaData[index]?.name}</h2>
-            <br/>
+            <br />
             {metaData[index]?.description}
           </span>
         </a>
       ))}
     </div>
-  )
+  );
 }
 
 Gallery.propTypes = {
   title: PropTypes.string.isRequired,
-}
+};
