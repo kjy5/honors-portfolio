@@ -30,13 +30,12 @@ export default function ArtifactContents(props) {
                 key={`backup_${embedSrc}`}
                 href={embedSrc}
               >
-                External Link for Mobile View
+                Open in a new tab
               </a>,
               <iframe
                 key={embedSrc}
                 className="ArtifactContents__iframe"
                 src={embedSrc}
-                frameBorder="0"
                 title={title}
               />,
             ];

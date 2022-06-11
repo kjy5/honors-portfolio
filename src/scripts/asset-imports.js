@@ -6,6 +6,9 @@ import cosmosInterfaceMeta from "../assets/metas/COSMOS Interface.tsv?url";
 // Google Drive prefix
 const GOOGLE_DRIVE_PREFIX = "https://drive.google.com/uc?id=";
 
+// Multimodality Final Portfolio
+const MULTIMODALITY_FINAL_PORTFOLIO = "https://canvas.uw.edu/eportfolios/71109";
+
 // Starting a New Honors Portfolio Website
 const STARTING_A_NEW_HONORS_PORTFOLIO_WEBSITE_0_THUMB =
   "13ZxzfGabLqeNTpKN9IISGRRFaht4ScTA";
@@ -86,6 +89,7 @@ export const imageAssetMetas = {
   "COSMOS Interface": cosmosInterfaceMeta,
 };
 export const embedAssets = {
+  "Multimodality Final Portfolio": [MULTIMODALITY_FINAL_PORTFOLIO],
   "ROV22 Simulation Demo": [ROV22_SIMULATION_DEMO_0],
   "Leadership and Democracy Final Paper": [
     LEADERSHIP_AND_DEMOCRACY_FINAL_PAPER_0,
