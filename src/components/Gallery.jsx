@@ -10,8 +10,7 @@ import React, { useEffect, useState } from "react"; // skipcq: JS-0249
 import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import PropTypes from "prop-types";
-// noinspection ES6CheckImport
-import { tsv } from "d3";
+import { tsv } from "d3"; // noinspection ES6CheckImport
 
 /**
  * PhotoSwipe power image gallery.
