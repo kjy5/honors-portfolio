@@ -1,19 +1,19 @@
-import '../styles/ArtifactCard.css'
+import "../styles/ArtifactCard.css";
 
-import PropTypes from 'prop-types'
-import React, { useCallback } from 'react' // skipcq: JS-0249
+import PropTypes from "prop-types";
+import React, { useCallback } from "react"; // skipcq: JS-0249
 
 /**
  * @description - Overview card for an Artifact
  * @param {object} props - props passed in from parent component
  * @returns {JSX.Element} The card
  */
-export default function ArtifactCard (props) {
+export default function ArtifactCard(props) {
   // Destructure props
-  const { title, subtitle } = props
+  const { title, subtitle } = props;
 
   // Make title ID compatible
-  const idTitle = title.replace(/\s/g, '_')
+  const idTitle = title.replace(/\s/g, "_");
 
   // Hide/show Artifact Contents on click
   const toggleContents = useCallback(
