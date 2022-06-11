@@ -1,7 +1,7 @@
 import "../styles/ArtifactCard.css";
 
 import PropTypes from "prop-types";
-import React, { useCallback } from "react";
+import React, { useCallback } from "react"; // skipcq: JS-0249
 
 /**
  * @description - Overview card for an Artifact
@@ -33,7 +33,7 @@ export default function ArtifactCard(props) {
     <div
       className="ArtifactCard"
       onClick={toggleContents(title)}
-      onKeyPress={toggleContents(title)}
+      onKeyDown={toggleContents(title)}
       role="button"
       tabIndex="0"
     >

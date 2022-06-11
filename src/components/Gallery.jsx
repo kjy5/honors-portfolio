@@ -6,7 +6,7 @@ import {
   imageAssets,
   imageAssetThumbnails,
 } from "../scripts/asset-imports";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"; // skipcq: JS-0249
 import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import PropTypes from "prop-types";
@@ -52,7 +52,7 @@ export default function Gallery(props) {
     // noinspection JSUnusedLocalSymbols
     const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
       type: "auto",
-      captionContent: ".pswp-caption-content",
+      captionContent: ".pswp-caption-content", // skipcq: JS-0128
     });
     lightbox.init();
 

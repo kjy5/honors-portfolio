@@ -1,4 +1,4 @@
-# UW Interdiciplinary Honors Portfolio
+# UW Interdisciplinary Honors Portfolio
 
 This repository holds code for my honors portfolio.
 
@@ -8,7 +8,7 @@ Go [here](https://kjy5.github.io/honors-portfolio/)
 
 ## For documentation
 
-See the [the wiki](https://github.com/kjy5/honors-portfolio/wiki)
+See [the wiki](https://github.com/kjy5/honors-portfolio/wiki)
 
 ## To setup for development
 
