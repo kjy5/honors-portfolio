@@ -1,8 +1,6 @@
 .ArtifactContents {
   color: white;
 
-  /*Changes between "none" and "grid"*/
-  display: none;
   grid-template-rows: repeat(3, auto);
 }
 

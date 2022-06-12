@@ -1,19 +1,20 @@
 import './styles/index.css'
 
 import Artifacts from './components/Artifacts'
+import ArtifactContents from './components/ArtifactContents'
 import InProgress from './components/InProgress'
 import React from 'react'
 // noinspection ES6CheckImport
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
-import { getArtifactNames } from './scripts/content-handler'
+import { getContent, getURLName } from './scripts/content-handler'
 
-getArtifactNames().then((artifactNames) => {
-  console.log(artifactNames)
+getContent().then((contentData) => {
   const root = createRoot(document.querySelector('main'))
   root.render(
     <BrowserRouter>
       <Routes>
+        {/*Main Route*/}
         <Route path="/honors-portfolio" element={
           <React.StrictMode>
             <div id="top"/>
@@ -22,14 +23,30 @@ getArtifactNames().then((artifactNames) => {
           </React.StrictMode>
         }/>
 
+        {/*Artifact Routes*/}
         {
-          artifactNames.map((artifactName) => {
-            return <Route key={artifactName} path={`/honors-portfolio/${artifactName}`} element={
-              <div>{artifactName}</div>
-            }/>
+          contentData.map((artifact) => {
+            return <Route
+              key={artifact.title}
+              path={`/honors-portfolio/${getURLName(artifact.title)}`}
+              element={
+                // <React.StrictMode>
+                <ArtifactContents
+                  key={artifact.text}
+                  title={artifact.title}
+                  text={artifact.text}
+                  year={artifact.year}
+                  quarter={artifact.quarter}
+                  hasImages={artifact.hasImages}
+                  hasEmbed={artifact.hasEmbed}
+                />
+                // </React.StrictMode>
+              }
+            />
           })
         }
 
+        {/*404 Route*/}
         <Route path="*" element={<div>404</div>}/>
       </Routes>
     </BrowserRouter>
