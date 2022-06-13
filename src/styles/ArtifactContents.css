@@ -3,18 +3,25 @@
 
   /*Configure grid*/
   display: grid;
-  grid-template-columns: 1.5fr 1.5fr 0.5fr 3fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-areas:
-    "return . . ."
-    "graphics graphics . ."
-    "title title . txt"
-    "subtitle subtitle . txt"
-    "date date . txt";
-"links links . txt" "images images images images" "embedded embedded embedded embedded";
+    "return txt"
+    "graphics txt"
+    "title txt"
+    "subtitle txt"
+    "date txt"
+    "links txt"
+    "images images"
+    "embedded embedded";
 }
 
 .ArtifactContents__return {
   grid-area: return;
+}
+
+.ArtifactContents__graphics {
+  grid-area: graphics;
+  justify-self: stretch;
 }
 
 .ArtifactContents__title {
@@ -35,15 +42,17 @@
 }
 
 .ArtifactContents__images {
-  overflow: auto;
+  /*overflow: auto;*/
   white-space: nowrap;
   grid-area: images;
 }
 
 .ArtifactContents__iframe {
   height: 500px;
+  width: 100%;
   border: none;
   grid-area: embedded;
+  justify-self: stretch;
 }
 
 .ArtifactContents__text {
