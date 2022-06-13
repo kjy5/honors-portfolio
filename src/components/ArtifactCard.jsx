@@ -1,7 +1,9 @@
 import "../styles/ArtifactCard.css";
 
+import { getURLName } from "../scripts/content-handler";
+import { Link } from "react-router-dom"; // skipcq: JS-0249
 import PropTypes from "prop-types";
-import React, { useCallback } from "react"; // skipcq: JS-0249
+import React from "react";
 
 /**
  * @description - Overview card for an Artifact
@@ -12,33 +14,17 @@ export default function ArtifactCard(props) {
   // Destructure props
   const { title, subtitle } = props;
 
-  // Make title ID compatible
-  const idTitle = title.replace(/\s/g, "_");
-
-  // Hide/show Artifact Contents on click
-  const toggleContents = useCallback(
-    (id) => () => {
-      // Get contents element and display property
-      const contentElement = document.getElementById(id);
-      const displayState = contentElement.style.display;
-
-      // Toggle between "none" and "grid"
-      contentElement.style.display =
-        displayState === "none" || displayState === "" ? "grid" : "none";
-    },
-    []
-  );
+  // Generate URL from title
+  const urlName = getURLName(title);
 
   return (
-    <div
-      className="ArtifactCard"
-      onClick={toggleContents(title)}
-      onKeyDown={toggleContents(title)}
-      role="button"
+    <Link
+      className="ArtifactCard" // skipcq: JS-0394
+      to={`/honors-portfolio/${urlName}`}
       tabIndex="0"
     >
       {/* 3D graphics element */}
-      <div className="ArtifactCard__graphics" id={idTitle} />
+      <div className="ArtifactCard__graphics" id={urlName} />
 
       {/* Title */}
       <div className="ArtifactCard__title">
@@ -49,7 +35,7 @@ export default function ArtifactCard(props) {
       <div className="ArtifactCard__subtitle">
         <h3>{subtitle}</h3>
       </div>
-    </div>
+    </Link>
   );
 }
 

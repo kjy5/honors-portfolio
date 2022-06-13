@@ -1,5 +1,6 @@
 .ArtifactCard {
   color: white;
+  text-decoration: none;
 
   /*Configure grid*/
   display: grid;

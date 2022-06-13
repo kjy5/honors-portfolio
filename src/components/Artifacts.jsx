@@ -3,10 +3,8 @@ import "../styles/Artifacts.css";
 import React, { useEffect, useState } from "react";
 
 import ArtifactCard from "./ArtifactCard";
-import ArtifactContents from "./ArtifactContents";
-import content from "../assets/content.tsv?url";
-// noinspection ES6CheckImport
-import { tsv } from "d3";
+import Graphics from "../scripts/graphics";
+import { getContent } from "../scripts/content-handler";
 
 /**
  * @description Parent component holding Artifact Card and Artifact Contents
@@ -19,11 +17,14 @@ export default function Artifacts() {
 
   // Get content data
   useEffect(() => {
-    tsv(content).then((data) => setContentData(data));
+    Graphics();
+    getContent().then((data) => {
+      setContentData(data);
+    });
   }, []);
 
-  // Render Artifacts
-  // Hold artifacts as they are created
+  // Render Artifact cards
+  // Hold cards as they are created
   const output = [];
 
   // Year and quarter tracker
@@ -47,6 +48,7 @@ export default function Artifacts() {
         <div
           className="Artifacts__quarter-header"
           key={`year_${curYear}_quarter_${curQuarter}`}
+          id={`year_${curYear}_quarter_${curQuarter}`}
         />
       );
     }
@@ -58,15 +60,6 @@ export default function Artifacts() {
         title={artifact.title}
         subtitle={artifact.subtitle}
         graphicsName={artifact.graphicsName}
-      />,
-      <ArtifactContents
-        key={artifact.text}
-        title={artifact.title}
-        text={artifact.text}
-        year={artifact.year}
-        quarter={artifact.quarter}
-        hasImages={artifact.hasImages}
-        hasEmbed={artifact.hasEmbed}
       />,
       <div key={artifact.subtitle} className="Artifacts__spacers" />
     );

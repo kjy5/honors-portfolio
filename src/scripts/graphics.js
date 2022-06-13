@@ -10,6 +10,7 @@ import WebGL from "three/examples/jsm/capabilities/WebGL.js";
  * @returns {boolean} If the renderer needed to be resized
  */
 function resizeRendererToDisplaySize(renderer) {
+  // noinspection JSUnresolvedVariable
   const canvas = renderer.domElement;
   const pixelRatio = window.devicePixelRatio;
   const width = (canvas.clientWidth * pixelRatio) | 0;
@@ -28,9 +29,11 @@ export default function Graphics() {
   // Setup Three
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 1000);
+  const canvas = document.querySelector("#canvas");
   const renderer = new THREE.WebGLRenderer({
-    canvas: document.getElementById("canvas"),
+    canvas,
   });
+  canvas.style.filter = "blur(0px)";
 
   // Setup Camera
   camera.position.z = 5;
@@ -90,7 +93,6 @@ export default function Graphics() {
   function animate() {
     // Resize renderer to fit window
     if (resizeRendererToDisplaySize(renderer)) {
-      const canvas = renderer.domElement;
       camera.aspect = canvas.clientWidth / canvas.clientHeight;
       camera.updateProjectionMatrix();
     }

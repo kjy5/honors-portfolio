@@ -1,16 +1,12 @@
 import "photoswipe/dist/photoswipe.css";
 import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
 import "../styles/Gallery.css";
-import {
-  imageAssetMetas,
-  imageAssets,
-  imageAssetThumbnails,
-} from "../scripts/asset-imports";
+import { getImageAssetMetas, getURLName } from "../scripts/content-handler";
+import { imageAssets, imageAssetThumbnails } from "../scripts/asset-imports"; // skipcq: JS-0249
 import React, { useEffect, useState } from "react"; // skipcq: JS-0249
 import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import PropTypes from "prop-types";
-import { tsv } from "d3"; // noinspection ES6CheckImport
 
 /**
  * PhotoSwipe power image gallery.
@@ -22,7 +18,7 @@ export default function Gallery(props) {
   const { title } = props;
 
   // Make title ID compatible
-  const idTitle = title.replace(/\s/g, "_");
+  const idTitle = getURLName(title);
 
   // Update against meta data
   const [metaData, setMetaData] = useState([]);
@@ -37,7 +33,7 @@ export default function Gallery(props) {
   // Initialize the gallery
   useEffect(() => {
     // Load metadata
-    tsv(imageAssetMetas[title]).then((meta) => setMetaData(meta));
+    getImageAssetMetas(title).then((meta) => setMetaData(meta));
 
     // Initialize the gallery
     let lightbox = new PhotoSwipeLightbox({
