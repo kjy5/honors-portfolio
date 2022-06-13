@@ -11,6 +11,10 @@ canvas {
   left: 0;
 }
 
+.blur {
+  filter: blur(50px);
+}
+
 main {
   position: absolute;
   width: 95vw;

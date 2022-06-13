@@ -1,27 +1,28 @@
-import "../styles/Artifacts.css";
+import '../styles/Artifacts.css'
 
-import React, { useEffect, useState } from "react";
-
-import ArtifactCard from "./ArtifactCard";
-import Graphics from "../scripts/graphics";
-import { getContent } from "../scripts/content-handler";
+import React, { useEffect, useState } from 'react'
+import ArtifactCard from './ArtifactCard'
+import { getContent } from '../scripts/content-handler'
 
 /**
  * @description Parent component holding Artifact Card and Artifact Contents
  * @returns {JSX.Element[]} Array of Artifacts
  * @constructor
  */
-export default function Artifacts() {
+export default function Artifacts () {
   // Update against new content data
-  const [contentData, setContentData] = useState([]);
+  const [contentData, setContentData] = useState([])
+
+  // Un-blur background
+  document.querySelector('#canvas').classList.remove('blur')
 
   // Get content data
   useEffect(() => {
-    Graphics();
+    // Get data
     getContent().then((data) => {
-      setContentData(data);
-    });
-  }, []);
+      setContentData(data)
+    })
+  }, [])
 
   // Render Artifact cards
   // Hold cards as they are created
