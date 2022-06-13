@@ -1,54 +1,56 @@
-import '../styles/Artifacts.css'
+import "../styles/Artifacts.css";
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
-import ArtifactCard from './ArtifactCard'
-import Graphics from '../scripts/graphics'
-import { getContent } from '../scripts/content-handler'
+import ArtifactCard from "./ArtifactCard";
+import Graphics from "../scripts/graphics";
+import { getContent } from "../scripts/content-handler";
 
 /**
  * @description Parent component holding Artifact Card and Artifact Contents
  * @returns {JSX.Element[]} Array of Artifacts
  * @constructor
  */
-export default function Artifacts () {
+export default function Artifacts() {
   // Update against new content data
-  const [contentData, setContentData] = useState([])
+  const [contentData, setContentData] = useState([]);
 
   // Get content data
   useEffect(() => {
-    Graphics()
-    getContent().then(data => { setContentData(data) })
-  }, [])
+    Graphics();
+    getContent().then((data) => {
+      setContentData(data);
+    });
+  }, []);
 
   // Render Artifact cards
   // Hold cards as they are created
-  const output = []
+  const output = [];
 
   // Year and quarter tracker
-  let curYear = -1
-  let curQuarter = -1
+  let curYear = -1;
+  let curQuarter = -1;
 
   // Iterate through content data
   contentData.forEach((artifact) => {
     // Insert year header if necessary
     if (artifact.year !== curYear) {
-      curYear = artifact.year
+      curYear = artifact.year;
       output.push(
-        <div className="Artifacts__year-header" key={`year_${curYear}`}/>
-      )
+        <div className="Artifacts__year-header" key={`year_${curYear}`} />
+      );
     }
 
     // Insert quarter header if necessary
     if (artifact.quarter !== curQuarter) {
-      curQuarter = artifact.quarter
+      curQuarter = artifact.quarter;
       output.push(
         <div
           className="Artifacts__quarter-header"
           key={`year_${curYear}_quarter_${curQuarter}`}
           id={`year_${curYear}_quarter_${curQuarter}`}
         />
-      )
+      );
     }
 
     // Insert artifact card, contents, and divider
@@ -59,10 +61,10 @@ export default function Artifacts () {
         subtitle={artifact.subtitle}
         graphicsName={artifact.graphicsName}
       />,
-      <div key={artifact.subtitle} className="Artifacts__spacers"/>
-    )
-  })
+      <div key={artifact.subtitle} className="Artifacts__spacers" />
+    );
+  });
 
   // Return artifacts
-  return output
+  return output;
 }

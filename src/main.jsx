@@ -1,32 +1,35 @@
-import './styles/index.css'
+import "./styles/index.css";
 
-import Artifacts from './components/Artifacts'
-import ArtifactContents from './components/ArtifactContents'
-import InProgress from './components/InProgress'
-import React from 'react'
+import Artifacts from "./components/Artifacts";
+import ArtifactContents from "./components/ArtifactContents";
+import InProgress from "./components/InProgress";
+import React from "react";
 // noinspection ES6CheckImport
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { createRoot } from 'react-dom/client'
-import { getContent, getURLName } from './scripts/content-handler'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { createRoot } from "react-dom/client";
+import { getContent, getURLName } from "./scripts/content-handler";
 
 getContent().then((contentData) => {
-  const root = createRoot(document.querySelector('main'))
+  const root = createRoot(document.querySelector("main"));
   root.render(
     <BrowserRouter>
       <Routes>
-        {/*Main Route*/}
-        <Route path="/honors-portfolio" element={
-          <React.StrictMode>
-            <div id="top"/>
-            <InProgress/>
-            <Artifacts/>
-          </React.StrictMode>
-        }/>
+        {/* Main Route */}
+        <Route
+          path="/honors-portfolio"
+          element={
+            <React.StrictMode>
+              <div id="top" />
+              <InProgress />
+              <Artifacts />
+            </React.StrictMode>
+          }
+        />
 
-        {/*Artifact Routes*/}
-        {
-          contentData.map((artifact) => {
-            return <Route
+        {/* Artifact Routes */}
+        {contentData.map((artifact) => {
+          return (
+            <Route
               key={artifact.title}
               path={`/honors-portfolio/${getURLName(artifact.title)}`}
               element={
@@ -45,12 +48,12 @@ getContent().then((contentData) => {
                 // </React.StrictMode>
               }
             />
-          })
-        }
+          );
+        })}
 
-        {/*404 Route*/}
-        <Route path="*" element={<div>404</div>}/>
+        {/* 404 Route */}
+        <Route path="*" element={<div>404</div>} />
       </Routes>
     </BrowserRouter>
-  )
-})
+  );
+});
