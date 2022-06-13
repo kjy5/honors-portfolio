@@ -1,5 +1,6 @@
 .ArtifactContents {
   color: white;
+  padding-top: 2em;
 
   /*Configure grid*/
   display: grid;
@@ -8,7 +9,6 @@
     "return txt"
     "graphics txt"
     "title txt"
-    "subtitle txt"
     "date txt"
     "links txt"
 }
@@ -28,11 +28,9 @@
   align-self: end;
 }
 
-.ArtifactContents__subtitle {
-  grid-area: subtitle;
-  justify-self: start;
-  align-self: start;
-  opacity: 0.75;
+.ArtifactContents__title h2 {
+  opacity: 75%;
+  margin-top: -1em;
 }
 
 .ArtifactContents__date {

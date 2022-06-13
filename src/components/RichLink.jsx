@@ -48,20 +48,22 @@ export default function RichLink (props) {
   }
 
   return (
-    <div className="rich-link-card-container"><a className="rich-link-card" href={url} target="_blank">
-      <div className="rich-link-image-container">
-        <div className="rich-link-image" style={{ backgroundImage: 'url(' + getImageHref() + ')' }}/>
-      </div>
-      <div className="rich-link-card-text">
-        <h1 className="rich-link-card-title">
-          {getTitle()}
-        </h1>
-        <p className="rich-link-card-description">
-          {getDescription()}
-        </p>
-        <p className="rich-link-href">{url}</p>
-      </div>
-    </a></div>
+    <div className="rich-link-card-container">
+      <a className="rich-link-card" href={url} target="_blank" rel="noopener noreferrer">
+        <div className="rich-link-image-container">
+          <div className="rich-link-image" style={{ backgroundImage: 'url(' + getImageHref() + ')' }}/>
+        </div>
+        <div className="rich-link-card-text">
+          <h1 className="rich-link-card-title">
+            {getTitle()}
+          </h1>
+          <p className="rich-link-card-description">
+            {getDescription()}
+          </p>
+          <p className="rich-link-href">{url}</p>
+        </div>
+      </a>
+    </div>
   )
 }
 

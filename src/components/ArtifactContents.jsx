@@ -49,6 +49,9 @@ export default function ArtifactContents (props) {
   // Blur canvas background
   document.querySelector('#canvas').classList.add('blur')
 
+  // Ensure window is scrolled to top
+  window.scroll(0, 0)
+
   // Back button functionality
   const backButtonCallback = React.useCallback(() => history.back(), [])
 
@@ -63,16 +66,27 @@ export default function ArtifactContents (props) {
       <div className="ArtifactCard__graphics" id={getURLName(title)}/>
 
       {/* Title and subtitle */}
-      <div className="ArtifactContents__title"><h1>{title}</h1></div>
-      <div className="ArtifactContents__subtitle"><h2>{subtitle}</h2></div>
+      <div className="ArtifactContents__title"><h1>{title}</h1><h2>{subtitle}</h2></div>
 
       {/* Year and quarter */}
       <div className="ArtifactContents__date">
-        {yearToString()} {quarterToString()}
+        <h3>Quarter: {yearToString()} {quarterToString()}</h3>
       </div>
 
       {/* Text */}
       <p className="ArtifactContents__text">{text}</p>
+
+
+      {/* External Link */}
+      {hasLink !== '' &&
+        <div className="ArtifactContents__external-links">
+          <h3>Links</h3>
+          {linkAssets[title].map((linkSrc) => {
+            return <RichLink key={linkSrc} url={linkSrc}/>
+          })}
+        </div>
+      }
+
 
       {/* Images, use Gallery if there are images */}
       {hasImages !== '' &&
@@ -80,17 +94,6 @@ export default function ArtifactContents (props) {
           <Gallery title={title}/>
         </div>
       }
-
-
-      {/* External Link */}
-      {hasLink !== '' &&
-        <div className="ArtifactContents__external-links">
-          {linkAssets[title].map((linkSrc) => {
-            return <RichLink key={linkSrc} url={linkSrc}/>
-          })}
-        </div>
-      }
-
 
       {/* Embedded items */}
       {hasEmbed !== '' &&
@@ -102,6 +105,8 @@ export default function ArtifactContents (props) {
                 className="artifact-embed-backup-link"
                 key={`backup_${embedSrc}`}
                 href={embedSrc}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Click here if there is a problem viewing the embedded item
               </a>,
