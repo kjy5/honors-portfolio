@@ -70,25 +70,31 @@ export default function ArtifactContents (props) {
         {yearToString()} {quarterToString()}
       </div>
 
+      {/* Text */}
+      <p className="ArtifactContents__text">{text}</p>
+
       {/* Images, use Gallery if there are images */}
-      <div className="ArtifactContents__images">
-        {hasImages !== '' && <Gallery title={title}/>}
-      </div>
+      {hasImages !== '' &&
+        <div className="ArtifactContents__images">
+          <Gallery title={title}/>
+        </div>
+      }
+
 
       {/* External Link */}
-      <div className="ArtifactContents__external-links">
-        {hasLink !== '' &&
-          linkAssets[title].map((linkSrc) => {
-            return <a key={linkSrc} href={linkSrc}>
-              {linkSrc}
-            </a>
+      {hasLink !== '' &&
+        <div className="ArtifactContents__external-links">
+          {linkAssets[title].map((linkSrc) => {
+            return <a key={linkSrc} href={linkSrc}>{linkSrc}</a>
           })}
-      </div>
+        </div>
+      }
+
 
       {/* Embedded items */}
-      <div className="ArtifactContents__embeds">
-        {hasEmbed !== '' &&
-          embedAssets[title].map((embedSrc) => {
+      {hasEmbed !== '' &&
+        <div className="ArtifactContents__embeds">
+          {embedAssets[title].map((embedSrc) => {
             // Provide fallback external link and iframe
             return [
               <a
@@ -106,10 +112,8 @@ export default function ArtifactContents (props) {
               />,
             ]
           })}
-      </div>
-
-      {/* Text */}
-      <p className="ArtifactContents__text">{text}</p>
+        </div>
+      }
     </div>
   )
 }

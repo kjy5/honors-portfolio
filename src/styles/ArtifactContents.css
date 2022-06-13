@@ -11,8 +11,6 @@
     "subtitle txt"
     "date txt"
     "links txt"
-    "images images"
-    "embedded embedded";
 }
 
 .ArtifactContents__return {
@@ -26,10 +24,14 @@
 
 .ArtifactContents__title {
   grid-area: title;
+  justify-self: start;
+  align-self: end;
 }
 
 .ArtifactContents__subtitle {
   grid-area: subtitle;
+  justify-self: start;
+  align-self: start;
   opacity: 0.75;
 }
 
@@ -39,20 +41,26 @@
 
 .ArtifactContents__external-links {
   grid-area: links;
+  justify-self: start;
+  align-self: start;
+  overflow-wrap: anywhere;
 }
 
 .ArtifactContents__images {
-  /*overflow: auto;*/
+  overflow: auto;
   white-space: nowrap;
-  grid-area: images;
+  grid-column: span 2;
+  height: 200px;
+}
+
+.ArtifactContents__embeds {
+  grid-column: span 2;
 }
 
 .ArtifactContents__iframe {
-  height: 500px;
+  height: 720px;
   width: 100%;
   border: none;
-  grid-area: embedded;
-  justify-self: stretch;
 }
 
 .ArtifactContents__text {
