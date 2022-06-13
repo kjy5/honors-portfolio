@@ -1,106 +1,110 @@
-import '../styles/ArtifactContents.css'
-import { embedAssets, linkAssets } from '../scripts/asset-imports'
-import { getURLName } from '../scripts/content-handler'
-import Gallery from './Gallery'
-import React from 'react'
-import RichLink from './RichLink'
+import "../styles/ArtifactContents.css";
+import { embedAssets, linkAssets } from "../scripts/asset-imports";
+import { getURLName } from "../scripts/content-handler";
+import Gallery from "./Gallery";
+import React from "react";
+import RichLink from "./RichLink";
 
 /**
  * Contents of an artifact including images, embedded items, and text
  * @param {object} props content data for a single artifact
  * @returns {JSX.Element} Artifact contents component
  */
-export default function ArtifactContents (props) {
+export default function ArtifactContents(props) {
   // Destructure props
-  const { artifact } = props
+  const { artifact } = props;
   const { title, subtitle, hasEmbed, hasImages, hasLink, text, year, quarter } =
-    artifact
+    artifact;
 
   const quarterToString = () => {
     switch (quarter) {
-      case '0':
-        return 'Fall'
-      case '1':
-        return 'Winter'
-      case '2':
-        return 'Spring'
-      case '3':
-        return 'Summer'
+      case "0":
+        return "Fall";
+      case "1":
+        return "Winter";
+      case "2":
+        return "Spring";
+      case "3":
+        return "Summer";
       default:
-        return ''
+        return "";
     }
-  }
+  };
 
   const yearToString = () => {
     switch (year) {
-      case '0':
-        return 'Freshman'
-      case '1':
-        return 'Sophomore'
-      case '2':
-        return 'Junior'
-      case '3':
-        return 'Senior'
+      case "0":
+        return "Freshman";
+      case "1":
+        return "Sophomore";
+      case "2":
+        return "Junior";
+      case "3":
+        return "Senior";
       default:
-        return ''
+        return "";
     }
-  }
+  };
 
   // Blur canvas background
-  document.querySelector('#canvas').classList.add('blur')
+  document.querySelector("#canvas").classList.add("blur");
 
   // Ensure window is scrolled to top
-  window.scroll(0, 0)
+  window.scroll(0, 0);
 
   // Back button functionality
-  const backButtonCallback = React.useCallback(() => history.back(), [])
+  const backButtonCallback = React.useCallback(() => history.back(), []);
 
   return (
     <div className="ArtifactContents" id={title}>
       {/* Back button */}
-      <div className="ArtifactContents__return"
-           onClick={backButtonCallback}
-           onKeyDown={backButtonCallback}
-           role="button"
+      <div
+        className="ArtifactContents__return"
+        onClick={backButtonCallback}
+        onKeyDown={backButtonCallback}
+        role="button"
       >
         &larr; Return to Kenneth&apos;s Honors Portfolio
       </div>
 
       {/* 3D graphics element */}
-      <div className="ArtifactContents__graphics" id={getURLName(title)}/>
+      <div className="ArtifactContents__graphics" id={getURLName(title)} />
 
       {/* Title and subtitle */}
-      <div className="ArtifactContents__title"><h1>{title}</h1><h2>{subtitle}</h2></div>
+      <div className="ArtifactContents__title">
+        <h1>{title}</h1>
+        <h2>{subtitle}</h2>
+      </div>
 
       {/* Year and quarter */}
       <div className="ArtifactContents__date">
-        <h3>Quarter: {yearToString()} {quarterToString()}</h3>
+        <h3>
+          Quarter: {yearToString()} {quarterToString()}
+        </h3>
       </div>
 
       {/* Text */}
       <p className="ArtifactContents__text">{text}</p>
 
-
       {/* External Link */}
-      {hasLink !== '' &&
+      {hasLink !== "" && (
         <div className="ArtifactContents__external-links">
           <h3>Links</h3>
           {linkAssets[title].map((linkSrc) => {
-            return <RichLink key={linkSrc} url={linkSrc}/>
+            return <RichLink key={linkSrc} url={linkSrc} />;
           })}
         </div>
-      }
-
+      )}
 
       {/* Images, use Gallery if there are images */}
-      {hasImages !== '' &&
+      {hasImages !== "" && (
         <div className="ArtifactContents__images">
-          <Gallery title={title}/>
+          <Gallery title={title} />
         </div>
-      }
+      )}
 
       {/* Embedded items */}
-      {hasEmbed !== '' &&
+      {hasEmbed !== "" && (
         <div className="ArtifactContents__embeds">
           {embedAssets[title].map((embedSrc) => {
             // Provide fallback external link and iframe
@@ -120,10 +124,10 @@ export default function ArtifactContents (props) {
                 src={embedSrc}
                 title={title}
               />,
-            ]
+            ];
           })}
         </div>
-      }
+      )}
     </div>
-  )
+  );
 }
