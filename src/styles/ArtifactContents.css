@@ -15,6 +15,8 @@
 
 .ArtifactContents__return {
   grid-area: return;
+  cursor: pointer;
+  opacity: 75%;
 }
 
 .ArtifactContents__graphics {

@@ -58,12 +58,16 @@ export default function ArtifactContents (props) {
   return (
     <div className="ArtifactContents" id={title}>
       {/* Back button */}
-      <button className="ArtifactCard__return" onClick={backButtonCallback} type="button">
-        Return to Kenneth&apos;s Honors Portfolio
-      </button>
+      <div className="ArtifactContents__return"
+           onClick={backButtonCallback}
+           onKeyDown={backButtonCallback}
+           role="button"
+      >
+        &larr; Return to Kenneth&apos;s Honors Portfolio
+      </div>
 
       {/* 3D graphics element */}
-      <div className="ArtifactCard__graphics" id={getURLName(title)}/>
+      <div className="ArtifactContents__graphics" id={getURLName(title)}/>
 
       {/* Title and subtitle */}
       <div className="ArtifactContents__title"><h1>{title}</h1><h2>{subtitle}</h2></div>
