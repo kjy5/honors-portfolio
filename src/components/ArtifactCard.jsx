@@ -1,9 +1,9 @@
 import '../styles/ArtifactCard.css'
 
-import PropTypes from 'prop-types'
-import React from 'react'
 import { getURLName } from '../scripts/content-handler'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 /**
  * @description - Overview card for an Artifact

@@ -2,10 +2,10 @@ import './styles/index.css'
 
 // noinspection ES6CheckImport
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { createRoot } from 'react-dom/client'
 import { getContent, getURLName } from './scripts/content-handler'
 import ArtifactContents from './components/ArtifactContents'
 import Artifacts from './components/Artifacts'
-import { createRoot } from 'react-dom/client'
 import InProgress from './components/InProgress'
 import React from 'react'
 

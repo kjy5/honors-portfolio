@@ -19,7 +19,7 @@ const imageAssetMetas = {
  * @returns {Promise<*>} An array of content data objects
  */
 export async function getContent () {
-  return await Promise.all(await tsv(content))
+  return Promise.all(await tsv(content))
 }
 
 /**
@@ -28,7 +28,7 @@ export async function getContent () {
  * @returns {Promise<*>} An array of image asset metas data objects
  */
 export async function getImageAssetMetas (imageAssetName) {
-  return await Promise.all(await tsv(imageAssetMetas[imageAssetName]))
+  return Promise.all(await tsv(imageAssetMetas[imageAssetName]))
 }
 
 /**
