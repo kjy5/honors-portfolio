@@ -1,17 +1,17 @@
-import "../styles/RichLink.css";
+import '../styles/RichLink.css'
 
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * @description Rich link component
  * @param {object} props URL of the link
  * @returns {JSX.Element} A rich link
  */
-export default function RichLink(props) {
-  const { url } = props;
+export default function RichLink (props) {
+  const { url } = props
 
-  const fetchURL = `http://iframely.server.crestify.com/iframely?url=${url}`;
+  const fetchURL = `https://jsonlink.io/api/extract?url=${url}`
 
   const [linkData, setLinkData] = useState({});
 
@@ -29,7 +29,7 @@ export default function RichLink(props) {
    */
   const getImageHref = () => {
     try {
-      return linkData.links[0].href;
+      return linkData.images[0]
     } catch (e) {
       return "";
     }
@@ -41,19 +41,19 @@ export default function RichLink(props) {
    */
   const getTitle = () => {
     try {
-      return linkData.meta.title.replace(/\s{3,}/g, " ").trim();
+      return linkData.title.replace(/\s{3,}/g, ' ').trim()
     } catch (e) {
       return "";
     }
   };
 
   /**
-   * @description Safely extracts the description from the iframely response
+   * @description Safely extracts the description from the Jsonlink response
    * @returns {string|*} Description with extra whitespaces removed
    */
   const getDescription = () => {
     try {
-      return linkData.meta.description.replace(/\s{3,}/g, " ").trim();
+      return linkData.description.replace(/\s{3,}/g, ' ').trim()
     } catch (e) {
       return "";
     }
