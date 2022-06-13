@@ -7,10 +7,6 @@
   text-decoration: none;
 }
 
-.rich-link-card-container {
-  position: relative;
-}
-
 .rich-link-card-container::after {
   position: absolute;
   content: " ";
