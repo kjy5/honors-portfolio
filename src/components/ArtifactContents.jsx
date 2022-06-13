@@ -6,13 +6,13 @@ import React from 'react'
 
 /**
  * Contents of an artifact including images, embedded items, and text
- * @param {object} props
+ * @param {object} props content data for a single artifact
  * @returns {JSX.Element} Artifact contents component
  */
 export default function ArtifactContents (props) {
   // Destructure props
   const { title, subtitle, hasEmbed, hasImages, hasLink, text, year, quarter } =
-    props
+    props.artifact
 
   // Blur canvas background
   document.querySelector('#canvas').classList.add('blur')
@@ -85,8 +85,5 @@ export default function ArtifactContents (props) {
 
 // Prop validation
 ArtifactContents.propTypes = {
-  title: PropTypes.string.isRequired,
-  hasEmbed: PropTypes.string.isRequired,
-  hasImages: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  artifact: PropTypes.object.isRequired,
 };

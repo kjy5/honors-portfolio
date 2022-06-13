@@ -25,40 +25,31 @@ getContent().then((contentData) => {
           element={
             <React.StrictMode>
               <div id="top"/>
-              <InProgress />
-              <Artifacts />
+              <InProgress/>
+              <Artifacts contentData={contentData}/>
             </React.StrictMode>
           }
         />
 
         {/* Artifact Routes */}
         {contentData.map((artifact) => {
-          return (
-            <Route
-              key={artifact.title}
-              path={`/honors-portfolio/${getURLName(artifact.title)}`}
-              element={
-                // <React.StrictMode>
-                <ArtifactContents
-                  key={artifact.text}
-                  title={artifact.title}
-                  subtitle={artifact.subtitle}
-                  text={artifact.text}
-                  year={artifact.year}
-                  quarter={artifact.quarter}
-                  hasImages={artifact.hasImages}
-                  hasEmbed={artifact.hasEmbed}
-                  hasLink={artifact.hasLink}
-                />
-                // </React.StrictMode>
-              }
-            />
-          );
-        })}
+            return (
+              <Route
+                key={artifact.title}
+                path={`/honors-portfolio/${getURLName(artifact.title)}`}
+                element={
+                  <React.StrictMode>
+                    <ArtifactContents artifact={artifact}/>
+                  </React.StrictMode>
+                }
+              />
+            )
+          }
+        )}
 
         {/* 404 Route */}
-        <Route path="*" element={<div>404</div>} />
+        <Route path="*" element={<div>404</div>}/>
       </Routes>
     </BrowserRouter>
-  );
-});
+  )
+})
