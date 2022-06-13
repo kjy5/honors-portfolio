@@ -1,27 +1,50 @@
-import "../styles/ArtifactContents.css";
-import { embedAssets } from "../scripts/asset-imports";
-import Gallery from "./Gallery";
-import PropTypes from "prop-types";
-import React from "react";
+import '../styles/ArtifactContents.css'
+import { embedAssets, linkAssets } from '../scripts/asset-imports'
+import Gallery from './Gallery'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 /**
  * Contents of an artifact including images, embedded items, and text
  * @param {object} props
  * @returns {JSX.Element} Artifact contents component
  */
-export default function ArtifactContents(props) {
+export default function ArtifactContents (props) {
   // Destructure props
-  const { title, hasEmbed, hasImages, text } = props;
+  const { title, subtitle, hasEmbed, hasImages, hasLink, text, year, quarter } = props
+
+  // Blur canvas background
+  document.querySelector('#canvas').style.filter = 'blur(50px)'
 
   return (
     <div className="ArtifactContents" id={title}>
+      {/*Back button*/}
+      <button onClick={() => history.back()}>Return to Kenneth's Honors Portfolio</button>
+
+      {/*Title and subtitle*/}
+      <div className="ArtifactContents__title">{title}</div>
+      <div className="ArtifactContents__subtitle">{subtitle}</div>
+
+      {/*Year and quarter*/}
+      <div className="ArtifactContents__date">{quarter} {year}</div>
+
       {/* Images, use Gallery if there are images */}
       <div className="ArtifactContents__images">
-        {hasImages !== "" && <Gallery title={title} />}
+        {hasImages !== '' && <Gallery title={title}/>}
       </div>
+
+      {/*External Link*/}
+      <div className="ArtifactContents__external-link">
+        {hasLink !== '' &&
+          linkAssets[title].map((linkSrc) => {
+            return [<a key={linkSrc} href={linkSrc}>{linkSrc}</a>, <br/>]
+          })
+        }
+      </div>
+
       {/* Embedded items */}
       <div className="ArtifactContents__embeds">
-        {hasEmbed !== "" &&
+        {hasEmbed !== '' &&
           embedAssets[title].map((embedSrc) => {
             // Provide fallback external link and iframe
             return [
@@ -30,7 +53,7 @@ export default function ArtifactContents(props) {
                 key={`backup_${embedSrc}`}
                 href={embedSrc}
               >
-                Open in a new tab
+                Click here if there is a problem viewing the embedded item
               </a>,
               <iframe
                 key={embedSrc}
@@ -38,12 +61,14 @@ export default function ArtifactContents(props) {
                 src={embedSrc}
                 title={title}
               />,
-            ];
+            ]
           })}
       </div>
-      <p>{text}</p>
+
+      {/* Text */}
+      <p className="ArtifactContents__text">{text}</p>
     </div>
-  );
+  )
 }
 
 // Prop validation
@@ -52,4 +77,4 @@ ArtifactContents.propTypes = {
   hasEmbed: PropTypes.string.isRequired,
   hasImages: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-};
+}

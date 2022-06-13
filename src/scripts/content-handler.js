@@ -1,12 +1,25 @@
 import content from '../assets/content.tsv?url'
+// Metas import
+import startingANewHonorsPortfolioWebsiteMeta from '../assets/metas/Starting a New Honors Portfolio Website.tsv?url'
+import nautilusRendersMeta from '../assets/metas/Nautilus Renders.tsv?url'
+import cosmosInterfaceMeta from '../assets/metas/COSMOS Interface.tsv?url'
+
 // noinspection ES6CheckImport
 import { tsv } from 'd3'
 
+const imageAssetMetas = {
+  'Starting a New Honors Portfolio Website':
+  startingANewHonorsPortfolioWebsiteMeta,
+  'Nautilus Renders': nautilusRendersMeta,
+  'COSMOS Interface': cosmosInterfaceMeta,
+}
+
 let contentData = []
+let imageAssetMetasData = {}
 
 /**
  * @description Loads the content data from the content.tsv file
- * @returns {Promise<void>} An array of content data objects
+ * @returns {Promise<*>} An array of content data objects
  */
 export async function getContent () {
   // Check if contentData is already computed
@@ -18,8 +31,21 @@ export async function getContent () {
 }
 
 /**
+ * @description Loads the image asset metas data from the corresponding meta file
+ * @param imageAssetName {string} The name of the artifact
+ * @returns {Promise<*>} An array of image asset metas data objects
+ */
+export async function getImageAssetMetas (imageAssetName) {
+  if (!imageAssetMetasData[imageAssetName]) {
+    imageAssetMetasData[imageAssetName] = await Promise.all(await tsv(imageAssetMetas[imageAssetName]))
+  }
+
+  return imageAssetMetasData[imageAssetName]
+}
+
+/**
  * @description Returns a URL compatible string for the given content object
- * @param name The name/title of the artifact
+ * @param name {string} The name/title of the artifact
  * @returns {string} A URL compatible string
  */
 export function getURLName (name) {

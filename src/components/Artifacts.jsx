@@ -46,6 +46,7 @@ export default function Artifacts () {
         <div
           className="Artifacts__quarter-header"
           key={`year_${curYear}_quarter_${curQuarter}`}
+          id={`year_${curYear}_quarter_${curQuarter}`}
         />
       )
     }

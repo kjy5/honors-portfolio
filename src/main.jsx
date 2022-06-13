@@ -34,11 +34,13 @@ getContent().then((contentData) => {
                 <ArtifactContents
                   key={artifact.text}
                   title={artifact.title}
+                  subtitle={artifact.subtitle}
                   text={artifact.text}
                   year={artifact.year}
                   quarter={artifact.quarter}
                   hasImages={artifact.hasImages}
                   hasEmbed={artifact.hasEmbed}
+                  hasLink={artifact.hasLink}
                 />
                 // </React.StrictMode>
               }
