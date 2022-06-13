@@ -1,20 +1,20 @@
-import '../styles/ArtifactContents.css'
-import { embedAssets, linkAssets } from '../scripts/asset-imports'
-import Gallery from './Gallery'
-import { getURLName } from '../scripts/content-handler'
-import React from 'react'
-import RichLink from './RichLink'
+import "../styles/ArtifactContents.css";
+import { embedAssets, linkAssets } from "../scripts/asset-imports";
+import Gallery from "./Gallery";
+import { getURLName } from "../scripts/content-handler";
+import React from "react";
+import RichLink from "./RichLink";
 
 /**
  * Contents of an artifact including images, embedded items, and text
  * @param {object} props content data for a single artifact
  * @returns {JSX.Element} Artifact contents component
  */
-export default function ArtifactContents (props) {
+export default function ArtifactContents(props) {
   // Destructure props
-  const { artifact } = props
+  const { artifact } = props;
   const { title, subtitle, hasEmbed, hasImages, hasLink, text, year, quarter } =
-    artifact
+    artifact;
 
   /**
    * @description Convert a quarter number to a string
@@ -22,18 +22,18 @@ export default function ArtifactContents (props) {
    */
   const quarterToString = () => {
     switch (quarter) {
-      case '0':
-        return 'Fall'
-      case '1':
-        return 'Winter'
-      case '2':
-        return 'Spring'
-      case '3':
-        return 'Summer'
+      case "0":
+        return "Fall";
+      case "1":
+        return "Winter";
+      case "2":
+        return "Spring";
+      case "3":
+        return "Summer";
       default:
-        return ''
+        return "";
     }
-  }
+  };
 
   /**
    * @description Convert a year number to a string
@@ -41,14 +41,14 @@ export default function ArtifactContents (props) {
    */
   const yearToString = () => {
     switch (year) {
-      case '0':
-        return 'Freshman'
-      case '1':
-        return 'Sophomore'
-      case '2':
-        return 'Junior'
-      case '3':
-        return 'Senior'
+      case "0":
+        return "Freshman";
+      case "1":
+        return "Sophomore";
+      case "2":
+        return "Junior";
+      case "3":
+        return "Senior";
       default:
         return "";
     }
@@ -66,17 +66,18 @@ export default function ArtifactContents (props) {
   return (
     <div className="ArtifactContents" id={title}>
       {/* Back button */}
-      <div className="ArtifactContents__return"
-           onClick={backButtonCallback}
-           onKeyDown={backButtonCallback}
-           tabIndex="0"
-           role="button"
+      <div
+        className="ArtifactContents__return"
+        onClick={backButtonCallback}
+        onKeyDown={backButtonCallback}
+        tabIndex="0"
+        role="button"
       >
         &larr; Return to Kenneth&apos;s Honors Portfolio
       </div>
 
       {/* 3D graphics element */}
-      <div className="ArtifactContents__graphics" id={getURLName(title)}/>
+      <div className="ArtifactContents__graphics" id={getURLName(title)} />
 
       {/* Title and subtitle */}
       <div className="ArtifactContents__title">
