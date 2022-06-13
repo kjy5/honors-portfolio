@@ -7,11 +7,14 @@ const INTERNATIONAL_BRAIN_LAB_POSITION_1 =
   "https://www.internationalbrainlab.com";
 
 // Multimodality Final Portfolio
-const MULTIMODALITY_FINAL_PORTFOLIO = "https://canvas.uw.edu/eportfolios/71109";
+const MULTIMODALITY_FINAL_PORTFOLIO_0 =
+  "https://canvas.uw.edu/eportfolios/71109";
 
 // NASA Summer Undergraduate Research Program
-const NASA_SUMMER_UNDERGRADUATE_RESEARCH_PROGRAM =
+const NASA_SUMMER_UNDERGRADUATE_RESEARCH_PROGRAM_0 =
   "https://wiki.huskysat.org/wiki/index.php/LOST_SURP_2022";
+const NASA_SUMMER_UNDERGRADUATE_RESEARCH_PROGRAM_1 =
+  "https://github.com/UWCubeSat/lost";
 
 // Starting a New Honors Portfolio Website
 const STARTING_A_NEW_HONORS_PORTFOLIO_WEBSITE_0_THUMB =
@@ -91,9 +94,10 @@ export const linkAssets = {
     INTERNATIONAL_BRAIN_LAB_POSITION_0,
     INTERNATIONAL_BRAIN_LAB_POSITION_1,
   ],
-  "Multimodality Final Portfolio": [MULTIMODALITY_FINAL_PORTFOLIO],
+  "Multimodality Final Portfolio": [MULTIMODALITY_FINAL_PORTFOLIO_0],
   "NASA Summer Undergraduate Research Program": [
-    NASA_SUMMER_UNDERGRADUATE_RESEARCH_PROGRAM,
+    NASA_SUMMER_UNDERGRADUATE_RESEARCH_PROGRAM_0,
+    NASA_SUMMER_UNDERGRADUATE_RESEARCH_PROGRAM_1,
   ],
 };
 export const embedAssets = {

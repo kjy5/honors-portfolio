@@ -1,21 +1,69 @@
 .ArtifactContents {
   color: white;
+  padding-top: 2em;
 
-  grid-template-rows: repeat(3, auto);
+  /*Configure grid*/
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "return txt"
+    "graphics txt"
+    "title txt"
+    "date txt"
+    "links txt";
+}
+
+.ArtifactContents__return {
+  grid-area: return;
+  cursor: pointer;
+  opacity: 75%;
+}
+
+.ArtifactContents__graphics {
+  grid-area: graphics;
+  justify-self: stretch;
+}
+
+.ArtifactContents__title {
+  grid-area: title;
+  justify-self: start;
+  align-self: end;
+}
+
+.ArtifactContents__title h2 {
+  opacity: 75%;
+  margin-top: -1em;
+}
+
+.ArtifactContents__date {
+  grid-area: date;
+}
+
+.ArtifactContents__external-links {
+  grid-area: links;
+  justify-self: start;
+  align-self: start;
+  overflow-wrap: anywhere;
 }
 
 .ArtifactContents__images {
   overflow: auto;
   white-space: nowrap;
+  grid-column: span 2;
+  height: 200px;
+}
+
+.ArtifactContents__embeds {
+  grid-column: span 2;
 }
 
 .ArtifactContents__iframe {
+  height: 720px;
   width: 100%;
-  height: 500px;
   border: none;
 }
 
 .ArtifactContents__text {
   padding: 20px;
-  width: 100%;
+  grid-area: txt;
 }

@@ -5,8 +5,8 @@ import { Link } from "react-router-dom"; // skipcq: JS-0249
 import React from "react";
 
 /**
- * @description - Overview card for an Artifact
- * @param {object} props - props passed in from parent component
+ * @description Overview card for an Artifact
+ * @param {object} props props passed in from parent component
  * @returns {JSX.Element} The card
  */
 export default function ArtifactCard(props) {
