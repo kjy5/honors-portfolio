@@ -1,27 +1,18 @@
 import "../styles/Artifacts.css";
 
-import React, { useEffect, useState } from "react";
-
 import ArtifactCard from "./ArtifactCard";
-import Graphics from "../scripts/graphics";
-import { getContent } from "../scripts/content-handler";
+import React from "react";
 
 /**
  * @description Parent component holding Artifact Card and Artifact Contents
+ * @param {object} props complete content data
  * @returns {JSX.Element[]} Array of Artifacts
- * @constructor
  */
-export default function Artifacts() {
-  // Update against new content data
-  const [contentData, setContentData] = useState([]);
+export default function Artifacts(props) {
+  const contentData = props.contentData;
 
-  // Get content data
-  useEffect(() => {
-    Graphics();
-    getContent().then((data) => {
-      setContentData(data);
-    });
-  }, []);
+  // Un-blur background
+  document.querySelector("#canvas").classList.remove("blur");
 
   // Render Artifact cards
   // Hold cards as they are created
@@ -55,12 +46,7 @@ export default function Artifacts() {
 
     // Insert artifact card, contents, and divider
     output.push(
-      <ArtifactCard
-        key={artifact.title}
-        title={artifact.title}
-        subtitle={artifact.subtitle}
-        graphicsName={artifact.graphicsName}
-      />,
+      <ArtifactCard artifact={artifact} key={artifact.title} />,
       <div key={artifact.subtitle} className="Artifacts__spacers" />
     );
   });

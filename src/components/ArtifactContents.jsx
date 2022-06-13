@@ -1,21 +1,21 @@
 import "../styles/ArtifactContents.css";
 import { embedAssets, linkAssets } from "../scripts/asset-imports";
 import Gallery from "./Gallery";
-import PropTypes from "prop-types";
 import React from "react";
 
 /**
  * Contents of an artifact including images, embedded items, and text
- * @param {object} props
+ * @param {object} props content data for a single artifact
  * @returns {JSX.Element} Artifact contents component
  */
 export default function ArtifactContents(props) {
   // Destructure props
+  const { artifact } = props;
   const { title, subtitle, hasEmbed, hasImages, hasLink, text, year, quarter } =
-    props;
+    artifact;
 
   // Blur canvas background
-  document.querySelector("#canvas").style.filter = "blur(50px)";
+  document.querySelector("#canvas").classList.add("blur");
 
   // Back button functionality
   const backButtonCallback = React.useCallback(() => history.back(), []);
@@ -82,11 +82,3 @@ export default function ArtifactContents(props) {
     </div>
   );
 }
-
-// Prop validation
-ArtifactContents.propTypes = {
-  title: PropTypes.string.isRequired,
-  hasEmbed: PropTypes.string.isRequired,
-  hasImages: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-};

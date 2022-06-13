@@ -2,7 +2,6 @@ import "../styles/ArtifactCard.css";
 
 import { getURLName } from "../scripts/content-handler";
 import { Link } from "react-router-dom"; // skipcq: JS-0249
-import PropTypes from "prop-types";
 import React from "react";
 
 /**
@@ -12,7 +11,8 @@ import React from "react";
  */
 export default function ArtifactCard(props) {
   // Destructure props
-  const { title, subtitle } = props;
+  const { artifact } = props;
+  const { title, subtitle } = artifact;
 
   // Generate URL from title
   const urlName = getURLName(title);
@@ -38,9 +38,3 @@ export default function ArtifactCard(props) {
     </Link>
   );
 }
-
-// Prop validation
-ArtifactCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-};
