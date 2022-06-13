@@ -1,18 +1,18 @@
-import * as THREE from 'three'
-import CoolveticaFont from '../assets/fonts/Coolvetica Rg_Regular.json?url'
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
-import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
-import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
+import * as THREE from "three";
+import CoolveticaFont from "../assets/fonts/Coolvetica Rg_Regular.json?url";
+import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
+import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
+import WebGL from "three/examples/jsm/capabilities/WebGL.js";
 
 /**
  * Responsive resizing of ThreeJS render output (canvas)
  * @param {THREE.WebGLRenderer} renderer The renderer to resize
  * @returns {boolean} If the renderer needed to be resized
  */
-function resizeRendererToDisplaySize (renderer) {
+function resizeRendererToDisplaySize(renderer) {
   // noinspection JSUnresolvedVariable
-  const canvas = renderer.domElement
-  const pixelRatio = window.devicePixelRatio
+  const canvas = renderer.domElement;
+  const pixelRatio = window.devicePixelRatio;
   const width = (canvas.clientWidth * pixelRatio) | 0;
   const height = (canvas.clientHeight * pixelRatio) | 0;
   const needResize = canvas.width !== width || canvas.height !== height;
@@ -28,8 +28,10 @@ function resizeRendererToDisplaySize (renderer) {
 export default function Graphics() {
   // Setup Three
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 1000)
-  const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#canvas') })
+  const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({
+    canvas: document.querySelector("#canvas"),
+  });
 
   // Setup Camera
   camera.position.z = 5;

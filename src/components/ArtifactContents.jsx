@@ -1,21 +1,21 @@
-import '../styles/ArtifactContents.css'
-import { embedAssets, linkAssets } from '../scripts/asset-imports'
-import Gallery from './Gallery'
-import PropTypes from 'prop-types'
-import React from 'react'
+import "../styles/ArtifactContents.css";
+import { embedAssets, linkAssets } from "../scripts/asset-imports";
+import Gallery from "./Gallery";
+import PropTypes from "prop-types";
+import React from "react";
 
 /**
  * Contents of an artifact including images, embedded items, and text
  * @param {object} props content data for a single artifact
  * @returns {JSX.Element} Artifact contents component
  */
-export default function ArtifactContents (props) {
+export default function ArtifactContents(props) {
   // Destructure props
   const { title, subtitle, hasEmbed, hasImages, hasLink, text, year, quarter } =
-    props.artifact
+    props.artifact;
 
   // Blur canvas background
-  document.querySelector('#canvas').classList.add('blur')
+  document.querySelector("#canvas").classList.add("blur");
 
   // Back button functionality
   const backButtonCallback = React.useCallback(() => history.back(), []);

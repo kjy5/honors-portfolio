@@ -1,21 +1,21 @@
-import './styles/index.css'
+import "./styles/index.css";
 
 // noinspection ES6CheckImport
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { getContent, getURLName } from './scripts/content-handler'
-import ArtifactContents from './components/ArtifactContents'
-import Artifacts from './components/Artifacts'
-import { createRoot } from 'react-dom/client'
-import Graphics from './scripts/graphics'
-import InProgress from './components/InProgress' // skipcq: JS-0249
-import React from 'react'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { getContent, getURLName } from "./scripts/content-handler";
+import ArtifactContents from "./components/ArtifactContents";
+import Artifacts from "./components/Artifacts";
+import { createRoot } from "react-dom/client";
+import Graphics from "./scripts/graphics";
+import InProgress from "./components/InProgress"; // skipcq: JS-0249
+import React from "react";
 
 getContent().then((contentData) => {
   // Start Graphics
-  Graphics()
+  Graphics();
 
   // Render app
-  const root = createRoot(document.querySelector('main'))
+  const root = createRoot(document.querySelector("main"));
   root.render(
     <BrowserRouter>
       <Routes>
@@ -24,32 +24,31 @@ getContent().then((contentData) => {
           path="/honors-portfolio"
           element={
             <React.StrictMode>
-              <div id="top"/>
-              <InProgress/>
-              <Artifacts contentData={contentData}/>
+              <div id="top" />
+              <InProgress />
+              <Artifacts contentData={contentData} />
             </React.StrictMode>
           }
         />
 
         {/* Artifact Routes */}
         {contentData.map((artifact) => {
-            return (
-              <Route
-                key={artifact.title}
-                path={`/honors-portfolio/${getURLName(artifact.title)}`}
-                element={
-                  <React.StrictMode>
-                    <ArtifactContents artifact={artifact}/>
-                  </React.StrictMode>
-                }
-              />
-            )
-          }
-        )}
+          return (
+            <Route
+              key={artifact.title}
+              path={`/honors-portfolio/${getURLName(artifact.title)}`}
+              element={
+                <React.StrictMode>
+                  <ArtifactContents artifact={artifact} />
+                </React.StrictMode>
+              }
+            />
+          );
+        })}
 
         {/* 404 Route */}
-        <Route path="*" element={<div>404</div>}/>
+        <Route path="*" element={<div>404</div>} />
       </Routes>
     </BrowserRouter>
-  )
-})
+  );
+});
