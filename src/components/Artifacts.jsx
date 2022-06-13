@@ -1,16 +1,15 @@
-import "../styles/Artifacts.css";
+import '../styles/Artifacts.css'
 
-import ArtifactCard from "./ArtifactCard";
-import PropTypes from "prop-types";
-import React from "react";
+import ArtifactCard from './ArtifactCard'
+import React from 'react'
 
 /**
  * @description Parent component holding Artifact Card and Artifact Contents
  * @param {object} props complete content data
  * @returns {JSX.Element[]} Array of Artifacts
  */
-export default function Artifacts(props) {
-  const contentData = props.contentData;
+export default function Artifacts (props) {
+  const contentData = props.contentData
 
   // Un-blur background
   document.querySelector("#canvas").classList.remove("blur");
@@ -55,8 +54,3 @@ export default function Artifacts(props) {
   // Return artifacts
   return output;
 }
-
-// Prop validation
-Artifacts.propTypes = {
-  contentData: PropTypes.any,
-};
