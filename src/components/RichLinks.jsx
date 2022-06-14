@@ -1,17 +1,17 @@
-import "../styles/RichLink.css";
-import { getLinkAssetMetas } from "../scripts/content-handler";
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import '../styles/RichLink.css'
+import React, { useEffect, useState } from 'react'
+import { getLinkAssetMetas } from '../scripts/content-handler'
+import PropTypes from 'prop-types'
 
 /**
  * @description Rich link component
  * @param {object} props URL of the link
  * @returns {*[]} A rich link
  */
-export default function RichLinks(props) {
-  const { assetName } = props;
+export default function RichLinks (props) {
+  const { assetName } = props
 
-  const [linkMetas, setLinkMetas] = useState([]);
+  const [linkMetas, setLinkMetas] = useState([])
 
   useEffect(() => {
     getLinkAssetMetas(assetName).then((meta) => setLinkMetas(meta));
