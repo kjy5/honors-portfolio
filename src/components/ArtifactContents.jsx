@@ -1,18 +1,18 @@
-import "../styles/ArtifactContents.css";
-import { embedAssets, linkAssets } from "../scripts/asset-imports";
-import Gallery from "./Gallery";
-import { getURLName } from "../scripts/content-handler";
-import React from "react"; // skipcq: JS-0249
-import RichLink from "./RichLink";
+import '../styles/ArtifactContents.css'
+import { embedAssets } from '../scripts/asset-imports'
+import Gallery from './Gallery'
+import { getURLName } from '../scripts/content-handler'
+import React from 'react' // skipcq: JS-0249
+import RichLinks from './RichLinks'
 
 /**
  * Contents of an artifact including images, embedded items, and text
  * @param {object} props content data for a single artifact
  * @returns {JSX.Element} Artifact contents component
  */
-export default function ArtifactContents(props) {
+export default function ArtifactContents (props) {
   // Destructure props
-  const { artifact } = props;
+  const { artifact } = props
   const { title, subtitle, hasEmbed, hasImages, hasLink, text, year, quarter } =
     artifact;
 
@@ -98,10 +98,7 @@ export default function ArtifactContents(props) {
       {/* External Link */}
       {hasLink !== "" && (
         <div className="ArtifactContents__external-links">
-          <h3>Links</h3>
-          {linkAssets[title].map((linkSrc) => {
-            return <RichLink key={linkSrc} url={linkSrc} />;
-          })}
+          <RichLinks assetName={title}/>
         </div>
       )}
 

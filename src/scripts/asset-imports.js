@@ -1,26 +1,25 @@
+import contentData from '../assets/content.tsv?url'
+
+// Image metas import
+import cosmosInterfaceImageMeta from '../assets/image_metas/COSMOS Interface.tsv?url'
+import nautilusRendersImageMeta from '../assets/image_metas/Nautilus Renders.tsv?url'
+import startingANewHonorsPortfolioWebsiteImageMeta
+  from '../assets/image_metas/Starting a New Honors Portfolio Website.tsv?url'
+
+// Link metas import
+import internationalBrainLabPositionLinkMeta from '../assets/link_metas/International Brain Lab Position.tsv?url'
+import multimodalityFinalPortfolioLinkMeta from '../assets/link_metas/Multimodality Final Portfolio.tsv?url'
+import nasaSummerUndergraduateResearchProgramLinkMeta
+  from '../assets/link_metas/NASA Summer Undergraduate Research Program.tsv?url'
+
 // Google Drive prefix
-const GOOGLE_DRIVE_PREFIX = "https://drive.google.com/uc?id=";
-
-// International Brain Lab and Steinmetz Lab
-const INTERNATIONAL_BRAIN_LAB_POSITION_0 = "http://www.steinmetzlab.net";
-const INTERNATIONAL_BRAIN_LAB_POSITION_1 =
-  "https://www.internationalbrainlab.com";
-
-// Multimodality Final Portfolio
-const MULTIMODALITY_FINAL_PORTFOLIO_0 =
-  "https://canvas.uw.edu/eportfolios/71109";
-
-// NASA Summer Undergraduate Research Program
-const NASA_SUMMER_UNDERGRADUATE_RESEARCH_PROGRAM_0 =
-  "https://wiki.huskysat.org/wiki/index.php/LOST_SURP_2022";
-const NASA_SUMMER_UNDERGRADUATE_RESEARCH_PROGRAM_1 =
-  "https://github.com/UWCubeSat/lost";
+const GOOGLE_DRIVE_PREFIX = 'https://drive.google.com/uc?id='
 
 // Starting a New Honors Portfolio Website
 const STARTING_A_NEW_HONORS_PORTFOLIO_WEBSITE_0_THUMB =
-  "13ZxzfGabLqeNTpKN9IISGRRFaht4ScTA";
+  '13ZxzfGabLqeNTpKN9IISGRRFaht4ScTA'
 const STARTING_A_NEW_HONORS_PORTFOLIO_WEBSITE_1_THUMB =
-  "13YYUhYGfAcTkPfPPLye8Sjlo5ZrKJuzV";
+  '13YYUhYGfAcTkPfPPLye8Sjlo5ZrKJuzV'
 const STARTING_A_NEW_HONORS_PORTFOLIO_WEBSITE_0 =
   "13MxL5x1HbaDFF_15hc8z1qjwBbqktxqP";
 const STARTING_A_NEW_HONORS_PORTFOLIO_WEBSITE_1 =
@@ -50,21 +49,37 @@ const NAUTILUS_RENDERS_5 = "12a-l9v7IEWU4gYIZvMA1LwWPvB9s6ccn";
 const EVIL_HANGMAN_0 = "https://replit.com/@kjy5/Evil-Hangman-Demo?embed=true";
 
 // COSMOS Interface
-const COSMOS_INTERFACE_0_THUMB = "135GH_FzEP6mV7v1kQRU4yC56FC8ENrWO";
-const COSMOS_INTERFACE_0 = "130npiLhK29XAiK7y9nue_3cOuaXYWK5c";
+const COSMOS_INTERFACE_0_THUMB = '135GH_FzEP6mV7v1kQRU4yC56FC8ENrWO'
+const COSMOS_INTERFACE_0 = '130npiLhK29XAiK7y9nue_3cOuaXYWK5c'
 
 // Fall Quarter Reflection
-const FALL_QUARTER_REFLECTION_0 = `${GOOGLE_DRIVE_PREFIX}102YUoEyh1LLXqh6G1yV4iPCCEnvG-1lT`;
+const FALL_QUARTER_REFLECTION_0 = `${GOOGLE_DRIVE_PREFIX}102YUoEyh1LLXqh6G1yV4iPCCEnvG-1lT`
 
 // ============================
-
 // Package and export
+// ============================
+
+export const content = contentData
+
+export const imageAssetMetas = {
+  'Starting a New Honors Portfolio Website':
+  startingANewHonorsPortfolioWebsiteImageMeta,
+  'Nautilus Renders': nautilusRendersImageMeta,
+  'COSMOS Interface': cosmosInterfaceImageMeta,
+}
+
+export const linkAssetMetas = {
+  'International Brain Lab Position': internationalBrainLabPositionLinkMeta,
+  'Multimodality Final Portfolio': multimodalityFinalPortfolioLinkMeta,
+  'NASA Summer Undergraduate Research Program': nasaSummerUndergraduateResearchProgramLinkMeta,
+}
+
 export const imageAssets = {
-  "Starting a New Honors Portfolio Website": [
+  'Starting a New Honors Portfolio Website': [
     STARTING_A_NEW_HONORS_PORTFOLIO_WEBSITE_0,
     STARTING_A_NEW_HONORS_PORTFOLIO_WEBSITE_1,
   ],
-  "Nautilus Renders": [
+  'Nautilus Renders': [
     NAUTILUS_RENDERS_0,
     NAUTILUS_RENDERS_1,
     NAUTILUS_RENDERS_2,
@@ -88,17 +103,6 @@ export const imageAssetThumbnails = {
     NAUTILUS_RENDERS_5_THUMB,
   ],
   "COSMOS Interface": [COSMOS_INTERFACE_0_THUMB],
-};
-export const linkAssets = {
-  "International Brain Lab Position": [
-    INTERNATIONAL_BRAIN_LAB_POSITION_0,
-    INTERNATIONAL_BRAIN_LAB_POSITION_1,
-  ],
-  "Multimodality Final Portfolio": [MULTIMODALITY_FINAL_PORTFOLIO_0],
-  "NASA Summer Undergraduate Research Program": [
-    NASA_SUMMER_UNDERGRADUATE_RESEARCH_PROGRAM_0,
-    NASA_SUMMER_UNDERGRADUATE_RESEARCH_PROGRAM_1,
-  ],
 };
 export const embedAssets = {
   "ROV22 Simulation Demo": [ROV22_SIMULATION_DEMO_0],
