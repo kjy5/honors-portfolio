@@ -8,6 +8,7 @@ import Artifacts from "./components/Artifacts";
 import { createRoot } from "react-dom/client";
 import Graphics from "./scripts/graphics"; // skipcq: JS-0249
 import InProgress from "./components/InProgress"; // skipcq: JS-0249
+import NavBar from "./components/NavBar";
 import React from "react";
 
 getContent().then((contentData) => {
@@ -26,6 +27,7 @@ getContent().then((contentData) => {
             <React.StrictMode>
               <div id="top" />
               <InProgress />
+              <NavBar />
               <Artifacts contentData={contentData} />
             </React.StrictMode>
           }

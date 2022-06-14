@@ -28,7 +28,11 @@ export default function Artifacts(props) {
     if (artifact.year !== curYear) {
       curYear = artifact.year;
       output.push(
-        <div className="Artifacts__year-header" key={`year_${curYear}`} />
+        <div
+          className="Artifacts__year-header"
+          key={`year_${curYear}`}
+          id={`year_${curYear}`}
+        />
       );
     }
 
