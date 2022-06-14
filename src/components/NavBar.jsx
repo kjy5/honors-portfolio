@@ -1,6 +1,6 @@
-import '../styles/NavBar.css'
+import "../styles/NavBar.css";
 
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 
 /**
  * @description NavBar component
@@ -42,7 +42,7 @@ export default function NavBar() {
       case 3:
         return "Senior";
       default:
-        return 'Graduate'
+        return "Graduate";
     }
   };
 
