@@ -1,18 +1,18 @@
-import '../styles/ArtifactContents.css'
-import { embedAssets } from '../scripts/asset-imports'
-import Gallery from './Gallery' // skipcq: JS-0249
-import { getURLName } from '../scripts/content-handler'
-import React from 'react' // skipcq: JS-0249
-import RichLinks from './RichLinks'
+import "../styles/ArtifactContents.css";
+import { embedAssets } from "../scripts/asset-imports";
+import Gallery from "./Gallery"; // skipcq: JS-0249
+import { getURLName } from "../scripts/content-handler";
+import React from "react"; // skipcq: JS-0249
+import RichLinks from "./RichLinks";
 
 /**
  * Contents of an artifact including images, embedded items, and text
  * @param {object} props content data for a single artifact
  * @returns {JSX.Element} Artifact contents component
  */
-export default function ArtifactContents (props) {
+export default function ArtifactContents(props) {
   // Destructure props
-  const { artifact } = props
+  const { artifact } = props;
   const { title, subtitle, hasEmbed, hasImages, hasLink, text, year, quarter } =
     artifact;
 
