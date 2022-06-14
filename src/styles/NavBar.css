@@ -1,0 +1,23 @@
+.NavBar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+
+.NavYear {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "title title title";
+}
+
+.NavYear__title {
+  color: white;
+  text-align: center;
+  grid-area: title;
+}
+
+.NavYear__quarter {
+  color: white;
+  text-align: center;
+}

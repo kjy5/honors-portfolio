@@ -1,62 +1,50 @@
-import { Chrono } from 'react-chrono'
+import '../styles/NavBar.css'
+
 import React from 'react'
 
+/**
+ * @description NavBar component
+ * @returns {*[]} JSX elements for the NavBar
+ */
 export default function NavBar () {
-  const items = [
-    {
-      title: 'Freshman Fall',
-    },
-    {
-      title: 'Freshman Winter',
-    },
-    {
-      title: 'Freshman Spring',
-    },
-    {
-      title: 'Sophomore Fall',
-    },
-    {
-      title: 'Sophomore Winter',
-    },
-    {
-      title: 'Sophomore Spring',
-    },
-    {
-      title: 'Junior Fall',
-    },
-    {
-      title: 'Junior Winter',
-    },
-    {
-      title: 'Junior Spring',
-    },
-    {
-      title: 'Senior Fall',
-    },
-    {
-      title: 'Senior Winter',
-    },
-    {
-      title: 'Senior Spring',
-    }
-  ]
 
-  const theme = {
-    primary: 'white',
-    secondary: 'blue',
-    titleColor: 'grey',
-    titleColorActive: 'white'
+  /**
+   * @description Convert year number to string
+   * @returns {string} Year string
+   */
+  const yearToString = (year) => {
+    switch (year) {
+      case 0:
+        return 'Freshman'
+      case 1:
+        return 'Sophomore'
+      case 2:
+        return 'Junior'
+      case 3:
+        return 'Senior'
+      default:
+        return 'Unknown'
+    }
   }
 
+  const navYearElement = (year) => {
+    return (
+      <div className="NavYear">
+        <h2 className="NavYear__title">{yearToString(year)}</h2>
+        <a href={`#year_${year}_quarter_0`} className="NavYear__quarter">Fall</a>
+        <a href={`#year_${year}_quarter_1`} className="NavYear__quarter">Winter</a>
+        <a href={`#year_${year}_quarter_2`} className="NavYear__quarter">Spring</a>
+      </div>
+    )
+  }
+
+  let output = []
+  for (let i = 0; i < 4; i++) {
+    output.push(navYearElement(i))
+  }
   return (
-    <div style={{ width: '100%', height: '100px' }}>
-      <Chrono items={items}
-              theme={theme}
-              mode="HORIZONTAL"
-              cardLess="true"
-              hideControls="true"
-        // flipLayout="true"
-      />
+    <div className="NavBar">
+      {output}
     </div>
   )
 }
