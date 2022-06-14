@@ -1,12 +1,32 @@
 import '../styles/NavBar.css'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 
 /**
  * @description NavBar component
  * @returns {JSX.Element} JSX elements for the NavBar
  */
 export default function NavBar () {
+
+  useEffect(() => {
+    const scrollToTopButton = document.querySelector('#scroll_to_top_button')
+
+    window.onscroll = () => {
+      if (window.scrollY > 350) {
+        scrollToTopButton.classList.add('show')
+      } else {
+        scrollToTopButton.classList.remove('show')
+      }
+    }
+  })
+
+  /**
+   * @description Function to scroll to the top of the page
+   * @type {(function(): void)|*}
+   */
+  const scrollToTop = React.useCallback(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   /**
    * @description Convert year number to string
@@ -51,7 +71,18 @@ export default function NavBar () {
   }
   return (
     <div className="NavBar">
+      {/*Nav items*/}
       {output}
+
+      {/*Scroll to top button*/}
+      <button className="NavBar__back-to-top"
+              id="scroll_to_top_button"
+              onClick={scrollToTop}
+              onKeyDown={scrollToTop}
+              tabIndex="0"
+      >
+        &#8613;
+      </button>
     </div>
   )
 }
