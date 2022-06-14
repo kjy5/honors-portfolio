@@ -1,18 +1,6 @@
-import content from "../assets/content.tsv?url";
-// Metas import
-import cosmosInterfaceMeta from "../assets/metas/COSMOS Interface.tsv?url";
-import nautilusRendersMeta from "../assets/metas/Nautilus Renders.tsv?url";
-import startingANewHonorsPortfolioWebsiteMeta from "../assets/metas/Starting a New Honors Portfolio Website.tsv?url";
-
+import { content, imageAssetMetas, linkAssetMetas } from "./asset-imports";
 // noinspection ES6CheckImport
 import { tsv } from "d3";
-
-const imageAssetMetas = {
-  "Starting a New Honors Portfolio Website":
-    startingANewHonorsPortfolioWebsiteMeta,
-  "Nautilus Renders": nautilusRendersMeta,
-  "COSMOS Interface": cosmosInterfaceMeta,
-};
 
 /**
  * @description Loads the content data from the content.tsv file
@@ -29,6 +17,15 @@ export async function getContent() {
  */
 export async function getImageAssetMetas(imageAssetName) {
   return Promise.all(await tsv(imageAssetMetas[imageAssetName]));
+}
+
+/**
+ * @description Loads the link asset metas data from the corresponding meta file
+ * @param linkAssetName {string} The name of the artifact
+ * @returns {Promise<Awaited<unknown>[]>} An array of link asset metas data objects
+ */
+export async function getLinkAssetMetas(linkAssetName) {
+  return Promise.all(await tsv(linkAssetMetas[linkAssetName]));
 }
 
 /**

@@ -1,9 +1,9 @@
 import "../styles/ArtifactContents.css";
-import { embedAssets, linkAssets } from "../scripts/asset-imports";
-import Gallery from "./Gallery";
+import { embedAssets } from "../scripts/asset-imports";
+import Gallery from "./Gallery"; // skipcq: JS-0249
 import { getURLName } from "../scripts/content-handler";
 import React from "react"; // skipcq: JS-0249
-import RichLink from "./RichLink";
+import RichLinks from "./RichLinks";
 
 /**
  * Contents of an artifact including images, embedded items, and text
@@ -98,10 +98,7 @@ export default function ArtifactContents(props) {
       {/* External Link */}
       {hasLink !== "" && (
         <div className="ArtifactContents__external-links">
-          <h3>Links</h3>
-          {linkAssets[title].map((linkSrc) => {
-            return <RichLink key={linkSrc} url={linkSrc} />;
-          })}
+          <RichLinks assetName={title} />
         </div>
       )}
 
