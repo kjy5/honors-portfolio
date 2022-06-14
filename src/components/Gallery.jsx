@@ -1,26 +1,26 @@
-import 'photoswipe/dist/photoswipe.css'
-import 'photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css'
-import '../styles/Gallery.css'
-import { getImageAssetMetas, getURLName } from '../scripts/content-handler'
-import React, { useEffect, useState } from 'react' // skipcq: JS-0249
-import PhotoSwipeDynamicCaption from 'photoswipe-dynamic-caption-plugin'
-import PhotoSwipeLightbox from 'photoswipe/lightbox'
-import PropTypes from 'prop-types'
+import "photoswipe/dist/photoswipe.css";
+import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
+import "../styles/Gallery.css";
+import { getImageAssetMetas, getURLName } from "../scripts/content-handler";
+import React, { useEffect, useState } from "react"; // skipcq: JS-0249
+import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
+import PhotoSwipeLightbox from "photoswipe/lightbox";
+import PropTypes from "prop-types";
 
 /**
  * PhotoSwipe power image gallery.
  * @param {object} props
  * @returns {JSX.Element} gallery as a React component
  */
-export default function Gallery (props) {
+export default function Gallery(props) {
   // Destructure title from props
-  const { title } = props
+  const { title } = props;
 
   // Make title ID compatible
-  const idTitle = getURLName(title)
+  const idTitle = getURLName(title);
 
   // Update against meta data
-  const [metaData, setMetaData] = useState([])
+  const [metaData, setMetaData] = useState([]);
 
   // Initialize the gallery
   useEffect(() => {
@@ -71,7 +71,7 @@ export default function Gallery (props) {
           {/* Caption */}
           <span className="pswp-caption-content">
             <h2>{imageMeta.name}</h2>
-            <br/>
+            <br />
             {imageMeta.description}
           </span>
         </a>
