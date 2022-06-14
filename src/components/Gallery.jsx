@@ -2,7 +2,6 @@ import "photoswipe/dist/photoswipe.css";
 import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
 import "../styles/Gallery.css";
 import { getImageAssetMetas, getURLName } from "../scripts/content-handler";
-import { imageAssets, imageAssetThumbnails } from "../scripts/asset-imports"; // skipcq: JS-0249
 import React, { useEffect, useState } from "react"; // skipcq: JS-0249
 import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
@@ -22,13 +21,6 @@ export default function Gallery(props) {
 
   // Update against meta data
   const [metaData, setMetaData] = useState([]);
-
-  // Grab images and metadata for artifact
-  const images = imageAssets[title];
-  const thumbnails = imageAssetThumbnails[title];
-
-  // Google Drive URL prefix
-  const GOOGLE_DRIVE_PREFIX = "https://drive.google.com/uc?id=";
 
   // Initialize the gallery
   useEffect(() => {
@@ -61,26 +53,26 @@ export default function Gallery(props) {
   return (
     <div className="ArtifactContents__Gallery" id={idTitle}>
       {/* Loop through images and thumbnails */}
-      {images.map((image, index) => (
+      {metaData.map((imageMeta) => (
         <a
-          key={`${title}_gallery_${image}`}
-          href={`${GOOGLE_DRIVE_PREFIX}${image}`}
-          data-pswp-width={metaData[index]?.width}
-          data-pswp-height={metaData[index]?.height}
+          key={`${title}_gallery_${imageMeta.name}`}
+          href={imageMeta.image}
+          data-pswp-width={imageMeta.width}
+          data-pswp-height={imageMeta.height}
           target="_blank"
           rel="noreferrer"
         >
-          {/* Thumbnail image */}
+          {/* Thumbnail imageMeta */}
           <img
             className="ArtifactContents__Gallery-thumbnail"
-            src={`${GOOGLE_DRIVE_PREFIX}${thumbnails[index]}`}
-            alt={metaData[index]?.name}
+            src={imageMeta.thumbnail}
+            alt={imageMeta.name}
           />
           {/* Caption */}
           <span className="pswp-caption-content">
-            <h2>{metaData[index]?.name}</h2>
+            <h2>{imageMeta.name}</h2>
             <br />
-            {metaData[index]?.description}
+            {imageMeta.description}
           </span>
         </a>
       ))}
