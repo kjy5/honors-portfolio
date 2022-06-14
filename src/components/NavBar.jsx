@@ -1,6 +1,6 @@
-import "../styles/NavBar.css";
+import '../styles/NavBar.css'
 
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react'
 
 /**
  * @description NavBar component
@@ -42,7 +42,7 @@ export default function NavBar() {
       case 3:
         return "Senior";
       default:
-        return "Unknown";
+        return 'Graduate'
     }
   };
 
@@ -86,6 +86,7 @@ export default function NavBar() {
         onClick={scrollToTop}
         onKeyDown={scrollToTop}
         tabIndex="0"
+        type="button"
       >
         &#8613;
       </button>
