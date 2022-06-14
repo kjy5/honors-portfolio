@@ -1,4 +1,11 @@
 .NavBar {
+  background: rgba(100, 100, 100, 0.15);
+  padding-bottom: 1.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+
+  border-radius: 15px;
+
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
@@ -9,6 +16,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "title title title";
+  grid-gap: 5px;
 }
 
 .NavYear__title {
@@ -17,7 +25,22 @@
   grid-area: title;
 }
 
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .NavYear__quarter {
   color: white;
+  text-decoration: none;
   text-align: center;
+  font-size: larger;
+  background: rgba(81, 115, 148, 0.3);
+  padding: 0.5em;
+  margin-top: -0.5em;
+  border-radius: 15px;
+}
+
+.NavYear__quarter:hover {
+  background: rgba(81, 115, 148, 0.7);
 }

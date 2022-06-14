@@ -4,7 +4,7 @@ import React from 'react'
 
 /**
  * @description NavBar component
- * @returns {*[]} JSX elements for the NavBar
+ * @returns {JSX.Element} JSX elements for the NavBar
  */
 export default function NavBar () {
 
@@ -27,9 +27,15 @@ export default function NavBar () {
     }
   }
 
-  const navYearElement = (year) => {
+  /**
+   * @description Year nav bar item
+   * @param year {number} Year number
+   * @param disabled {boolean} Whether the year is disabled
+   * @returns {JSX.Element} JSX element for the year nav bar item
+   */
+  const navYearElement = (year, disabled) => {
     return (
-      <div className="NavYear">
+      <div className={`NavYear ${disabled && 'disabled'}`} key={year}>
         <h2 className="NavYear__title">{yearToString(year)}</h2>
         <a href={`#year_${year}_quarter_0`} className="NavYear__quarter">Fall</a>
         <a href={`#year_${year}_quarter_1`} className="NavYear__quarter">Winter</a>
@@ -39,8 +45,9 @@ export default function NavBar () {
   }
 
   let output = []
-  for (let i = 0; i < 4; i++) {
-    output.push(navYearElement(i))
+  output.push(navYearElement(0, false))
+  for (let i = 1; i < 4; i++) {
+    output.push(navYearElement(i, true))
   }
   return (
     <div className="NavBar">
