@@ -1,5 +1,6 @@
 import '../styles/NavBar.css'
 
+import { insertText } from '../scripts/graphics'
 import React, { useEffect } from 'react'
 
 /**
@@ -8,8 +9,8 @@ import React, { useEffect } from 'react'
  */
 export default function NavBar () {
   useEffect(() => {
+    // Set scroll
     const scrollToTopButton = document.querySelector('#scroll_to_top_button')
-
     window.onscroll = () => {
       if (window.scrollY > 350) {
         scrollToTopButton.classList.add('show')
@@ -17,6 +18,15 @@ export default function NavBar () {
         scrollToTopButton.classList.remove('show')
       }
     }
+
+    // Add title
+    const topDiv = document.querySelector('#top')
+    insertText(
+      'Kenneth\'s Honors Portfolio',
+      window.innerWidth / 2000,
+      0,
+      topDiv.offsetTop + topDiv.offsetHeight
+    )
   })
 
   /**

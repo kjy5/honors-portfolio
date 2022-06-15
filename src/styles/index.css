@@ -24,9 +24,7 @@ main {
   display: grid;
   grid-template-rows: 15%;
   grid-auto-rows: auto;
-
-  /* Allow Orbit controls to still work */
-  /*pointer-events: none;*/
+  grid-row-gap: 20px;
 }
 
 body {

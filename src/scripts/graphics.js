@@ -4,36 +4,17 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
 
-/**
- * Responsive resizing of ThreeJS render output (canvas)
- * @param {THREE.WebGLRenderer} renderer The renderer to resize
- * @returns {boolean} If the renderer needed to be resized
- */
-function resizeRendererToDisplaySize (renderer) {
-  // noinspection JSUnresolvedVariable
-  const canvas = renderer.domElement
-  const pixelRatio = window.devicePixelRatio
-  const width = (canvas.clientWidth * pixelRatio) | 0
-  const height = (canvas.clientHeight * pixelRatio) | 0
-  const needResize = canvas.width !== width || canvas.height !== height
-  if (needResize) {
-    renderer.setSize(width, height, false)
-  }
-  return needResize
-}
-
+// Setup Three
+const scene = new THREE.Scene()
+const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 1000)
+const renderer = new THREE.WebGLRenderer({
+  canvas: document.querySelector('#canvas'),
+  alpha: true,
+})
 /**
  * @description Creates a ThreeJS scene and runs the render loop
  */
 export default function Graphics () {
-  // Setup Three
-  const scene = new THREE.Scene()
-  const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 1000)
-  const renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector('#canvas'),
-    alpha: true,
-  })
-
   // Setup Camera
   const cameraGroup = new THREE.Group()
   camera.position.z = 5
@@ -44,7 +25,7 @@ export default function Graphics () {
   let scroll = window.scrollY
   window.addEventListener('scroll', () => {
     const url = window.location.href
-    if (url.includes('honors-portfolio/#year') || url.substring(url.length - 17) === 'honors-portfolio/') {
+    if (url.substring(url.length - 17) === 'honors-portfolio/') {
       scroll = window.scrollY
     }
   })
@@ -62,46 +43,6 @@ export default function Graphics () {
   directionalLight.position.set(3, 3, 10)
   scene.add(ambientLight)
   scene.add(directionalLight)
-
-  // Add title
-  const fontLoader = new FontLoader()
-  let titleOffset
-  fontLoader.load(CoolveticaFont, (font) => {
-    const textGeometry = new TextGeometry('Kenneth\'s Honors Portfolio', {
-      font,
-      size: window.innerWidth / 1920,
-      height: 0.075,
-      curveSegments: 8,
-      bevelEnabled: false,
-      bevelThickness: 0.05,
-      bevelSize: 0.005,
-      bevelSegments: 1,
-    })
-    const textMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff })
-    const textMesh = new THREE.Mesh(textGeometry, textMaterial)
-    textMesh.geometry.computeBoundingBox()
-
-    // Place based on 2D screen coordinates
-    const vec = new THREE.Vector3()
-    vec.set(0, 0.7, 0.5)
-    vec.unproject(camera)
-    vec.sub(camera.position).normalize()
-    const distance = -camera.position.z / vec.z
-    titleOffset = camera.position.clone().add(vec.multiplyScalar(distance))
-
-    textMesh.position.x = -textMesh.geometry.boundingBox.max.x / 2
-    textMesh.position.y = titleOffset.y
-    textMesh.position.z = titleOffset.z
-
-    // Add to scene
-    scene.add(textMesh)
-
-    // Visualization helpers
-    // const boxHelper = new THREE.BoxHelper(textMesh, 0xffff00)
-    // const gridHelper = new THREE.GridHelper(10, 10)
-    // scene.add(boxHelper)
-    // scene.add(gridHelper)
-  })
 
   // Add particles
   const particlesCount = 150
@@ -160,4 +101,61 @@ export default function Graphics () {
   } else {
     document.body.appendChild(WebGL.getWebGLErrorMessage())
   }
+}
+
+/**
+ * Responsive resizing of ThreeJS render output (canvas)
+ * @param {THREE.WebGLRenderer} renderer The renderer to resize
+ * @returns {boolean} If the renderer needed to be resized
+ */
+function resizeRendererToDisplaySize (renderer) {
+  // noinspection JSUnresolvedVariable
+  const canvas = renderer.domElement
+  const pixelRatio = window.devicePixelRatio
+  const width = (canvas.clientWidth * pixelRatio) | 0
+  const height = (canvas.clientHeight * pixelRatio) | 0
+  const needResize = canvas.width !== width || canvas.height !== height
+  if (needResize) {
+    // noinspection JSUnresolvedFunction
+    renderer.setSize(width, height, false)
+  }
+  return needResize
+}
+
+export function insertText (text, size, locationX, locationY) {
+  const fontLoader = new FontLoader()
+  fontLoader.load(CoolveticaFont, (font) => {
+    const textGeometry = new TextGeometry(text, {
+      font,
+      size: size || 1,
+      height: 0.075,
+      curveSegments: 8,
+      bevelEnabled: false,
+      bevelThickness: 0.05,
+      bevelSize: 0.005,
+      bevelSegments: 1,
+    })
+    const textMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff })
+    const textMesh = new THREE.Mesh(textGeometry, textMaterial)
+    textMesh.geometry.computeBoundingBox()
+
+    // Place based on 2D screen coordinates
+    const vec = new THREE.Vector3(
+      locationX / window.innerWidth * 2 - 1,
+      -(locationY / window.innerHeight * 2 - 1),
+      0.5
+    )
+      .unproject(camera)
+      .sub(camera.position)
+      .normalize()
+    const distance = -camera.position.z / vec.z
+    let titleOffset = camera.position.clone().add(vec.multiplyScalar(distance))
+
+    textMesh.position.x = -textMesh.geometry.boundingBox.max.x / 2
+    textMesh.position.y = titleOffset.y
+    textMesh.position.z = titleOffset.z
+
+    // Add to scene
+    scene.add(textMesh)
+  })
 }

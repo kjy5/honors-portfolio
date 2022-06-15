@@ -50,8 +50,7 @@ export default function Artifacts (props) {
 
     // Insert artifact card, contents, and divider
     output.push(
-      <ArtifactCard artifact={artifact} key={artifact.title}/>,
-      <div key={artifact.subtitle} className="Artifacts__spacers"/>
+      <ArtifactCard artifact={artifact} key={artifact.title}/>
     )
   })
 
