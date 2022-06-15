@@ -9,7 +9,7 @@ const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 1000)
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#canvas'),
-  alpha: true,
+  alpha: true
 })
 let needToRender = true
 /**
@@ -32,7 +32,7 @@ export default function Graphics () {
   })
 
   // Setup parallax
-  let cursor = { x: 0, y: 0 }
+  const cursor = { x: 0, y: 0 }
   window.addEventListener('mousemove', (e) => {
     cursor.x = e.clientX / window.innerWidth - 0.5
     cursor.y = e.clientY / window.innerHeight - 0.5
@@ -55,17 +55,19 @@ export default function Graphics () {
   }
 
   const particlesGeometry = new THREE.BufferGeometry()
-  particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+  particlesGeometry.setAttribute(
+    'position',
+    new THREE.BufferAttribute(positions, 3)
+  )
 
   const particlesMaterial = new THREE.PointsMaterial({
     color: '#ffeded',
     sizeAttenuation: true,
-    size: 0.03,
+    size: 0.03
   })
 
   const particles = new THREE.Points(particlesGeometry, particlesMaterial)
   scene.add(particles)
-
 
   // Setup render loop
   const clock = new THREE.Clock()
@@ -84,12 +86,13 @@ export default function Graphics () {
     }
 
     // Set camera position to scroll
-    camera.position.y = -scroll / window.innerHeight * 7.9
+    camera.position.y = (-scroll / window.innerHeight) * 7.9
 
     // Apply parallax
-    cameraGroup.position.x += (cursor.x * 0.2 - cameraGroup.position.x) * 5 * delta
-    cameraGroup.position.y += (-cursor.y * 0.2 - cameraGroup.position.y) * 5 * delta
-
+    cameraGroup.position.x +=
+      (cursor.x * 0.2 - cameraGroup.position.x) * 5 * delta
+    cameraGroup.position.y +=
+      (-cursor.y * 0.2 - cameraGroup.position.y) * 5 * delta
 
     renderer.render(scene, camera)
 
@@ -134,7 +137,7 @@ export function insertText (text, size, locationX, locationY) {
       bevelEnabled: false,
       bevelThickness: 0.05,
       bevelSize: 0.005,
-      bevelSegments: 1,
+      bevelSegments: 1
     })
     const textMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff })
     const textMesh = new THREE.Mesh(textGeometry, textMaterial)
@@ -142,15 +145,17 @@ export function insertText (text, size, locationX, locationY) {
 
     // Place based on 2D screen coordinates
     const vec = new THREE.Vector3(
-      locationX / window.innerWidth * 2 - 1,
-      -(locationY / window.innerHeight * 2 - 1),
+      (locationX / window.innerWidth) * 2 - 1,
+      -((locationY / window.innerHeight) * 2 - 1),
       0.5
     )
       .unproject(camera)
       .sub(camera.position)
       .normalize()
     const distance = -camera.position.z / vec.z
-    let titleOffset = camera.position.clone().add(vec.multiplyScalar(distance))
+    const titleOffset = camera.position
+      .clone()
+      .add(vec.multiplyScalar(distance))
 
     textMesh.position.x = -textMesh.geometry.boundingBox.max.x / 2
     textMesh.position.y = titleOffset.y

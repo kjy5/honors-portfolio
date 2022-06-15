@@ -1,7 +1,11 @@
 import '../styles/Artifacts.css'
 
 import ArtifactCard from './ArtifactCard'
-import { getNeedToRender, insertText, setNeedToRender } from '../scripts/graphics'
+import {
+  getNeedToRender,
+  insertText,
+  setNeedToRender
+} from '../scripts/graphics'
 import { quarterToString, yearToString } from '../scripts/content-handler'
 import React, { useEffect } from 'react'
 
@@ -21,7 +25,7 @@ export default function Artifacts (props) {
       // Add title
       const topDiv = document.querySelector('#top')
       insertText(
-        'Kenneth\'s Honors Portfolio',
+        "Kenneth's Honors Portfolio",
         Math.min(1200 / window.innerWidth, 0.7),
         0,
         topDiv.offsetTop + topDiv.offsetHeight
@@ -37,7 +41,9 @@ export default function Artifacts (props) {
           yearDiv.offsetTop + yearDiv.offsetHeight
         )
         for (let quarter = 0; quarter < 3; quarter++) {
-          const quarterDiv = document.querySelector(`#year_${year}_quarter_${quarter}`)
+          const quarterDiv = document.querySelector(
+            `#year_${year}_quarter_${quarter}`
+          )
           insertText(
             quarterToString(quarter),
             Math.min(600 / window.innerWidth, 0.4),
@@ -66,7 +72,7 @@ export default function Artifacts (props) {
       curYear = artifact.year
       output.push(
         <div
-          className="Artifacts__year-header"
+          className='Artifacts__year-header'
           key={`year_${curYear}`}
           id={`year_${curYear}`}
         />
@@ -78,7 +84,7 @@ export default function Artifacts (props) {
       curQuarter = artifact.quarter
       output.push(
         <div
-          className="Artifacts__quarter-header"
+          className='Artifacts__quarter-header'
           key={`year_${curYear}_quarter_${curQuarter}`}
           id={`year_${curYear}_quarter_${curQuarter}`}
         />
@@ -86,9 +92,7 @@ export default function Artifacts (props) {
     }
 
     // Insert artifact card, contents, and divider
-    output.push(
-      <ArtifactCard artifact={artifact} key={artifact.title}/>
-    )
+    output.push(<ArtifactCard artifact={artifact} key={artifact.title} />)
   })
 
   // Return artifacts

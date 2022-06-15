@@ -21,10 +21,10 @@ getContent().then((contentData) => {
       <Routes>
         {/* Main Route */}
         <Route
-          path="/honors-portfolio"
+          path='/honors-portfolio'
           element={
             <React.StrictMode>
-              <div id="top" />
+              <div id='top' />
               <NavBar />
               <Artifacts contentData={contentData} />
             </React.StrictMode>
@@ -43,12 +43,12 @@ getContent().then((contentData) => {
                 </React.StrictMode>
               }
             />
-          );
+          )
         })}
 
         {/* 404 Route */}
-        <Route path="*" element={<div>404</div>} />
+        <Route path='*' element={<div>404</div>} />
       </Routes>
     </BrowserRouter>
-  );
-});
+  )
+})

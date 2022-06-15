@@ -48,12 +48,16 @@ export default function NavBar () {
     }
   }
 
-  const scrollToLocation = React.useCallback((year, quarter) => () => {
-    window.scrollTo({
-      top: document.querySelector(`#year_${year}_quarter_${quarter}`).offsetTop,
-      behavior: 'smooth'
-    })
-  }, [])
+  const scrollToLocation = React.useCallback(
+    (year, quarter) => () => {
+      window.scrollTo({
+        top: document.querySelector(`#year_${year}_quarter_${quarter}`)
+          .offsetTop,
+        behavior: 'smooth'
+      })
+    },
+    []
+  )
 
   /**
    * @description Year nav bar item
@@ -64,28 +68,31 @@ export default function NavBar () {
   const navYearElement = (year, disabled) => {
     return (
       <div className={`NavYear ${disabled && 'disabled'}`} key={year}>
-        <h2 className="NavYear__title">{yearToString(year)}</h2>
-        <div className="NavYear__quarter"
-             onClick={scrollToLocation(year, 0)}
-             onKeyDown={scrollToLocation(year, 0)}
-             tabIndex="0"
-             role="button"
+        <h2 className='NavYear__title'>{yearToString(year)}</h2>
+        <div
+          className='NavYear__quarter'
+          onClick={scrollToLocation(year, 0)}
+          onKeyDown={scrollToLocation(year, 0)}
+          tabIndex='0'
+          role='button'
         >
           Fall
         </div>
-        <div className="NavYear__quarter"
-             onClick={scrollToLocation(year, 1)}
-             onKeyDown={scrollToLocation(year, 1)}
-             tabIndex="0"
-             role="button"
+        <div
+          className='NavYear__quarter'
+          onClick={scrollToLocation(year, 1)}
+          onKeyDown={scrollToLocation(year, 1)}
+          tabIndex='0'
+          role='button'
         >
           Winter
         </div>
-        <div className="NavYear__quarter"
-             onClick={scrollToLocation(year, 2)}
-             onKeyDown={scrollToLocation(year, 2)}
-             tabIndex="0"
-             role="button"
+        <div
+          className='NavYear__quarter'
+          onClick={scrollToLocation(year, 2)}
+          onKeyDown={scrollToLocation(year, 2)}
+          tabIndex='0'
+          role='button'
         >
           Spring
         </div>
@@ -99,18 +106,18 @@ export default function NavBar () {
     output.push(navYearElement(i, true))
   }
   return (
-    <div className="NavBar">
+    <div className='NavBar'>
       {/* Nav items */}
       {output}
 
       {/* Scroll to top button */}
       <button
-        className="NavBar__back-to-top"
-        id="scroll_to_top_button"
+        className='NavBar__back-to-top'
+        id='scroll_to_top_button'
         onClick={scrollToTop}
         onKeyDown={scrollToTop}
-        tabIndex="0"
-        type="button"
+        tabIndex='0'
+        type='button'
       >
         &#8613;
       </button>
