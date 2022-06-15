@@ -1,7 +1,9 @@
 import '../styles/Artifacts.css'
 
 import ArtifactCard from './ArtifactCard'
-import React from 'react'
+import { insertText } from '../scripts/graphics'
+import { quarterToString, yearToString } from '../scripts/content-handler'
+import React, { useEffect } from 'react'
 
 /**
  * @description Parent component holding Artifact Card and Artifact Contents
@@ -13,6 +15,27 @@ export default function Artifacts (props) {
 
   // Un-blur background
   document.querySelector('#canvas').classList.remove('blur')
+
+  useEffect(() => {
+    for (let year = 0; year < 1; year++) {
+      const yearDiv = document.querySelector(`#year_${year}`)
+      insertText(
+        yearToString(year),
+        window.innerWidth / 2500,
+        0,
+        yearDiv.offsetTop + yearDiv.offsetHeight
+      )
+      for (let quarter = 0; quarter < 3; quarter++) {
+        const quarterDiv = document.querySelector(`#year_${year}_quarter_${quarter}`)
+        insertText(
+          quarterToString(quarter),
+          window.innerWidth / 3000,
+          0,
+          quarterDiv.offsetTop + quarterDiv.offsetHeight
+        )
+      }
+    }
+  }, [])
 
   // Render Artifact cards
   // Hold cards as they are created
