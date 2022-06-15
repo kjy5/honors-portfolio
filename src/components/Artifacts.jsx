@@ -1,7 +1,11 @@
 import '../styles/Artifacts.css'
 
 import ArtifactCard from './ArtifactCard'
-import { getNeedToRender, insertText, setNeedToRender } from '../scripts/graphics' // skipcq: JS-0249
+import {
+  getNeedToRender,
+  insertText,
+  setNeedToRender
+} from '../scripts/graphics' // skipcq: JS-0249
 import { quarterToString, yearToString } from '../scripts/content-handler'
 import React, { useEffect } from 'react' // skipcq: JS-0249
 
