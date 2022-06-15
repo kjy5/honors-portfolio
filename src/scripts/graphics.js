@@ -27,25 +27,28 @@ function resizeRendererToDisplaySize (renderer) {
  */
 export default function Graphics() {
   // Setup Three
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 1000);
+  const scene = new THREE.Scene()
+  const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 1000)
   const renderer = new THREE.WebGLRenderer({
     canvas: document.querySelector('#canvas'),
     alpha: true,
-  });
+  })
 
   // Setup Camera
-  camera.position.z = 5;
+  const cameraGroup = new THREE.Group()
+  camera.position.z = 5
+  cameraGroup.add(camera)
+  scene.add(cameraGroup)
 
   // Add OrbitControls
   // const controls = new OrbitControls(camera, renderer.domElement)
 
   // Add a light
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  directionalLight.position.set(3, 3, 10);
-  scene.add(ambientLight);
-  scene.add(directionalLight);
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5)
+  directionalLight.position.set(3, 3, 10)
+  scene.add(ambientLight)
+  scene.add(directionalLight)
 
   // Add title
   const fontLoader = new FontLoader()
@@ -93,10 +96,22 @@ export default function Graphics() {
     scroll = window.scrollY
   })
 
+  // Setup parallax
+  let cursor = { x: 0, y: 0 }
+  window.addEventListener('mousemove', (e) => {
+    cursor.x = e.clientX / window.innerWidth - 0.5
+    cursor.y = e.clientY / window.innerHeight - 0.5
+  })
+
+  // Setup render loop
+  const clock = new THREE.Clock()
+
   /**
    * @description Render Loop
    */
   function animate () {
+    const delta = clock.getDelta()
+
     // Resize renderer to fit window
     if (resizeRendererToDisplaySize(renderer)) {
       const canvas = renderer.domElement
@@ -106,6 +121,10 @@ export default function Graphics() {
 
     // Set camera position to scroll
     camera.position.y = -scroll / window.innerHeight * 7.5
+
+    // Apply parallax
+    cameraGroup.position.x += (cursor.x * 0.2 - cameraGroup.position.x) * 5 * delta
+    cameraGroup.position.y += (-cursor.y * 0.2 - cameraGroup.position.y) * 5 * delta
 
     // controls.update()
 
