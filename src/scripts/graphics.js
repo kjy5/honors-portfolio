@@ -13,19 +13,19 @@ function resizeRendererToDisplaySize (renderer) {
   // noinspection JSUnresolvedVariable
   const canvas = renderer.domElement
   const pixelRatio = window.devicePixelRatio
-  const width = (canvas.clientWidth * pixelRatio) | 0;
-  const height = (canvas.clientHeight * pixelRatio) | 0;
-  const needResize = canvas.width !== width || canvas.height !== height;
+  const width = (canvas.clientWidth * pixelRatio) | 0
+  const height = (canvas.clientHeight * pixelRatio) | 0
+  const needResize = canvas.width !== width || canvas.height !== height
   if (needResize) {
-    renderer.setSize(width, height, false);
+    renderer.setSize(width, height, false)
   }
-  return needResize;
+  return needResize
 }
 
 /**
  * @description Creates a ThreeJS scene and runs the render loop
  */
-export default function Graphics() {
+export default function Graphics () {
   // Setup Three
   const scene = new THREE.Scene()
   const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 1000)
@@ -43,7 +43,10 @@ export default function Graphics() {
   // Setup scrolling
   let scroll = window.scrollY
   window.addEventListener('scroll', () => {
-    scroll = window.scrollY
+    const url = window.location.href
+    if (url.includes('honors-portfolio/#year') || url.substring(url.length - 17) === 'honors-portfolio/') {
+      scroll = window.scrollY
+    }
   })
 
   // Setup parallax
@@ -64,7 +67,7 @@ export default function Graphics() {
   const fontLoader = new FontLoader()
   let titleOffset
   fontLoader.load(CoolveticaFont, (font) => {
-    const textGeometry = new TextGeometry("Kenneth's Honors Portfolio", {
+    const textGeometry = new TextGeometry('Kenneth\'s Honors Portfolio', {
       font,
       size: window.innerWidth / 1920,
       height: 0.075,
@@ -73,10 +76,10 @@ export default function Graphics() {
       bevelThickness: 0.05,
       bevelSize: 0.005,
       bevelSegments: 1,
-    });
-    const textMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff });
-    const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-    textMesh.geometry.computeBoundingBox();
+    })
+    const textMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff })
+    const textMesh = new THREE.Mesh(textGeometry, textMaterial)
+    textMesh.geometry.computeBoundingBox()
 
     // Place based on 2D screen coordinates
     const vec = new THREE.Vector3()
@@ -98,7 +101,7 @@ export default function Graphics() {
     // const gridHelper = new THREE.GridHelper(10, 10)
     // scene.add(boxHelper)
     // scene.add(gridHelper)
-  });
+  })
 
   // Add particles
   const particlesCount = 150
@@ -153,8 +156,8 @@ export default function Graphics() {
 
   // Run loop if WebGL is available
   if (WebGL.isWebGLAvailable()) {
-    requestAnimationFrame(animate);
+    requestAnimationFrame(animate)
   } else {
-    document.body.appendChild(WebGL.getWebGLErrorMessage());
+    document.body.appendChild(WebGL.getWebGLErrorMessage())
   }
 }
