@@ -1,31 +1,33 @@
-import "../styles/NavBar.css";
-
-import React, { useEffect } from "react";
+import '../styles/NavBar.css'
+import React, { useEffect } from 'react'
 
 /**
  * @description NavBar component
  * @returns {JSX.Element} JSX elements for the NavBar
  */
-export default function NavBar() {
+export default function NavBar () {
   useEffect(() => {
-    const scrollToTopButton = document.querySelector("#scroll_to_top_button");
-
+    // Set scroll
+    const scrollToTopButton = document.querySelector('#scroll_to_top_button')
     window.onscroll = () => {
       if (window.scrollY > 350) {
-        scrollToTopButton.classList.add("show");
+        scrollToTopButton.classList.add('show')
       } else {
-        scrollToTopButton.classList.remove("show");
+        scrollToTopButton.classList.remove('show')
       }
-    };
-  });
+    }
+  })
 
   /**
    * @description Function to scroll to the top of the page
    * @type {(function(): void)|*}
    */
   const scrollToTop = React.useCallback(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, [])
 
   /**
    * @description Convert year number to string
@@ -34,17 +36,28 @@ export default function NavBar() {
   const yearToString = (year) => {
     switch (year) {
       case 0:
-        return "Freshman";
+        return 'Freshman'
       case 1:
-        return "Sophomore";
+        return 'Sophomore'
       case 2:
-        return "Junior";
+        return 'Junior'
       case 3:
-        return "Senior";
+        return 'Senior'
       default:
-        return "Graduate";
+        return 'Graduate'
     }
-  };
+  }
+
+  const scrollToLocation = React.useCallback(
+    (year, quarter) => () => {
+      window.scrollTo({
+        top: document.querySelector(`#year_${year}_quarter_${quarter}`)
+          .offsetTop,
+        behavior: 'smooth'
+      })
+    },
+    []
+  )
 
   /**
    * @description Year nav bar item
@@ -54,42 +67,60 @@ export default function NavBar() {
    */
   const navYearElement = (year, disabled) => {
     return (
-      <div className={`NavYear ${disabled && "disabled"}`} key={year}>
-        <h2 className="NavYear__title">{yearToString(year)}</h2>
-        <a href={`#year_${year}_quarter_0`} className="NavYear__quarter">
+      <div className={`NavYear ${disabled && 'disabled'}`} key={year}>
+        <h2 className='NavYear__title'>{yearToString(year)}</h2>
+        <div
+          className='NavYear__quarter'
+          onClick={scrollToLocation(year, 0)}
+          onKeyDown={scrollToLocation(year, 0)}
+          tabIndex='0'
+          role='button'
+        >
           Fall
-        </a>
-        <a href={`#year_${year}_quarter_1`} className="NavYear__quarter">
+        </div>
+        <div
+          className='NavYear__quarter'
+          onClick={scrollToLocation(year, 1)}
+          onKeyDown={scrollToLocation(year, 1)}
+          tabIndex='0'
+          role='button'
+        >
           Winter
-        </a>
-        <a href={`#year_${year}_quarter_2`} className="NavYear__quarter">
+        </div>
+        <div
+          className='NavYear__quarter'
+          onClick={scrollToLocation(year, 2)}
+          onKeyDown={scrollToLocation(year, 2)}
+          tabIndex='0'
+          role='button'
+        >
           Spring
-        </a>
+        </div>
       </div>
-    );
-  };
+    )
+  }
 
-  const output = [];
-  output.push(navYearElement(0, false));
+  const output = []
+  output.push(navYearElement(0, false))
   for (let i = 1; i < 4; i++) {
-    output.push(navYearElement(i, true));
+    output.push(navYearElement(i, true))
   }
   return (
-    <div className="NavBar">
+    <div className='NavBar'>
       {/* Nav items */}
       {output}
 
       {/* Scroll to top button */}
       <button
-        className="NavBar__back-to-top"
-        id="scroll_to_top_button"
+        className='NavBar__back-to-top'
+        id='scroll_to_top_button'
         onClick={scrollToTop}
         onKeyDown={scrollToTop}
-        tabIndex="0"
-        type="button"
+        tabIndex='0'
+        type='button'
       >
         &#8613;
       </button>
     </div>
-  );
+  )
 }

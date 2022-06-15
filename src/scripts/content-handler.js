@@ -1,13 +1,13 @@
-import { content, imageAssetMetas, linkAssetMetas } from "./asset-imports";
+import { content, imageAssetMetas, linkAssetMetas } from './asset-imports'
 // noinspection ES6CheckImport
-import { tsv } from "d3";
+import { tsv } from 'd3'
 
 /**
  * @description Loads the content data from the content.tsv file
  * @returns {Promise<*>} An array of content data objects
  */
-export async function getContent() {
-  return Promise.all(await tsv(content));
+export async function getContent () {
+  return Promise.all(await tsv(content))
 }
 
 /**
@@ -15,8 +15,8 @@ export async function getContent() {
  * @param imageAssetName {string} The name of the artifact
  * @returns {Promise<*>} An array of image asset metas data objects
  */
-export async function getImageAssetMetas(imageAssetName) {
-  return Promise.all(await tsv(imageAssetMetas[imageAssetName]));
+export async function getImageAssetMetas (imageAssetName) {
+  return Promise.all(await tsv(imageAssetMetas[imageAssetName]))
 }
 
 /**
@@ -24,8 +24,8 @@ export async function getImageAssetMetas(imageAssetName) {
  * @param linkAssetName {string} The name of the artifact
  * @returns {Promise<Awaited<unknown>[]>} An array of link asset metas data objects
  */
-export async function getLinkAssetMetas(linkAssetName) {
-  return Promise.all(await tsv(linkAssetMetas[linkAssetName]));
+export async function getLinkAssetMetas (linkAssetName) {
+  return Promise.all(await tsv(linkAssetMetas[linkAssetName]))
 }
 
 /**
@@ -33,6 +33,44 @@ export async function getLinkAssetMetas(linkAssetName) {
  * @param name {string} The name/title of the artifact
  * @returns {string} A URL compatible string
  */
-export function getURLName(name) {
-  return name.replace(/\s/g, "_").toLowerCase();
+export function getURLName (name) {
+  return name.replace(/\s/g, '_').toLowerCase()
+}
+
+/**
+ * @description Convert year number to string
+ * @param year {number} Year number
+ * @returns {string} Year string
+ */
+export const yearToString = (year) => {
+  switch (year) {
+    case 0:
+      return 'Freshman Year (2021 - 2022)'
+    case 1:
+      return 'Sophomore Year (2022- 2023)'
+    case 2:
+      return 'Junior Year (2023 - 2024)'
+    case 3:
+      return 'Senior Year (2024 - 2025)'
+    default:
+      return 'Graduate'
+  }
+}
+
+/**
+ * @description Convert quarter number to string
+ * @param quarter {number} Quarter number
+ * @returns {string} Quarter string
+ */
+export const quarterToString = (quarter) => {
+  switch (quarter) {
+    case 0:
+      return 'Fall'
+    case 1:
+      return 'Winter'
+    case 2:
+      return 'Spring'
+    default:
+      return 'Summer'
+  }
 }

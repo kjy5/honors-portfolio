@@ -12,7 +12,7 @@ canvas {
 }
 
 .blur {
-  filter: blur(50px);
+  filter: blur(30px);
 }
 
 main {
@@ -24,9 +24,7 @@ main {
   display: grid;
   grid-template-rows: 15%;
   grid-auto-rows: auto;
-
-  /* Allow Orbit controls to still work */
-  /*pointer-events: none;*/
+  grid-row-gap: 20px;
 }
 
 body {
@@ -37,8 +35,4 @@ body {
     "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-html {
-  scroll-behavior: smooth;
 }
