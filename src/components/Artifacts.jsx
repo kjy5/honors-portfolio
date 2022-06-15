@@ -1,7 +1,7 @@
 import '../styles/Artifacts.css'
 
 import ArtifactCard from './ArtifactCard'
-import { insertText } from '../scripts/graphics'
+import { getNeedToRender, insertText, setNeedToRender } from '../scripts/graphics'
 import { quarterToString, yearToString } from '../scripts/content-handler'
 import React, { useEffect } from 'react'
 
@@ -17,24 +17,38 @@ export default function Artifacts (props) {
   document.querySelector('#canvas').classList.remove('blur')
 
   useEffect(() => {
-    for (let year = 0; year < 1; year++) {
-      const yearDiv = document.querySelector(`#year_${year}`)
+    if (getNeedToRender()) {
+      // Add title
+      const topDiv = document.querySelector('#top')
       insertText(
-        yearToString(year),
-        window.innerWidth / 2500,
+        'Kenneth\'s Honors Portfolio',
+        Math.min(1200 / window.innerWidth, 0.7),
         0,
-        yearDiv.offsetTop + yearDiv.offsetHeight
+        topDiv.offsetTop + topDiv.offsetHeight
       )
-      for (let quarter = 0; quarter < 3; quarter++) {
-        const quarterDiv = document.querySelector(`#year_${year}_quarter_${quarter}`)
+
+      // Add headers
+      for (let year = 0; year < 1; year++) {
+        const yearDiv = document.querySelector(`#year_${year}`)
         insertText(
-          quarterToString(quarter),
-          window.innerWidth / 3000,
+          yearToString(year),
+          Math.min(800 / window.innerWidth, 0.5),
           0,
-          quarterDiv.offsetTop + quarterDiv.offsetHeight
+          yearDiv.offsetTop + yearDiv.offsetHeight
         )
+        for (let quarter = 0; quarter < 3; quarter++) {
+          const quarterDiv = document.querySelector(`#year_${year}_quarter_${quarter}`)
+          insertText(
+            quarterToString(quarter),
+            Math.min(600 / window.innerWidth, 0.4),
+            0,
+            quarterDiv.offsetTop + quarterDiv.offsetHeight
+          )
+        }
       }
     }
+    console.log('Headers rendered')
+    setNeedToRender(false)
   }, [])
 
   // Render Artifact cards

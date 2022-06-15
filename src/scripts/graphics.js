@@ -11,6 +11,7 @@ const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#canvas'),
   alpha: true,
 })
+let needToRender = true
 /**
  * @description Creates a ThreeJS scene and runs the render loop
  */
@@ -65,6 +66,7 @@ export default function Graphics () {
   const particles = new THREE.Points(particlesGeometry, particlesMaterial)
   scene.add(particles)
 
+
   // Setup render loop
   const clock = new THREE.Clock()
 
@@ -82,13 +84,12 @@ export default function Graphics () {
     }
 
     // Set camera position to scroll
-    camera.position.y = -scroll / window.innerHeight * 7.5
+    camera.position.y = -scroll / window.innerHeight * 7.9
 
     // Apply parallax
     cameraGroup.position.x += (cursor.x * 0.2 - cameraGroup.position.x) * 5 * delta
     cameraGroup.position.y += (-cursor.y * 0.2 - cameraGroup.position.y) * 5 * delta
 
-    // controls.update()
 
     renderer.render(scene, camera)
 
@@ -159,3 +160,6 @@ export function insertText (text, size, locationX, locationY) {
     scene.add(textMesh)
   })
 }
+
+export const getNeedToRender = () => needToRender
+export const setNeedToRender = (value) => (needToRender = value)

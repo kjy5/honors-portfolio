@@ -1,6 +1,4 @@
 import '../styles/NavBar.css'
-
-import { insertText } from '../scripts/graphics'
 import React, { useEffect } from 'react'
 
 /**
@@ -18,15 +16,6 @@ export default function NavBar () {
         scrollToTopButton.classList.remove('show')
       }
     }
-
-    // Add title
-    const topDiv = document.querySelector('#top')
-    insertText(
-      'Kenneth\'s Honors Portfolio',
-      window.innerWidth / 2000,
-      0,
-      topDiv.offsetTop + topDiv.offsetHeight
-    )
   })
 
   /**

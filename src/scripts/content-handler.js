@@ -45,13 +45,13 @@ export function getURLName (name) {
 export const yearToString = (year) => {
   switch (year) {
     case 0:
-      return 'Freshman'
+      return 'Freshman Year (2021 - 2022)'
     case 1:
-      return 'Sophomore'
+      return 'Sophomore Year (2022- 2023)'
     case 2:
-      return 'Junior'
+      return 'Junior Year (2023 - 2024)'
     case 3:
-      return 'Senior'
+      return 'Senior Year (2024 - 2025)'
     default:
       return 'Graduate'
   }
