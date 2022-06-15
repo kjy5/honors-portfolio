@@ -1,13 +1,9 @@
 import '../styles/Artifacts.css'
 
 import ArtifactCard from './ArtifactCard'
-import {
-  getNeedToRender,
-  insertText,
-  setNeedToRender
-} from '../scripts/graphics'
+import { getNeedToRender, insertText, setNeedToRender } from '../scripts/graphics' // skipcq: JS-0249
 import { quarterToString, yearToString } from '../scripts/content-handler'
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react' // skipcq: JS-0249
 
 /**
  * @description Parent component holding Artifact Card and Artifact Contents
@@ -53,7 +49,6 @@ export default function Artifacts (props) {
         }
       }
     }
-    console.log('Headers rendered')
     setNeedToRender(false)
   }, [])
 

@@ -4,6 +4,25 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
 
+/**
+ * Responsive resizing of ThreeJS render output (canvas)
+ * @param {THREE.WebGLRenderer} renderer The renderer to resize
+ * @returns {boolean} If the renderer needed to be resized
+ */
+function resizeRendererToDisplaySize (renderer) {
+  // noinspection JSUnresolvedVariable
+  const canvas = renderer.domElement
+  const pixelRatio = window.devicePixelRatio
+  const width = (canvas.clientWidth * pixelRatio) | 0
+  const height = (canvas.clientHeight * pixelRatio) | 0
+  const needResize = canvas.width !== width || canvas.height !== height
+  if (needResize) {
+    // noinspection JSUnresolvedFunction
+    renderer.setSize(width, height, false)
+  }
+  return needResize
+}
+
 // Setup Three
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 1000)
@@ -12,6 +31,7 @@ const renderer = new THREE.WebGLRenderer({
   alpha: true
 })
 let needToRender = true
+
 /**
  * @description Creates a ThreeJS scene and runs the render loop
  */
@@ -108,24 +128,12 @@ export default function Graphics () {
 }
 
 /**
- * Responsive resizing of ThreeJS render output (canvas)
- * @param {THREE.WebGLRenderer} renderer The renderer to resize
- * @returns {boolean} If the renderer needed to be resized
+ * @description Creates a ThreeJS text object
+ * @param text {string} The text to display
+ * @param size {number} The size of the text
+ * @param locationX {number} The x location of the text
+ * @param locationY {number} The y location of the text
  */
-function resizeRendererToDisplaySize (renderer) {
-  // noinspection JSUnresolvedVariable
-  const canvas = renderer.domElement
-  const pixelRatio = window.devicePixelRatio
-  const width = (canvas.clientWidth * pixelRatio) | 0
-  const height = (canvas.clientHeight * pixelRatio) | 0
-  const needResize = canvas.width !== width || canvas.height !== height
-  if (needResize) {
-    // noinspection JSUnresolvedFunction
-    renderer.setSize(width, height, false)
-  }
-  return needResize
-}
-
 export function insertText (text, size, locationX, locationY) {
   const fontLoader = new FontLoader()
   fontLoader.load(CoolveticaFont, (font) => {
@@ -166,5 +174,14 @@ export function insertText (text, size, locationX, locationY) {
   })
 }
 
+/**
+ * @description Get the render state
+ * @returns {boolean} True is graphics need to be rendered, false otherwise
+ */
 export const getNeedToRender = () => needToRender
+
+/**
+ * @description Set the render state
+ * @param value {boolean} True if graphics need to be rendered, false otherwise
+ */
 export const setNeedToRender = (value) => (needToRender = value)
