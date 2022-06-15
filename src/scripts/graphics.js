@@ -51,7 +51,7 @@ export default function Graphics() {
   fontLoader.load(CoolveticaFont, (font) => {
     const textGeometry = new TextGeometry("Kenneth's Honors Portfolio", {
       font,
-      size: 0.75,
+      size: window.innerWidth / 1920,
       height: 0.075,
       curveSegments: 8,
       bevelEnabled: false,
