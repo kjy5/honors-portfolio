@@ -40,8 +40,18 @@ export default function Graphics() {
   cameraGroup.add(camera)
   scene.add(cameraGroup)
 
-  // Add OrbitControls
-  // const controls = new OrbitControls(camera, renderer.domElement)
+  // Setup scrolling
+  let scroll = window.scrollY
+  window.addEventListener('scroll', () => {
+    scroll = window.scrollY
+  })
+
+  // Setup parallax
+  let cursor = { x: 0, y: 0 }
+  window.addEventListener('mousemove', (e) => {
+    cursor.x = e.clientX / window.innerWidth - 0.5
+    cursor.y = e.clientY / window.innerHeight - 0.5
+  })
 
   // Add a light
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
@@ -90,18 +100,26 @@ export default function Graphics() {
     // scene.add(gridHelper)
   });
 
-  // Setup scrolling
-  let scroll = window.scrollY
-  window.addEventListener('scroll', () => {
-    scroll = window.scrollY
+  // Add particles
+  const particlesCount = 150
+  const positions = new Float32Array(particlesCount * 3)
+  for (let i = 0; i < particlesCount; i++) {
+    positions[i * 3] = (Math.random() - 0.5) * 10
+    positions[i * 3 + 1] = 7.5 * 0.5 - Math.random() * 7.5 * 3
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 10
+  }
+
+  const particlesGeometry = new THREE.BufferGeometry()
+  particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+
+  const particlesMaterial = new THREE.PointsMaterial({
+    color: '#ffeded',
+    sizeAttenuation: true,
+    size: 0.03,
   })
 
-  // Setup parallax
-  let cursor = { x: 0, y: 0 }
-  window.addEventListener('mousemove', (e) => {
-    cursor.x = e.clientX / window.innerWidth - 0.5
-    cursor.y = e.clientY / window.innerHeight - 0.5
-  })
+  const particles = new THREE.Points(particlesGeometry, particlesMaterial)
+  scene.add(particles)
 
   // Setup render loop
   const clock = new THREE.Clock()
