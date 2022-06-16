@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import CoolveticaFont from '../assets/fonts/Coolvetica Rg_Regular.json?url'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
+import { graphicAssets } from './asset-imports'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
 
@@ -28,7 +29,9 @@ const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 1000)
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#canvas'),
-  alpha: true
+  alpha: true,
+  antialias: true,
+  physicallyCorrectLights: true,
 })
 let needToRender = true
 
@@ -59,8 +62,8 @@ export default function Graphics () {
   })
 
   // Add a light
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5)
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.2)
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.2)
   directionalLight.position.set(3, 3, 10)
   scene.add(ambientLight)
   scene.add(directionalLight)
@@ -106,7 +109,7 @@ export default function Graphics () {
     }
 
     // Set camera position to scroll
-    camera.position.y = (-scroll / window.innerHeight) * 7.9
+    camera.position.y = (-scroll / window.innerHeight) * 7.8
 
     // Apply parallax
     cameraGroup.position.x +=
@@ -125,6 +128,20 @@ export default function Graphics () {
   } else {
     document.body.appendChild(WebGL.getWebGLErrorMessage())
   }
+}
+
+const convert2Dto3D = (x, y) => {
+  const vec = new THREE.Vector3(
+    (x / window.innerWidth) * 2 - 1,
+    -((y / window.innerHeight) * 2 - 1),
+    0.5
+  )
+    .unproject(camera)
+    .sub(camera.position)
+    .normalize()
+  return camera.position
+    .clone()
+    .add(vec.multiplyScalar(-camera.position.z / vec.z))
 }
 
 /**
@@ -152,25 +169,27 @@ export function insertText (text, size, locationX, locationY) {
     textMesh.geometry.computeBoundingBox()
 
     // Place based on 2D screen coordinates
-    const vec = new THREE.Vector3(
-      (locationX / window.innerWidth) * 2 - 1,
-      -((locationY / window.innerHeight) * 2 - 1),
-      0.5
-    )
-      .unproject(camera)
-      .sub(camera.position)
-      .normalize()
-    const distance = -camera.position.z / vec.z
-    const titleOffset = camera.position
-      .clone()
-      .add(vec.multiplyScalar(distance))
+    const offset = convert2Dto3D(locationX, locationY)
 
     textMesh.position.x = -textMesh.geometry.boundingBox.max.x / 2
-    textMesh.position.y = titleOffset.y
-    textMesh.position.z = titleOffset.z
+    textMesh.position.y = offset.y
+    textMesh.position.z = offset.z
 
     // Add to scene
     scene.add(textMesh)
+  })
+}
+
+export function insertGraphic (title, locationX, locationY) {
+  const loader = new THREE.ObjectLoader()
+  loader.load(graphicAssets[title], (object) => {
+    // Place based on 2D screen coordinates
+    const offset = convert2Dto3D(locationX, locationY)
+    object.position.x = offset.x
+    object.position.y = offset.y
+    object.position.z = offset.z
+
+    scene.add(object)
   })
 }
 
