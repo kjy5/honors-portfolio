@@ -62,8 +62,8 @@ export default function Graphics () {
   })
 
   // Add a light
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.2)
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.2)
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5)
   directionalLight.position.set(3, 3, 10)
   scene.add(ambientLight)
   scene.add(directionalLight)
@@ -109,7 +109,7 @@ export default function Graphics () {
     }
 
     // Set camera position to scroll
-    camera.position.y = (-scroll / window.innerHeight) * 7.8
+    camera.position.y = (-scroll / window.innerHeight) * 7.7
 
     // Apply parallax
     cameraGroup.position.x +=

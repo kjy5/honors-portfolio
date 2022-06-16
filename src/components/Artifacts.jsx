@@ -51,8 +51,8 @@ export default function Artifacts (props) {
 
       const artifacts = document.querySelector(`#${getURLName('Multimodal Composition Final Portfolio')}`)
       insertGraphic('Multimodal Composition Final Portfolio',
-        (artifacts.offsetLeft + artifacts.offsetWidth) / 2,
-        (artifacts.offsetTop + artifacts.offsetHeight) / 2
+        artifacts.offsetLeft + artifacts.offsetWidth * 5 / 6,
+        artifacts.offsetTop + artifacts.offsetHeight / 2
       )
 
     }
