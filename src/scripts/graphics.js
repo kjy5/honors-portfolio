@@ -62,8 +62,8 @@ export default function Graphics () {
   })
 
   // Add a light
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5)
+  const ambientLight = new THREE.AmbientLight(0xffffff, .5)
+  const directionalLight = new THREE.DirectionalLight(0xffffff, .5)
   directionalLight.position.set(3, 3, 10)
   scene.add(ambientLight)
   scene.add(directionalLight)

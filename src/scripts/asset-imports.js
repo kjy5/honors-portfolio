@@ -45,5 +45,5 @@ export const embedAssets = {
 };
 
 export const graphicAssets = {
-  'Multimodal Composition Final Portfolio': 'https://res.cloudinary.com/kjy5/raw/upload/v1655361682/Honors%20Portfolio/Multimodal%20Composition%20Final%20Portfolio/intro_image_fjubet.json',
+  'Multimodal Composition Final Portfolio': 'https://res.cloudinary.com/kjy5/raw/upload/v1655702742/Honors%20Portfolio/Multimodal%20Composition%20Final%20Portfolio/intro_image_mp1mgt.json',
 }
