@@ -49,12 +49,14 @@ export default function Artifacts (props) {
         }
       }
 
-      const artifacts = document.querySelector(`#${getURLName('Multimodal Composition Final Portfolio')}`)
-      insertGraphic('Multimodal Composition Final Portfolio',
-        artifacts.offsetLeft + artifacts.offsetWidth * 5 / 6,
-        artifacts.offsetTop + artifacts.offsetHeight / 2
-      )
-
+      // Add graphics
+      contentData.forEach(artifact => {
+        const artifacts = document.querySelector(`#${getURLName(artifact.title)}`)
+        insertGraphic(artifact.title,
+          artifacts.offsetLeft + artifacts.offsetWidth * 5 / 6,
+          artifacts.offsetTop + artifacts.offsetHeight / 2
+        )
+      })
     }
     setNeedToRender(false)
   }, [])

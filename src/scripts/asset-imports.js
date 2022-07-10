@@ -22,16 +22,16 @@ export const content = contentData
 export const imageAssetMetas = {
   'Starting a New Honors Portfolio Website':
   startingANewHonorsPortfolioWebsiteImageMeta,
-  "Nautilus Renders": nautilusRendersImageMeta,
-  "COSMOS Interface": cosmosInterfaceImageMeta,
-};
+  'Nautilus Renders': nautilusRendersImageMeta,
+  'COSMOS Interface': cosmosInterfaceImageMeta,
+}
 
 export const linkAssetMetas = {
   'International Brain Lab Position': internationalBrainLabPositionLinkMeta,
   'Multimodal Composition Final Portfolio': multimodalCompositionFinalPortfolioLinkMeta,
   'NASA Summer Undergraduate Research Program':
   nasaSummerUndergraduateResearchProgramLinkMeta,
-};
+}
 
 export const embedAssets = {
   'ROV22 Simulation Demo': ['https://www.youtube.com/embed/ygnG9eYG1sI'],
@@ -42,8 +42,17 @@ export const embedAssets = {
   'Fall Quarter Reflection': [
     'https://res.cloudinary.com/kjy5/image/upload/v1655227118/Honors%20Portfolio/Fall%20Quarter%20Reflection/0_xohsvl.pdf',
   ],
-};
+}
 
 export const graphicAssets = {
+  'International Brain Lab Position': '',
   'Multimodal Composition Final Portfolio': 'https://res.cloudinary.com/kjy5/raw/upload/v1655702995/Honors%20Portfolio/Multimodal%20Composition%20Final%20Portfolio/intro_image_syhvci.json',
+  'NASA Summer Undergraduate Research Program': '',
+  'Starting a New Honors Portfolio Website': '',
+  'ROV22 Simulation Demo': '',
+  'Leadership and Democracy Final Paper': '',
+  'Nautilus Renders': 'https://res.cloudinary.com/kjy5/raw/upload/v1657411608/Honors%20Portfolio/Nautilus%20Renders/Nautilus_qsmdt2.json',
+  'Evil Hangman': '',
+  'COSMOS Interface': '',
+  'Fall Quarter Reflection': '',
 }
