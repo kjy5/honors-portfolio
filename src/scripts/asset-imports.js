@@ -45,13 +45,13 @@ export const embedAssets = {
 }
 
 export const graphicAssets = {
-  'International Brain Lab Position': '',
-  'Multimodal Composition Final Portfolio': 'https://res.cloudinary.com/kjy5/raw/upload/v1655702995/Honors%20Portfolio/Multimodal%20Composition%20Final%20Portfolio/intro_image_syhvci.json',
+  'International Brain Lab Position': 'https://res.cloudinary.com/kjy5/raw/upload/v1657473196/Honors%20Portfolio/International%20Brain%20Lab%20Position/Brain_tozt9h.json',
+  'Multimodal Composition Final Portfolio': 'https://res.cloudinary.com/kjy5/raw/upload/v1657424232/Honors%20Portfolio/Multimodal%20Composition%20Final%20Portfolio/intro_image_wfaf5l.json',
   'NASA Summer Undergraduate Research Program': '',
   'Starting a New Honors Portfolio Website': '',
   'ROV22 Simulation Demo': '',
   'Leadership and Democracy Final Paper': '',
-  'Nautilus Renders': 'https://res.cloudinary.com/kjy5/raw/upload/v1657411608/Honors%20Portfolio/Nautilus%20Renders/Nautilus_qsmdt2.json',
+  'Nautilus Renders': 'https://res.cloudinary.com/kjy5/raw/upload/v1657424372/Honors%20Portfolio/Nautilus%20Renders/Nautilus_mj4ikr.json',
   'Evil Hangman': '',
   'COSMOS Interface': '',
   'Fall Quarter Reflection': '',
