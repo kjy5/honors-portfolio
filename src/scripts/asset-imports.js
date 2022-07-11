@@ -44,10 +44,12 @@ export const embedAssets = {
   ],
 }
 
+// import scene from '../assets/scene.json?url'
+
 export const graphicAssets = {
   'International Brain Lab Position': 'https://res.cloudinary.com/kjy5/raw/upload/v1657473196/Honors%20Portfolio/International%20Brain%20Lab%20Position/Brain_tozt9h.json',
   'Multimodal Composition Final Portfolio': 'https://res.cloudinary.com/kjy5/raw/upload/v1657424232/Honors%20Portfolio/Multimodal%20Composition%20Final%20Portfolio/intro_image_wfaf5l.json',
-  'NASA Summer Undergraduate Research Program': '',
+  'NASA Summer Undergraduate Research Program': 'https://res.cloudinary.com/kjy5/raw/upload/v1657510709/Honors%20Portfolio/NASA%20Summer%20Undergraduate%20Research%20Program/hsl_q0tmeu.json',
   'Starting a New Honors Portfolio Website': '',
   'ROV22 Simulation Demo': '',
   'Leadership and Democracy Final Paper': '',
