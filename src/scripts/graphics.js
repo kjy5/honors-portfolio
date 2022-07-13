@@ -1,19 +1,19 @@
-import * as THREE from 'three' //skipcq: JS-C1003
-import CoolveticaFont from '../assets/fonts/Coolvetica Rg_Regular.json?url'
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
-import { graphicAssets } from './asset-imports'
-import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry' // skipcq: JS-0249
-import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
+import * as THREE from "three"; // skipcq: JS-C1003
+import CoolveticaFont from "../assets/fonts/Coolvetica Rg_Regular.json?url";
+import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
+import { graphicAssets } from "./asset-imports";
+import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry"; // skipcq: JS-0249
+import WebGL from "three/examples/jsm/capabilities/WebGL.js";
 
 /**
  * Responsive resizing of ThreeJS render output (canvas)
  * @param {THREE.WebGLRenderer} renderer The renderer to resize
  * @returns {boolean} If the renderer needed to be resized
  */
-function resizeRendererToDisplaySize (renderer) {
+function resizeRendererToDisplaySize(renderer) {
   // noinspection JSUnresolvedVariable
-  const canvas = renderer.domElement
-  const pixelRatio = window.devicePixelRatio
+  const canvas = renderer.domElement;
+  const pixelRatio = window.devicePixelRatio;
   const width = (canvas.clientWidth * pixelRatio) | 0;
   const height = (canvas.clientHeight * pixelRatio) | 0;
   const needResize = canvas.width !== width || canvas.height !== height;
