@@ -54,7 +54,7 @@ export const graphicAssets = {
   'ROV22 Simulation Demo': 'https://res.cloudinary.com/kjy5/raw/upload/v1657522994/Honors%20Portfolio/ROV22%20Simulation%20Demo/rov22_ydbykk.json',
   'Leadership and Democracy Final Paper': 'https://res.cloudinary.com/kjy5/raw/upload/v1657522828/Honors%20Portfolio/Leadership%20and%20Democracy%20Final%20Paper/door_c772st.json',
   'Nautilus Renders': 'https://res.cloudinary.com/kjy5/raw/upload/v1657424372/Honors%20Portfolio/Nautilus%20Renders/Nautilus_mj4ikr.json',
-  'Evil Hangman': '',
+  'Evil Hangman': 'https://res.cloudinary.com/kjy5/raw/upload/v1657682437/Honors%20Portfolio/Evil%20Hangman/hangman_dorggu.json',
   'COSMOS Interface': '',
   'Fall Quarter Reflection': '',
 }
