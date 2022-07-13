@@ -26,14 +26,9 @@ export default function ArtifactCard(props) {
       {/* 3D graphics element */}
       <div className="ArtifactCard__graphics" id={urlName} />
 
-      {/* Title */}
-      <div className="ArtifactCard__title">
-        <h1>{title}</h1>
-      </div>
-
-      {/* Subtitle */}
-      <div className="ArtifactCard__subtitle">
-        <h3>{subtitle}</h3>
+      <div className="ArtifactCard__text">
+        <h1 className="ArtifactCard__title">{title}</h1>
+        <h3 className="ArtifactCard__subtitle">{subtitle}</h3>
       </div>
     </Link>
   );

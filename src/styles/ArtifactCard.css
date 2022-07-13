@@ -5,12 +5,10 @@
   /*Configure grid*/
   display: grid;
   grid-template-columns: 3fr 0.5fr 3fr;
-  grid-template-areas:
-    "graphics . title"
-    "graphics . subtitle";
+  grid-template-areas: "graphics . text";
 }
 
-.ArtifactCard:hover {
+.ArtifactCard:hover .ArtifactCard__text {
   background-color: rgba(81, 115, 148, 0.6);
   border-radius: 15px;
 }
@@ -20,16 +18,18 @@
   justify-self: stretch;
 }
 
+.ArtifactCard__text {
+  grid-area: text;
+  justify-self: stretch;
+  align-self: center;
+  padding: 1em;
+}
+
 .ArtifactCard__title {
-  grid-area: title;
-  justify-self: start;
-  align-self: end;
+  margin-top: 0.35em;
 }
 
 .ArtifactCard__subtitle {
-  grid-area: subtitle;
-  justify-self: start;
-  align-self: start;
   opacity: 0.75;
   margin-top: -1em;
 }

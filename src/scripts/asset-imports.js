@@ -7,7 +7,7 @@ import startingANewHonorsPortfolioWebsiteImageMeta from "../assets/image_metas/S
 
 // Link metas import
 import internationalBrainLabPositionLinkMeta from "../assets/link_metas/International Brain Lab Position.tsv?url";
-import multimodalityFinalPortfolioLinkMeta from "../assets/link_metas/Multimodality Final Portfolio.tsv?url";
+import multimodalCompositionFinalPortfolioLinkMeta from "../assets/link_metas/Multimodal Composition Final Portfolio.tsv?url";
 import nasaSummerUndergraduateResearchProgramLinkMeta from "../assets/link_metas/NASA Summer Undergraduate Research Program.tsv?url";
 
 // ============================
@@ -25,7 +25,8 @@ export const imageAssetMetas = {
 
 export const linkAssetMetas = {
   "International Brain Lab Position": internationalBrainLabPositionLinkMeta,
-  "Multimodality Final Portfolio": multimodalityFinalPortfolioLinkMeta,
+  "Multimodal Composition Final Portfolio":
+    multimodalCompositionFinalPortfolioLinkMeta,
   "NASA Summer Undergraduate Research Program":
     nasaSummerUndergraduateResearchProgramLinkMeta,
 };
@@ -39,4 +40,27 @@ export const embedAssets = {
   "Fall Quarter Reflection": [
     "https://res.cloudinary.com/kjy5/image/upload/v1655227118/Honors%20Portfolio/Fall%20Quarter%20Reflection/0_xohsvl.pdf",
   ],
+};
+
+export const graphicAssets = {
+  "International Brain Lab Position":
+    "https://res.cloudinary.com/kjy5/raw/upload/v1657473196/Honors%20Portfolio/International%20Brain%20Lab%20Position/Brain_tozt9h.json",
+  "Multimodal Composition Final Portfolio":
+    "https://res.cloudinary.com/kjy5/raw/upload/v1657424232/Honors%20Portfolio/Multimodal%20Composition%20Final%20Portfolio/intro_image_wfaf5l.json",
+  "NASA Summer Undergraduate Research Program":
+    "https://res.cloudinary.com/kjy5/raw/upload/v1657510709/Honors%20Portfolio/NASA%20Summer%20Undergraduate%20Research%20Program/hsl_q0tmeu.json",
+  "Starting a New Honors Portfolio Website":
+    "https://res.cloudinary.com/kjy5/raw/upload/v1657518825/Honors%20Portfolio/Starting%20a%20New%20Honors%20Portfolio%20Website/website_bgeb18.json",
+  "ROV22 Simulation Demo":
+    "https://res.cloudinary.com/kjy5/raw/upload/v1657522994/Honors%20Portfolio/ROV22%20Simulation%20Demo/rov22_ydbykk.json",
+  "Leadership and Democracy Final Paper":
+    "https://res.cloudinary.com/kjy5/raw/upload/v1657522828/Honors%20Portfolio/Leadership%20and%20Democracy%20Final%20Paper/door_c772st.json",
+  "Nautilus Renders":
+    "https://res.cloudinary.com/kjy5/raw/upload/v1657424372/Honors%20Portfolio/Nautilus%20Renders/Nautilus_mj4ikr.json",
+  "Evil Hangman":
+    "https://res.cloudinary.com/kjy5/raw/upload/v1657682437/Honors%20Portfolio/Evil%20Hangman/hangman_dorggu.json",
+  "COSMOS Interface":
+    "https://res.cloudinary.com/kjy5/raw/upload/v1657692779/Honors%20Portfolio/COSMOS%20Interface/cosmos_n54hgw.json",
+  "Fall Quarter Reflection":
+    "https://res.cloudinary.com/kjy5/raw/upload/v1657692878/Honors%20Portfolio/Fall%20Quarter%20Reflection/paper_rkjpkl.json",
 };
