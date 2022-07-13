@@ -55,6 +55,6 @@ export const graphicAssets = {
   'Leadership and Democracy Final Paper': 'https://res.cloudinary.com/kjy5/raw/upload/v1657522828/Honors%20Portfolio/Leadership%20and%20Democracy%20Final%20Paper/door_c772st.json',
   'Nautilus Renders': 'https://res.cloudinary.com/kjy5/raw/upload/v1657424372/Honors%20Portfolio/Nautilus%20Renders/Nautilus_mj4ikr.json',
   'Evil Hangman': 'https://res.cloudinary.com/kjy5/raw/upload/v1657682437/Honors%20Portfolio/Evil%20Hangman/hangman_dorggu.json',
-  'COSMOS Interface': '',
+  'COSMOS Interface': 'https://res.cloudinary.com/kjy5/raw/upload/v1657692779/Honors%20Portfolio/COSMOS%20Interface/cosmos_n54hgw.json',
   'Fall Quarter Reflection': '',
 }
