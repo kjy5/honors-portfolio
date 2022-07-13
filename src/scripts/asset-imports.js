@@ -44,8 +44,6 @@ export const embedAssets = {
   ],
 }
 
-// import scene from '../assets/scene.json?url'
-
 export const graphicAssets = {
   'International Brain Lab Position': 'https://res.cloudinary.com/kjy5/raw/upload/v1657473196/Honors%20Portfolio/International%20Brain%20Lab%20Position/Brain_tozt9h.json',
   'Multimodal Composition Final Portfolio': 'https://res.cloudinary.com/kjy5/raw/upload/v1657424232/Honors%20Portfolio/Multimodal%20Composition%20Final%20Portfolio/intro_image_wfaf5l.json',
@@ -56,5 +54,5 @@ export const graphicAssets = {
   'Nautilus Renders': 'https://res.cloudinary.com/kjy5/raw/upload/v1657424372/Honors%20Portfolio/Nautilus%20Renders/Nautilus_mj4ikr.json',
   'Evil Hangman': 'https://res.cloudinary.com/kjy5/raw/upload/v1657682437/Honors%20Portfolio/Evil%20Hangman/hangman_dorggu.json',
   'COSMOS Interface': 'https://res.cloudinary.com/kjy5/raw/upload/v1657692779/Honors%20Portfolio/COSMOS%20Interface/cosmos_n54hgw.json',
-  'Fall Quarter Reflection': '',
+  'Fall Quarter Reflection': 'https://res.cloudinary.com/kjy5/raw/upload/v1657692878/Honors%20Portfolio/Fall%20Quarter%20Reflection/paper_rkjpkl.json',
 }
