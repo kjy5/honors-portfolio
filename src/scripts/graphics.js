@@ -1,19 +1,19 @@
-import * as THREE from "three";
-import CoolveticaFont from "../assets/fonts/Coolvetica Rg_Regular.json?url";
-import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
-import { graphicAssets } from "./asset-imports";
-import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
-import WebGL from "three/examples/jsm/capabilities/WebGL.js";
+import * as THREE from 'three' //skipcq: JS-C1003
+import CoolveticaFont from '../assets/fonts/Coolvetica Rg_Regular.json?url'
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
+import { graphicAssets } from './asset-imports'
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry' // skipcq: JS-0249
+import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
 
 /**
  * Responsive resizing of ThreeJS render output (canvas)
  * @param {THREE.WebGLRenderer} renderer The renderer to resize
  * @returns {boolean} If the renderer needed to be resized
  */
-function resizeRendererToDisplaySize(renderer) {
+function resizeRendererToDisplaySize (renderer) {
   // noinspection JSUnresolvedVariable
-  const canvas = renderer.domElement;
-  const pixelRatio = window.devicePixelRatio;
+  const canvas = renderer.domElement
+  const pixelRatio = window.devicePixelRatio
   const width = (canvas.clientWidth * pixelRatio) | 0;
   const height = (canvas.clientHeight * pixelRatio) | 0;
   const needResize = canvas.width !== width || canvas.height !== height;
@@ -130,6 +130,12 @@ export default function Graphics() {
   }
 }
 
+/**
+ * @description Convert a location on the 2D screen into 3D world coordinates
+ * @param x {number} The x coordinate on the screen
+ * @param y {number} The y coordinate on the screen
+ * @returns {THREE.Vector3} The 3D coordinates of the location in the world
+ */
 const convert2Dto3D = (x, y) => {
   const vec = new THREE.Vector3(
     (x / window.innerWidth) * 2 - 1,
@@ -180,6 +186,12 @@ export function insertText(text, size, locationX, locationY) {
   });
 }
 
+/**
+ * @description Insert the 3D graphic corresponding to the artifact title
+ * @param title {string} The title of the artifact
+ * @param locationX {number} The x location of the graphic
+ * @param locationY {number} The y location of the graphic
+ */
 export function insertGraphic(title, locationX, locationY) {
   const loader = new THREE.ObjectLoader();
   loader.load(graphicAssets[title], (object) => {

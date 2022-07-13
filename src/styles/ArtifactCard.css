@@ -20,13 +20,13 @@
 
 .ArtifactCard__text {
   grid-area: text;
-  justify-self: start;
+  justify-self: stretch;
   align-self: center;
   padding: 1em;
 }
 
 .ArtifactCard__title {
-  margin-top: -1em;
+  margin-top: 0.35em;
 }
 
 .ArtifactCard__subtitle {
