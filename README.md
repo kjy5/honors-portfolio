@@ -1,5 +1,7 @@
 # UW Interdisciplinary Honors Portfolio
 
+[![Deploy to GitHub Pages](https://github.com/kjy5/honors-portfolio/actions/workflows/deploy_to_gh-pages.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/deploy_to_gh-pages.yml)
+
 This repository holds code for my honors portfolio.
 
 ## To see the website
