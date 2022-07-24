@@ -16,7 +16,7 @@
     "react-chrono": "^1.16.2",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
-    "three": "^0.141.0"
+    "three": "^0.142.0"
   },
   "devDependencies": {
     "@vitejs/plugin-legacy": "^1.8.2",
