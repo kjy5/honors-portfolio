@@ -27,14 +27,20 @@ If applicable, add screenshots to help explain your problem.
 
 - OS: [e.g. iOS]
 - Browser [e.g. chrome, safari]
-- Version [e.g. 22]
+- Browser Version [e.g. 22]
 
 **Smartphone (please complete the following information):**
+
+**Note:** This website is not mobile friendly yet
 
 - Device: [e.g. iPhone6]
 - OS: [e.g. iOS8.1]
 - Browser [e.g. stock browser, safari]
 - Version [e.g. 22]
+
+**Do you plan to solve this issue yourself?**
+
+- YES/NO
 
 **Additional context**
 Add any other context about the problem here.
