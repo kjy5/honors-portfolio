@@ -1,4 +1,4 @@
-import "photoswipe/dist/photoswipe.css";
+import "photoswipe/style.css";
 import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
 import "../styles/Gallery.css";
 import { getImageAssetMetas, getURLName } from "../scripts/content-handler";
