@@ -39,6 +39,7 @@ If applicable, add screenshots to help explain your problem.
 - Version [e.g. 22]
 
 **Do you plan to solve this issue yourself?**
+
 - YES/NO
 
 **Additional context**
