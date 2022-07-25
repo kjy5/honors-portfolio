@@ -14,7 +14,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-chrono": "^1.17.2",
-    "react-dom": "^18.1.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "three": "^0.142.0"
   },
