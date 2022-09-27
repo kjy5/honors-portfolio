@@ -12,4 +12,8 @@ export default defineConfig({
     }),
   ],
   base: "/honors-portfolio/",
+  server: {
+    port: 3000,
+    host: true,
+  },
 });
