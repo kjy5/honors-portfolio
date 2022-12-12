@@ -15,7 +15,7 @@
     "react": "^18.1.0",
     "react-chrono": "^1.19.2",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.2",
+    "react-router-dom": "^6.4.5",
     "three": "^0.144.0"
   },
   "devDependencies": {
