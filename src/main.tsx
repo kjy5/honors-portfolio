@@ -8,5 +8,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
         <ComingSoon/>
         <ArtifactCard/>
+        <ArtifactCard/>
+        <ArtifactCard/>
     </React.StrictMode>,
 )
