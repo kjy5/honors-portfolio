@@ -1,6 +1,8 @@
 # UW Interdisciplinary Honors Portfolio
 
-[![Deploy to GitHub Pages](https://github.com/kjy5/honors-portfolio/actions/workflows/deploy_to_gh-pages.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/deploy_to_gh-pages.yml)
+[![Build Website](https://github.com/kjy5/honors-portfolio/actions/workflows/build.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/build.yml)
+
+[![Deploy to GitHub Pages](https://github.com/kjy5/honors-portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/deploy.yml)
 
 [![Dependency Review](https://github.com/kjy5/honors-portfolio/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/dependency-review.yml)
 
