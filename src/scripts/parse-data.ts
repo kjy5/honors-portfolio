@@ -111,6 +111,9 @@ export default (): Artifact[] => {
 
         // Add embeds
         currentArtifact.embeds = hasEmbeds ? parsedEmbeds.filter((embed: Embed) => embed.artifact === title) : undefined;
+
+        // Add to output
+        output.push(currentArtifact);
     });
 
     return output;
