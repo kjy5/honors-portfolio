@@ -7,19 +7,6 @@ export default function (): JSX.Element {
             <ArtifactCard/>
             <ArtifactCard/>
             <ArtifactCard/>
-            <ArtifactCard/>
-            <ArtifactCard/>
-            <ArtifactCard/>
-            <ArtifactCard/>
-            <ArtifactCard/>
-            <ArtifactCard/>
-            <ArtifactCard/>
-            <ArtifactCard/>
-            <ArtifactCard/>
-            <ArtifactCard/>
-            <ArtifactCard/>
-            <ArtifactCard/>
-            <ArtifactCard/>
         </div>
     )
 }
