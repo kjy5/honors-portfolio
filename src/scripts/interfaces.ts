@@ -14,6 +14,7 @@ export interface Image {
     width: number;
     height: number;
     name: string;
+    description?: string;
     thumbnail: string;
     image: string;
 }
