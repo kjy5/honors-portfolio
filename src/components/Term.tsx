@@ -1,12 +1,15 @@
-import ArtifactGrid from "./ArtifactGrid";
 import "../styles/Term.sass";
+import ArtifactCard from "./ArtifactCard";
 
 export default (): JSX.Element => {
     return (
         <div className="term">
-            <h1 className="term__year">Freshman 2021</h1>
             <h1 className="term__name">Fall</h1>
-            <ArtifactGrid/>
+            <div className="term__artifacts">
+                <ArtifactCard/>
+                <ArtifactCard/>
+                <ArtifactCard/>
+            </div>
         </div>
     )
 }
