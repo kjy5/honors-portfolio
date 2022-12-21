@@ -4,6 +4,9 @@ import ComingSoon from './components/ComingSoon'
 import './styles/index.sass'
 import Term from "./components/Term";
 import contentString from "./assets/content.tsv?raw";
+import {Artifact} from "./scripts/interfaces";
+
+let ArtifactContents: Artifact[];
 
 // Parse content data
 const content = contentString.split("\n").map((row) => {
@@ -17,5 +20,4 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <ComingSoon/>
         <Term/>
     </React.StrictMode>
-    ,
-)
+);
