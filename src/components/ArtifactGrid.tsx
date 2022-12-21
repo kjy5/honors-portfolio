@@ -1,7 +1,7 @@
 import ArtifactCard from "./ArtifactCard";
 import "../styles/ArtifactGrid.sass";
 
-export default function (): JSX.Element {
+export default (): JSX.Element => {
     return (
         <div className="artifact-grid">
             <ArtifactCard/>

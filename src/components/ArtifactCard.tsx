@@ -1,6 +1,6 @@
 import "../styles/ArtifactCard.sass";
 
-export default function (): JSX.Element {
+export default (): JSX.Element => {
     return (
         <div className="artifact-card">
             <div className="artifact-card__graphic-container"></div>
