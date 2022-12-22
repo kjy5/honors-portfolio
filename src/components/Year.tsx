@@ -2,7 +2,7 @@ import Quarter from "./Quarter";
 import "../styles/Year.sass";
 import {Artifact} from "../scripts/interfaces";
 
-export default (props: { filteredArtifacts: Artifact[] }): JSX.Element => {
+export default function Year(props: { filteredArtifacts: Artifact[] }): JSX.Element {
     // Compute year string
     let year = "Freshman 2021 - 2022";
     switch (props.filteredArtifacts[0].year) {
@@ -19,18 +19,18 @@ export default (props: { filteredArtifacts: Artifact[] }): JSX.Element => {
             break;
     }
 
-    // Compute quarter set (get unique quarter)
-    const quarter: Set<number> = new Set();
+    // Compute quarter set (get unique quarters)
+    const quarters: Set<number> = new Set();
     props.filteredArtifacts.forEach((artifact: Artifact) => {
-        quarter.add(artifact.quarter);
+        quarters.add(artifact.quarter);
     });
 
     return (
         <div className="year">
             <h1 className="year__name">{year}</h1>
-            {Array.from(quarter).map((quarter: number) =>
-                <Quarter
-                    filterArtifacts={props.filteredArtifacts.filter((artifact: Artifact) => artifact.quarter === quarter)}/>
+            {Array.from(quarters).map((quarter: number) =>
+                <Quarter key={quarter}
+                         filterArtifacts={props.filteredArtifacts.filter((artifact: Artifact) => artifact.quarter === quarter)}/>
             )}
             <br/>
         </div>

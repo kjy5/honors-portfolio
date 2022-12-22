@@ -23,7 +23,8 @@ export default (props: { filterArtifacts: Artifact[] }): JSX.Element => {
         <div className="quarter">
             <h1 className="quarter__name">{quarter}</h1>
             <div className="quarter__artifacts">
-                {props.filterArtifacts.map((artifact: Artifact) => <ArtifactCard artifact={artifact}/>)}
+                {props.filterArtifacts.map((artifact: Artifact, index: number) => <ArtifactCard key={index}
+                                                                                                artifact={artifact}/>)}
             </div>
         </div>
     )
