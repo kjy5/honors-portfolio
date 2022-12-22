@@ -2,7 +2,7 @@ import "../styles/Quarter.sass";
 import ArtifactCard from "./ArtifactCard";
 import {Artifact} from "../scripts/interfaces";
 
-export default (props: { filterArtifacts: Artifact[] }): JSX.Element => {
+export default function Quarter(props: { filterArtifacts: Artifact[] }): JSX.Element {
     // Compute quarter string
     let quarter = "Fall";
     switch (props.filterArtifacts[0].quarter) {
@@ -23,8 +23,8 @@ export default (props: { filterArtifacts: Artifact[] }): JSX.Element => {
         <div className="quarter">
             <h1 className="quarter__name">{quarter}</h1>
             <div className="quarter__artifacts">
-                {props.filterArtifacts.map((artifact: Artifact, index: number) => <ArtifactCard key={index}
-                                                                                                artifact={artifact}/>)}
+                {props.filterArtifacts.map((artifact: Artifact) => <ArtifactCard key={artifact.title}
+                                                                                 artifact={artifact}/>)}
             </div>
         </div>
     )

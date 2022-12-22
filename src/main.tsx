@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 
         {/* Artifacts */}
         {Array.from(years).map((year: number) =>
-            <Year filteredArtifacts={artifacts.filter((artifact: Artifact) => artifact.year === year)}/>
+            <Year key={year} filteredArtifacts={artifacts.filter((artifact: Artifact) => artifact.year === year)}/>
         )}
     </React.StrictMode>
 );
