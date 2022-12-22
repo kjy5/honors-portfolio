@@ -2,6 +2,12 @@ import '../styles/Quarter.sass'
 import ArtifactCard from './ArtifactCard'
 import { Artifact } from '../scripts/interfaces'
 
+/**
+ * Quarter component. Groups a quarter heading with a grid of artifacts.
+ * @param props {Artifact[]} filterArtifacts - Artifacts filtered by quarter
+ * @constructor
+ * @return {JSX.Element}
+ */
 export default function Quarter (props: { filterArtifacts: Artifact[] }): JSX.Element {
   // Compute quarter string
   let quarter = 'Fall'

@@ -5,7 +5,7 @@ import '../styles/ComingSoon.sass'
  * @constructor
  * @returns {JSX.Element}
  */
-export default function (): JSX.Element {
+export default function ComingSoon (): JSX.Element {
   return (
     <div className={'coming-soon'}>
       <h1>👋 Hello!</h1>

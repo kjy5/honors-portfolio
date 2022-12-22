@@ -79,7 +79,7 @@ const parseEmbeds = (): void => {
  * Parse the artifacts.tsv file and integrate sub-objects
  * @returns {Artifact[]} The parsed artifacts
  */
-export default (): Artifact[] => {
+export default function ParseData (): Artifact[] {
   const output: Artifact[] = []
 
   // Parse sub-objects
