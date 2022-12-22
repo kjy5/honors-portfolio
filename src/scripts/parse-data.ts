@@ -12,8 +12,8 @@ let parsedEmbeds: Embed[] = [];
 /**
  * Parse the images.tsv file into `parsedImages`
  */
-const parseImages = () => {
-    imagesString.split("\n").forEach((line: string, index: number) => {
+const parseImages = (): void => {
+    imagesString.trim().split("\n").forEach((line: string, index: number) => {
         // Skip header
         if (index === 0) return;
 
@@ -36,8 +36,8 @@ const parseImages = () => {
 /**
  * Parse the links.tsv file into `parsedLinks`
  */
-const parseLinks = () => {
-    linksString.split("\n").forEach((line: string, index: number) => {
+const parseLinks = (): void => {
+    linksString.trim().split("\n").forEach((line: string, index: number) => {
         // Skip header
         if (index === 0) return;
 
@@ -58,8 +58,8 @@ const parseLinks = () => {
 /**
  * Parse the embeds.tsv file into `parsedEmbeds`
  */
-const parseEmbeds = () => {
-    embedsString.split("\n").forEach((line: string, index: number) => {
+const parseEmbeds = (): void => {
+    embedsString.trim().split("\n").forEach((line: string, index: number) => {
         // Skip header
         if (index === 0) return;
 
@@ -87,7 +87,7 @@ export default (): Artifact[] => {
     parseEmbeds();
 
     // Parse content data
-    artifactsString.split("\n").forEach((line: string, index: number) => {
+    artifactsString.trim().split("\n").forEach((line: string, index: number) => {
         // Skip header
         if (index === 0) return;
 

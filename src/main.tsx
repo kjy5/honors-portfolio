@@ -10,9 +10,19 @@ import Year from "./components/Year";
 const artifacts: Artifact[] = ParseData();
 console.debug(artifacts);
 
+// Compute year set (get unique years)
+const years: Set<number> = new Set();
+artifacts.forEach((artifact: Artifact) => {
+    years.add(artifact.year);
+});
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
         <ComingSoon/>
-        <Year/>
+
+        {/* Artifacts */}
+        {Array.from(years).map((year: number) =>
+            <Year filteredArtifacts={artifacts.filter((artifact: Artifact) => artifact.year === year)}/>
+        )}
     </React.StrictMode>
 );
