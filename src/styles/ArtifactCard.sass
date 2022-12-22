@@ -1,3 +1,7 @@
+// Constants
+$animation-duration: 0.2s
+$hover-scale: 1.05
+
 .artifact-card
   // Border
   border: white solid .15rem
@@ -8,10 +12,17 @@
 
   // Layout
   display: grid
-  grid-template-rows: 2fr 0.5fr 0.5fr
+  grid-template-rows: 13rem auto auto
 
   // Text
   text-align: center
+
+  // Animation
+  transition: transform $animation-duration
+
+  @media (hover: hover)
+    &:hover
+      transform: scale($hover-scale)
 
 .artifact-card__graphic-container
   height: 100%

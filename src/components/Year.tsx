@@ -32,6 +32,7 @@ export default (props: { filteredArtifacts: Artifact[] }): JSX.Element => {
                 <Quarter
                     filterArtifacts={props.filteredArtifacts.filter((artifact: Artifact) => artifact.quarter === quarter)}/>
             )}
+            <br/>
         </div>
     );
 };
