@@ -1,4 +1,4 @@
-import {Artifact, Embed, Image, Link} from "./interfaces";
+import { Artifact, Embed, Image, Link } from "./interfaces";
 import artifactsString from "../assets/artifacts.tsv?raw";
 import imagesString from "../assets/images.tsv?raw";
 import linksString from "../assets/links.tsv?raw";
@@ -13,11 +13,11 @@ const parsedEmbeds: Embed[] = [];
  * Parse the images.tsv file into `parsedImages`
  */
 const parseImages = (): void => {
-    imagesString
-        .trim()
-        .split("\n")
-        .forEach((line: string, index: number) => {
-            // Skip header
+  imagesString
+    .trim()
+    .split("\n")
+    .forEach((line: string, index: number) => {
+      // Skip header
       if (index === 0) return;
 
       // Extract row data
@@ -89,7 +89,7 @@ const parseEmbeds = (): void => {
  * @returns {Artifact[]} The parsed artifacts
  */
 export default (): Artifact[] => {
-    const output: Artifact[] = [];
+  const output: Artifact[] = [];
 
   // Parse sub-objects
   parseImages();
@@ -118,11 +118,11 @@ export default (): Artifact[] => {
 
       // Start building artifact (fill in required fields)
       const currentArtifact: Artifact = {
-          year: parseInt(year),
-          quarter: parseInt(quarter),
-          title,
-          subtitle,
-          text,
+        year: parseInt(year),
+        quarter: parseInt(quarter),
+        title,
+        subtitle,
+        text,
       };
 
       // Add images
