@@ -8,7 +8,7 @@ import Year from "./components/Year";
 
 // Parse data and return as an array of Artifact objects
 const artifacts: Artifact[] = ParseData();
-console.debug(artifacts);
+
 
 // Compute year set (get unique years)
 const years: Set<number> = new Set();
