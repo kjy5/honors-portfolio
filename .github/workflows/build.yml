@@ -3,7 +3,7 @@ name: Build Website
 # Controls when the workflow will run
 on:
   pull_request:
-    types: [ opened, synchronize, reopened ]
+    types: [opened, synchronize, reopened]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -12,7 +12,7 @@ on:
   workflow_call:
     inputs:
       upload-artifact:
-        description: 'Upload artifact to be used by other workflows'
+        description: "Upload artifact to be used by other workflows"
         required: true
         default: false
         type: boolean
@@ -35,7 +35,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 19
-          cache: 'npm'
+          cache: "npm"
 
       # Install deps and build
       - name: 🔨 Install and Build
@@ -48,4 +48,4 @@ jobs:
         if: ${{ inputs.upload-artifact }}
         uses: actions/upload-pages-artifact@v1
         with:
-          path: 'dist'
+          path: "dist"
