@@ -28,10 +28,10 @@ jobs:
         run: npm i
 
       - name: 🧹 Reformat
-        run: prettier --write .
+        run: npx prettier --write .
 
       - name: 🚨 Lint
-        run: eslint .
+        run: npx eslint .
 
       - name: ⬆️ Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
