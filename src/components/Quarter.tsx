@@ -8,31 +8,33 @@ import { Artifact } from '../scripts/interfaces'
  * @constructor
  * @return {JSX.Element}
  */
-export default function Quarter (props: { filterArtifacts: Artifact[] }): JSX.Element {
+export default function Quarter(props: {
+  filterArtifacts: Artifact[];
+}): JSX.Element {
   // Compute quarter string
-  let quarter = 'Fall'
+  let quarter = "Fall";
   switch (props.filterArtifacts[0].quarter) {
     case 1:
-      quarter = 'Winter'
-      break
+      quarter = "Winter";
+      break;
     case 2:
-      quarter = 'Spring'
-      break
+      quarter = "Spring";
+      break;
     case 3:
-      quarter = 'Summer'
-      break
+      quarter = "Summer";
+      break;
     default:
-      break
+      break;
   }
 
   return (
     <div className="quarter">
       <h1 className="quarter__name">{quarter}</h1>
       <div className="quarter__artifacts">
-        {props.filterArtifacts.map(
-          (artifact: Artifact) => <ArtifactCard key={artifact.title}
-                                                artifact={artifact}/>)}
+        {props.filterArtifacts.map((artifact: Artifact) => (
+          <ArtifactCard key={artifact.title} artifact={artifact} />
+        ))}
       </div>
     </div>
-  )
+  );
 }
