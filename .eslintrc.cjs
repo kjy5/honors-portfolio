@@ -14,6 +14,6 @@ module.exports = {
   root: true,
   ignorePatterns: ["dist", "vite.config.ts"],
   rules: {
-    "sort-imports": "error"
-  }
+    "sort-imports": "error",
+  },
 };
