@@ -1,10 +1,10 @@
-import './styles/index.sass'
-import { Artifact } from './scripts/interfaces'
-import ComingSoon from './components/ComingSoon'
-import ParseData from './scripts/parse-data'
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import Year from './components/Year'
+import "./styles/index.sass";
+import { Artifact } from "./scripts/interfaces";
+import ComingSoon from "./components/ComingSoon";
+import ParseData from "./scripts/parse-data";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Year from "./components/Year";
 
 // Parse data and return as an array of Artifact objects
 const artifacts: Artifact[] = ParseData();

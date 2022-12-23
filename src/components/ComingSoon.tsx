@@ -1,4 +1,4 @@
-import '../styles/ComingSoon.sass'
+import "../styles/ComingSoon.sass";
 
 /**
  * Creates a React component that displays a "Coming Soon" message.
