@@ -1,5 +1,5 @@
-import '../styles/ArtifactCard.sass'
-import { Artifact } from '../scripts/interfaces'
+import "../styles/ArtifactCard.sass";
+import { Artifact } from "../scripts/interfaces";
 
 /**
  * Artifact card component. Displays high-level information about an artifact (title, subtitle, 3D graphic).
