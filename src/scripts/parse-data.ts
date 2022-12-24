@@ -1,8 +1,8 @@
-import { Artifact, Embed, Image, Link } from "./interfaces";
-import artifactsString from "../assets/artifacts.tsv?raw";
-import embedsString from "../assets/embeds.tsv?raw";
-import imagesString from "../assets/images.tsv?raw";
-import linksString from "../assets/links.tsv?raw";
+import { Artifact, Embed, Image, Link } from './interfaces'
+import artifactsString from '../assets/artifacts.tsv?raw'
+import embedsString from '../assets/embeds.tsv?raw'
+import imagesString from '../assets/images.tsv?raw'
+import linksString from '../assets/links.tsv?raw'
 
 // Parsed sub-objects
 const parsedImages: Image[] = [];
@@ -118,6 +118,7 @@ export default function ParseData(): Artifact[] {
 
       // Start building artifact (fill in required fields)
       const currentArtifact: Artifact = {
+        id: title.replaceAll(" ", "-").toLowerCase(),
         year: parseInt(year),
         quarter: parseInt(quarter),
         title,

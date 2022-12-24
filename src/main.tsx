@@ -21,11 +21,11 @@ const router = createBrowserRouter([
     loader: () => artifacts,
   },
   {
-    path: "/honors-portfolio/:title",
+    path: "/honors-portfolio/:id",
     element: <ArtifactPage />,
     errorElement: <ErrorPage fromArtifact={true} />,
     loader: ({ params }) =>
-      artifacts.find((artifact: Artifact) => artifact.title === params.title),
+      artifacts.find((artifact: Artifact) => artifact.id === params.id),
   },
 ]);
 

@@ -1,6 +1,6 @@
-import "../styles/Quarter.sass";
-import { Artifact } from "../scripts/interfaces";
-import ArtifactCard from "./ArtifactCard";
+import '../styles/Quarter.sass'
+import { Artifact } from '../scripts/interfaces'
+import ArtifactCard from './ArtifactCard'
 
 /**
  * Quarter component. Groups a quarter heading with a grid of artifacts.
@@ -32,7 +32,7 @@ export default function Quarter(props: {
       <h1 className="quarter__name">{quarter}</h1>
       <div className="quarter__artifacts">
         {props.filterArtifacts.map((artifact: Artifact) => (
-          <ArtifactCard key={artifact.title} artifact={artifact} />
+          <ArtifactCard key={artifact.id} artifact={artifact} />
         ))}
       </div>
     </div>

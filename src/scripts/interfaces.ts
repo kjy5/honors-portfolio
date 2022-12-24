@@ -1,4 +1,5 @@
 export interface Artifact {
+  id: string;
   year: number;
   quarter: number;
   title: string;
