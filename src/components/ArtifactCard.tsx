@@ -3,7 +3,7 @@ import { Artifact } from '../scripts/interfaces'
 
 /**
  * ArtifactPage card component. Displays high-level information about an artifact (title, subtitle, 3D graphic).
- * @param props {Artifact} artifact - ArtifactPage object
+ * @param props {Artifact} Artifact to display
  * @constructor
  * @return {JSX.Element}
  */

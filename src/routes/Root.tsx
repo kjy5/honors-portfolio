@@ -1,10 +1,15 @@
-import { Artifact } from "../scripts/interfaces";
-import ComingSoon from "../components/ComingSoon";
-import { Fragment } from "react";
-import Year from "../components/Year";
-import { useLoaderData } from "react-router-dom";
+import { Artifact } from '../scripts/interfaces'
+import ComingSoon from '../components/ComingSoon'
+import { Fragment } from 'react'
+import Year from '../components/Year'
+import { useLoaderData } from 'react-router-dom'
 
-export default function Root() {
+/**
+ * Website root, displays all artifacts and navigation
+ * @constructor
+ * @returns {JSX.Element}
+ */
+export default function Root(): JSX.Element {
   // Get loader data
   const artifacts = useLoaderData() as Artifact[];
 

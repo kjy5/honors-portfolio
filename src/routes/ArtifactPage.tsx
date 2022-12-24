@@ -1,7 +1,12 @@
-import { Artifact } from "../scripts/interfaces";
-import { useLoaderData } from "react-router-dom";
+import { Artifact } from '../scripts/interfaces'
+import { useLoaderData } from 'react-router-dom'
 
-export default function ArtifactPage() {
+/**
+ * Artifact page, displays artifact information including text, images, and embedded media
+ * @constructor
+ * @returns {JSX.Element}
+ */
+export default function ArtifactPage(): JSX.Element {
   const artifact = useLoaderData() as Artifact;
   return (
     <div>

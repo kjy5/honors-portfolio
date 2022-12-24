@@ -1,11 +1,20 @@
 import { Fragment } from "react";
 import { useRouteError } from "react-router-dom";
 
-type RouteError = {
+interface RouteError {
   statusText?: string;
   message?: string;
-};
-export default function ErrorPage(props: { fromArtifact: boolean }) {
+}
+
+/**
+ * Error / 404 page, displays error information
+ * @param props {fromArtifact: boolean} Whether the error page is being displayed from an artifact page
+ * @constructor
+ * @returns {JSX.Element}
+ */
+export default function ErrorPage(props: {
+  fromArtifact: boolean;
+}): JSX.Element {
   const error = useRouteError() as RouteError;
   console.error(error);
 
