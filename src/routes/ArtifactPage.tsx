@@ -1,9 +1,9 @@
-import "../styles/ArtifactPage.sass";
-import { ArtifactData, EmbedData, LinkData } from "../scripts/interfaces";
-import { Link, useLoaderData } from "react-router-dom";
-import React, { Fragment } from "react";
-import Gallery from "../components/Gallery";
-import RichLink from "../components/RichLink";
+import '../styles/ArtifactPage.sass'
+import { ArtifactData, EmbedData, LinkData } from '../scripts/interfaces'
+import { NavLink, useLoaderData } from 'react-router-dom'
+import React, { Fragment } from 'react'
+import Gallery from '../components/Gallery'
+import RichLink from '../components/RichLink'
 
 /**
  * Artifact page, displays artifact information including text, images, and embedded media
@@ -45,14 +45,9 @@ export default function ArtifactPage(): JSX.Element {
   return (
     <div className={"ArtifactPage"}>
       {/* Back button */}
-      <Link
-        className="ArtifactPage__return"
-        to={"/honors-portfolio"}
-        tabIndex={0}
-        role="button"
-      >
+      <NavLink className={"ArtifactPage__return"} to={"/honors-portfolio"} tabIndex={0} role="button">
         &larr; Return to Kenneth&apos;s Honors Portfolio
-      </Link>
+      </NavLink>
 
       {/* 3D graphics element */}
       <div className="ArtifactPage__graphics" />

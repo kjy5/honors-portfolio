@@ -1,12 +1,12 @@
 // noinspection JSUnusedGlobalSymbols
 
-import "../styles/Gallery.sass";
-import { useEffect } from "react";
-import PhotoSwipeLightbox from "photoswipe/lightbox";
-import "photoswipe/style.css";
-import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
-import PropTypes from "prop-types";
-import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
+import '../styles/Gallery.sass'
+import { useEffect } from 'react'
+import PhotoSwipeLightbox from 'photoswipe/lightbox'
+import 'photoswipe/style.css'
+import 'photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css'
+import PropTypes from 'prop-types'
+import PhotoSwipeDynamicCaption from 'photoswipe-dynamic-caption-plugin'
 
 /**
  * Gallery component, displays a gallery of images
@@ -79,5 +79,15 @@ export default function Gallery(props) {
 }
 
 Gallery.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      artifact: PropTypes.string.isRequired,
+      width: PropTypes.number.isRequired,
+      height: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string,
+      thumbnail: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+    })
+  ),
 };
