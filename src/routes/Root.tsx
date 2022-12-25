@@ -1,4 +1,4 @@
-import { Artifact } from '../scripts/interfaces'
+import { ArtifactData } from '../scripts/interfaces'
 import ComingSoon from '../components/ComingSoon'
 import { Fragment } from 'react'
 import Year from '../components/Year'
@@ -11,11 +11,11 @@ import { useLoaderData } from 'react-router-dom'
  */
 export default function Root(): JSX.Element {
   // Get loader data
-  const artifacts = useLoaderData() as Artifact[];
+  const artifacts = useLoaderData() as ArtifactData[];
 
   // Compute year set (get unique years)
   const years: Set<number> = new Set();
-  artifacts.forEach((artifact: Artifact) => {
+  artifacts.forEach((artifact: ArtifactData) => {
     years.add(artifact.year);
   });
 
@@ -28,7 +28,7 @@ export default function Root(): JSX.Element {
         <Year
           key={year}
           filteredArtifacts={artifacts.filter(
-            (artifact: Artifact) => artifact.year === year
+            (artifact: ArtifactData) => artifact.year === year
           )}
         />
       ))}

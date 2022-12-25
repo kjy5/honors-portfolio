@@ -1,15 +1,15 @@
 import '../styles/ArtifactCard.sass'
-import { Artifact } from '../scripts/interfaces'
+import { ArtifactData } from '../scripts/interfaces'
 import { Link } from 'react-router-dom'
 
 /**
  * ArtifactPage card component. Displays high-level information about an artifact (title, subtitle, 3D graphic).
- * @param props {Artifact} Artifact to display
+ * @param props {ArtifactData} Artifact to display
  * @constructor
  * @return {JSX.Element}
  */
 export default function ArtifactCard(props: {
-  artifact: Artifact;
+  artifact: ArtifactData;
 }): JSX.Element {
   return (
     <Link

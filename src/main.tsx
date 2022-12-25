@@ -1,5 +1,5 @@
 import './styles/index.sass'
-import { Artifact } from './scripts/interfaces'
+import { ArtifactData } from './scripts/interfaces'
 import ArtifactPage from './routes/ArtifactPage'
 import ErrorPage from './routes/ErrorPage'
 import ParseData from './scripts/parse-data'
@@ -10,7 +10,7 @@ import Root from './routes/Root'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 // Parse data and return as an array of ArtifactPage objects
-const artifacts: Artifact[] = ParseData();
+const artifacts: ArtifactData[] = ParseData();
 
 // Create router
 const router = createBrowserRouter([
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     element: <ArtifactPage />,
     errorElement: <ErrorPage fromArtifact={true} />,
     loader: ({ params }) =>
-      artifacts.find((artifact: Artifact) => artifact.id === params.id),
+      artifacts.find((artifact: ArtifactData) => artifact.id === params.id),
   },
 ]);
 
