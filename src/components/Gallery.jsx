@@ -17,13 +17,13 @@ import PhotoSwipeDynamicCaption from 'photoswipe-dynamic-caption-plugin'
 export default function Gallery(props) {
   // Extract prop data
   const { images } = props;
-  const artifactName = images[0].artifact;
+  const galleryID = images[0].artifact.replaceAll(" ", "-").toLowerCase();
 
   // Initialize the gallery
   useEffect(() => {
     // Create lightbox
     let lightbox = new PhotoSwipeLightbox({
-      gallery: `#${artifactName}`,
+      gallery: `#${galleryID}`,
       children: "a",
       padding: { top: 30, right: 70, bottom: 30, left: 70 },
       preloaderDelay: 0,
@@ -49,15 +49,15 @@ export default function Gallery(props) {
 
   // Render
   return (
-    <div className={"Gallery"} id={artifactName}>
+    <div className={"Gallery"} id={galleryID}>
       {images.map((image) => (
         <a
-          key={image.image}
+          key={image.name}
           href={image.image}
           data-pswp-width={image.width}
           data-pswp-height={image.height}
           target={"_blank"}
-          rel={"noreferrer"}
+          rel={"noopener noreferrer"}
         >
           {/* Thumbnail */}
           <img
