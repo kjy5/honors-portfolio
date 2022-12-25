@@ -6,6 +6,67 @@ import Gallery from '../components/Gallery'
 import RichLink from '../components/RichLink'
 
 /**
+ * Artifact header, displays artifact title, subtitle, date, and links
+ * @param {{artifact: ArtifactData}} props - Artifact data
+ * @constructor
+ * @returns {JSX.Element}
+ */
+function ArtifactHeader(props: { artifact: ArtifactData }): JSX.Element {
+  const { year, quarter, title, subtitle, links } = props.artifact;
+
+  /**
+   * Convert quarter number encoding to readable string
+   */
+  const quarterToString = (): string => {
+    switch (quarter) {
+      case 0:
+        return "Fall";
+      case 1:
+        return "Winter";
+      case 2:
+        return "Spring";
+      default:
+        return "Summer";
+    }
+  };
+
+  /**
+   * Convert year number encoding to readable string
+   */
+  const yearToString = (): string => {
+    switch (year) {
+      case 0:
+        return "Freshman";
+      case 1:
+        return "Sophomore";
+      case 2:
+        return "Junior";
+      default:
+        return "Senior";
+    }
+  };
+
+  return (
+    <div className={"ArtifactPage__content--header"}>
+      {/* Title and subtitle */}
+      <h1>{title}</h1>
+      <h2>{subtitle}</h2>
+
+      {/* Year and quarter */}
+      <h3>
+        Quarter: {yearToString()} {quarterToString()}
+      </h3>
+
+      {/* External Link */}
+      {links &&
+        links.map((link: LinkData) => (
+          <RichLink key={link.url} linkData={link} />
+        ))}
+    </div>
+  );
+}
+
+/**
  * Artifact page, displays artifact information including text, images, and embedded media
  * @constructor
  * @returns {JSX.Element}
@@ -63,6 +124,7 @@ export default function ArtifactPage(): JSX.Element {
                 className="ArtifactPage__iframe"
                 src={embed.url}
                 title={embed.artifact}
+                sandbox={"allow-scripts allow-same-origin"}
               />
             </Fragment>
           ))}
@@ -71,56 +133,3 @@ export default function ArtifactPage(): JSX.Element {
     </div>
   );
 }
-
-/**
- * Artifact header, displays artifact title, subtitle, date, and links
- * @param {{artifact: ArtifactData}} props - Artifact data
- * @constructor
- * @returns {JSX.Element}
- */
-const ArtifactHeader = (props: { artifact: ArtifactData }): JSX.Element => {
-  const { year, quarter, title, subtitle, links } = props.artifact;
-  const quarterToString = (): string => {
-    switch (quarter) {
-      case 0:
-        return "Fall";
-      case 1:
-        return "Winter";
-      case 2:
-        return "Spring";
-      default:
-        return "Summer";
-    }
-  };
-  const yearToString = (): string => {
-    switch (year) {
-      case 0:
-        return "Freshman";
-      case 1:
-        return "Sophomore";
-      case 2:
-        return "Junior";
-      default:
-        return "Senior";
-    }
-  };
-
-  return (
-    <div className={"ArtifactPage__content--header"}>
-      {/* Title and subtitle */}
-      <h1>{title}</h1>
-      <h2>{subtitle}</h2>
-
-      {/* Year and quarter */}
-      <h3>
-        Quarter: {yearToString()} {quarterToString()}
-      </h3>
-
-      {/* External Link */}
-      {links &&
-        links.map((link: LinkData) => (
-          <RichLink key={link.url} linkData={link} />
-        ))}
-    </div>
-  );
-};

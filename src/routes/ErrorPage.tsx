@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { useRouteError } from "react-router-dom";
 
 interface RouteError {
@@ -23,10 +22,10 @@ export default function ErrorPage(props: {
       {props.fromArtifact ? (
         <p>It appears this artifact doesn&apos;t exist!</p>
       ) : (
-        <Fragment>
+        <>
           <p>Sorry, an unexpected error has occurred.</p>
           <code>{error.statusText || error.message}</code>
-        </Fragment>
+        </>
       )}
     </div>
   );
