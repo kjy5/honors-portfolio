@@ -2,6 +2,7 @@ import '../styles/ArtifactPage.sass'
 import { ArtifactData, EmbedData, LinkData } from '../scripts/interfaces'
 import { Link, useLoaderData } from 'react-router-dom'
 import React, { Fragment } from 'react'
+import RichLink from '../components/RichLink'
 
 /**
  * Artifact page, displays artifact information including text, images, and embedded media
@@ -75,7 +76,7 @@ export default function ArtifactPage(): JSX.Element {
           {artifact.links && (
             <div className="ArtifactPage__external-links">
               {artifact.links.map((link: LinkData) => (
-                <p>Link: {link.url}</p>
+                <RichLink key={link.url} linkData={link}/>
               ))}
             </div>
           )}
