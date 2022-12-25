@@ -39,7 +39,7 @@ export default function Year(props: {
       {Array.from(quarters).map((quarter: number) => (
         <Quarter
           key={quarter}
-          filterArtifacts={props.filteredArtifacts.filter(
+          filteredArtifacts={props.filteredArtifacts.filter(
             (artifact: ArtifactData) => artifact.quarter === quarter
           )}
         />

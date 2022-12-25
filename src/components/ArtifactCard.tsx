@@ -11,14 +11,18 @@ import { Link } from 'react-router-dom'
 export default function ArtifactCard(props: {
   artifact: ArtifactData;
 }): JSX.Element {
+  // Extract props
+  const {id, title, subtitle} = props.artifact;
+
+  // Render
   return (
     <Link
-      to={`/honors-portfolio/${props.artifact.id}`}
+      to={`/honors-portfolio/${id}`}
       className="artifact-card"
     >
       <div className="artifact-card__graphic-container" />
-      <h1 className="artifact-card__title">{props.artifact.title}</h1>
-      <h3 className="artifact-card__subtitle">{props.artifact.subtitle}</h3>
+      <h1 className="artifact-card__title">{title}</h1>
+      <h3 className="artifact-card__subtitle">{subtitle}</h3>
     </Link>
   );
 }
