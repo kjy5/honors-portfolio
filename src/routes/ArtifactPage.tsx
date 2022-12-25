@@ -1,3 +1,4 @@
+import '../styles/ArtifactPage.sass'
 import { ArtifactData, EmbedData, LinkData } from '../scripts/interfaces'
 import { Link, useLoaderData } from 'react-router-dom'
 import React, { Fragment } from 'react'
@@ -8,8 +9,8 @@ import React, { Fragment } from 'react'
  * @returns {JSX.Element}
  */
 export default function ArtifactPage(): JSX.Element {
+  // Get and extract data
   const artifact = useLoaderData() as ArtifactData;
-
   const quarterToString = (): string => {
     switch (artifact.quarter) {
       case 0:
@@ -34,11 +35,16 @@ export default function ArtifactPage(): JSX.Element {
         return "Senior";
     }
   };
+
+  // Force scroll to top
+  window.scroll(0, 0);
+
+  // Render
   return (
     <div className={"ArtifactPage"}>
       {/* Back button */}
       <Link
-        className="ArtifactPage__back-button"
+        className="ArtifactPage__return"
         to={"/honors-portfolio"}
         tabIndex={0}
         role="button"
@@ -49,30 +55,34 @@ export default function ArtifactPage(): JSX.Element {
       {/* 3D graphics element */}
       <div className="ArtifactPage__graphics" />
 
-      {/* Title and subtitle */}
-      <div className="ArtifactPage__title">
-        <h1>{artifact.title}</h1>
-        <h2>{artifact.subtitle}</h2>
-      </div>
+      {/* Artifact content */}
+      <div className={"ArtifactPage__content"}>
+        <div className={"ArtifactPage__content--header"}>
+          {/* Title and subtitle */}
+          <div className="ArtifactPage__title">
+            <h1>{artifact.title}</h1>
+            <h2>{artifact.subtitle}</h2>
+          </div>
 
-      {/* Year and quarter */}
-      <div className="ArtifactPage__date">
-        <h3>
-          Quarter: {yearToString()} {quarterToString()}
-        </h3>
-      </div>
+          {/* Year and quarter */}
+          <div className="ArtifactPage__date">
+            <h3>
+              Quarter: {yearToString()} {quarterToString()}
+            </h3>
+          </div>
 
-      {/* Text */}
-      <p className="ArtifactPage__text">{artifact.text}</p>
-
-      {/* External Link */}
-      {artifact.links && (
-        <div className="ArtifactPage__external-links">
-          {artifact.links.map((link: LinkData) => (
-            <p>Link: {link.url}</p>
-          ))}
+          {/* External Link */}
+          {artifact.links && (
+            <div className="ArtifactPage__external-links">
+              {artifact.links.map((link: LinkData) => (
+                <p>Link: {link.url}</p>
+              ))}
+            </div>
+          )}
         </div>
-      )}
+        {/* Text */}
+        <p className="ArtifactPage__text">{artifact.text}</p>
+      </div>
 
       {/* Images */}
       {artifact.images && (
