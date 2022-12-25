@@ -21,7 +21,7 @@ export default function ErrorPage(props: {
     <div id="error-page">
       <h1>Oops!</h1>
       {props.fromArtifact ? (
-        <p>It appears this artifact doesn't exist!</p>
+        <p>It appears this artifact doesn&apos;t exist!</p>
       ) : (
         <Fragment>
           <p>Sorry, an unexpected error has occurred.</p>

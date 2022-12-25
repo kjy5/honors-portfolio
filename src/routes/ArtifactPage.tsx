@@ -1,9 +1,9 @@
-import "../styles/ArtifactPage.sass";
-import { ArtifactData, EmbedData, LinkData } from "../scripts/interfaces";
-import { NavLink, useLoaderData } from "react-router-dom";
-import React, { Fragment } from "react";
-import Gallery from "../components/Gallery";
-import RichLink from "../components/RichLink";
+import '../styles/ArtifactPage.sass'
+import { ArtifactData, EmbedData, LinkData } from '../scripts/interfaces'
+import { NavLink, useLoaderData } from 'react-router-dom'
+import React, { Fragment } from 'react'
+import Gallery from '../components/Gallery'
+import RichLink from '../components/RichLink'
 
 /**
  * Artifact page, displays artifact information including text, images, and embedded media
@@ -13,30 +13,6 @@ import RichLink from "../components/RichLink";
 export default function ArtifactPage(): JSX.Element {
   // Get and extract data
   const artifact = useLoaderData() as ArtifactData;
-  const quarterToString = (): string => {
-    switch (artifact.quarter) {
-      case 0:
-        return "Fall";
-      case 1:
-        return "Winter";
-      case 2:
-        return "Spring";
-      default:
-        return "Summer";
-    }
-  };
-  const yearToString = (): string => {
-    switch (artifact.year) {
-      case 0:
-        return "Freshman";
-      case 1:
-        return "Sophomore";
-      case 2:
-        return "Junior";
-      default:
-        return "Senior";
-    }
-  };
 
   // Force scroll to top
   window.scroll(0, 0);
@@ -46,7 +22,12 @@ export default function ArtifactPage(): JSX.Element {
     <div className={"ArtifactPage"}>
       {/* Back button */}
       {/* skipcq: JS-0394 */}
-      <NavLink className={"ArtifactPage__return"} to={"/honors-portfolio"} tabIndex={0} role="button">
+      <NavLink
+        className={"ArtifactPage__return"}
+        to={"/honors-portfolio"}
+        tabIndex={0}
+        role="button"
+      >
         &larr; Return to Kenneth&apos;s Honors Portfolio
       </NavLink>
 
@@ -55,29 +36,7 @@ export default function ArtifactPage(): JSX.Element {
 
       {/* Artifact content */}
       <div className={"ArtifactPage__content"}>
-        <div className={"ArtifactPage__content--header"}>
-          {/* Title and subtitle */}
-          <div className="ArtifactPage__title">
-            <h1>{artifact.title}</h1>
-            <h2>{artifact.subtitle}</h2>
-          </div>
-
-          {/* Year and quarter */}
-          <div className="ArtifactPage__date">
-            <h3>
-              Quarter: {yearToString()} {quarterToString()}
-            </h3>
-          </div>
-
-          {/* External Link */}
-          {artifact.links && (
-            <div className="ArtifactPage__links">
-              {artifact.links.map((link: LinkData) => (
-                <RichLink key={link.url} linkData={link} />
-              ))}
-            </div>
-          )}
-        </div>
+        <ArtifactHeader artifact={artifact} />
         {/* Text */}
         <p className="ArtifactPage__text">{artifact.text}</p>
       </div>
@@ -112,3 +71,56 @@ export default function ArtifactPage(): JSX.Element {
     </div>
   );
 }
+
+/**
+ * Artifact header, displays artifact title, subtitle, date, and links
+ * @param {{artifact: ArtifactData}} props - Artifact data
+ * @constructor
+ * @returns {JSX.Element}
+ */
+const ArtifactHeader = (props: { artifact: ArtifactData }): JSX.Element => {
+  const { year, quarter, title, subtitle, links } = props.artifact;
+  const quarterToString = (): string => {
+    switch (quarter) {
+      case 0:
+        return "Fall";
+      case 1:
+        return "Winter";
+      case 2:
+        return "Spring";
+      default:
+        return "Summer";
+    }
+  };
+  const yearToString = (): string => {
+    switch (year) {
+      case 0:
+        return "Freshman";
+      case 1:
+        return "Sophomore";
+      case 2:
+        return "Junior";
+      default:
+        return "Senior";
+    }
+  };
+
+  return (
+    <div className={"ArtifactPage__content--header"}>
+      {/* Title and subtitle */}
+      <h1>{title}</h1>
+      <h2>{subtitle}</h2>
+
+      {/* Year and quarter */}
+      <h3>
+        Quarter: {yearToString()} {quarterToString()}
+      </h3>
+
+      {/* External Link */}
+      {links &&
+        links.map((link: LinkData) => (
+          <RichLink key={link.url} linkData={link} />
+        ))}
+    </div>
+  );
+};
