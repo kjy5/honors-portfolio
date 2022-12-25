@@ -1,13 +1,13 @@
-import { Artifact, Embed, Image, Link } from "./interfaces";
+import { ArtifactData, EmbedData, ImageData, LinkData } from "./interfaces";
 import artifactsString from "../assets/artifacts.tsv?raw";
 import embedsString from "../assets/embeds.tsv?raw";
 import imagesString from "../assets/images.tsv?raw";
 import linksString from "../assets/links.tsv?raw";
 
 // Parsed sub-objects
-const parsedImages: Image[] = [];
-const parsedLinks: Link[] = [];
-const parsedEmbeds: Embed[] = [];
+const parsedImages: ImageData[] = [];
+const parsedLinks: LinkData[] = [];
+const parsedEmbeds: EmbedData[] = [];
 
 /**
  * Parse the images.tsv file into `parsedImages`
@@ -86,10 +86,10 @@ const parseEmbeds = (): void => {
 
 /**
  * Parse the artifacts.tsv file and integrate sub-objects
- * @returns {Artifact[]} The parsed artifacts
+ * @returns {ArtifactData[]} The parsed artifacts
  */
-export default function ParseData(): Artifact[] {
-  const output: Artifact[] = [];
+export default function ParseData(): ArtifactData[] {
+  const output: ArtifactData[] = [];
 
   // Parse sub-objects
   parseImages();
@@ -117,7 +117,8 @@ export default function ParseData(): Artifact[] {
       ] = line.split("\t");
 
       // Start building artifact (fill in required fields)
-      const currentArtifact: Artifact = {
+      const currentArtifact: ArtifactData = {
+        id: title.replaceAll(" ", "-").toLowerCase(),
         year: parseInt(year),
         quarter: parseInt(quarter),
         title,
@@ -127,17 +128,17 @@ export default function ParseData(): Artifact[] {
 
       // Add images
       currentArtifact.images = hasImages
-        ? parsedImages.filter((image: Image) => image.artifact === title)
+        ? parsedImages.filter((image: ImageData) => image.artifact === title)
         : undefined;
 
       // Add links
       currentArtifact.links = hasLinks
-        ? parsedLinks.filter((link: Link) => link.artifact === title)
+        ? parsedLinks.filter((link: LinkData) => link.artifact === title)
         : undefined;
 
       // Add embeds
       currentArtifact.embeds = hasEmbeds
-        ? parsedEmbeds.filter((embed: Embed) => embed.artifact === title)
+        ? parsedEmbeds.filter((embed: EmbedData) => embed.artifact === title)
         : undefined;
 
       // Add to output

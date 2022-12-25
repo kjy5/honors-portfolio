@@ -12,7 +12,7 @@ module.exports = {
   },
   plugins: ["@typescript-eslint"],
   root: true,
-  ignorePatterns: ["dist", "vite.config.ts"],
+  ignorePatterns: ["dist", "vite.config.ts", "src/components/Gallery.jsx"],
   rules: {
     "sort-imports": "error",
   },

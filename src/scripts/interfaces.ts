@@ -1,15 +1,16 @@
-export interface Artifact {
+export interface ArtifactData {
+  id: string;
   year: number;
   quarter: number;
   title: string;
   subtitle: string;
-  images?: Image[];
-  embeds?: Embed[];
-  links?: Link[];
+  images?: ImageData[];
+  embeds?: EmbedData[];
+  links?: LinkData[];
   text: string;
 }
 
-export interface Image {
+export interface ImageData {
   artifact: string;
   width: number;
   height: number;
@@ -19,7 +20,7 @@ export interface Image {
   image: string;
 }
 
-export interface Link {
+export interface LinkData {
   artifact: string;
   title: string;
   description: string;
@@ -27,7 +28,7 @@ export interface Link {
   image: string;
 }
 
-export interface Embed {
+export interface EmbedData {
   artifact: string;
   url: string;
 }

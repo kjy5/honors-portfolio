@@ -1,32 +1,37 @@
 import "./styles/index.sass";
-import { Artifact } from "./scripts/interfaces";
-import ComingSoon from "./components/ComingSoon";
+import { ArtifactData } from "./scripts/interfaces";
+import ArtifactPage from "./routes/ArtifactPage";
+import ErrorPage from "./routes/ErrorPage";
 import ParseData from "./scripts/parse-data";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Year from "./components/Year";
+import Root from "./routes/Root";
+// eslint-disable-next-line sort-imports
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-// Parse data and return as an array of Artifact objects
-const artifacts: Artifact[] = ParseData();
+// Parse data and return as an array of ArtifactPage objects
+const artifacts: ArtifactData[] = ParseData();
 
-// Compute year set (get unique years)
-const years: Set<number> = new Set();
-artifacts.forEach((artifact: Artifact) => {
-  years.add(artifact.year);
-});
+// Create router
+const router = createBrowserRouter([
+  {
+    path: "/honors-portfolio/",
+    element: <Root />,
+    errorElement: <ErrorPage fromArtifact={false} />,
+    loader: () => artifacts,
+  },
+  {
+    path: "/honors-portfolio/:id",
+    element: <ArtifactPage />,
+    errorElement: <ErrorPage fromArtifact />,
+    loader: ({ params }) =>
+      artifacts.find((artifact: ArtifactData) => artifact.id === params.id),
+  },
+]);
 
+// Render
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <ComingSoon />
-
-    {/* Artifacts */}
-    {Array.from(years).map((year: number) => (
-      <Year
-        key={year}
-        filteredArtifacts={artifacts.filter(
-          (artifact: Artifact) => artifact.year === year
-        )}
-      />
-    ))}
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

@@ -1,20 +1,26 @@
 import "../styles/ArtifactCard.sass";
-import { Artifact } from "../scripts/interfaces";
+import { ArtifactData } from "../scripts/interfaces";
+import { NavLink } from "react-router-dom";
 
 /**
- * Artifact card component. Displays high-level information about an artifact (title, subtitle, 3D graphic).
- * @param props {Artifact} artifact - Artifact object
+ * ArtifactPage card component. Displays high-level information about an artifact (title, subtitle, 3D graphic).
+ * @param {{artifact: ArtifactData}} props - Artifact to display
  * @constructor
  * @return {JSX.Element}
  */
 export default function ArtifactCard(props: {
-  artifact: Artifact;
+  artifact: ArtifactData;
 }): JSX.Element {
+  // Extract props
+  const { id, title, subtitle } = props.artifact;
+
+  // Render
   return (
-    <div className="artifact-card">
+    /* skipcq: JS-0394 */
+    <NavLink to={`/honors-portfolio/${id}`} className="artifact-card">
       <div className="artifact-card__graphic-container" />
-      <h1 className="artifact-card__title">{props.artifact.title}</h1>
-      <h3 className="artifact-card__subtitle">{props.artifact.subtitle}</h3>
-    </div>
+      <h1 className="artifact-card__title">{title}</h1>
+      <h3 className="artifact-card__subtitle">{subtitle}</h3>
+    </NavLink>
   );
 }

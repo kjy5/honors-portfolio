@@ -1,19 +1,19 @@
 import "../styles/Quarter.sass";
-import { Artifact } from "../scripts/interfaces";
 import ArtifactCard from "./ArtifactCard";
+import { ArtifactData } from "../scripts/interfaces";
 
 /**
  * Quarter component. Groups a quarter heading with a grid of artifacts.
- * @param props {Artifact[]} filterArtifacts - Artifacts filtered by quarter
+ * @param {{filteredArtifacts: ArtifactData[]}} props - filterArtifacts - Artifacts filtered by quarter
  * @constructor
  * @return {JSX.Element}
  */
 export default function Quarter(props: {
-  filterArtifacts: Artifact[];
+  filteredArtifacts: ArtifactData[];
 }): JSX.Element {
   // Compute quarter string
   let quarter = "Fall";
-  switch (props.filterArtifacts[0].quarter) {
+  switch (props.filteredArtifacts[0].quarter) {
     case 1:
       quarter = "Winter";
       break;
@@ -27,12 +27,13 @@ export default function Quarter(props: {
       break;
   }
 
+  // Render
   return (
     <div className="quarter">
       <h1 className="quarter__name">{quarter}</h1>
       <div className="quarter__artifacts">
-        {props.filterArtifacts.map((artifact: Artifact) => (
-          <ArtifactCard key={artifact.title} artifact={artifact} />
+        {props.filteredArtifacts.map((artifact: ArtifactData) => (
+          <ArtifactCard key={artifact.id} artifact={artifact} />
         ))}
       </div>
     </div>
