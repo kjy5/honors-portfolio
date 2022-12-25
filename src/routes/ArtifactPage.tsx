@@ -74,9 +74,9 @@ export default function ArtifactPage(): JSX.Element {
 
           {/* External Link */}
           {artifact.links && (
-            <div className="ArtifactPage__external-links">
+            <div className="ArtifactPage__links">
               {artifact.links.map((link: LinkData) => (
-                <RichLink key={link.url} linkData={link}/>
+                <RichLink key={link.url} linkData={link} />
               ))}
             </div>
           )}
