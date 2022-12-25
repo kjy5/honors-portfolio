@@ -27,6 +27,7 @@ export default function Quarter(props: {
       break;
   }
 
+  // Render
   return (
     <div className="quarter">
       <h1 className="quarter__name">{quarter}</h1>

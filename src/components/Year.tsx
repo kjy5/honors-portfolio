@@ -33,6 +33,7 @@ export default function Year(props: {
     quarters.add(artifact.quarter);
   });
 
+  // Render
   return (
     <div className="year">
       <h1 className="year__name">{year}</h1>
