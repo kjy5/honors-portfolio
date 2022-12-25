@@ -32,7 +32,7 @@ export default function Gallery(props) {
 
     // Add dynamic caption plugin
     // noinspection JSUnusedLocalSymbols
-    const photoSwipeDynamicCaption = new PhotoSwipeDynamicCaption(lightbox, {
+    const _photoSwipeDynamicCaption = new PhotoSwipeDynamicCaption(lightbox, {
       type: "auto",
       captionContent: ".pswp-caption-content",
     });
