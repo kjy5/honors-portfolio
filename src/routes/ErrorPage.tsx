@@ -16,7 +16,7 @@ export default function ErrorPage(props: {
   fromArtifact: boolean;
 }): JSX.Element {
   const error = useRouteError() as RouteError;
-  console.error(error);
+  
 
   return (
     <div id="error-page">
