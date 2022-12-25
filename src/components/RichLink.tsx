@@ -1,6 +1,12 @@
-import "../styles/RichLink.sass";
-import { LinkData } from "../scripts/interfaces";
+import '../styles/RichLink.sass'
+import { LinkData } from '../scripts/interfaces'
 
+/**
+ * RichLink component. Displays a link with a title, description, and thumbnail.
+ * @param {{linkData: LinkData}} props - Information about the link
+ * @constructor
+ * @return {JSX.Element}
+ */
 export default function RichLink(props: { linkData: LinkData }): JSX.Element {
   // Extract props
   const { url, image, title, description } = props.linkData;

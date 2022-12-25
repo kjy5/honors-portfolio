@@ -10,6 +10,8 @@
     "relint": "prettier --write . && eslint --fix ."
   },
   "dependencies": {
+    "photoswipe": "^5.3.4",
+    "photoswipe-dynamic-caption-plugin": "^1.2.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.1"

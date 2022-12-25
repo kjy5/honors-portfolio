@@ -4,7 +4,7 @@ import Quarter from './Quarter'
 
 /**
  * Year component. Groups a year heading with a list of quarters.
- * @param props {ArtifactData[]} filteredArtifacts - Artifacts filtered by year
+ * @param {{filteredArtifacts: ArtifactData[]}} props - Artifacts filtered by year
  * @constructor
  * @return {JSX.Element}
  */

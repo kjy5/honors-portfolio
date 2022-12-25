@@ -2,6 +2,7 @@ import '../styles/ArtifactPage.sass'
 import { ArtifactData, EmbedData, LinkData } from '../scripts/interfaces'
 import { Link, useLoaderData } from 'react-router-dom'
 import React, { Fragment } from 'react'
+import Gallery from '../components/Gallery'
 import RichLink from '../components/RichLink'
 
 /**
@@ -86,11 +87,7 @@ export default function ArtifactPage(): JSX.Element {
       </div>
 
       {/* Images */}
-      {artifact.images && (
-        <div className="ArtifactPage__images">
-          <p>Images</p>
-        </div>
-      )}
+      {artifact.images && <Gallery images={artifact.images} />}
 
       {/* Embedded items */}
       {artifact.embeds && (

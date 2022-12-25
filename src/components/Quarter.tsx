@@ -4,7 +4,7 @@ import { ArtifactData } from '../scripts/interfaces'
 
 /**
  * Quarter component. Groups a quarter heading with a grid of artifacts.
- * @param props {ArtifactData[]} filterArtifacts - Artifacts filtered by quarter
+ * @param {{filteredArtifacts: ArtifactData[]}} props - filterArtifacts - Artifacts filtered by quarter
  * @constructor
  * @return {JSX.Element}
  */
