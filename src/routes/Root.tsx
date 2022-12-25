@@ -1,8 +1,8 @@
-import { ArtifactData } from '../scripts/interfaces'
-import ComingSoon from '../components/ComingSoon'
-import { Fragment } from 'react'
-import Year from '../components/Year'
-import { useLoaderData } from 'react-router-dom'
+import { ArtifactData } from "../scripts/interfaces";
+import ComingSoon from "../components/ComingSoon";
+import { Fragment } from "react";
+import Year from "../components/Year";
+import { useLoaderData } from "react-router-dom";
 
 /**
  * Website root, displays all artifacts and navigation

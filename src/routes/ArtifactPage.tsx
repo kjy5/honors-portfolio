@@ -1,9 +1,9 @@
-import '../styles/ArtifactPage.sass'
-import { ArtifactData, EmbedData, LinkData } from '../scripts/interfaces'
-import { Link, useLoaderData } from 'react-router-dom'
-import React, { Fragment } from 'react'
-import Gallery from '../components/Gallery'
-import RichLink from '../components/RichLink'
+import "../styles/ArtifactPage.sass";
+import { ArtifactData, EmbedData, LinkData } from "../scripts/interfaces";
+import { Link, useLoaderData } from "react-router-dom";
+import React, { Fragment } from "react";
+import Gallery from "../components/Gallery";
+import RichLink from "../components/RichLink";
 
 /**
  * Artifact page, displays artifact information including text, images, and embedded media

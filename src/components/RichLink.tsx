@@ -1,5 +1,5 @@
-import '../styles/RichLink.sass'
-import { LinkData } from '../scripts/interfaces'
+import "../styles/RichLink.sass";
+import { LinkData } from "../scripts/interfaces";
 
 /**
  * RichLink component. Displays a link with a title, description, and thumbnail.
