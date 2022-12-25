@@ -1,8 +1,8 @@
-import { ArtifactData, EmbedData, ImageData, LinkData } from "./interfaces";
-import artifactsString from "../assets/artifacts.tsv?raw";
-import embedsString from "../assets/embeds.tsv?raw";
-import imagesString from "../assets/images.tsv?raw";
-import linksString from "../assets/links.tsv?raw";
+import { ArtifactData, EmbedData, ImageData, LinkData } from './interfaces'
+import artifactsString from '../assets/artifacts.tsv?raw'
+import embedsString from '../assets/embeds.tsv?raw'
+import imagesString from '../assets/images.tsv?raw'
+import linksString from '../assets/links.tsv?raw'
 
 // Parsed sub-objects
 const parsedImages: ImageData[] = [];
@@ -84,6 +84,14 @@ const parseEmbeds = (): void => {
     });
 };
 
+const escapeHTML = (unsafe: string): string => {
+  return unsafe
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll("'", "&apos;")
+    .replaceAll('"', "&quot;");
+};
 /**
  * Parse the artifacts.tsv file and integrate sub-objects
  * @returns {ArtifactData[]} The parsed artifacts
@@ -121,9 +129,9 @@ export default function ParseData(): ArtifactData[] {
         id: title.replaceAll(" ", "-").toLowerCase(),
         year: parseInt(year),
         quarter: parseInt(quarter),
-        title,
-        subtitle,
-        text,
+        title: escapeHTML(title),
+        subtitle: escapeHTML(subtitle),
+        text: escapeHTML(text),
       };
 
       // Add images
