@@ -45,6 +45,7 @@ export default function ArtifactPage(): JSX.Element {
   return (
     <div className={"ArtifactPage"}>
       {/* Back button */}
+      {/* skipcq: JS-0394 */}
       <NavLink className={"ArtifactPage__return"} to={"/honors-portfolio"} tabIndex={0} role="button">
         &larr; Return to Kenneth&apos;s Honors Portfolio
       </NavLink>

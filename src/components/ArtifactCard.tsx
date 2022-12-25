@@ -16,6 +16,7 @@ export default function ArtifactCard(props: {
 
   // Render
   return (
+    /* skipcq: JS-0394 */
     <NavLink to={`/honors-portfolio/${id}`} className="artifact-card">
       <div className="artifact-card__graphic-container" />
       <h1 className="artifact-card__title">{title}</h1>
