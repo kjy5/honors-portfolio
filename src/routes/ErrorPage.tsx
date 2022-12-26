@@ -24,7 +24,7 @@ export default function ErrorPage(props: {
       ) : (
         <p>Sorry, an unexpected error has occurred.</p>
       )}
-      <br/>
+      <br />
       <p>Error message for Kenneth to go figure out:</p>
       <code>{error.statusText || error.message}</code>
     </div>

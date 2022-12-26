@@ -1,8 +1,8 @@
-import { ArtifactData, EmbedData, ImageData, LinkData } from './interfaces'
-import artifactsString from '../assets/artifacts.tsv?raw'
-import embedsString from '../assets/embeds.tsv?raw'
-import imagesString from '../assets/images.tsv?raw'
-import linksString from '../assets/links.tsv?raw'
+import { ArtifactData, EmbedData, ImageData, LinkData } from "./interfaces";
+import artifactsString from "../assets/artifacts.tsv?raw";
+import embedsString from "../assets/embeds.tsv?raw";
+import imagesString from "../assets/images.tsv?raw";
+import linksString from "../assets/links.tsv?raw";
 
 // Parsed sub-objects
 const parsedImages: ImageData[] = [];
