@@ -1,9 +1,9 @@
-import "../styles/ArtifactPage.sass";
-import { ArtifactData, EmbedData, LinkData } from "../scripts/interfaces";
-import { NavLink, useLoaderData } from "react-router-dom";
-import React, { Fragment } from "react";
-import Gallery from "../components/Gallery";
-import RichLink from "../components/RichLink";
+import '../styles/ArtifactPage.sass'
+import { ArtifactData, EmbedData, LinkData } from '../scripts/interfaces'
+import { NavLink, useLoaderData } from 'react-router-dom'
+import React, { Fragment } from 'react'
+import Gallery from '../components/Gallery'
+import RichLink from '../components/RichLink'
 
 /**
  * Artifact header, displays artifact title, subtitle, date, and links
@@ -120,6 +120,7 @@ export default function ArtifactPage(): JSX.Element {
                 Click here if there is a problem viewing the embedded item
               </a>
               <iframe
+                // skipcq: JS-D010
                 key={`iframe_${embed.url}`}
                 className="ArtifactPage__iframe"
                 src={embed.url}
