@@ -17,7 +17,9 @@ import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
 export default function Gallery(props) {
   // Extract prop data
   const { images } = props;
-  const galleryID = images[0].artifact.replaceAll(" ", "-").toLowerCase();
+  const galleryID = `gallery_${images[0].artifact
+    .replaceAll(" ", "-")
+    .toLowerCase()}`;
 
   // Initialize the gallery
   useEffect(() => {

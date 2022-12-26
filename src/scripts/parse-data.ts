@@ -10,6 +10,19 @@ const parsedLinks: LinkData[] = [];
 const parsedEmbeds: EmbedData[] = [];
 
 /**
+ * Replace characters with HTML escape codes
+ * @param {string} unsafe - The string to escape
+ */
+const escapeHTML = (unsafe: string): string => {
+  return unsafe
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll("'", "&apos;")
+    .replaceAll('"', "&quot;");
+};
+
+/**
  * Parse the images.tsv file into `parsedImages`
  */
 const parseImages = (): void => {
@@ -29,8 +42,8 @@ const parseImages = (): void => {
         artifact,
         width: Number(width),
         height: Number(height),
-        name,
-        description,
+        name: escapeHTML(name),
+        description: escapeHTML(description),
         thumbnail,
         image,
       });
@@ -54,14 +67,13 @@ const parseLinks = (): void => {
       // Add to parsed links
       parsedLinks.push({
         artifact,
-        title,
-        description,
+        title: escapeHTML(title),
+        description: escapeHTML(description),
         url,
         image,
       });
     });
 };
-
 /**
  * Parse the embeds.tsv file into `parsedEmbeds`
  */
@@ -83,7 +95,6 @@ const parseEmbeds = (): void => {
       });
     });
 };
-
 /**
  * Parse the artifacts.tsv file and integrate sub-objects
  * @returns {ArtifactData[]} The parsed artifacts
@@ -121,9 +132,9 @@ export default function ParseData(): ArtifactData[] {
         id: title.replaceAll(" ", "-").toLowerCase(),
         year: parseInt(year),
         quarter: parseInt(quarter),
-        title,
-        subtitle,
-        text,
+        title: escapeHTML(title),
+        subtitle: escapeHTML(subtitle),
+        text: escapeHTML(text),
       };
 
       // Add images

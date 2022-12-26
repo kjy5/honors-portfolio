@@ -120,11 +120,12 @@ export default function ArtifactPage(): JSX.Element {
                 Click here if there is a problem viewing the embedded item
               </a>
               <iframe
+                // skipcq: JS-D010
                 key={`iframe_${embed.url}`}
                 className="ArtifactPage__iframe"
                 src={embed.url}
                 title={embed.artifact}
-                sandbox={"allow-scripts allow-same-origin"}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
               />
             </Fragment>
           ))}

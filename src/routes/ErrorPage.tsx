@@ -22,11 +22,11 @@ export default function ErrorPage(props: {
       {props.fromArtifact ? (
         <p>It appears this artifact doesn&apos;t exist!</p>
       ) : (
-        <>
-          <p>Sorry, an unexpected error has occurred.</p>
-          <code>{error.statusText || error.message}</code>
-        </>
+        <p>Sorry, an unexpected error has occurred.</p>
       )}
+      <br />
+      <p>Error message for Kenneth to go figure out:</p>
+      <code>{error.statusText || error.message}</code>
     </div>
   );
 }
