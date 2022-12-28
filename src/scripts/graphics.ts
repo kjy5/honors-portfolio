@@ -1,13 +1,9 @@
-import * as THREE from "three";
-import WebGL from "three/examples/jsm/capabilities/WebGL.js";
+import * as THREE from 'three'
+import { WebGLRendererParameters } from 'three'
+// eslint-disable-next-line sort-imports
+import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
 
-interface WebGLRendererParameters {
-  canvas: HTMLCanvasElement;
-  alpha?: boolean;
-  antialias?: boolean;
-  physicallyCorrectLights?: boolean;
-}
-
+// Base scene items
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -24,20 +20,26 @@ const renderer = new THREE.WebGLRenderer({
   physicallyCorrectLights: true,
 } as WebGLRendererParameters);
 
-function resizeRendererToDisplaySize(renderer: THREE.WebGLRenderer) {
-  // noinspection JSUnresolvedVariable
-  const canvas = renderer.domElement;
-  const pixelRatio = window.devicePixelRatio;
+const canvas = renderer.domElement;
+const pixelRatio = window.devicePixelRatio;
+
+/**
+ * Resize the canvas to match the window size
+ */
+function resizeRendererToDisplaySize() {
   const width = (canvas.clientWidth * pixelRatio) | 0;
   const height = (canvas.clientHeight * pixelRatio) | 0;
-  const needResize = canvas.width !== width || canvas.height !== height;
-  if (needResize) {
-    // noinspection JSUnresolvedFunction
+  if (canvas.width !== width || canvas.height !== height) {
     renderer.setSize(width, height, false);
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    camera.updateProjectionMatrix();
   }
-  return needResize;
 }
 
+/**
+ * Render 3D graphics
+ * @constructor
+ */
 export default function Graphics() {
   // Setup scrolling
   let scroll = window.scrollY;
@@ -48,7 +50,13 @@ export default function Graphics() {
     }
   });
 
-  // Add a light
+  // Setup resize
+  resizeRendererToDisplaySize();
+  window.addEventListener("resize", () => {
+    resizeRendererToDisplaySize();
+  });
+
+  // Add lights
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
   const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
   directionalLight.position.set(3, 3, 10);
@@ -81,12 +89,6 @@ export default function Graphics() {
 
   // Animate
   function animate() {
-    if (resizeRendererToDisplaySize(renderer)) {
-      const canvas = renderer.domElement;
-      camera.aspect = canvas.clientWidth / canvas.clientHeight;
-      camera.updateProjectionMatrix();
-    }
-
     // Set camera position to scroll
     camera.position.y = (-scroll / window.innerHeight) * 7.7;
 
