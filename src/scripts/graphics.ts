@@ -39,7 +39,7 @@ export default class Graphics {
     }
   }
 
-  static makeScene(element: HTMLDivElement) {
+  static makeScene(element: HTMLElement) {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
