@@ -47,7 +47,7 @@ export default class Graphics {
       0.1,
       10
     );
-    camera.position.z = 5;
+    camera.position.z = 2;
 
     const light = new THREE.DirectionalLight(0xffffff, 1);
     light.position.set(-1, 2, 4);
@@ -129,24 +129,22 @@ export default class Graphics {
     if (this.#canvas.width !== width || this.#canvas.height !== height) {
       Graphics.renderer.setSize(width, height, false);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      Graphics.sceneInfos.forEach(([_scene, camera, _element]) => {
-        camera.aspect = this.#canvas.clientWidth / this.#canvas.clientHeight;
-        camera.updateProjectionMatrix();
-      });
+      // Graphics.sceneInfos.forEach(([_scene, camera, _element]) => {
+      //   camera.aspect = this.#canvas.clientWidth / this.#canvas.clientHeight;
+      //   camera.updateProjectionMatrix();
+      // });
     }
   }
 
   #render() {
     // Reset scissors
-    Graphics.renderer.setScissorTest(false);
-    Graphics.renderer.clear(true, true);
-    Graphics.renderer.setScissorTest(true);
+    // Graphics.renderer.setScissorTest(false);
+    // Graphics.renderer.clear(true, true);
 
     // Render each scene
     Graphics.sceneInfos.forEach(([scene, camera, element]) => {
       const { left, right, top, bottom, width, height } =
         element.getBoundingClientRect();
-
       const isOffscreen =
         bottom < 0 ||
         top > this.#canvas.clientHeight ||
@@ -154,13 +152,18 @@ export default class Graphics {
         left > this.#canvas.clientWidth;
 
       if (!isOffscreen) {
+
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
         const positiveYUpBottom = this.#canvas.clientHeight - bottom;
-        Graphics.renderer.setScissor(left, positiveYUpBottom, width, height);
-        Graphics.renderer.setViewport(left, positiveYUpBottom, width, height);
+
+        Graphics.renderer.setScissor(left, positiveYUpBottom, width*2, height*2);
+        Graphics.renderer.setViewport(left, positiveYUpBottom, width*2, height*2);
         Graphics.renderer.render(scene, camera);
       }
     });
 
+    Graphics.renderer.setScissorTest(true);
     requestAnimationFrame(this.#render.bind(this));
   }
 }
