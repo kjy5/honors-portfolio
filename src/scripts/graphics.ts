@@ -8,7 +8,8 @@ import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
  */
 export default class Graphics {
   static renderer: THREE.WebGLRenderer;
-  static scenes: Map<THREE.Scene, THREE.PerspectiveCamera> = new Map();
+  static sceneInfos: Set<[THREE.Scene, THREE.PerspectiveCamera, HTMLElement]> =
+    new Set();
   readonly #canvas: HTMLCanvasElement;
 
   constructor(canvas: HTMLCanvasElement) {
@@ -24,12 +25,40 @@ export default class Graphics {
 
     // Create background
     this.#createBackground();
+
+    // Bind renderer resize
     this.#resizeRendererToDisplaySize();
+    window.addEventListener(
+      "resize",
+      this.#resizeRendererToDisplaySize.bind(this)
+    );
 
     // Start animation if WebGL is available
     if (WebGL.isWebGLAvailable()) {
-      requestAnimationFrame(this.#animate.bind(this));
+      requestAnimationFrame(this.#render.bind(this));
     }
+  }
+
+  static makeScene(element: HTMLDivElement) {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      10
+    );
+    camera.position.z = 5;
+
+    const light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(-1, 2, 4);
+    scene.add(light);
+
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshPhongMaterial({ color: "magenta" });
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+
+    Graphics.sceneInfos.add([scene, camera, element]);
   }
 
   /**
@@ -87,7 +116,7 @@ export default class Graphics {
     scene.add(particles);
 
     // Register this scene and camera
-    Graphics.scenes.set(scene, camera);
+    Graphics.sceneInfos.add([scene, camera, this.#canvas]);
   }
 
   /**
@@ -99,19 +128,39 @@ export default class Graphics {
     const height = (this.#canvas.clientHeight * window.devicePixelRatio) | 0;
     if (this.#canvas.width !== width || this.#canvas.height !== height) {
       Graphics.renderer.setSize(width, height, false);
-      Graphics.scenes.forEach((camera: THREE.PerspectiveCamera) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      Graphics.sceneInfos.forEach(([_scene, camera, _element]) => {
         camera.aspect = this.#canvas.clientWidth / this.#canvas.clientHeight;
         camera.updateProjectionMatrix();
       });
     }
   }
 
-  #animate() {
-    Graphics.scenes.forEach(
-      (camera: THREE.PerspectiveCamera, scene: THREE.Scene) => {
+  #render() {
+    // Reset scissors
+    Graphics.renderer.setScissorTest(false);
+    Graphics.renderer.clear(true, true);
+    Graphics.renderer.setScissorTest(true);
+
+    // Render each scene
+    Graphics.sceneInfos.forEach(([scene, camera, element]) => {
+      const { left, right, top, bottom, width, height } =
+        element.getBoundingClientRect();
+
+      const isOffscreen =
+        bottom < 0 ||
+        top > this.#canvas.clientHeight ||
+        right < 0 ||
+        left > this.#canvas.clientWidth;
+
+      if (!isOffscreen) {
+        const positiveYUpBottom = this.#canvas.clientHeight - bottom;
+        Graphics.renderer.setScissor(left, positiveYUpBottom, width, height);
+        Graphics.renderer.setViewport(left, positiveYUpBottom, width, height);
         Graphics.renderer.render(scene, camera);
-        requestAnimationFrame(this.#animate.bind(this));
       }
-    );
+    });
+
+    requestAnimationFrame(this.#render.bind(this));
   }
 }
