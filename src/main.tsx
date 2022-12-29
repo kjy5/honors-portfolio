@@ -31,7 +31,8 @@ const router = createBrowserRouter([
 ]);
 
 // Render
-Graphics();
+new Graphics(document.getElementById("canvas") as HTMLCanvasElement);
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <RouterProvider router={router} />

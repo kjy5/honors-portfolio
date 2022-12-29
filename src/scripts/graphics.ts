@@ -3,101 +3,115 @@ import { WebGLRendererParameters } from 'three'
 // eslint-disable-next-line sort-imports
 import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
 
-// Base scene items
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
-camera.position.z = 5;
-
-const renderer = new THREE.WebGLRenderer({
-  canvas: document.getElementById("canvas") as HTMLCanvasElement,
-  alpha: true,
-  antialias: true,
-  physicallyCorrectLights: true,
-} as WebGLRendererParameters);
-
-const canvas = renderer.domElement;
-const pixelRatio = window.devicePixelRatio;
-
 /**
- * Resize the canvas to match the window size
+ * Manage 3D graphics.
  */
-function resizeRendererToDisplaySize() {
-  const width = (canvas.clientWidth * pixelRatio) | 0;
-  const height = (canvas.clientHeight * pixelRatio) | 0;
-  if (canvas.width !== width || canvas.height !== height) {
-    renderer.setSize(width, height, false);
-    camera.aspect = canvas.clientWidth / canvas.clientHeight;
-    camera.updateProjectionMatrix();
-  }
-}
+export default class Graphics {
+  static renderer: THREE.WebGLRenderer;
+  static scenes: Map<THREE.Scene, THREE.PerspectiveCamera> = new Map();
+  readonly #canvas: HTMLCanvasElement;
 
-/**
- * Render 3D graphics
- * @constructor
- */
-export default function Graphics() {
-  // Setup scrolling
-  let scroll = window.scrollY;
-  window.addEventListener("scroll", () => {
-    const url = window.location.href;
-    if (url.substring(url.length - 17) === "honors-portfolio/") {
-      scroll = window.scrollY;
+  constructor(canvas: HTMLCanvasElement) {
+    this.#canvas = canvas;
+
+    // Create the renderer
+    Graphics.renderer = new THREE.WebGLRenderer({
+      canvas: this.#canvas,
+      antialias: true,
+      alpha: true,
+      physicallyCorrectLights: true,
+    } as WebGLRendererParameters);
+
+    // Create background
+    this.#createBackground();
+    this.#resizeRendererToDisplaySize();
+
+    // Start animation if WebGL is available
+    if (WebGL.isWebGLAvailable()) {
+      requestAnimationFrame(this.#animate.bind(this));
     }
-  });
-
-  // Setup resize
-  resizeRendererToDisplaySize();
-  window.addEventListener("resize", () => {
-    resizeRendererToDisplaySize();
-  });
-
-  // Add lights
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  directionalLight.position.set(3, 3, 10);
-  scene.add(ambientLight);
-  scene.add(directionalLight);
-
-  // Add particles
-  const particlesCount = 150;
-  const positions = new Float32Array(particlesCount * 3);
-  for (let i = 0; i < particlesCount; i++) {
-    positions[i * 3] = (Math.random() - 0.5) * 10;
-    positions[i * 3 + 1] = 7.5 * 0.5 - Math.random() * 7.5 * 3;
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
   }
 
-  const particlesGeometry = new THREE.BufferGeometry();
-  particlesGeometry.setAttribute(
-    "position",
-    new THREE.BufferAttribute(positions, 3)
-  );
+  /**
+   * Create the background graphic
+   * @private
+   */
+  #createBackground() {
+    // Create scene and camera
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    camera.position.z = 5;
 
-  const particlesMaterial = new THREE.PointsMaterial({
-    color: "#ffeded",
-    sizeAttenuation: true,
-    size: 0.03,
-  });
+    // Setup scrolling
+    window.addEventListener("scroll", () => {
+      const url = window.location.href;
+      if (url.substring(url.length - 17) === "honors-portfolio/") {
+        camera.position.y = (-window.scrollY / window.innerHeight) * 7.7;
+      }
+    });
 
-  const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-  scene.add(particles);
+    // Add lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    directionalLight.position.set(3, 3, 10);
+    scene.add(ambientLight);
+    scene.add(directionalLight);
 
-  // Animate
-  function animate() {
-    // Set camera position to scroll
-    camera.position.y = (-scroll / window.innerHeight) * 7.7;
+    // Add particles
+    const particlesCount = 150;
+    const positions = new Float32Array(particlesCount * 3);
+    for (let i = 0; i < particlesCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 10;
+      positions[i * 3 + 1] = 7.5 * 0.5 - Math.random() * 7.5 * 3;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
+    }
 
-    renderer.render(scene, camera);
-    requestAnimationFrame(animate);
+    const particlesGeometry = new THREE.BufferGeometry();
+    particlesGeometry.setAttribute(
+      "position",
+      new THREE.BufferAttribute(positions, 3)
+    );
+
+    const particlesMaterial = new THREE.PointsMaterial({
+      color: "#ffeded",
+      sizeAttenuation: true,
+      size: 0.03,
+    });
+
+    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particles);
+
+    // Register this scene and camera
+    Graphics.scenes.set(scene, camera);
   }
 
-  // Run loop if WebGL is available
-  if (WebGL.isWebGLAvailable()) {
-    requestAnimationFrame(animate);
+  /**
+   * Resize the renderer and any cameras on window size change
+   * @private
+   */
+  #resizeRendererToDisplaySize() {
+    const width = (this.#canvas.clientWidth * window.devicePixelRatio) | 0;
+    const height = (this.#canvas.clientHeight * window.devicePixelRatio) | 0;
+    if (this.#canvas.width !== width || this.#canvas.height !== height) {
+      Graphics.renderer.setSize(width, height, false);
+      Graphics.scenes.forEach((camera: THREE.PerspectiveCamera) => {
+        camera.aspect = this.#canvas.clientWidth / this.#canvas.clientHeight;
+        camera.updateProjectionMatrix();
+      });
+    }
+  }
+
+  #animate() {
+    Graphics.scenes.forEach(
+      (camera: THREE.PerspectiveCamera, scene: THREE.Scene) => {
+        Graphics.renderer.render(scene, camera);
+        requestAnimationFrame(this.#animate.bind(this));
+      }
+    );
   }
 }
