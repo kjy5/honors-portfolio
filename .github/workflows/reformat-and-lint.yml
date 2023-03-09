@@ -2,12 +2,7 @@ name: Reformat and Lint
 
 on:
   pull_request:
-
   workflow_dispatch:
-
-concurrency:
-  group: "reformat-and-lint"
-  cancel-in-progress: true
 
 jobs:
   reformat-and-lint:
