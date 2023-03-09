@@ -11,8 +11,7 @@ concurrency:
 
 jobs:
   reformat-and-lint:
-    if:
-      github.event.pull_request.user.login != 'dependabot[bot]'
+    if: github.event.pull_request.user.login != 'dependabot[bot]'
     runs-on: ubuntu-latest
 
     steps:
@@ -42,8 +41,7 @@ jobs:
           commit_message: Reformat and Lint
 
   reformat-and-lint-bot:
-    if:
-      github.event.pull_request.user.login == 'dependabot[bot]'
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
     runs-on: ubuntu-latest
 
     steps:
