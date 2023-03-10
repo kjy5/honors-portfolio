@@ -6,7 +6,6 @@ on:
 
 jobs:
   reformat-and-lint:
-    if: github.event.pull_request.user.login != 'dependabot[bot]'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -35,3 +34,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Reformat and Lint
+          token: ${{ secrets.WORKFLOW_COMMIT }}
