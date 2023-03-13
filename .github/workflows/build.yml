@@ -16,11 +16,6 @@ on:
         default: false
         type: boolean
 
-# Only allow one build at a time
-concurrency:
-  group: "build"
-  cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
