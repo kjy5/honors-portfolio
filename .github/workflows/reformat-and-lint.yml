@@ -12,9 +12,14 @@ jobs:
 
     steps:
       - name: 🛎 Checkout
+        if: github.event.pull_request.user.login != 'dependabot[bot]'
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.WORKFLOW_COMMIT }}
+
+      - name: 🤖🛎 Bot Checkout
+        if: github.event.pull_request.user.login == 'dependabot[bot]'
+        uses: actions/checkout@v3
 
       - name: 📦 Setup Node.js and caching
         uses: actions/setup-node@v3
