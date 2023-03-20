@@ -1,8 +1,6 @@
 import '../styles/ArtifactCard.sass'
 import { ArtifactData } from '../scripts/interfaces'
-import Graphics from '../scripts/graphics'
 import { NavLink } from 'react-router-dom'
-import { useEffect } from 'react'
 
 /**
  * ArtifactPage card component. Displays high-level information about an artifact (title, subtitle, 3D graphic).
@@ -15,11 +13,6 @@ export default function ArtifactCard(props: {
 }): JSX.Element {
   // Extract props
   const { id, title, subtitle } = props.artifact;
-
-  useEffect(() => {
-    // Render graphics
-    Graphics.makeScene(document.getElementById(id) as HTMLElement);
-  }, []);
 
   // Render
   return (
