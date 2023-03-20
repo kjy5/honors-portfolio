@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 import "../styles/Gallery.sass";
 import { useEffect } from "react";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
@@ -33,8 +31,8 @@ export default function Gallery(props) {
     });
 
     // Add dynamic caption plugin
-    // noinspection JSUnusedLocalSymbols
-    const _photoSwipeDynamicCaption = new PhotoSwipeDynamicCaption(lightbox, {
+    // skipcq: JS-0128
+    let caption = new PhotoSwipeDynamicCaption(lightbox, {
       type: "auto",
       captionContent: ".pswp-caption-content",
     });
@@ -46,6 +44,7 @@ export default function Gallery(props) {
     return () => {
       lightbox.destroy();
       lightbox = null;
+      caption = null;
     };
   }, []);
 

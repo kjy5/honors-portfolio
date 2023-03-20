@@ -8,6 +8,7 @@ import ReactDOM from "react-dom/client";
 import Root from "./routes/Root";
 // eslint-disable-next-line sort-imports
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Graphics from "./scripts/graphics";
 
 // Parse data and return as an array of ArtifactPage objects
 const artifacts: ArtifactData[] = ParseData();
@@ -29,7 +30,13 @@ const router = createBrowserRouter([
   },
 ]);
 
-// Render
+// Render 3D
+const graphics = new Graphics(
+  document.getElementById("canvas") as HTMLCanvasElement
+);
+graphics.render();
+
+// Create page
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <RouterProvider router={router} />

@@ -81,6 +81,9 @@ export default function ArtifactPage(): JSX.Element {
   // Render
   return (
     <div className={"ArtifactPage"}>
+      {/* Blur layer */}
+      <div className={"ArtifactPage__blur"} />
+
       {/* Back button */}
       {/* skipcq: JS-0394 */}
       <NavLink
