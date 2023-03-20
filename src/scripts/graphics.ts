@@ -1,7 +1,7 @@
-import * as THREE from 'three'
-import { WebGLRendererParameters } from 'three'
+import * as THREE from "three";
+import { WebGLRendererParameters } from "three";
 // eslint-disable-next-line sort-imports
-import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
+import WebGL from "three/examples/jsm/capabilities/WebGL.js";
 
 /**
  * Manage 3D graphics.

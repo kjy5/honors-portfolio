@@ -1,6 +1,6 @@
-import '../styles/ArtifactCard.sass'
-import { ArtifactData } from '../scripts/interfaces'
-import { NavLink } from 'react-router-dom'
+import "../styles/ArtifactCard.sass";
+import { ArtifactData } from "../scripts/interfaces";
+import { NavLink } from "react-router-dom";
 
 /**
  * ArtifactPage card component. Displays high-level information about an artifact (title, subtitle, 3D graphic).
