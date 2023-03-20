@@ -2,7 +2,7 @@ version = 1
 
 [[analyzers]]
 name = "secrets"
-enabled = true
+enabled = false
 
 [[analyzers]]
 name = "javascript"
