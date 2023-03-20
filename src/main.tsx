@@ -36,7 +36,6 @@ const graphics = new Graphics(
 );
 graphics.render();
 
-
 // Create page
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
