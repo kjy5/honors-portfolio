@@ -33,7 +33,7 @@ export default function Gallery(props) {
     });
 
     // Add dynamic caption plugin
-    new PhotoSwipeDynamicCaption(lightbox, {
+    let caption = new PhotoSwipeDynamicCaption(lightbox, {
       type: "auto",
       captionContent: ".pswp-caption-content",
     });
@@ -45,6 +45,7 @@ export default function Gallery(props) {
     return () => {
       lightbox.destroy();
       lightbox = null;
+      caption = null;
     };
   }, []);
 

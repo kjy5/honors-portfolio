@@ -1,6 +1,16 @@
-import * as THREE from 'three'
-import { WebGLRendererParameters } from 'three'
-// eslint-disable-next-line sort-imports
+import {
+  AmbientLight,
+  BufferAttribute,
+  BufferGeometry,
+  Camera,
+  DirectionalLight,
+  PerspectiveCamera,
+  Points,
+  PointsMaterial,
+  Scene,
+  WebGLRenderer,
+  WebGLRendererParameters,
+} from 'three'
 import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
 
 /**
@@ -8,16 +18,20 @@ import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
  */
 export default class Graphics {
   readonly #canvas: HTMLCanvasElement;
-  readonly #renderer: THREE.WebGLRenderer;
-  readonly #scene: THREE.Scene;
-  readonly #camera: THREE.Camera;
+  readonly #renderer: WebGLRenderer;
+  readonly #scene: Scene;
+  readonly #camera: Camera;
 
+  /**
+   * Create and initialize 3D graphics
+   * @param canvas {HTMLCanvasElement} Element to put graphics into
+   */
   constructor(canvas: HTMLCanvasElement) {
     // Get canvas element
     this.#canvas = canvas;
 
     // Create the renderer
-    this.#renderer = new THREE.WebGLRenderer({
+    this.#renderer = new WebGLRenderer({
       canvas: this.#canvas,
       antialias: true,
       alpha: true,
@@ -25,8 +39,8 @@ export default class Graphics {
     } as WebGLRendererParameters);
 
     // Initialize the scene and camera objects
-    this.#scene = new THREE.Scene();
-    this.#camera = new THREE.PerspectiveCamera(
+    this.#scene = new Scene();
+    this.#camera = new PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
       0.1,
@@ -43,10 +57,15 @@ export default class Graphics {
       "resize",
       this.#resizeRendererToDisplaySize.bind(this)
     );
+  }
 
+  /**
+   * Start the render process after checking for WebGL
+   */
+  render() {
     // Start animation if WebGL is available
     if (WebGL.isWebGLAvailable()) {
-      requestAnimationFrame(this.#render.bind(this));
+      this.#render();
     }
   }
 
@@ -64,8 +83,8 @@ export default class Graphics {
     });
 
     // Add lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    const ambientLight = new AmbientLight(0xffffff, 0.5);
+    const directionalLight = new DirectionalLight(0xffffff, 0.5);
     directionalLight.position.set(3, 3, 10);
     this.#scene.add(ambientLight);
     this.#scene.add(directionalLight);
@@ -79,19 +98,19 @@ export default class Graphics {
       positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
     }
 
-    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesGeometry = new BufferGeometry();
     particlesGeometry.setAttribute(
       "position",
-      new THREE.BufferAttribute(positions, 3)
+      new BufferAttribute(positions, 3)
     );
 
-    const particlesMaterial = new THREE.PointsMaterial({
+    const particlesMaterial = new PointsMaterial({
       color: "#ffeded",
       sizeAttenuation: true,
       size: 0.03,
     });
 
-    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    const particles = new Points(particlesGeometry, particlesMaterial);
     this.#scene.add(particles);
   }
 
@@ -107,6 +126,10 @@ export default class Graphics {
     }
   }
 
+  /**
+   * Actual render caller
+   * @private
+   */
   #render() {
     this.#renderer.render(this.#scene, this.#camera);
     requestAnimationFrame(this.#render.bind(this));

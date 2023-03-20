@@ -30,9 +30,14 @@ const router = createBrowserRouter([
   },
 ]);
 
-// Render
-new Graphics(document.getElementById("canvas") as HTMLCanvasElement);
+// Render 3D
+const graphics = new Graphics(
+  document.getElementById("canvas") as HTMLCanvasElement
+);
+graphics.render();
 
+
+// Create page
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <RouterProvider router={router} />
