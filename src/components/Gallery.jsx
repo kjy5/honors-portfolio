@@ -1,12 +1,10 @@
-// noinspection JSUnusedGlobalSymbols
-
-import "../styles/Gallery.sass";
-import { useEffect } from "react";
-import PhotoSwipeLightbox from "photoswipe/lightbox";
-import "photoswipe/style.css";
-import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
-import PropTypes from "prop-types";
-import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
+import '../styles/Gallery.sass'
+import { useEffect } from 'react'
+import PhotoSwipeLightbox from 'photoswipe/lightbox'
+import 'photoswipe/style.css'
+import 'photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css'
+import PropTypes from 'prop-types'
+import PhotoSwipeDynamicCaption from 'photoswipe-dynamic-caption-plugin'
 
 /**
  * Gallery component, displays a gallery of images
@@ -33,8 +31,8 @@ export default function Gallery(props) {
     });
 
     // Add dynamic caption plugin
+    // skip-qc: JS-0128
     let caption = new PhotoSwipeDynamicCaption(lightbox, {
-      // skip-qc: JS-C1002
       type: "auto",
       captionContent: ".pswp-caption-content",
     });
