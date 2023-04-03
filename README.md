@@ -1,11 +1,8 @@
 # UW Interdisciplinary Honors Portfolio
 
 [![Build Website](https://github.com/kjy5/honors-portfolio/actions/workflows/build.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/build.yml)
-
 [![Reformat and Lint](https://github.com/kjy5/honors-portfolio/actions/workflows/reformat-and-lint.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/reformat-and-lint.yml)
-
 [![Deploy to GitHub Pages](https://github.com/kjy5/honors-portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/deploy.yml)
-
 [![Dependency Review](https://github.com/kjy5/honors-portfolio/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/dependency-review.yml)
 
 This repository holds code for my honors portfolio.
