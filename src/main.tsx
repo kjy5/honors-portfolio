@@ -32,7 +32,8 @@ const router = createBrowserRouter([
       if (artifact) {
         return artifact;
       } else {
-        throw new Response("Artifact not found");
+        // skipcq: JS-0343
+        throw new Response("Artifact not found", { status: 404 });
       }
     },
   },
