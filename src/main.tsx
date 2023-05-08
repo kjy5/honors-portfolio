@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       if (artifact) {
         return artifact;
       } else {
-        throw new Response("Artifact not found", { status: 404 });
+        throw new Response("Artifact not found");
       }
     },
   },
