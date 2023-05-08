@@ -19,7 +19,7 @@
     "three": "^0.151.3"
   },
   "devDependencies": {
-    "@types/react": "^18.0.38",
+    "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
     "@types/react-router-dom": "^5.3.3",
     "@types/three": "^0.150.1",
