@@ -1,14 +1,14 @@
-import "./styles/index.sass";
-import { ArtifactData } from "./scripts/interfaces";
-import ArtifactPage from "./routes/ArtifactPage";
-import ErrorPage from "./routes/ErrorPage";
-import ParseData from "./scripts/parse-data";
-import React from "react";
-import ReactDOM from "react-dom/client";
-import Root from "./routes/Root";
+import './styles/index.sass'
+import { ArtifactData } from './scripts/interfaces'
+import ArtifactPage from './routes/ArtifactPage'
+import ErrorPage from './routes/ErrorPage'
+import ParseData from './scripts/parse-data'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import Root from './routes/Root'
 // eslint-disable-next-line sort-imports
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Graphics from "./scripts/graphics";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Graphics from './scripts/graphics'
 
 // Parse data and return as an array of ArtifactPage objects
 const artifacts: ArtifactData[] = ParseData();
@@ -25,8 +25,17 @@ const router = createBrowserRouter([
     path: "/honors-portfolio/:id",
     element: <ArtifactPage />,
     errorElement: <ErrorPage fromArtifact />,
-    loader: ({ params }) =>
-      artifacts.find((artifact: ArtifactData) => artifact.id === params.id),
+    loader: ({ params }) => {
+      const artifact = artifacts.find(
+        (artifact: ArtifactData) => artifact.id === params.id
+      );
+      if (artifact) {
+        return artifact;
+      } else {
+        // skipcq: JS-0343
+        throw new Response("Artifact not found", { status: 404 });
+      }
+    },
   },
 ]);
 
