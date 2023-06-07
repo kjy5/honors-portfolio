@@ -1,9 +1,9 @@
-import "../styles/ArtifactPage.sass";
-import { ArtifactData, EmbedData, LinkData } from "../scripts/interfaces";
-import { Fragment, ReactElement } from "react";
-import { NavLink, useLoaderData } from "react-router-dom";
-import Gallery from "../components/Gallery";
-import RichLink from "../components/RichLink";
+import '../styles/ArtifactPage.sass'
+import { ArtifactData, EmbedData, LinkData } from '../scripts/interfaces'
+import { Fragment, ReactElement } from 'react'
+import { NavLink, useLoaderData } from 'react-router-dom'
+import Gallery from '../components/Gallery'
+import RichLink from '../components/RichLink'
 
 /**
  * Artifact header, displays artifact title, subtitle, date, and links
@@ -58,8 +58,7 @@ function ArtifactHeader(props: { artifact: ArtifactData }): ReactElement {
       </h3>
 
       {/* External Link */}
-      {links &&
-        links.map((link: LinkData) => (
+      {links?.map((link: LinkData) => (
           <RichLink key={link.url} linkData={link} />
         ))}
     </div>
