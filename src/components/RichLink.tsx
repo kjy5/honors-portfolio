@@ -1,5 +1,6 @@
-import "../styles/RichLink.sass";
-import { LinkData } from "../scripts/interfaces";
+import '../styles/RichLink.sass'
+import { LinkData } from '../scripts/interfaces'
+import { ReactElement } from 'react'
 
 /**
  * RichLink component. Displays a link with a title, description, and thumbnail.
@@ -7,7 +8,7 @@ import { LinkData } from "../scripts/interfaces";
  * @constructor
  * @return {JSX.Element}
  */
-export default function RichLink(props: { linkData: LinkData }): JSX.Element {
+export default function RichLink(props: { linkData: LinkData }): ReactElement {
   // Extract props
   const { url, image, title, description } = props.linkData;
 

@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import { useRouteError } from "react-router-dom";
 
 interface RouteError {
@@ -9,11 +10,11 @@ interface RouteError {
  * Error / 404 page, displays error information
  * @param props {fromArtifact: boolean} Whether the error page is being displayed from an artifact page
  * @constructor
- * @returns {JSX.Element}
+ * @returns {ReactElement}
  */
 export default function ErrorPage(props: {
   fromArtifact: boolean;
-}): JSX.Element {
+}): ReactElement {
   const error = useRouteError() as RouteError;
 
   return (
