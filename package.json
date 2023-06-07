@@ -29,6 +29,8 @@
     "@vitejs/plugin-react-swc": "^3.3.2",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.1",
     "prettier": "^2.8.8",
     "sass": "^1.62.1",
     "terser": "^5.17.7",
