@@ -1,16 +1,17 @@
 import "../styles/Quarter.sass";
 import ArtifactCard from "./ArtifactCard";
 import { ArtifactData } from "../scripts/interfaces";
+import { ReactElement } from "react";
 
 /**
  * Quarter component. Groups a quarter heading with a grid of artifacts.
  * @param {{filteredArtifacts: ArtifactData[]}} props - filterArtifacts - Artifacts filtered by quarter
  * @constructor
- * @return {JSX.Element}
+ * @return {ReactElement}
  */
 export default function Quarter(props: {
   filteredArtifacts: ArtifactData[];
-}): JSX.Element {
+}): ReactElement {
   // Compute quarter string
   let quarter = "Fall";
   switch (props.filteredArtifacts[0].quarter) {

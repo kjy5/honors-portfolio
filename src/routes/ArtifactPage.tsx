@@ -1,7 +1,7 @@
 import "../styles/ArtifactPage.sass";
 import { ArtifactData, EmbedData, LinkData } from "../scripts/interfaces";
+import { Fragment, ReactElement } from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
-import React, { Fragment } from "react";
 import Gallery from "../components/Gallery";
 import RichLink from "../components/RichLink";
 
@@ -9,9 +9,9 @@ import RichLink from "../components/RichLink";
  * Artifact header, displays artifact title, subtitle, date, and links
  * @param {{artifact: ArtifactData}} props - Artifact data
  * @constructor
- * @returns {JSX.Element}
+ * @returns {ReactElement}
  */
-function ArtifactHeader(props: { artifact: ArtifactData }): JSX.Element {
+function ArtifactHeader(props: { artifact: ArtifactData }): ReactElement {
   const { year, quarter, title, subtitle, links } = props.artifact;
 
   /**
@@ -58,10 +58,9 @@ function ArtifactHeader(props: { artifact: ArtifactData }): JSX.Element {
       </h3>
 
       {/* External Link */}
-      {links &&
-        links.map((link: LinkData) => (
-          <RichLink key={link.url} linkData={link} />
-        ))}
+      {links?.map((link: LinkData) => (
+        <RichLink key={link.url} linkData={link} />
+      ))}
     </div>
   );
 }
@@ -69,9 +68,9 @@ function ArtifactHeader(props: { artifact: ArtifactData }): JSX.Element {
 /**
  * Artifact page, displays artifact information including text, images, and embedded media
  * @constructor
- * @returns {JSX.Element}
+ * @returns {ReactElement}
  */
-export default function ArtifactPage(): JSX.Element {
+export default function ArtifactPage(): ReactElement {
   // Get and extract data
   const artifact = useLoaderData() as ArtifactData;
 

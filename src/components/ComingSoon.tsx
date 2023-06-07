@@ -1,11 +1,12 @@
 import "../styles/ComingSoon.sass";
+import { ReactElement } from "react";
 
 /**
  * Creates a React component that displays a "Coming Soon" message.
  * @constructor
- * @returns {JSX.Element}
+ * @returns {ReactElement}
  */
-export default function ComingSoon(): JSX.Element {
+export default function ComingSoon(): ReactElement {
   return (
     <div className={"coming-soon"}>
       <h1>👋 Hello!</h1>

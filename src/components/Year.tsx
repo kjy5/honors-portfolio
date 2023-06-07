@@ -1,16 +1,17 @@
 import "../styles/Year.sass";
 import { ArtifactData } from "../scripts/interfaces";
 import Quarter from "./Quarter";
+import { ReactElement } from "react";
 
 /**
  * Year component. Groups a year heading with a list of quarters.
  * @param {{filteredArtifacts: ArtifactData[]}} props - Artifacts filtered by year
  * @constructor
- * @return {JSX.Element}
+ * @return {ReactElement}
  */
 export default function Year(props: {
   filteredArtifacts: ArtifactData[];
-}): JSX.Element {
+}): ReactElement {
   // Compute year string
   let year = "Freshman 2021 - 2022";
   switch (props.filteredArtifacts[0].year) {
