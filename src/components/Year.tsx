@@ -1,7 +1,7 @@
-import '../styles/Year.sass'
-import { ArtifactData } from '../scripts/interfaces'
-import Quarter from './Quarter'
-import { ReactElement } from 'react'
+import "../styles/Year.sass";
+import { ArtifactData } from "../scripts/interfaces";
+import Quarter from "./Quarter";
+import { ReactElement } from "react";
 
 /**
  * Year component. Groups a year heading with a list of quarters.

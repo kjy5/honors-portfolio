@@ -1,6 +1,6 @@
-import '../styles/RichLink.sass'
-import { LinkData } from '../scripts/interfaces'
-import { ReactElement } from 'react'
+import "../styles/RichLink.sass";
+import { LinkData } from "../scripts/interfaces";
+import { ReactElement } from "react";
 
 /**
  * RichLink component. Displays a link with a title, description, and thumbnail.

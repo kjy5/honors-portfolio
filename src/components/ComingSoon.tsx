@@ -1,5 +1,5 @@
-import '../styles/ComingSoon.sass'
-import { ReactElement } from 'react'
+import "../styles/ComingSoon.sass";
+import { ReactElement } from "react";
 
 /**
  * Creates a React component that displays a "Coming Soon" message.

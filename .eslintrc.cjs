@@ -14,11 +14,11 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint", 'react-refresh'],
+  plugins: ["@typescript-eslint", "react-refresh"],
   root: true,
   ignorePatterns: ["dist", "vite.config.ts", "src/components/Gallery.jsx"],
   rules: {
     "sort-imports": "error",
-    'react-refresh/only-export-components': 'warn',
+    "react-refresh/only-export-components": "warn",
   },
 };

@@ -1,7 +1,7 @@
-import '../styles/Quarter.sass'
-import ArtifactCard from './ArtifactCard'
-import { ArtifactData } from '../scripts/interfaces'
-import { ReactElement } from 'react'
+import "../styles/Quarter.sass";
+import ArtifactCard from "./ArtifactCard";
+import { ArtifactData } from "../scripts/interfaces";
+import { ReactElement } from "react";
 
 /**
  * Quarter component. Groups a quarter heading with a grid of artifacts.
