@@ -1,8 +1,8 @@
-import { ArtifactData, EmbedData, ImageData, LinkData } from "./interfaces";
-import artifactsString from "../assets/artifacts.tsv?raw";
-import embedsString from "../assets/embeds.tsv?raw";
-import imagesString from "../assets/images.tsv?raw";
-import linksString from "../assets/links.tsv?raw";
+import { ArtifactData, EmbedData, ImageData, LinkData } from './interfaces'
+import artifactsString from '../assets/artifacts.txt?raw'
+import embedsString from '../assets/embeds.txt?raw'
+import imagesString from '../assets/images.txt?raw'
+import linksString from '../assets/links.txt?raw'
 
 // Parsed sub-objects
 const parsedImages: ImageData[] = [];
@@ -10,7 +10,7 @@ const parsedLinks: LinkData[] = [];
 const parsedEmbeds: EmbedData[] = [];
 
 /**
- * Parse the images.tsv file into `parsedImages`
+ * Parse the images.txt file into `parsedImages`
  */
 const parseImages = (): void => {
   imagesString
@@ -38,7 +38,7 @@ const parseImages = (): void => {
 };
 
 /**
- * Parse the links.tsv file into `parsedLinks`
+ * Parse the links.txt file into `parsedLinks`
  */
 const parseLinks = (): void => {
   linksString
@@ -62,7 +62,7 @@ const parseLinks = (): void => {
     });
 };
 /**
- * Parse the embeds.tsv file into `parsedEmbeds`
+ * Parse the embeds.txt file into `parsedEmbeds`
  */
 const parseEmbeds = (): void => {
   embedsString
@@ -83,7 +83,7 @@ const parseEmbeds = (): void => {
     });
 };
 /**
- * Parse the artifacts.tsv file and integrate sub-objects
+ * Parse the artifacts.txt file and integrate sub-objects
  * @returns {ArtifactData[]} The parsed artifacts
  */
 export default function ParseData(): ArtifactData[] {
