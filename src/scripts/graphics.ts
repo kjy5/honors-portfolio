@@ -10,8 +10,8 @@ import {
   Scene,
   WebGLRenderer,
   WebGLRendererParameters,
-} from 'three'
-import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
+} from "three";
+import WebGL from "three/examples/jsm/capabilities/WebGL.js";
 
 /**
  * Manage 3D graphics.
