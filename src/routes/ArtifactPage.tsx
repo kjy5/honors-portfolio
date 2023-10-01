@@ -87,7 +87,7 @@ export default function ArtifactPage(): ReactElement {
       {/* skipcq: JS-0394 */}
       <NavLink
         className={"ArtifactPage__return"}
-        to={"/honors-portfolio"}
+        to={"/"}
         tabIndex={0}
         role="button"
       >

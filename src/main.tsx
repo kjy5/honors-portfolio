@@ -7,22 +7,22 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Root from "./routes/Root";
 // eslint-disable-next-line sort-imports
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import Graphics from "./scripts/graphics";
 
 // Parse data and return as an array of ArtifactPage objects
 const artifacts: ArtifactData[] = ParseData();
 
 // Create router
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
-    path: "/honors-portfolio/",
+    path: "/",
     element: <Root />,
     errorElement: <ErrorPage fromArtifact={false} />,
     loader: () => artifacts,
   },
   {
-    path: "/honors-portfolio/:id",
+    path: ":id",
     element: <ArtifactPage />,
     errorElement: <ErrorPage fromArtifact />,
     loader: ({ params }) => {
