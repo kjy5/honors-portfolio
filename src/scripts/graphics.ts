@@ -10,8 +10,8 @@ import {
   Scene,
   WebGLRenderer,
   WebGLRendererParameters,
-} from "three";
-import WebGL from "three/examples/jsm/capabilities/WebGL.js";
+} from 'three'
+import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
 
 /**
  * Manage 3D graphics.
@@ -76,10 +76,7 @@ export default class Graphics {
   #createBackground() {
     // Setup scrolling
     window.addEventListener("scroll", () => {
-      const url = window.location.href;
-      if (url.substring(url.length - 17) === "honors-portfolio/") {
-        this.#camera.position.y = (-window.scrollY / window.innerHeight) * 7.7;
-      }
+      this.#camera.position.y = (-window.scrollY / window.innerHeight) * 7.7;
     });
 
     // Add lights
