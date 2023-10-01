@@ -1,9 +1,9 @@
-import "../styles/ArtifactPage.sass";
-import { ArtifactData, EmbedData, LinkData } from "../scripts/interfaces";
-import { Fragment, ReactElement } from "react";
-import { NavLink, useLoaderData } from "react-router-dom";
-import Gallery from "../components/Gallery";
-import RichLink from "../components/RichLink";
+import '../styles/ArtifactPage.sass'
+import { ArtifactData, EmbedData, LinkData } from '../scripts/interfaces'
+import { Fragment, ReactElement } from 'react'
+import { NavLink, useLoaderData } from 'react-router-dom'
+import Gallery from '../components/Gallery'
+import RichLink from '../components/RichLink'
 
 /**
  * Artifact header, displays artifact title, subtitle, date, and links
@@ -87,7 +87,7 @@ export default function ArtifactPage(): ReactElement {
       {/* skipcq: JS-0394 */}
       <NavLink
         className={"ArtifactPage__return"}
-        to={"/honors-portfolio"}
+        to={"/"}
         tabIndex={0}
         role="button"
       >
