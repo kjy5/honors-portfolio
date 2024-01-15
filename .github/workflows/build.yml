@@ -11,7 +11,7 @@ on:
   workflow_call:
     inputs:
       upload-artifact:
-        description: "Upload artifact to be used by other workflows"
+        description: 'Upload artifact to be used by other workflows'
         required: true
         default: false
         type: boolean
@@ -29,7 +29,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "pnpm"
+          cache: 'pnpm'
 
       # Install PNPM and dependencies
       - name: 📦 Install
@@ -46,4 +46,4 @@ jobs:
         if: ${{ inputs.upload-artifact }}
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "dist"
+          path: 'dist'

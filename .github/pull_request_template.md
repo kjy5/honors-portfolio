@@ -1,5 +1,3 @@
 **Brief summary of changes**
 
--
-
-**Notes**
+- **Notes**
