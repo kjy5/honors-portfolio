@@ -1,27 +1,30 @@
-# UW Interdisciplinary Honors Portfolio
+# React + TypeScript + Vite
 
-[![Build Website](https://github.com/kjy5/honors-portfolio/actions/workflows/build.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/build.yml)
-[![Reformat and Lint](https://github.com/kjy5/honors-portfolio/actions/workflows/reformat-and-lint.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/reformat-and-lint.yml)
-[![Deploy to GitHub Pages](https://github.com/kjy5/honors-portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/deploy.yml)
-[![Dependency Review](https://github.com/kjy5/honors-portfolio/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/dependency-review.yml)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-This repository holds code for my honors portfolio.
+Currently, two official plugins are available:
 
-## To see the website
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Go [here](https://kjy5.github.io/honors-portfolio/)
+## Expanding the ESLint configuration
 
-## For documentation
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-See [the wiki](https://github.com/kjy5/honors-portfolio/wiki)
+- Configure the top-level `parserOptions` property like this:
 
-## To setup for development
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-1. Install `npm` (probably by installing `node`)
-2. Clone the repo
-3. `npm i` to install dependencies
-4. Run code with development server with `npm run dev`
-5. Preview production build with `npm run preview`
-6. Just build for production `npm run build` (output is in `/dist` folder)
-
-**NOTE:** GitHub Actions have been set up to build and deploy to GitHub Pages, so a production build locally is not needed.
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
