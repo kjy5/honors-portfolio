@@ -7,9 +7,7 @@
     "text": "My last assignment for HONORS 100.",
     "images": [],
     "links": [],
-    "embeds": [
-      "/Fall Quarter Reflection/fall quarter reflection.pdf"
-    ]
+    "embeds": ["/Fall Quarter Reflection/fall quarter reflection.pdf"]
   },
   {
     "title": "COSMOS Interface",
@@ -38,9 +36,7 @@
     "text": "This CSE 143 computer science assignment was focused on a CS topic known as maps or dictionaries. Essentially, a list of correlations of things (like a word to a definition in a dictionary). While this was a topic that wasn't unfamiliar to me, I enjoyed the application and practice I got from using such a simple system to create a fun game. Evil Hangman takes the standard hangman game and twists it to make it nearly impossible to win by constantly changing the correct word based on the input the player gives. Because of my prior experiences with CS, a lot of topics covered in CSE 143 were not unfamiliar to me, but it was through the extra/targeted practice and structured assignments that I came to have a better understanding and appreciation for these concepts.",
     "images": [],
     "links": [],
-    "embeds": [
-      "https://replit.com/@kjy5/Evil-Hangman-Demo?embed=true"
-    ]
+    "embeds": ["https://replit.com/@kjy5/Evil-Hangman-Demo?embed=true"]
   },
   {
     "title": "Nautilus Renders",
@@ -109,9 +105,7 @@
     "text": "This final paper was a culmination of the concepts I learned in HONORS 231 E \"Leadership, Democracy, and a More Thoughtful Public\". A big emphasis in the class was the idea of \"implication\", or asking the questions \"if this were true, what would that mean for society?\" To tackle this in my final paper, I wrote a short story that played out three different propositions from the course and simulated what I believe would happen to characters and the surrounding society. Through this process I practiced a different way to communicate my thoughts (in the form of a story) and how to write creatively for an academic setting.",
     "images": [],
     "links": [],
-    "embeds": [
-      "/Leadership and Democracy Final Paper/leadership and democracy paper.pdf"
-    ]
+    "embeds": ["/Leadership and Democracy Final Paper/leadership and democracy paper.pdf"]
   },
   {
     "title": "ROV22 Simulation Demo",
@@ -121,9 +115,7 @@
     "text": "As I continue my work in UWROV, I worked on another project which tied together the software and mechanical teams. To test motor configurations and movement for our new ROV design, I worked to implement CAD model designs from the mechanical team into a fluid simulator to test how they would behave. The software team could also pick up from here and run motor code directly against the ROV in the simulator to test behavior. In this project, I learned about the Gazebo simulator and sharpened my ROS, CAD, and cross-team communication skills.",
     "images": [],
     "links": [],
-    "embeds": [
-      "https://www.youtube.com/embed/ygnG9eYG1sI"
-    ]
+    "embeds": ["https://www.youtube.com/embed/ygnG9eYG1sI"]
   },
   {
     "title": "Starting a New Honors Portfolio Website",
@@ -241,9 +233,7 @@
     "text": "Against popular opinion, I chose to take honors physics this year. Many people told me it would be much harder than taking normal physics, but my interest in the subject drove me to try for the honors version. It turns out I got extremely lucky and landed an excellent professor, Professor Heron, who will be teaching all three terms of the course. This particular artifact focuses on one of the labs we did. While the actual activity of the lab was pretty straightforward, writing a complete lab report was new to me as I haven't taken a lab science before. This is my first full lab report with all of the procedures, data, analysis, graphing, and conclusions compiled together into one paper. While physics in general is tough, I am still interested in pursuing the topic and learning what I can. I look forward to continuing with Professor Heron!",
     "images": [],
     "links": [],
-    "embeds": [
-      "/Lab C Colliding Carts/Lab_C_Final.pdf"
-    ]
+    "embeds": ["/Lab C Colliding Carts/Lab_C_Final.pdf"]
   },
   {
     "title": "333gle",
@@ -296,9 +286,7 @@
     "text": "Over the summer I got to start working in the Virtual Brain Lab, a group within the Steinmetz Lab for neuroscience at the University of Washington led by Dr. Dan Birman. I got the amazing opportunity to exercise my CS skills in an environment that had real impacts on the wider neuroscience community. My work continued through the fall quarter as an experiential learning activity. Thus far, I've learned so much from this project including working in teams, presenting my developments to peers, and receiving feedback from other neuroscience experts from around the world. My work was shared at the 2022 Society for Neuroscience (SfN) conference, one of the largest neuroscience conferences held annually. We gained a lot of interest in our development of Pinpoint including new partner companies such as New Scale who are interested in using our tools for their electrophysiology equipment. I look forward to continuing working in the Steinmetz Lab and developing Pinpoint!",
     "images": [],
     "links": [],
-    "embeds": [
-      "https://www.youtube.com/embed/E089tbBpVE8"
-    ]
+    "embeds": ["https://www.youtube.com/embed/E089tbBpVE8"]
   },
   {
     "title": "NQN Hackathon",
@@ -327,9 +315,7 @@
     "text": "I am incredibly grateful for the opportunity to have taken DRAMA 406 as someone who is deeply interested in computer graphics. This class was able to deliver me an invaluable education on how real filmography works. Throughout the course, I learned many practical filmmaking techniques and gained a deeper understanding of the science behind how cameras worked. For my final project, I wanted to showcase a blending of my passion for VFX with the live-action techniques that were taught in class. It was a challenging but rewarding experience to bring these two worlds together. Although I always feel like there is room for improvement in my work, I am happy with what I was able to accomplish during the limited timeframe of finals week.",
     "images": [],
     "links": [],
-    "embeds": [
-      "https://www.youtube.com/embed/h31nKON_0rI"
-    ]
+    "embeds": ["https://www.youtube.com/embed/h31nKON_0rI"]
   },
   {
     "title": "Mary Gates Research Scholarship",
@@ -339,9 +325,7 @@
     "text": "During the fall quarter, my lab mentor, Dr. Birman, suggested that I apply for the Mary Gates Research Scholarship. I eagerly applied, but unfortunately, I was not selected as a recipient. Though it was disappointing, I was determined to try again. I sought feedback from the scholarship committee and visited several writing centers to gather advice on improving my application. I dedicated myself to improving my application and waited for the Winter application cycle to arrive. After my second application, I was granted the scholarship! This success has given me a renewed sense of confidence and determination to continue my research and make an impact in my field. I am glad my mentor encouraged me to apply again and not give up after the first failure. Below is the essay that earned me the Mary Gates Research Scholarship.",
     "images": [],
     "links": [],
-    "embeds": [
-      "/Mary Gates Research Scholarship/Wi23_Kenneth_Mary_Gates_Research_Scholarship.pdf"
-    ]
+    "embeds": ["/Mary Gates Research Scholarship/Wi23_Kenneth_Mary_Gates_Research_Scholarship.pdf"]
   },
   {
     "title": "CSE 457 Computer Graphics Final",
@@ -360,9 +344,7 @@
         "domain": "github.com"
       }
     ],
-    "embeds": [
-      "https://www.youtube.com/embed/ruw6Ttrah-8"
-    ]
+    "embeds": ["https://www.youtube.com/embed/ruw6Ttrah-8"]
   },
   {
     "title": "DXARTS 200 Final Artifact",
@@ -372,9 +354,7 @@
     "text": "In addition to my Computer Science degree, I am pursuing a minor in Digital Arts and Experimental Media (DXARTS) to broaden my knowledge and skills. As part of this program, I have developed a project proposal that combines technology and art in a unique way. In my perspective, art can be aesthetically pleasing and serve a practical purpose. My proposal focuses on upgrading the directory maps scattered throughout the campus into a mesmerizing kinetic art piece. This project proposal, which is provided below, outlines the details and vision of this functional art installation.",
     "images": [],
     "links": [],
-    "embeds": [
-      "/DXARTS 200 Final Artifact/Campus Flow.pdf"
-    ]
+    "embeds": ["/DXARTS 200 Final Artifact/Campus Flow.pdf"]
   },
   {
     "title": "Undergraduate Research Symposium 2023",
@@ -384,9 +364,7 @@
     "text": "As a recipient of the Mary Gates Research scholarship, I had the opportunity to showcase my work at the annual Undergraduate Research Symposium. It was my first time presenting a poster on my own, and although I was initially nervous, I discovered a newfound enjoyment in presenting and sharing my research with others. The response from fellow scientists and inquisitive undergraduates was incredibly positive, as they showed genuine interest in my work. This experience allowed me to refine my skills in creating scientific posters and conducting physical demonstrations. Additionally, I had the chance to present my research at the Computer Science Research Symposium a few weeks later, reaching an even wider audience. Below is my poster, which is also on display in the health sciences building.",
     "images": [],
     "links": [],
-    "embeds": [
-      "/Undergraduate Research Symposium/Kenneth Yang Research Symposium 2023.pdf"
-    ]
+    "embeds": ["/Undergraduate Research Symposium/Kenneth Yang Research Symposium 2023.pdf"]
   },
   {
     "title": "SfN 2023",
@@ -396,9 +374,7 @@
     "text": "I had a great opportunity to showcase my research in the Steinmetz Lab at the Society for Neuroscience (SfN) 2023 conference in D.C. this quarter. My poster focused on my work to create automation tools for electrophysiology experiments. I also demonstrated my software live at a demo session and at two exhibits with our partner companies (Sensapex and New Scale). It was an amazing experience to interact with leading researchers from around the world and to get feedback on my work. Many labs around the world are now eager to use my software in their own experiments. I will be collaborating with them over the winter quarter of 2023-2024 to help them set up my tools. You can see my poster from the demo below!",
     "images": [],
     "links": [],
-    "embeds": [
-      "/SfN 2023/yang_sfn23-1.0.3-opt.pdf"
-    ]
+    "embeds": ["/SfN 2023/yang_sfn23-1.0.3-opt.pdf"]
   },
   {
     "title": "3D Slicing",
@@ -408,9 +384,7 @@
     "text": "This assignment for CSE 493H Computation Design & Fabrication was very interesting and educational for me. I learned a lot about the theory and practice of design and how computers can help with that. One of the topics we covered was 3D printing, which is a technique that creates physical objects from digital models. To do this, the computer has to slice the 3D model into thin 2D layers that are then printed on top of each other to form the final shape. I wrote some code that can do this slicing process for any 3D model. Another topic we learned was sheet-metal fabrication, which is a process that cuts and bends metal sheets into different shapes. We also learned how to create a design-specific language (DSL) that can simplify the specification of sheet-metal designs. A DSL is a language that is tailored to a specific domain and uses terms and concepts that are relevant to it. I coded a DSL for sheet-metal fabrication and used it to design a pizza box that can be folded from a single sheet of paper. You can see the details of my work in the writeup below.",
     "images": [],
     "links": [],
-    "embeds": [
-      "/3D Slicing/slicing writeup-opt.pdf"
-    ]
+    "embeds": ["/3D Slicing/slicing writeup-opt.pdf"]
   },
   {
     "title": "CSE 340 Final Project",

@@ -1,7 +1,17 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/strict-type-checked', 'plugin:react-hooks/recommended', 'plugin:@typescript-eslint/stylistic-type-checked', 'plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:jsx-a11y/recommended', 'eslint-config-prettier', 'plugin:storybook/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/strict-type-checked',
+    'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/stylistic-type-checked',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:jsx-a11y/recommended',
+    'eslint-config-prettier',
+    'plugin:storybook/recommended',
+  ],
   settings: {
     react: { version: 'detect' },
   },

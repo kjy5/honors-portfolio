@@ -29,14 +29,14 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: latest
-      
+
       # Configure Node and caching
       - name: 🟩 Setup Node.js and caching
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
-      
+
       # Install dependencies
       - name: 📦 Install
         run: pnpm install
