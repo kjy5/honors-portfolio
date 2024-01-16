@@ -387,5 +387,48 @@
     "embeds": [
       "/Undergraduate Research Symposium/Kenneth Yang Research Symposium 2023.pdf"
     ]
+  },
+  {
+    "title": "SfN 2023",
+    "subtitle": "Presenting my research at one of the biggest neuroscience conferences in the US",
+    "year": 2,
+    "quarter": 0,
+    "text": "I had a great opportunity to showcase my research in the Steinmetz Lab at the Society for Neuroscience (SfN) 2023 conference in D.C. this quarter. My poster focused on my work to create automation tools for electrophysiology experiments. I also demonstrated my software live at a demo session and at two exhibits with our partner companies (Sensapex and New Scale). It was an amazing experience to interact with leading researchers from around the world and to get feedback on my work. Many labs around the world are now eager to use my software in their own experiments. I will be collaborating with them over the winter quarter of 2023-2024 to help them set up my tools. You can see my poster from the demo below!",
+    "images": [],
+    "links": [],
+    "embeds": [
+      "/SfN 2023/yang_sfn23-1.0.3-opt.pdf"
+    ]
+  },
+  {
+    "title": "3D Slicing",
+    "subtitle": "Learning the software technique used in design and fabrication",
+    "year": 2,
+    "quarter": 0,
+    "text": "This assignment for CSE 493H Computation Design & Fabrication was very interesting and educational for me. I learned a lot about the theory and practice of design and how computers can help with that. One of the topics we covered was 3D printing, which is a technique that creates physical objects from digital models. To do this, the computer has to slice the 3D model into thin 2D layers that are then printed on top of each other to form the final shape. I wrote some code that can do this slicing process for any 3D model. Another topic we learned was sheet-metal fabrication, which is a process that cuts and bends metal sheets into different shapes. We also learned how to create a design-specific language (DSL) that can simplify the specification of sheet-metal designs. A DSL is a language that is tailored to a specific domain and uses terms and concepts that are relevant to it. I coded a DSL for sheet-metal fabrication and used it to design a pizza box that can be folded from a single sheet of paper. You can see the details of my work in the writeup below.",
+    "images": [],
+    "links": [],
+    "embeds": [
+      "/3D Slicing/slicing writeup-opt.pdf"
+    ]
+  },
+  {
+    "title": "CSE 340 Final Project",
+    "subtitle": "Creating a reactive framework in a game engine",
+    "year": 2,
+    "quarter": 0,
+    "text": "For my final project, I decided to create a fun choose your own adventure game in just one week. The game is based on a topic we learned about in the course: reactive frameworks. These are frameworks that automatically update the user interface based on the changes to the data or state. Most game engines are not reactive, meaning they require manual updates and rendering. However, I implement a reactive framework in the game engine Godot, which made the development of other parts of the game much easier. The game is a choose your-own-adventure style game where the player controls a stick figure that goes through a story with different choices and outcomes. I also used some concepts I learned in the animation courses over the summer to make the game more engaging and dynamic. You can check out the game in the link below and see how it works!",
+    "images": [],
+    "links": [
+      {
+        "url": "https://drive.google.com/drive/folders/1wihUJ7jWzD_7F5U-Gywm7E41n3kI-9Tu",
+        "title": "Release Binaries - Google Drive",
+        "description": "",
+        "imageSrc": "",
+        "faviconSrc": "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png",
+        "domain": "drive.google.com"
+      }
+    ],
+    "embeds": []
   }
 ]
