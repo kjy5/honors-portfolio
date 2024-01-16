@@ -1,30 +1,19 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import { Box, Container, Stack, Typography } from '@mui/material';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    <Box sx={{ m: 2 }}>
+      <Container>
+        <Stack spacing={1}>
+          <Typography variant={'h1'}>👋 Hello!</Typography>
+          <Typography variant={'h2'}>Welcome and thanks for visiting my honors portfolio website!</Typography>
+          <Typography variant={'body1'}>
+            The website is currently being updated. Feel free to scroll around and see the current progress, or come
+            back later when it&apos;s all done!
+          </Typography>
+        </Stack>
+      </Container>
+    </Box>
   );
 }
 
