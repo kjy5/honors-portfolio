@@ -1,0 +1,45 @@
+[
+  {
+    "title": "Fall Quarter Reflection",
+    "subtitle": "Thoughts on my first quarter in college",
+    "year": 0,
+    "quarter": 0,
+    "text": "My last assignment for HONORS 100.",
+    "images": [],
+    "links": [],
+    "embeds": [
+      "/Fall Quarter Reflection/fall quarter reflection.pdf"
+    ]
+  },
+  {
+    "title": "COSMOS Interface",
+    "subtitle": "HSL intro project",
+    "year": 0,
+    "quarter": 0,
+    "text": "Husky Satellite Lab (HSL) is focused on building satellites to launch into space and designing tools and equipment that can be used to conduct real research out in space. For all these goals to be achieved, however, the team must have some way to communicate and interface with the satellite while it's out in space. This is where the project I'm working on comes in. I'm learning how to build and deploy a ground station system built on COSMOS and OpenSatKit which will allow HSL to design graphical tools and interfaces for the various equipment and tools that will go onboard the satellite. Learning COSMOS and working at HSL taught me a lot about utilizing advanced software systems (used in professional spaceflight) and cross-team communication and teamwork (to build tools and interfaces for the satellite).",
+    "images": [
+      {
+        "title": "Image Compression InProgress Interface",
+        "description": "COSMOS 4 UI for the Image Compression OSK application",
+        "width": 626,
+        "height": 501,
+        "src": "/COSMOS Interface/interface.png",
+        "thumbnailSrc": "/COSMOS Interface/interface-thumb.webp"
+      }
+    ],
+    "links": [],
+    "embeds": []
+  },
+  {
+    "title": "Evil Hangman",
+    "subtitle": "A fun CSE 143 Assignment",
+    "year": 0,
+    "quarter": 0,
+    "text": "This CSE 143 computer science assignment was focused on a CS topic known as maps or dictionaries. Essentially, a list of correlations of things (like a word to a definition in a dictionary). While this was a topic that wasn't unfamiliar to me, I enjoyed the application and practice I got from using such a simple system to create a fun game. Evil Hangman takes the standard hangman game and twists it to make it nearly impossible to win by constantly changing the correct word based on the input the player gives. Because of my prior experiences with CS, a lot of topics covered in CSE 143 were not unfamiliar to me, but it was through the extra/targeted practice and structured assignments that I came to have a better understanding and appreciation for these concepts.",
+    "images": [],
+    "links": [],
+    "embeds": [
+      "https://replit.com/@kjy5/Evil-Hangman-Demo?embed=true"
+    ]
+  }
+]
