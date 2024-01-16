@@ -1,5 +1,9 @@
-import { Box, Container, Stack, Typography } from '@mui/material';
+import {Box, Container, Stack, Typography} from '@mui/material';
 
+/**
+ * Portfolio base component.
+ * @constructor
+ */
 function App() {
   return (
     <Box sx={{ m: 2 }}>
