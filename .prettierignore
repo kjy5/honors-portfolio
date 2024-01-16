@@ -1,2 +1,2 @@
-dist
-src/assets
+dist/
+.prettierrc.cjs
