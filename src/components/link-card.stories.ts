@@ -14,3 +14,9 @@ export const Default: Story = {
         linkMeta: artifactMetas[7].links[0],
     },
 };
+
+export const NoImage: Story = {
+    args:{
+        linkMeta: artifactMetas[9].links[0],
+    },
+};
