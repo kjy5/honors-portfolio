@@ -22,6 +22,11 @@ function LinkContent(props: { title: string; description: string; faviconSrc: st
   );
 }
 
+/**
+ * Visual organization of a hyperlink.
+ * @param linkMeta The metadata of the hyperlink.
+ * @constructor
+ */
 function LinkCard({ linkMeta }: { linkMeta: LinkMeta }) {
   return (
     <Link href={linkMeta.url} underline={'none'}>
