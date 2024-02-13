@@ -7,7 +7,7 @@ function LinkCard({ linkMeta }: { linkMeta: LinkMeta }) {
       <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
           {linkMeta.imageSrc && (
-            <CardMedia component={'img'} height={140} image={linkMeta.imageSrc} alt={linkMeta.title} />
+            <CardMedia component={'img'} height={180} image={linkMeta.imageSrc} alt={linkMeta.title} />
           )}
           <CardContent>
             <Stack spacing={2}>
