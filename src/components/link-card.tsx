@@ -1,5 +1,5 @@
-import {LinkMeta} from '../models/artifact-meta-models.ts';
-import {Avatar, Card, CardActionArea, CardContent, CardMedia, Link, Stack, Typography} from '@mui/material';
+import { LinkMeta } from '../models/artifact-meta-models.ts';
+import { Avatar, Card, CardActionArea, CardContent, CardMedia, Link, Stack, Typography } from '@mui/material';
 
 /**
  * Content of a link.
@@ -9,7 +9,17 @@ import {Avatar, Card, CardActionArea, CardContent, CardMedia, Link, Stack, Typog
  * @param domain The domain of the link.
  * @constructor
  */
-function LinkContent({title,  description, faviconSrc, domain}: { title: string; description: string; faviconSrc: string; domain: string }) {
+function LinkContent({
+  title,
+  description,
+  faviconSrc,
+  domain,
+}: {
+  title: string;
+  description: string;
+  faviconSrc: string;
+  domain: string;
+}) {
   return (
     <CardContent>
       <Stack spacing={2}>
