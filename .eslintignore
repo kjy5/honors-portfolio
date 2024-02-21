@@ -1,5 +1,0 @@
-dist/
-.prettierrc.cjs
-.eslintrc.js
-env.d.ts
-vite.config.ts
