@@ -9,38 +9,38 @@ import { withThemeFromJSXProvider } from "@storybook/addon-themes";
 import { darkTheme, lightTheme } from "../src/themes";
 
 const preview: Preview = {
-	parameters: {
-		actions: { argTypesRegex: "^on[A-Z].*" },
-		controls: {
-			matchers: {
-				color: /(background|color)$/i,
-				date: /Date$/i,
-			},
-		},
-	},
+  parameters: {
+    actions: { argTypesRegex: "^on[A-Z].*" },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/i,
+      },
+    },
+  },
 };
 
 const decorators = [
-	withThemeFromJSXProvider({
-		themes: {
-			light: lightTheme,
-			dark: darkTheme,
-		},
-		defaultTheme: "dark",
-		Provider: ThemeProvider,
-		GlobalStyles: CssBaseline,
-	}),
+  withThemeFromJSXProvider({
+    themes: {
+      light: lightTheme,
+      dark: darkTheme,
+    },
+    defaultTheme: "dark",
+    Provider: ThemeProvider,
+    GlobalStyles: CssBaseline,
+  }),
 ];
 
 const parameters = {
-	actions: { argTypesRegex: "^on[A-Z].*" },
-	controls: {
-		expanded: true, // Adds the description and default columns
-		matchers: {
-			color: /(background|color)$/i,
-			date: /Date$/,
-		},
-	},
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    expanded: true, // Adds the description and default columns
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
 };
 
 export { decorators, parameters };

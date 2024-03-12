@@ -1,17 +1,17 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
-	"organizeImports": {
-		"enabled": true
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true
-		}
-	},
-	"vcs": {
-		"enabled": true,
-		"clientKind": "git",
-		"useIgnoreFile": true
-	}
+  "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+  "linter": {
+    "rules": {
+      "recommended": true
+    }
+  },
+  "formatter": {
+    "indentStyle": "space",
+    "ignore": ["src/models/artifact-metas.json"]
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  }
 }
