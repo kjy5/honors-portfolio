@@ -6,12 +6,12 @@ import { darkTheme } from "./themes.ts";
 
 const root = document.getElementById("root");
 if (root) {
-	ReactDOM.createRoot(root).render(
-		<React.StrictMode>
-			<ThemeProvider theme={darkTheme}>
-				<CssBaseline />
-				<App />
-			</ThemeProvider>
-		</React.StrictMode>,
-	);
+  ReactDOM.createRoot(root).render(
+    <React.StrictMode>
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <App />
+      </ThemeProvider>
+    </React.StrictMode>,
+  );
 }
