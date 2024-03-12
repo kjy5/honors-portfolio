@@ -410,5 +410,77 @@
 			}
 		],
 		"embeds": []
+	},
+	{
+		"title": "Generative AI in Filmmaking",
+		"subtitle": "HCDE DRG",
+		"year": 2,
+		"quarter": 1,
+		"text": "During my minor in DXARTS, I participated in a directed research group from the Human Centered Design and Engineering department. Our focus was on the use of generative AI in filmmaking, a hot topic especially with OpenAI’s announcement of their new Sora model during our working period. In this DRG, students created short films that critique and/or utilize generative AI. I approached this through the established art of filmmaking. We only utilized generative AI when it served a distinct purpose in the story and visuals. We wrote the story, real actors portrayed characters, and everything was filmed live. Generative AI and other AI-powered tools were incorporated during the post-production phase for specific visual effects and editing tooling.\nA teammate and I wrote a story about living with dementia, drawing from our own experiences with my grandparents. We used specific attributes and behaviors of generative AI to visualize these experiences. I noticed that these models produce odd mixes of real-world items (from their training data) and often have visual artifacts and distortions. We used these distortions as an interpretation of the confusion and memory loss experienced by people suffering from dementia.\nThe culmination of our efforts is a short film which we have published to film festivals and showcased during on-campus screenings. Enjoy the short film below!",
+		"images": [],
+		"links": [],
+		"embeds": ["https://www.youtube.com/embed/JtgjyfKIayE?si=808vKv5X5hWWJnSV"]
+	},
+	{
+		"title": "Leadership Experiential Learning Activity",
+		"subtitle": "Guiding neuroscience labs to integrate automation tools.",
+		"year": 2,
+		"quarter": 1,
+		"text": "This leadership experiential learning project has allowed me to be a person in charge and someone others depend on in a professional setting. Throughout the quarter, I connected with our partners at Sensapex and New Scale in addition to individual labs to help guide them in getting our software working in labs and lead informational events. For these people, I was their point of contact for any technical support and their source for information on how our product worked. I was responsible for both their success in their research and guiding their experience with our tools.\n\nOne particular case I worked on was with Kerry Nix from Tim Machado's lab at the University of Pennsylvania. Over a couple of weeks through email, I worked with Kerry Nix, a PhD student, to get Pinpoint and Ephys Link installed and set up for her lab. I was able to help troubleshoot issues she was having as well as create refined instructions and tutorials to share with others. Through this experience, I also refined my own onboarding process, and I will be looking to utilize it in an upcoming big push to onboard more labs.\n\nI also started planning an informational webinar with our partners at New Scale to help spread the word about our software to more labs and get them started with using Pinpoint. The timescale of research is slower than one quarter's worth of time, so things are still ongoing, and more labs are yet to be onboarded, but the progress made was definitely tangible!\n\nOverall, I could consider this experience a success and my views of leadership stay the same. I enjoy this process and look forward to working with our partners and new labs in the coming weeks!",
+		"images": [],
+		"links": [],
+		"embeds": []
+	},
+	{
+		"title": "CSE 481D Game Development Capstone",
+		"subtitle": "Designing, building, and iterating a game from scratch",
+		"year": 2,
+		"quarter": 1,
+		"text": "I designed and built a 2D adventure platformer game called “Flying Squirrel”. The initial four weeks of the course were dedicated to creating paper prototypes and testing the game with random individuals. Following this, we coded the game in two weeks and used the remaining time to gather feedback and data from online users, making necessary tweaks to the game. The experience was intense due to the fast iteration cycles and lackluster teamwork. I put in significant effort to ensure things got done and the result was a game that’s still enjoyable to play and share with others. You can check it out in the provided link.",
+		"images": [
+			{
+				"title": "Columns",
+				"description": "Fly through columns and collect acorns!",
+				"width": 3840,
+				"height": 2160,
+				"src": "/CSE 481D Game Development Capstone/Columns.jpg",
+				"thumbnailSrc": "/CSE 481D Game Development Capstone/Columns-thumb.webp"
+			},
+			{
+				"title": "Beaver",
+				"description": "Avoid getting eaten by the beavers!",
+				"width": 3840,
+				"height": 2160,
+				"src": "/CSE 481D Game Development Capstone/Beaver.jpg",
+				"thumbnailSrc": "/CSE 481D Game Development Capstone/Beaver-thumb.webp"
+			},
+			{
+				"title": "Leaf",
+				"description": "Jump on leafs for an extra boost!",
+				"width": 3840,
+				"height": 2160,
+				"src": "/CSE 481D Game Development Capstone/Leaf.jpg",
+				"thumbnailSrc": "/CSE 481D Game Development Capstone/Leaf-thumb.webp"
+			},
+			{
+				"title": "Rocket",
+				"description": "Fly even further with a rocket!",
+				"width": 3840,
+				"height": 2160,
+				"src": "/CSE 481D Game Development Capstone/Rocket.jpg",
+				"thumbnailSrc": "/CSE 481D Game Development Capstone/Rocket-thumb.webp"
+			}
+		],
+		"links": [
+			{
+				"url": "https://teamflyingsquirrel.itch.io/flying-squirrel",
+				"title": "Flying Squirrel",
+				"description": "Journey through the mysterious forest and avoid getting eaten!",
+				"imageSrc": "https://img.itch.zone/aW1nLzE1MjYxODkzLnBuZw==/original/q885XY.png",
+				"faviconSrc": "https://img.itch.zone/aW1nLzE1MjYxODkzLnBuZw==/32x32%23/qJT9y0.png",
+				"domain": "teamflyingsquirrel.itch.io"
+			}
+		],
+		"embeds": []
 	}
 ]
