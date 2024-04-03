@@ -37,6 +37,6 @@
     "@vitejs/plugin-react-swc": "^3.6.0",
     "storybook": "^7.6.17",
     "typescript": "^5.4.2",
-    "vite": "^5.1.5"
+    "vite": "^5.1.7"
   }
 }
