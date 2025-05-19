@@ -1,6 +1,6 @@
 # Research Experiential Learning Activity
 
-## Pinpoint: Electrophysiology Planning Tool Project in the Virtual Brain Lab, Steinmetz Lab
+## Pinpoint: electrophysiology planning tool project in the Virtual Brain Lab, Steinmetz Lab
 
 I made it into a lab and got to start applying my computer science skills to a
 project with real-world impact. This lab would play an instrumental role in my
