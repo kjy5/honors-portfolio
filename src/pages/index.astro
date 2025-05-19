@@ -1,26 +1,36 @@
 ---
 import Wip from "../components/wip.astro";
-import {indexPath, artifactPath} from "../utils/path.ts";
+import { withArtifactPath, withBasePath } from "../utils/path.ts";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Honors Portfolio</title>
-	</head>
-	<body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href={withBasePath("favicon.ico")} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Honors Portfolio</title>
+  </head>
+  <body>
+    <Wip />
 
-	<Wip/>
+    <h1>Learning Statement</h1>
+    <a href={withBasePath("learning-statement")}>Learning Statement</a>
 
-	<h1>Presentation Content</h1>
-	<ul>
-		<li><a href={indexPath("learning-statement")}>Learning Statement</a></li>
-		<li><a href={artifactPath("research-experiential-learning")}>Research Experiential Learning</a> 👈 where my journey started</li>
-		<li></li>
-		<li></li>
-	</ul>
-	</body>
+    <h1>Key Artifacts</h1>
+    <ul>
+      <li>
+        <a href={withArtifactPath("research-experiential-learning")}
+          >Research Experiential Learning</a
+        > 👈 where my journey started
+      </li>
+      <li>
+        <a href={withArtifactPath("sfn24")}>SfN 2024</a> 👈 achieving my goals
+      </li>
+      <li>
+        <a href={withArtifactPath("3dgs")}>CSE Departmental Honors</a> 👈 where I
+        am now and how it leads to my future
+      </li>
+    </ul>
+  </body>
 </html>
