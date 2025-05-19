@@ -1,32 +1,47 @@
-# UW Interdisciplinary Honors Portfolio
+# Astro Starter Kit: Minimal
 
-[![Build Website](https://github.com/kjy5/honors-portfolio/actions/workflows/build.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/build.yml)
-[![Deploy to GitHub Pages](https://github.com/kjy5/honors-portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/deploy.yml)
-[![Reformat and Lint](https://github.com/kjy5/honors-portfolio/actions/workflows/reformat-and-lint.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/reformat-and-lint.yml)
-[![Dependency Review](https://github.com/kjy5/honors-portfolio/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/kjy5/honors-portfolio/actions/workflows/dependency-review.yml)
-[![DeepSource](https://app.deepsource.com/gh/kjy5/honors-portfolio.svg/?label=active+issues&show_trend=true&token=yG-EGVHpFOii2woS979G59I5)](https://app.deepsource.com/gh/kjy5/honors-portfolio/)
+```sh
+pnpm create astro@latest -- --template minimal
+```
 
-This repository holds code for my honors portfolio.
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
 
-## To see the website
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-Go [here](https://kjy5.github.io/honors-portfolio/)
+## 🚀 Project Structure
 
-## For documentation
+Inside of your Astro project, you'll see the following folders and files:
 
-See [the wiki](https://github.com/kjy5/honors-portfolio/wiki)
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-## To setup for development
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-1. Install `npm` (probably by installing `node`) or alternatives (like `pnpm`)
-2. Clone the repo
-3. `npm i` to install dependencies
-4. Run code with development server with `npm run dev`
-5. Preview production build with `npm run preview`
-6. Just build for production `npm run build` (output is in `/dist` folder)
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-To compute artifact metas, use
-the [Artifact Meta Manager](https://kjy5.github.io/artifact-meta-manager/).
+Any static assets, like images, can be placed in the `public/` directory.
 
-**NOTE:** GitHub Actions have been set up to build and deploy to GitHub Pages,
-so a production build locally is not needed.
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `pnpm install`             | Installs dependencies                            |
+| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
+| `pnpm build`           | Build your production site to `./dist/`          |
+| `pnpm preview`         | Preview your build locally, before deploying     |
+| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
