@@ -1,26 +1,32 @@
 ---
 import Wip from "../components/wip.astro";
-import {indexPath, artifactPath} from "../utils/path.ts";
+import { withArtifactPath, withBasePath } from "../utils/path.ts";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Honors Portfolio</title>
-	</head>
-	<body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href={withBasePath("favicon.ico")} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Honors Portfolio</title>
+  </head>
+  <body>
+    <Wip />
 
-	<Wip/>
-
-	<h1>Presentation Content</h1>
-	<ul>
-		<li><a href={indexPath("learning-statement")}>Learning Statement</a></li>
-		<li><a href={artifactPath("research-experiential-learning")}>Research Experiential Learning</a> 👈 where my journey started</li>
-		<li></li>
-		<li></li>
-	</ul>
-	</body>
+    <h1>Presentation Content</h1>
+    <ul>
+      <li>
+        <a href={withBasePath("learning-statement")}>Learning Statement</a>
+      </li>
+      <li>
+        <a href={withArtifactPath("research-experiential-learning")}
+          >Research Experiential Learning</a
+        > 👈 where my journey started
+      </li>
+      <li>
+	  </li>
+      <li></li>
+    </ul>
+  </body>
 </html>
