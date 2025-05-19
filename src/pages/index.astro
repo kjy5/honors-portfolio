@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 import Wip from "../components/wip.astro";
 import { withArtifactPath, withBasePath } from "../utils/path.ts";
 ---
@@ -11,26 +13,28 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
     <meta name="generator" content={Astro.generator} />
     <title>Honors Portfolio</title>
   </head>
-  <body>
+  <body class="m-8">
     <Wip />
 
-    <h1>Learning Statement</h1>
-    <a href={withBasePath("learning-statement")}>Learning Statement</a>
+    <article class="prose">
+      <h1>Learning Statement</h1>
+      <a href={withBasePath("learning-statement")}>Learning Statement</a>
 
-    <h1>Key Artifacts</h1>
-    <ul>
-      <li>
-        <a href={withArtifactPath("research-experiential-learning")}
-          >Research Experiential Learning</a
-        > 👈 where my journey started
-      </li>
-      <li>
-        <a href={withArtifactPath("sfn24")}>SfN 2024</a> 👈 achieving my goals
-      </li>
-      <li>
-        <a href={withArtifactPath("3dgs")}>CSE Departmental Honors</a> 👈 where I
-        am now and how it leads to my future
-      </li>
-    </ul>
+      <h1>Key Artifacts</h1>
+      <ul>
+        <li>
+          <a href={withArtifactPath("research-experiential-learning")}
+            >Research Experiential Learning</a
+          > 👈 where my journey started
+        </li>
+        <li>
+          <a href={withArtifactPath("sfn24")}>SfN 2024</a> 👈 achieving my goals
+        </li>
+        <li>
+          <a href={withArtifactPath("3dgs")}>CSE Departmental Honors</a> 👈 where
+          I am now and how it leads to my future
+        </li>
+      </ul>
+    </article>
   </body>
 </html>
