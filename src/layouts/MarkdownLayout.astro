@@ -1,9 +1,12 @@
 ---
 import MainLayout from "./MainLayout.astro";
+const { headings } = Astro.props;
 ---
 
-<MainLayout>
-  <article class="prose p-4">
-    <slot />
-  </article>
+<MainLayout title={headings[0].text} }>
+  <div class="flex items-center justify-center p-4">
+    <article class="prose max-w-5xl">
+      <slot />
+    </article>
+  </div>
 </MainLayout>
