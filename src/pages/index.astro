@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import profile from "../assets/profile.png";
 import MainLayout from "../layouts/MainLayout.astro";
 import { withArtifactPath, withBasePath } from "../utils/path.ts";
 ---
@@ -6,10 +8,10 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
 <MainLayout>
   <div class="hero bg-base-200">
     <div class="hero-content flex-col lg:flex-row">
-      <img
-        src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-        class="max-w-sm rounded-lg shadow-2xl"
-        alt="Kenneth profile picture"
+      <Image
+        src={profile}
+        class="h-64 w-auto rounded-lg shadow-2xl"
+        alt="Kenneth's profile"
       />
       <article class="prose">
         <h1>Kenneth's Honors Portfolio</h1>
@@ -35,9 +37,6 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
   </div>
 
   <article class="prose">
-    <h1>Learning Statement</h1>
-    <a href={withBasePath("learning-statement")}>Learning Statement</a>
-
     <h1>Key Artifacts</h1>
     <ul>
       <li>
