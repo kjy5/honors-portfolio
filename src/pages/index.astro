@@ -1,7 +1,9 @@
 ---
 import { Image } from "astro:assets";
+import photographyCard from "../assets/photography-card.avif";
 import profile from "../assets/profile.avif";
-import TimelineEntry from "../components/TimelineEntry.astro";
+import researchCard from "../assets/research-card.avif";
+import swimmingCard from "../assets/swimming-card.avif";
 import MainLayout from "../layouts/MainLayout.astro";
 import { withArtifactPath, withBasePath } from "../utils/path.ts";
 ---
@@ -26,8 +28,8 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
           apply my education towards, solidifying my coursework and also
           developing my skills to be career researcher in computer graphics.
           Along the way, I worked my leadership and communication skills as
-          captain of UW's swim club and also went on a side quest to become a
-          professional photographer. This portfolio details my journey through
+          captain of UW's swim club and found my artistic outlet through
+          photography and filmmaking. This portfolio details my journey through
           UW and how I shaped by experiences to learn better by doing.
         </p>
         <a href={withBasePath("learning-statement")} class="btn btn-primary"
@@ -37,23 +39,70 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
     </div>
   </div>
 
-  <article class="prose"></article>
+  <br />
 
-  <article class="prose">
-    <h1>Key Artifacts</h1>
-    <ul>
-      <li>
-        <a href={withArtifactPath("research-experiential-learning")}
-          >Research Experiential Learning</a
-        > 👈 where my journey started
-      </li>
-      <li>
-        <a href={withArtifactPath("sfn24")}>SfN 2024</a> 👈 achieving my goals
-      </li>
-      <li>
-        <a href={withArtifactPath("3dgs")}>CSE Departmental Honors</a> 👈 where I
-        am now and how it leads to my future
-      </li>
-    </ul>
+  <div class="flex flex-col items-center gap-4 text-center mx-auto p-4">
+    <article class="prose">
+      <h2>My Journeys</h2>
+      <i>Click to learn more</i>
+    </article>
+
+    <div class="flex flex-col lg:flex-row gap-4">
+      <a
+        href={withBasePath("research")}
+        class="card bg-base-100 max-w-96 shadow-sm"
+      >
+        <figure>
+          <Image src={researchCard} alt="SfN 2024" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">🔬 Research</h2>
+          <p class="text-left">
+            The primary focus of my education journey was to gain experience in
+            research while also making meaningful contributions to the real
+            world.
+          </p>
+        </div>
+      </a>
+
+      <a
+        href={withBasePath("swimming")}
+        class="card bg-base-100 max-w-96 shadow-sm"
+      >
+        <figure>
+          <Image src={swimmingCard} alt="Kenneth swimming" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">🏊‍♂️ Swimming</h2>
+          <p class="text-left">
+            I joined the UW Swim Club to continue my passion for the sport and
+            later to foster my leadership and communication skills as the club's
+            captain.
+          </p>
+        </div>
+      </a>
+
+      <a
+        href={withBasePath("photography")}
+        class="card bg-base-100 max-w-96 shadow-sm"
+      >
+        <figure>
+          <Image src={photographyCard} alt="Kenneth taking photos" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">📸 Photography</h2>
+          <p class="text-left">
+            Spawned from my love for computer graphics, I found my artistic
+            outlet in photography, 3D animation, and filmmaking.
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <article class="prose mx-auto text-center p-4">
+    Built with <a href="https://astro.build/">🚀 Astro</a>; View <a
+      href="https://github.com/kjy5/honors-portfolio">Source Code</a
+    >; © 2025 Kenneth Yang
   </article>
 </MainLayout>
