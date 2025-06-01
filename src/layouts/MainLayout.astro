@@ -1,0 +1,63 @@
+---
+import "../styles/global.css";
+import MenuList from "../components/MenuList.astro";
+import { withBasePath } from "../utils/path.ts";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href={withBasePath("favicon.ico")} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Honors Portfolio</title>
+  </head>
+  <body>
+    <!--Navigation Bar-->
+    <div class="fixed top-0 z-100 navbar bg-base-100 shadow-sm">
+      <div class="navbar-start">
+        <!--Mobile menu button-->
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h8m-8 6h16"></path>
+            </svg>
+          </div>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+          >
+            <MenuList />
+          </ul>
+        </div>
+        <a href={withBasePath("")} class="btn btn-ghost text-xl"
+          >Kenneth's Honors Portfolio</a
+        >
+      </div>
+
+      <!--Desktop menu-->
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <MenuList />
+        </ul>
+      </div>
+
+      <div class="navbar-end"></div>
+    </div>
+
+    <!--Content-->
+    <main class="pt-15">
+      <slot />
+    </main>
+  </body>
+</html>

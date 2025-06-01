@@ -1,3 +1,6 @@
+---
+layout: ../layouts/MarkdownLayout.astro
+---
 # Learning Statement
 
 ## TL;DR

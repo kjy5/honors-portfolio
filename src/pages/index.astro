@@ -1,40 +1,57 @@
 ---
-import "../styles/global.css";
-
-import Wip from "../components/wip.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 import { withArtifactPath, withBasePath } from "../utils/path.ts";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/x-icon" href={withBasePath("favicon.ico")} />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Honors Portfolio</title>
-  </head>
-  <body class="m-8">
-    <Wip />
+<MainLayout>
+  <div class="hero bg-base-200">
+    <div class="hero-content flex-col lg:flex-row">
+      <img
+        src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+        class="max-w-sm rounded-lg shadow-2xl"
+        alt="Kenneth profile picture"
+      />
+      <article class="prose">
+        <h1>Kenneth's Honors Portfolio</h1>
+        <p><b>Hi 👋 I'm Kenneth Yang.</b></p>
+        <p>
+          I studied Computer Science and minored in Digital Arts & Experimental
+          Media with college honors as part of the class of 2025.
+        </p>
+        <p>
+          This portfolio documents my academic journey at UW as I pursue
+          academic research in computer graphics to allow me to <i
+            >learn by doing</i
+          >. In addition to reflecting on my learning, I also wanted to share
+          the side quests I took into photography and competitive swimming,
+          which have become integral parts of my social life and personal growth
+          outside of academia.
+        </p>
+        <a href={withBasePath("learning-statement")} class="btn btn-primary"
+          >Read my Learning Statement</a
+        >
+      </article>
+    </div>
+  </div>
 
-    <article class="prose">
-      <h1>Learning Statement</h1>
-      <a href={withBasePath("learning-statement")}>Learning Statement</a>
+  <article class="prose">
+    <h1>Learning Statement</h1>
+    <a href={withBasePath("learning-statement")}>Learning Statement</a>
 
-      <h1>Key Artifacts</h1>
-      <ul>
-        <li>
-          <a href={withArtifactPath("research-experiential-learning")}
-            >Research Experiential Learning</a
-          > 👈 where my journey started
-        </li>
-        <li>
-          <a href={withArtifactPath("sfn24")}>SfN 2024</a> 👈 achieving my goals
-        </li>
-        <li>
-          <a href={withArtifactPath("3dgs")}>CSE Departmental Honors</a> 👈 where
-          I am now and how it leads to my future
-        </li>
-      </ul>
-    </article>
-  </body>
-</html>
+    <h1>Key Artifacts</h1>
+    <ul>
+      <li>
+        <a href={withArtifactPath("research-experiential-learning")}
+          >Research Experiential Learning</a
+        > 👈 where my journey started
+      </li>
+      <li>
+        <a href={withArtifactPath("sfn24")}>SfN 2024</a> 👈 achieving my goals
+      </li>
+      <li>
+        <a href={withArtifactPath("3dgs")}>CSE Departmental Honors</a> 👈 where I
+        am now and how it leads to my future
+      </li>
+    </ul>
+  </article>
+</MainLayout>
