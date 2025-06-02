@@ -1,7 +1,11 @@
 ---
+import captain from "../assets/swimmer/captain.avif";
+import nationals from "../assets/swimmer/nationals.avif";
 import { Image } from "astro:assets";
 import swimmerProfile from "../assets/swimmer/swimmer-profile.avif";
 import MainLayout from "../layouts/MainLayout.astro";
+import ArtifactTimeline from "../components/ArtifactTimeline.astro";
+import ArtifactEntry from "../components/ArtifactEntry.astro";
 ---
 
 <MainLayout title="The Swimmer">
@@ -29,12 +33,24 @@ import MainLayout from "../layouts/MainLayout.astro";
       </article>
     </div>
   </div>
-  <article class="prose">
-    <ol>
-      <li>Capturing the club</li>
-      <li>Captain</li>
-      <li>Nationals</li>
-      <li>Passing on the Torch</li>
-    </ol>
-  </article>
+  
+  <ArtifactTimeline>
+    <ArtifactEntry
+        title="Captaining for the UW Swim Club"
+        date="Winter 2023 - Present"
+        subtitle="Fostering the competitive and social community I love about swimming"
+        thumbnail={captain}
+        artifactPath="swimmer/captain"
+        isFirst
+    />
+    <ArtifactEntry
+        title="DXARTS Video Series"
+        date="Autumn 2024 - Spring 2025"
+        subtitle="Making the side quest part of the main quest"
+        thumbnail={nationals}
+        artifactPath="artist/dxarts"
+        flip
+        isLast
+    />
+  </ArtifactTimeline>
 </MainLayout>
