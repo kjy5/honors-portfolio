@@ -23,17 +23,20 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
           I studied Computer Science and minored in Digital Arts & Experimental
           Media with college honors as part of the UW's class of 2025.
         </p>
-        <p>
-          <i>I learn best by doing</i>. I used research as the surface I would
-          apply my education towards, solidifying my coursework and also
-          developing my skills to be career researcher in computer graphics.
-          Along the way, I worked my leadership and communication skills as
-          captain of UW's swim club and found my artistic outlet through
-          photography and filmmaking. This portfolio details my journey through
-          UW and how I shaped by experiences to learn better by doing.
-        </p>
+        <blockquote>
+          I learn best by doing. Having a practical place to use things I have learned has
+          been the best way for me to solidify new concepts. At UW, I used my personal,
+          club, and research projects as the practical place where I could apply my
+          coursework and learn by doing.
+          
+          <br/>
+          
+          Computer Science is an "arts and science" degree. I embraced the
+          interdisciplinary nature of this field through my focus on computer graphics
+          where I developed as both a scientist and an artist.
+        </blockquote>
         <a href={withBasePath("learning-statement")} class="btn btn-primary"
-          >Read my Learning Statement</a
+          >Read the rest in my Learning Statement</a
         >
       </article>
     </div>
@@ -49,13 +52,13 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
 
     <div class="flex flex-col lg:flex-row gap-4">
       <a
-          href={withBasePath("scientist")}
-          class="card bg-base-100 max-w-96 shadow-sm"
+        href={withBasePath("scientist")}
+        class="card bg-base-100 max-w-96 shadow-sm"
       >
         <figure>
           <Image
-              src={researchCard}
-              alt="Walter E. Washington convension center"
+            src={researchCard}
+            alt="Walter E. Washington convension center"
           />
         </figure>
         <div class="card-body">
@@ -67,10 +70,10 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
           </p>
         </div>
       </a>
-      
+
       <a
-          href={withBasePath("artist")}
-          class="card bg-base-100 max-w-96 shadow-sm"
+        href={withBasePath("artist")}
+        class="card bg-base-100 max-w-96 shadow-sm"
       >
         <figure>
           <Image src={photographyCard} alt="Kenneth taking photos" />
@@ -83,7 +86,6 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
           </p>
         </div>
       </a>
-      
 
       <a
         href={withBasePath("swimmer")}
