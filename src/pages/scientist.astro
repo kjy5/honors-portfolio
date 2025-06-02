@@ -4,6 +4,7 @@ import cosmos from "../assets/scientist/cosmos.avif";
 import maryGates from "../assets/scientist/mary-gates.avif";
 import pinpoint from "../assets/scientist/pinpoint.avif";
 import scientistProfile from "../assets/scientist/scientist-profile.avif";
+import urs from "../assets/scientist/urs.avif";
 import ArtifactEntry from "../components/ArtifactEntry.astro";
 import ArtifactTimeline from "../components/ArtifactTimeline.astro";
 import MainLayout from "../layouts/MainLayout.astro";
@@ -54,12 +55,14 @@ import MainLayout from "../layouts/MainLayout.astro";
       thumbnail={maryGates}
       artifactPath="scientist/mary-gates"
     />
-    <!--<ArtifactEntry-->
-    <!--  title="URS 2023"-->
-    <!--  date="Spring 2023"-->
-    <!--  thumbnail={cosmos}-->
-    <!--  flip-->
-    <!--/>-->
+    <ArtifactEntry
+      title="Undergraduate Research Symposium 2023"
+      date="Spring 2023"
+      subtitle="First research presentation"
+      thumbnail={urs}
+      artifactPath="scientist/urs"
+      flip
+    />
     <!--<ArtifactEntry title="SfN 2023" date="Autumn 2023" thumbnail={cosmos} />-->
     <!--<ArtifactEntry-->
     <!--  title="CSE 340 and Pinpoint 2.0"-->
