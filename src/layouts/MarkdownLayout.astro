@@ -8,7 +8,7 @@ type Props = MarkdownLayoutProps<{
 const { headings, frontmatter } = Astro.props;
 ---
 
-<MainLayout title={headings[0].text} } returnPage={frontmatter.return}>
+<MainLayout title={headings[0].text} returnPage={frontmatter.return}>
   <div class="flex items-center justify-center p-4">
     <article class="prose max-w-5xl">
       <slot />
