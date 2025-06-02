@@ -1,11 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import captain from "../assets/swimmer/captain.avif";
 import nationals from "../assets/swimmer/nationals.avif";
-import { Image } from "astro:assets";
 import swimmerProfile from "../assets/swimmer/swimmer-profile.avif";
-import MainLayout from "../layouts/MainLayout.astro";
-import ArtifactTimeline from "../components/ArtifactTimeline.astro";
 import ArtifactEntry from "../components/ArtifactEntry.astro";
+import ArtifactTimeline from "../components/ArtifactTimeline.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="The Swimmer">
@@ -33,24 +33,24 @@ import ArtifactEntry from "../components/ArtifactEntry.astro";
       </article>
     </div>
   </div>
-  
+
   <ArtifactTimeline>
     <ArtifactEntry
-        title="Captaining for the UW Swim Club"
-        date="Winter 2023 - Present"
-        subtitle="Fostering the competitive and social community I love about swimming"
-        thumbnail={captain}
-        artifactPath="swimmer/captain"
-        isFirst
+      title="Captaining for the UW Swim Club"
+      date="Winter 2023 - Present"
+      subtitle="Fostering the competitive and social community I love about swimming"
+      thumbnail={captain}
+      artifactPath="swimmer/captain"
+      isFirst
     />
     <ArtifactEntry
-        title="Nationals 2025"
-        date="Winter 2025"
-        subtitle="Having a goal and achieving it"
-        thumbnail={nationals}
-        artifactPath="swimmer/nationals"
-        flip
-        isLast
+      title="Nationals 2025"
+      date="Winter 2025"
+      subtitle="Having a goal and achieving it"
+      thumbnail={nationals}
+      artifactPath="swimmer/nationals"
+      flip
+      isLast
     />
   </ArtifactTimeline>
 </MainLayout>

@@ -1,10 +1,10 @@
 ---
-import dxarts from "../assets/artist/dxarts.avif";
-import portrait from "../assets/artist/portrait.avif";
 import { Image } from "astro:assets";
 import animation from "../assets/artist/animation.avif";
 import artistProfile from "../assets/artist/artist-profile.avif";
 import dcp from "../assets/artist/dcp.avif";
+import dxarts from "../assets/artist/dxarts.avif";
+import portrait from "../assets/artist/portrait.avif";
 import rov from "../assets/artist/rov.avif";
 import ArtifactEntry from "../components/ArtifactEntry.astro";
 import ArtifactTimeline from "../components/ArtifactTimeline.astro";
@@ -22,7 +22,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       <article class="prose">
         <h1>Kenneth the Artist</h1>
         <p>
-          Computer graphics is, at it's core, an interdisciplinary field that
+          Computer graphics is, at its core, an interdisciplinary field that
           combines art and science. While I never had the human talent to be a
           painter or a sculptor, I found that I could use my exposure to
           computer graphics to enable my artistic expression through digital
@@ -60,20 +60,20 @@ import MainLayout from "../layouts/MainLayout.astro";
       artifactPath="artist/animation"
     />
     <ArtifactEntry
-        title="Portrait Photography"
-        date="Spring 2022 - Present"
-        subtitle="The side quest that's becoming a main quest"
-        thumbnail={portrait}
-        artifactPath="artist/portrait"
-        flip
+      title="Portrait Photography"
+      date="Spring 2022 - Present"
+      subtitle="The side quest that's becoming a main quest"
+      thumbnail={portrait}
+      artifactPath="artist/portrait"
+      flip
     />
     <ArtifactEntry
-        title="DXARTS Video Series"
-        date="Autumn 2024 - Spring 2025"
-        subtitle="Making the side quest part of the main quest"
-        thumbnail={dxarts}
-        artifactPath="artist/dxarts"
-        isLast
+      title="DXARTS Video Series"
+      date="Autumn 2024 - Spring 2025"
+      subtitle="Making the side quest part of the main quest"
+      thumbnail={dxarts}
+      artifactPath="artist/dxarts"
+      isLast
     />
   </ArtifactTimeline>
 </MainLayout>
