@@ -43,23 +43,23 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
 
   <div class="flex flex-col items-center gap-4 text-center mx-auto p-4">
     <article class="prose">
-      <h2>My Journeys</h2>
+      <h2>The Three Versions of Me</h2>
       <i>Click to learn more</i>
     </article>
 
     <div class="flex flex-col lg:flex-row gap-4">
       <a
-        href={withBasePath("research")}
-        class="card bg-base-100 max-w-96 shadow-sm"
+          href={withBasePath("scientist")}
+          class="card bg-base-100 max-w-96 shadow-sm"
       >
         <figure>
           <Image
-            src={researchCard}
-            alt="Walter E. Washington convension center"
+              src={researchCard}
+              alt="Walter E. Washington convension center"
           />
         </figure>
         <div class="card-body">
-          <h2 class="card-title">🔬 Research</h2>
+          <h2 class="card-title">🔬 The Scientist</h2>
           <p class="text-left">
             The primary focus of my education journey was to gain experience in
             research while also making meaningful contributions to the real
@@ -67,36 +67,37 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
           </p>
         </div>
       </a>
+      
+      <a
+          href={withBasePath("artist")}
+          class="card bg-base-100 max-w-96 shadow-sm"
+      >
+        <figure>
+          <Image src={photographyCard} alt="Kenneth taking photos" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">🧑‍🎨 The Artist</h2>
+          <p class="text-left">
+            Spawned from my love for computer graphics, I found my artistic
+            outlet in photography, 3D animation, and filmmaking.
+          </p>
+        </div>
+      </a>
+      
 
       <a
-        href={withBasePath("swimming")}
+        href={withBasePath("swimmer")}
         class="card bg-base-100 max-w-96 shadow-sm"
       >
         <figure>
           <Image src={swimmingCard} alt="Kenneth swimming" />
         </figure>
         <div class="card-body">
-          <h2 class="card-title">🏊‍♂️ Swimming</h2>
+          <h2 class="card-title">🏊‍♂️ The Swimmer</h2>
           <p class="text-left">
             I joined the UW Swim Club to continue my passion for the sport and
             later to foster my leadership and communication skills as the club's
             captain.
-          </p>
-        </div>
-      </a>
-
-      <a
-        href={withBasePath("photography")}
-        class="card bg-base-100 max-w-96 shadow-sm"
-      >
-        <figure>
-          <Image src={photographyCard} alt="Kenneth taking photos" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title">📸 Photography</h2>
-          <p class="text-left">
-            Spawned from my love for computer graphics, I found my artistic
-            outlet in photography, 3D animation, and filmmaking.
           </p>
         </div>
       </a>
