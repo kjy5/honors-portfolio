@@ -6,7 +6,7 @@ interface Props {
 	title: string;
 	date: string;
 	subtitle: string;
-	thumbnail: ImageMetadata;
+	thumbnail?: ImageMetadata;
 	artifactPath: string;
 	isFirst?: boolean;
 	isLast?: boolean;
@@ -35,11 +35,15 @@ const {
   <div class={flip ? "timeline-end" : "timeline-start"}>
     <a
       href={withArtifactPath(artifactPath)}
-      class="card lg:card-side bg-base-100 shadow-sm"
+      class="card lg:card-side bg-base-100 shadow-lg"
     >
-      <figure>
-        <Image src={thumbnail} alt="Album" />
-      </figure>
+      {
+        thumbnail && (
+          <figure>
+            <Image src={thumbnail} alt="Album" />
+          </figure>
+        )
+      }
       <div class="card-body prose">
         <h2 class="card-title">{title}</h2>
         <i>{date}</i>

@@ -1,12 +1,15 @@
 ---
+import splatting from "../assets/scientist/3dgs.avif";
 import { Image } from "astro:assets";
 import cosmos from "../assets/scientist/cosmos.avif";
-import maryGates from "../assets/scientist/mary-gates.avif";
 import pinpoint from "../assets/scientist/pinpoint.avif";
 import scientistProfile from "../assets/scientist/scientist-profile.avif";
 import sfn23 from "../assets/scientist/sfn23.avif";
+import sfn24 from "../assets/scientist/sfn24.avif";
 import stickman from "../assets/scientist/stickman.avif";
 import urs from "../assets/scientist/urs.avif";
+import viz from "../assets/scientist/viz.avif";
+import wrf from "../assets/scientist/wrf.avif";
 import ArtifactEntry from "../components/ArtifactEntry.astro";
 import ArtifactTimeline from "../components/ArtifactTimeline.astro";
 import MainLayout from "../layouts/MainLayout.astro";
@@ -51,11 +54,11 @@ import MainLayout from "../layouts/MainLayout.astro";
       flip
     />
     <ArtifactEntry
-      title="Mary Gates Research Scholarship Applications"
-      date="Autumn 2022 - Winter 2024"
+      title="Washington Research Foundation Fellowship and Mary Gates Research Scholarship"
+      date="Autumn 2022 - Autumn 2024"
       subtitle="Funding my work in the Virtual Brain Lab"
-      thumbnail={maryGates}
-      artifactPath="scientist/mary-gates"
+      thumbnail={wrf}
+      artifactPath="scientist/funding"
     />
     <ArtifactEntry
       title="Undergraduate Research Symposium 2023"
@@ -68,7 +71,7 @@ import MainLayout from "../layouts/MainLayout.astro";
     <ArtifactEntry
       title="Society for Neuroscience (SfN) 2023"
       date="Autumn 2023"
-      subtitle="Presenting my research at the biggest neuroscience conference in the US"
+      subtitle="Presenting my research at the biggest neuroscience conference in the U.S."
       thumbnail={sfn23}
       artifactPath="scientist/sfn23"
     />
@@ -80,40 +83,41 @@ import MainLayout from "../layouts/MainLayout.astro";
       artifactPath="scientist/stickman"
       flip
     />
-    <!--<ArtifactEntry-->
-    <!--  title="Leadership Experiential Learning Activity"-->
-    <!--  date="Winter 2024"-->
-    <!--  thumbnail={cosmos}-->
-    <!--/>-->
-    <!--<ArtifactEntry-->
-    <!--  title="CSE 512 Data vis and Neuroscience visualization"-->
-    <!--  date="Spring 2024"-->
-    <!--  thumbnail={cosmos}-->
-    <!--  flip-->
-    <!--/>-->
-    <!--<ArtifactEntry-->
-    <!--  title="AST Merge Driver (PLSE)"-->
-    <!--  date="Summer 2024"-->
-    <!--  thumbnail={cosmos}-->
-    <!--/>-->
-    <!--<ArtifactEntry-->
-    <!--  title="WRF"-->
-    <!--  date="Autumn 2024 - Spring 2025"-->
-    <!--  thumbnail={cosmos}-->
-    <!--  flip-->
-    <!--/>-->
-    <!--<ArtifactEntry title="SfN 2024" date="Autumn 2024" thumbnail={cosmos} />-->
-    <!--<ArtifactEntry-->
-    <!--  title="ASE 2024"-->
-    <!--  date="Autumn 2024"-->
-    <!--  thumbnail={cosmos}-->
-    <!--  flip-->
-    <!--/>-->
-    <!--<ArtifactEntry-->
-    <!--  title=""-->
-    <!--  date="Autumn 2024 - Spring 2025"-->
-    <!--  thumbnail={cosmos}-->
-    <!--  isLast>CSE Departmental Honors (3DGS)</ArtifactEntry-->
-    <!--&gt;-->
+    <ArtifactEntry
+      title="Leadership Experiential Learning Activity"
+      date="Winter 2024"
+      subtitle="Guiding neuroscinece labs to integrate my automation tools"
+      artifactPath="scientist/leadership"
+    />
+    <ArtifactEntry
+      title="CSE 512 and Neuroscience Visualization"
+      date="Spring 2024"
+      subtitle="First graduate course and a direct connection to my research"
+      thumbnail={viz}
+      artifactPath="scientist/viz"
+      flip
+    />
+    <ArtifactEntry
+      title="Software Engineering Research"
+      date="Summer 2024 - Autumn 2024"
+      subtitle="Stepping into CSE Research with the Programming Languages and Software Engineering (PLSE) group"
+      artifactPath="scientist/ast-merge-driver"
+    />
+    <ArtifactEntry
+      title="SfN 2024"
+      date="Autumn 2024"
+      subtitle="Returning to the largest Neuroscience conference in the U.S."
+      thumbnail={sfn24}
+      artifactPath="scientist/sfn24"
+      flip
+    />
+    <ArtifactEntry
+      title="Improving 3D Gaussian Splatting's Rasterization Performance"
+      date="Autumn 2024 - Spring 2025"
+      subtitle="CSE Departmental Honors with computer graphics research"
+      thumbnail={splatting}
+      artifactPath="scientist/3dgs"
+      isLast
+    />
   </ArtifactTimeline>
 </MainLayout>
