@@ -5,9 +5,10 @@ import { withBasePath } from "../utils/path.ts";
 
 interface Props {
 	title: string;
+	returnPage?: string;
 }
 
-const { title } = Astro.props;
+const { title, returnPage = "" } = Astro.props;
 const isHome = Astro.url.pathname === withBasePath("");
 ---
 
@@ -68,8 +69,8 @@ const isHome = Astro.url.pathname === withBasePath("");
 
       {
         !isHome && (
-          <a href={withBasePath("")} class="btn btn-primary">
-            Return Home
+          <a href={withBasePath(returnPage)} class="btn btn-primary">
+            Go Back
           </a>
         )
       }

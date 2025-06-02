@@ -1,12 +1,28 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import { withArtifactPath } from "../utils/path";
 interface Props {
+	title: string;
 	date: string;
+	subtitle: string;
+	thumbnail: ImageMetadata;
+	artifactPath: string;
 	isFirst?: boolean;
 	isLast?: boolean;
 	flip?: boolean;
 }
 
-const { date, isFirst = false, isLast = false, flip = false } = Astro.props;
+const {
+	title,
+	date,
+	subtitle,
+	thumbnail,
+	artifactPath,
+	isFirst = false,
+	isLast = false,
+	flip = false,
+} = Astro.props;
 ---
 
 <li>
@@ -17,19 +33,19 @@ const { date, isFirst = false, isLast = false, flip = false } = Astro.props;
   </div>
 
   <div class={flip ? "timeline-end" : "timeline-start"}>
-    <div class="card lg:card-side bg-base-100 shadow-sm">
+    <a
+      href={withArtifactPath(artifactPath)}
+      class="card lg:card-side bg-base-100 shadow-sm"
+    >
       <figure>
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
-          alt="Album"
-        />
+        <Image src={thumbnail} alt="Album" />
       </figure>
       <div class="card-body prose">
-        <h2 class="card-title"><slot /></h2>
+        <h2 class="card-title">{title}</h2>
         <i>{date}</i>
-        <p>Click the button to listen on Spotiwhy app.</p>
+        <p>{subtitle}</p>
       </div>
-    </div>
+    </a>
   </div>
   {!isLast && <hr />}
 </li>

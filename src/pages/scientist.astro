@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
+import cosmos from "../assets/scientist/cosmos.avif";
 import scientistProfile from "../assets/scientist/scientist-profile.avif";
 import ArtifactEntry from "../components/ArtifactEntry.astro";
 import ArtifactTimeline from "../components/ArtifactTimeline.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-import { withBasePath } from "../utils/path";
 ---
 
 <MainLayout title="The Scientist">
@@ -29,32 +29,72 @@ import { withBasePath } from "../utils/path";
   </div>
 
   <ArtifactTimeline>
-    <ArtifactEntry date="Spring 2022" isFirst
-      >COSMOS Interface and CSE 351</ArtifactEntry
-    >
-    <ArtifactEntry date="Summer 2022" flip
-      >Research Experiential Learning</ArtifactEntry
-    >
-    <ArtifactEntry date="Autumn 2022 - Winter 2024"
-      >Mary Gates Research Scholarship Applications</ArtifactEntry
-    >
-    <ArtifactEntry date="Spring 2023" flip>URS 2023</ArtifactEntry>
-    <ArtifactEntry date="Autumn 2023">SfN 2023</ArtifactEntry>
-    <ArtifactEntry date="Autumn 2023" flip
-      >CSE 340 and Pinpoint 2.0</ArtifactEntry
-    >
-    <ArtifactEntry date="Winter 2024"
-      >Leadership Experiential Learning Activity</ArtifactEntry
-    >
-    <ArtifactEntry date="Spring 2024" flip
-      >CSE 512 Data vis and Neuroscience visualization</ArtifactEntry
-    >
-    <ArtifactEntry date="Summer 2024">AST Merge Driver (PLSE)</ArtifactEntry>
-    <ArtifactEntry date="Autumn 2024 - Spring 2025" flip>WRF</ArtifactEntry>
-    <ArtifactEntry date="Autumn 2024">SfN 2024</ArtifactEntry>
-    <ArtifactEntry date="Autumn 2024" flip>ASE 2024</ArtifactEntry>
-    <ArtifactEntry date="Autumn 2024 - Spring 2025" isLast
-      >CSE Departmental Honors (3DGS)</ArtifactEntry
-    >
+    <ArtifactEntry
+      title="COSMOS Interface and CSE 351"
+      date="Spring 2022"
+      subtitle="Applied HW/SW course content to Husky Satellite Lab club project."
+      thumbnail={cosmos}
+      artifactPath="scientist/cosmos"
+      isFirst
+    />
+    <!--<ArtifactEntry-->
+    <!--  title="Research Experiential Learning"-->
+    <!--  date="Summer 2022"-->
+    <!--  thumbnail={cosmos}-->
+    <!--  flip-->
+    <!--/>-->
+    <!--<ArtifactEntry-->
+    <!--  title="Mary Gates Research Scholarship Applications"-->
+    <!--  date="Autumn 2022 - Winter 2024"-->
+    <!--  thumbnail={cosmos}-->
+    <!--/>-->
+    <!--<ArtifactEntry-->
+    <!--  title="URS 2023"-->
+    <!--  date="Spring 2023"-->
+    <!--  thumbnail={cosmos}-->
+    <!--  flip-->
+    <!--/>-->
+    <!--<ArtifactEntry title="SfN 2023" date="Autumn 2023" thumbnail={cosmos} />-->
+    <!--<ArtifactEntry-->
+    <!--  title="CSE 340 and Pinpoint 2.0"-->
+    <!--  date="Autumn 2023"-->
+    <!--  thumbnail={cosmos}-->
+    <!--  flip-->
+    <!--/>-->
+    <!--<ArtifactEntry-->
+    <!--  title="Leadership Experiential Learning Activity"-->
+    <!--  date="Winter 2024"-->
+    <!--  thumbnail={cosmos}-->
+    <!--/>-->
+    <!--<ArtifactEntry-->
+    <!--  title="CSE 512 Data vis and Neuroscience visualization"-->
+    <!--  date="Spring 2024"-->
+    <!--  thumbnail={cosmos}-->
+    <!--  flip-->
+    <!--/>-->
+    <!--<ArtifactEntry-->
+    <!--  title="AST Merge Driver (PLSE)"-->
+    <!--  date="Summer 2024"-->
+    <!--  thumbnail={cosmos}-->
+    <!--/>-->
+    <!--<ArtifactEntry-->
+    <!--  title="WRF"-->
+    <!--  date="Autumn 2024 - Spring 2025"-->
+    <!--  thumbnail={cosmos}-->
+    <!--  flip-->
+    <!--/>-->
+    <!--<ArtifactEntry title="SfN 2024" date="Autumn 2024" thumbnail={cosmos} />-->
+    <!--<ArtifactEntry-->
+    <!--  title="ASE 2024"-->
+    <!--  date="Autumn 2024"-->
+    <!--  thumbnail={cosmos}-->
+    <!--  flip-->
+    <!--/>-->
+    <!--<ArtifactEntry-->
+    <!--  title=""-->
+    <!--  date="Autumn 2024 - Spring 2025"-->
+    <!--  thumbnail={cosmos}-->
+    <!--  isLast>CSE Departmental Honors (3DGS)</ArtifactEntry-->
+    <!--&gt;-->
   </ArtifactTimeline>
 </MainLayout>
