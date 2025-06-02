@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import photographyCard from "../assets/photography-card.avif";
+import artCard from "../assets/art-card.avif";
 import profile from "../assets/profile.avif";
-import researchCard from "../assets/research-card.avif";
-import swimmingCard from "../assets/swimming-card.avif";
+import scientistCard from "../assets/scientist-card.avif";
+import swimmerCard from "../assets/swimmer-card.avif";
 import MainLayout from "../layouts/MainLayout.astro";
 import { withArtifactPath, withBasePath } from "../utils/path.ts";
 ---
@@ -57,7 +57,7 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
       >
         <figure>
           <Image
-            src={researchCard}
+            src={scientistCard}
             alt="Walter E. Washington convension center"
           />
         </figure>
@@ -76,7 +76,7 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
         class="card bg-base-100 max-w-96 shadow-sm"
       >
         <figure>
-          <Image src={photographyCard} alt="Kenneth taking photos" />
+          <Image src={artCard} alt="Kenneth taking photos" />
         </figure>
         <div class="card-body">
           <h2 class="card-title">🧑‍🎨 The Artist</h2>
@@ -92,7 +92,7 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
         class="card bg-base-100 max-w-96 shadow-sm"
       >
         <figure>
-          <Image src={swimmingCard} alt="Kenneth swimming" />
+          <Image src={swimmerCard} alt="Kenneth swimming" />
         </figure>
         <div class="card-body">
           <h2 class="card-title">🏊‍♂️ The Swimmer</h2>

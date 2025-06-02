@@ -3,18 +3,33 @@ interface Props {
 	date: string;
 	isFirst?: boolean;
 	isLast?: boolean;
+	flip?: boolean;
 }
 
-const { date, isFirst = false, isLast = false } = Astro.props;
+const { date, isFirst = false, isLast = false, flip = false } = Astro.props;
 ---
 
 <li>
   {!isFirst && <hr />}
-  <div class="timeline-start">{date}</div>
   <div
     class="timeline-middle h-5 w-5 rounded-full bg-primary border-2 border-base-100"
   >
   </div>
-  <div class="timeline-end timeline-box"><slot /></div>
+
+  <div class={flip ? "timeline-end" : "timeline-start"}>
+    <div class="card lg:card-side bg-base-100 shadow-sm">
+      <figure>
+        <img
+          src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
+          alt="Album"
+        />
+      </figure>
+      <div class="card-body prose">
+        <h2 class="card-title"><slot /></h2>
+        <i>{date}</i>
+        <p>Click the button to listen on Spotiwhy app.</p>
+      </div>
+    </div>
+  </div>
   {!isLast && <hr />}
 </li>

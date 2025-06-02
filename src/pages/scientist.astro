@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import researcherProfile from "../assets/researcher-profile.avif";
+import scientistProfile from "../assets/scientist/scientist-profile.avif";
 import ArtifactEntry from "../components/ArtifactEntry.astro";
+import ArtifactTimeline from "../components/ArtifactTimeline.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import { withBasePath } from "../utils/path";
 ---
@@ -10,7 +11,7 @@ import { withBasePath } from "../utils/path";
   <div class="hero bg-base-200">
     <div class="hero-content flex-col lg:flex-row">
       <Image
-        src={researcherProfile}
+        src={scientistProfile}
         class="h-40 w-40 lg:h-80 lg:w-auto object-cover rounded-lg shadow-2xl"
         alt="Kenneth's profile"
       />
@@ -27,31 +28,33 @@ import { withBasePath } from "../utils/path";
     </div>
   </div>
 
-  <ul class="timeline timeline-vertical timeline-snap-icon max-md:timeline-compact">
+  <ArtifactTimeline>
     <ArtifactEntry date="Spring 2022" isFirst
-      >COSMOS interface and CSE 351</ArtifactEntry
+      >COSMOS Interface and CSE 351</ArtifactEntry
     >
-    <ArtifactEntry date="Summer 2022"
+    <ArtifactEntry date="Summer 2022" flip
       >Research Experiential Learning</ArtifactEntry
     >
     <ArtifactEntry date="Autumn 2022 - Winter 2024"
       >Mary Gates Research Scholarship Applications</ArtifactEntry
     >
-    <ArtifactEntry date="Spring 2023">URS 2023</ArtifactEntry>
+    <ArtifactEntry date="Spring 2023" flip>URS 2023</ArtifactEntry>
     <ArtifactEntry date="Autumn 2023">SfN 2023</ArtifactEntry>
-    <ArtifactEntry date="Autumn 2023">CSE 340 and Pinpoint 2.0</ArtifactEntry>
+    <ArtifactEntry date="Autumn 2023" flip
+      >CSE 340 and Pinpoint 2.0</ArtifactEntry
+    >
     <ArtifactEntry date="Winter 2024"
       >Leadership Experiential Learning Activity</ArtifactEntry
     >
-    <ArtifactEntry date="Spring 2024"
+    <ArtifactEntry date="Spring 2024" flip
       >CSE 512 Data vis and Neuroscience visualization</ArtifactEntry
     >
     <ArtifactEntry date="Summer 2024">AST Merge Driver (PLSE)</ArtifactEntry>
-    <ArtifactEntry date="Autumn 2024 - Spring 2025">WRF</ArtifactEntry>
+    <ArtifactEntry date="Autumn 2024 - Spring 2025" flip>WRF</ArtifactEntry>
     <ArtifactEntry date="Autumn 2024">SfN 2024</ArtifactEntry>
-    <ArtifactEntry date="Autumn 2024">ASE 2024</ArtifactEntry>
+    <ArtifactEntry date="Autumn 2024" flip>ASE 2024</ArtifactEntry>
     <ArtifactEntry date="Autumn 2024 - Spring 2025" isLast
       >CSE Departmental Honors (3DGS)</ArtifactEntry
     >
-  </ul>
+  </ArtifactTimeline>
 </MainLayout>
