@@ -1,22 +1,57 @@
 ---
+import { Image } from "astro:assets";
+import researcherProfile from "../assets/researcher-profile.avif";
+import ArtifactEntry from "../components/ArtifactEntry.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import { withBasePath } from "../utils/path";
 ---
 
 <MainLayout title="The Scientist">
-  <article class="prose">
-    <ol>
-      <li>COSMOS interface and CSE 351</li>
-      <li>Research experiential learning</li>
-      <li>Mary Gates Research Scholarship application attempts</li>
-      <li>URS 2022</li>
-      <li>SfN 2023</li>
-      <li>CSE 340 and Pinpoint 2.0</li>
-      <li>Leadership Experiential Learning Activity</li>
-      <li>CSE 512 Data vis</li>
-      <li>AST Merge Driver (PLSE)</li>
-      <li>SfN 2024</li>
-      <li>ASE 2024</li>
-      <li>CSE Departmental Honors (3DGS)</li>
-    </ol>
-  </article>
+  <div class="hero bg-base-200">
+    <div class="hero-content flex-col lg:flex-row">
+      <Image
+        src={researcherProfile}
+        class="h-40 w-40 lg:h-80 lg:w-auto object-cover rounded-lg shadow-2xl"
+        alt="Kenneth's profile"
+      />
+      <article class="prose">
+        <h1>Kenneth the Scientist</h1>
+        <p>
+          Scientific research is the primary way I applied by coursework to
+          real-world problems. As a result I took classes and geared by learning
+          to help my research projects, helping both my own education and also
+          allowing me to contribute to the world meaningfully as an
+          undergraduate.
+        </p>
+      </article>
+    </div>
+  </div>
+
+  <ul class="timeline timeline-vertical timeline-snap-icon max-md:timeline-compact">
+    <ArtifactEntry date="Spring 2022" isFirst
+      >COSMOS interface and CSE 351</ArtifactEntry
+    >
+    <ArtifactEntry date="Summer 2022"
+      >Research Experiential Learning</ArtifactEntry
+    >
+    <ArtifactEntry date="Autumn 2022 - Winter 2024"
+      >Mary Gates Research Scholarship Applications</ArtifactEntry
+    >
+    <ArtifactEntry date="Spring 2023">URS 2023</ArtifactEntry>
+    <ArtifactEntry date="Autumn 2023">SfN 2023</ArtifactEntry>
+    <ArtifactEntry date="Autumn 2023">CSE 340 and Pinpoint 2.0</ArtifactEntry>
+    <ArtifactEntry date="Winter 2024"
+      >Leadership Experiential Learning Activity</ArtifactEntry
+    >
+    <ArtifactEntry date="Spring 2024"
+      >CSE 512 Data vis and Neuroscience visualization</ArtifactEntry
+    >
+    <ArtifactEntry date="Summer 2024">AST Merge Driver (PLSE)</ArtifactEntry>
+    <ArtifactEntry date="Autumn 2024 - Spring 2025">WRF</ArtifactEntry>
+    <ArtifactEntry date="Autumn 2024">SfN 2024</ArtifactEntry>
+    <ArtifactEntry date="Autumn 2024">ASE 2024</ArtifactEntry>
+    <ArtifactEntry date="Autumn 2024 - Spring 2025" isLast
+      >CSE Departmental Honors (3DGS)</ArtifactEntry
+    >
+  </ul>
 </MainLayout>
