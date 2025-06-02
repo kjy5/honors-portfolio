@@ -1,16 +1,82 @@
 ---
+import dxarts from "../assets/artist/dxarts.avif";
+import portrait from "../assets/artist/portrait.avif";
+import { Image } from "astro:assets";
+import animation from "../assets/artist/animation.avif";
+import artistProfile from "../assets/artist/artist-profile.avif";
+import dcp from "../assets/artist/dcp.avif";
+import rov from "../assets/artist/rov.avif";
+import ArtifactEntry from "../components/ArtifactEntry.astro";
+import ArtifactTimeline from "../components/ArtifactTimeline.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="The Artist">
+  <div class="hero bg-base-200">
+    <div class="hero-content flex-col lg:flex-row">
+      <Image
+        src={artistProfile}
+        class="h-40 w-40 lg:h-80 lg:w-auto object-cover rounded-lg shadow-2xl"
+        alt="Kenneth's profile"
+      />
+      <article class="prose">
+        <h1>Kenneth the Artist</h1>
+        <p>
+          Computer graphics is, at it's core, an interdisciplinary field that
+          combines art and science. While I never had the human talent to be a
+          painter or a sculptor, I found that I could use my exposure to
+          computer graphics to enable my artistic expression through digital
+          media. I started with 3D animation and modeling, but have since
+          expanded to photography and video production. This interesting side
+          quest has slowly become a major part of my life and one that also
+          influences my scientific work.
+        </p>
+      </article>
+    </div>
+  </div>
+
+  <ArtifactTimeline>
+    <ArtifactEntry
+      title="ROV Renders"
+      date="Spring 2022"
+      subtitle="Using my computer graphics skills to enhance the Underwater Robotics Club's project"
+      thumbnail={rov}
+      artifactPath="artist/rov"
+      isFirst
+    />
+    <ArtifactEntry
+      title="DRAMA 406: Digital Cinema Production"
+      date="Winter 2023"
+      subtitle="First formal training in cinema production"
+      thumbnail={dcp}
+      artifactPath="artist/dcp"
+      flip
+    />
+    <ArtifactEntry
+      title="Computer Animation Capstone Pre-courses"
+      date="Summer 2023"
+      subtitle="Prepared for the Animation Capstone by taking the summer classes"
+      thumbnail={animation}
+      artifactPath="artist/animation"
+    />
+    <ArtifactEntry
+        title="Portrait Photography"
+        date="Spring 2022 - Present"
+        subtitle="The side quest that's becoming a main quest"
+        thumbnail={portrait}
+        artifactPath="artist/portrait"
+        flip
+    />
+    <ArtifactEntry
+        title="DXARTS Video Series"
+        date="Autumn 2024 - Spring 2025"
+        subtitle="Making the side quest part of the main quest"
+        thumbnail={dxarts}
+        artifactPath="artist/dxarts"
+    />
+  </ArtifactTimeline>
   <article class="prose">
     <ol>
-      <li>ROV Renders</li>
-      <li>Beginner Photographer</li>
-      <li>Digital Cinema Production Final</li>
-      <li>Animation Summer courses</li>
-      <li>Portrait Photographer</li>
-      <li>HCDE DRG</li>
       <li>DXARTS Video Series</li>
     </ol>
   </article>

@@ -1,8 +1,34 @@
 ---
+import { Image } from "astro:assets";
+import swimmerProfile from "../assets/swimmer/swimmer-profile.avif";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="The Swimmer">
+  <div class="hero bg-base-200">
+    <div class="hero-content flex-col lg:flex-row">
+      <Image
+        src={swimmerProfile}
+        class="h-40 w-40 lg:h-80 lg:w-auto object-cover rounded-lg shadow-2xl"
+        alt="Kenneth's profile"
+      />
+      <article class="prose">
+        <h1>Kenneth the Swimmer</h1>
+        <p>
+          I've been a lifelong competitive swimmer. After UW closed all pools on
+          campus in 2021, I was forced to take a break from the sport. While I
+          initially thought I would be fine without swimming, the break allowed
+          me to recognize how much I loved the sport and the community it
+          provided. When the pools opened again in 2023, I returned to the water
+          and joined the UW Swim Club. The goal initially was for fitness and
+          socializing, but my constant involvement also lead me to take on a
+          leadership role in the club as the captain. This has been a great way
+          to both improve my leadership skills and also foster the swimmer
+          community that I loved so much about the sport.
+        </p>
+      </article>
+    </div>
+  </div>
   <article class="prose">
     <ol>
       <li>Capturing the club</li>
