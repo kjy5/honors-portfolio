@@ -51,5 +51,5 @@ automation features, we’ve been able to receive plenty of feedback from other
 experts in the field who are excited to integrate Pinpoint into their labs and
 reaccelerate their research! I’m excited to continue working on Pinpoint with
 the Steinmetz Lab and hope that by the summer we will be able to share this
-automation system with the wider neuroscience community outside of our lab as a
+automation system with the wider neuroscience community outside our lab as a
 finished product.
