@@ -12,6 +12,7 @@
 		"check": "biome check --write . && prettier --write ."
 	},
 	"dependencies": {
+		"@astrojs/mdx": "^4.3.0",
 		"@tailwindcss/vite": "^4.1.7",
 		"astro": "^5.8.1",
 		"sharp": "^0.34.2",

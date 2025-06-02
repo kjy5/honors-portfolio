@@ -5,8 +5,6 @@ return: "scientist"
 
 # COSMOS Interface and CSE 351
 
-![interface](../../../assets/scientist/cosmos.avif)
-
 Husky Satellite Lab (HSL) builds satellites for space research, requiring
 communication systems to interface with satellites in orbit—which is where my
 project comes in.

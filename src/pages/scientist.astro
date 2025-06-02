@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import cosmos from "../assets/scientist/cosmos.avif";
+import maryGates from "../assets/scientist/mary-gates.avif";
+import pinpoint from "../assets/scientist/pinpoint.avif";
 import scientistProfile from "../assets/scientist/scientist-profile.avif";
 import ArtifactEntry from "../components/ArtifactEntry.astro";
 import ArtifactTimeline from "../components/ArtifactTimeline.astro";
@@ -32,22 +34,26 @@ import MainLayout from "../layouts/MainLayout.astro";
     <ArtifactEntry
       title="COSMOS Interface and CSE 351"
       date="Spring 2022"
-      subtitle="Applied HW/SW course content to Husky Satellite Lab club project."
+      subtitle="Applied HW/SW course content to Husky Satellite Lab club project"
       thumbnail={cosmos}
       artifactPath="scientist/cosmos"
       isFirst
     />
-    <!--<ArtifactEntry-->
-    <!--  title="Research Experiential Learning"-->
-    <!--  date="Summer 2022"-->
-    <!--  thumbnail={cosmos}-->
-    <!--  flip-->
-    <!--/>-->
-    <!--<ArtifactEntry-->
-    <!--  title="Mary Gates Research Scholarship Applications"-->
-    <!--  date="Autumn 2022 - Winter 2024"-->
-    <!--  thumbnail={cosmos}-->
-    <!--/>-->
+    <ArtifactEntry
+      title="Research Experiential Learning"
+      date="Summer 2022"
+      subtitle="Pinpoint: electrophysiology planning tool project in the Virtual Brain Lab, Steinmetz Lab"
+      thumbnail={pinpoint}
+      artifactPath="scientist/pinpoint"
+      flip
+    />
+    <ArtifactEntry
+      title="Mary Gates Research Scholarship Applications"
+      date="Autumn 2022 - Winter 2024"
+      subtitle="Funding my work in the Virtual Brain Lab"
+      thumbnail={maryGates}
+      artifactPath="scientist/mary-gates"
+    />
     <!--<ArtifactEntry-->
     <!--  title="URS 2023"-->
     <!--  date="Spring 2023"-->
