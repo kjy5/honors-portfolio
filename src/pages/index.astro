@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import photographyCard from "../assets/photography-card.avif";
+import artCard from "../assets/art-card.avif";
 import profile from "../assets/profile.avif";
-import researchCard from "../assets/research-card.avif";
-import swimmingCard from "../assets/swimming-card.avif";
+import scientistCard from "../assets/scientist-card.avif";
+import swimmerCard from "../assets/swimmer-card.avif";
 import MainLayout from "../layouts/MainLayout.astro";
 import { withArtifactPath, withBasePath } from "../utils/path.ts";
 ---
@@ -17,23 +17,25 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
         alt="Kenneth's profile"
       />
       <article class="prose">
-        <h1>Kenneth's Honors Portfolio</h1>
-        <p><b>Hi 👋 I'm Kenneth Yang.</b></p>
+        <h1>Hi 👋 I'm Kenneth Yang</h1>
         <p>
           I studied Computer Science and minored in Digital Arts & Experimental
           Media with college honors as part of the UW's class of 2025.
         </p>
-        <p>
-          <i>I learn best by doing</i>. I used research as the surface I would
-          apply my education towards, solidifying my coursework and also
-          developing my skills to be career researcher in computer graphics.
-          Along the way, I worked my leadership and communication skills as
-          captain of UW's swim club and found my artistic outlet through
-          photography and filmmaking. This portfolio details my journey through
-          UW and how I shaped by experiences to learn better by doing.
-        </p>
+        <blockquote>
+          I learn best by doing. Having a practical place to use things I have
+          learned has been the best way for me to solidify new concepts. At UW,
+          I used my personal, club, and research projects as the practical place
+          where I could apply my coursework and learn by doing.
+
+          <br />
+
+          Computer Science is an "arts and science" degree. I embraced the
+          interdisciplinary nature of this field through my focus on computer
+          graphics where I developed as both a scientist and an artist.
+        </blockquote>
         <a href={withBasePath("learning-statement")} class="btn btn-primary"
-          >Read my Learning Statement</a
+          >Read the rest in my Learning Statement</a
         >
       </article>
     </div>
@@ -43,23 +45,23 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
 
   <div class="flex flex-col items-center gap-4 text-center mx-auto p-4">
     <article class="prose">
-      <h2>My Journeys</h2>
+      <h2>The Three Versions of Me</h2>
       <i>Click to learn more</i>
     </article>
 
     <div class="flex flex-col lg:flex-row gap-4">
       <a
-        href={withBasePath("research")}
+        href={withBasePath("scientist")}
         class="card bg-base-100 max-w-96 shadow-sm"
       >
         <figure>
           <Image
-            src={researchCard}
+            src={scientistCard}
             alt="Walter E. Washington convension center"
           />
         </figure>
         <div class="card-body">
-          <h2 class="card-title">🔬 Research</h2>
+          <h2 class="card-title">🔬 The Scientist</h2>
           <p class="text-left">
             The primary focus of my education journey was to gain experience in
             research while also making meaningful contributions to the real
@@ -69,14 +71,30 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
       </a>
 
       <a
-        href={withBasePath("swimming")}
+        href={withBasePath("artist")}
         class="card bg-base-100 max-w-96 shadow-sm"
       >
         <figure>
-          <Image src={swimmingCard} alt="Kenneth swimming" />
+          <Image src={artCard} alt="Kenneth taking photos" />
         </figure>
         <div class="card-body">
-          <h2 class="card-title">🏊‍♂️ Swimming</h2>
+          <h2 class="card-title">🧑‍🎨 The Artist</h2>
+          <p class="text-left">
+            Spawned from my love for computer graphics, I found my artistic
+            outlet in photography, 3D animation, and filmmaking.
+          </p>
+        </div>
+      </a>
+
+      <a
+        href={withBasePath("swimmer")}
+        class="card bg-base-100 max-w-96 shadow-sm"
+      >
+        <figure>
+          <Image src={swimmerCard} alt="Kenneth swimming" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">🏊‍♂️ The Swimmer</h2>
           <p class="text-left">
             I joined the UW Swim Club to continue my passion for the sport and
             later to foster my leadership and communication skills as the club's
@@ -84,28 +102,6 @@ import { withArtifactPath, withBasePath } from "../utils/path.ts";
           </p>
         </div>
       </a>
-
-      <a
-        href={withBasePath("photography")}
-        class="card bg-base-100 max-w-96 shadow-sm"
-      >
-        <figure>
-          <Image src={photographyCard} alt="Kenneth taking photos" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title">📸 Photography</h2>
-          <p class="text-left">
-            Spawned from my love for computer graphics, I found my artistic
-            outlet in photography, 3D animation, and filmmaking.
-          </p>
-        </div>
-      </a>
     </div>
   </div>
-
-  <article class="prose mx-auto text-center p-4">
-    Built with <a href="https://astro.build/">🚀 Astro</a>; View <a
-      href="https://github.com/kjy5/honors-portfolio">Source Code</a
-    >; © 2025 Kenneth Yang
-  </article>
 </MainLayout>

@@ -1,0 +1,123 @@
+---
+import { Image } from "astro:assets";
+import splatting from "../assets/scientist/3dgs.avif";
+import cosmos from "../assets/scientist/cosmos.avif";
+import pinpoint from "../assets/scientist/pinpoint.avif";
+import scientistProfile from "../assets/scientist/scientist-profile.avif";
+import sfn23 from "../assets/scientist/sfn23.avif";
+import sfn24 from "../assets/scientist/sfn24.avif";
+import stickman from "../assets/scientist/stickman.avif";
+import urs from "../assets/scientist/urs.avif";
+import viz from "../assets/scientist/viz.avif";
+import wrf from "../assets/scientist/wrf.avif";
+import ArtifactEntry from "../components/ArtifactEntry.astro";
+import ArtifactTimeline from "../components/ArtifactTimeline.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="The Scientist">
+  <div class="hero bg-base-200">
+    <div class="hero-content flex-col lg:flex-row">
+      <Image
+        src={scientistProfile}
+        class="h-40 w-40 lg:h-80 lg:w-auto object-cover rounded-lg shadow-2xl"
+        alt="Kenneth's profile"
+      />
+      <article class="prose">
+        <h1>Kenneth the Scientist</h1>
+        <p>
+          Scientific research is the primary way I applied by coursework to
+          real-world problems. As a result I took classes and geared by learning
+          to help my research projects, helping both my own education and also
+          allowing me to contribute to the world meaningfully as an
+          undergraduate.
+        </p>
+      </article>
+    </div>
+  </div>
+
+  <ArtifactTimeline>
+    <ArtifactEntry
+      title="COSMOS Interface and CSE 351"
+      date="Spring 2022"
+      subtitle="Applied HW/SW course content to Husky Satellite Lab club project"
+      thumbnail={cosmos}
+      artifactPath="scientist/cosmos"
+      isFirst
+    />
+    <ArtifactEntry
+      title="Research Experiential Learning"
+      date="Summer 2022"
+      subtitle="Pinpoint: electrophysiology planning tool project in the Virtual Brain Lab, Steinmetz Lab"
+      thumbnail={pinpoint}
+      artifactPath="scientist/pinpoint"
+      flip
+    />
+    <ArtifactEntry
+      title="Washington Research Foundation Fellowship and Mary Gates Research Scholarship"
+      date="Autumn 2022 - Autumn 2024"
+      subtitle="Funding my work in the Virtual Brain Lab"
+      thumbnail={wrf}
+      artifactPath="scientist/funding"
+    />
+    <ArtifactEntry
+      title="Undergraduate Research Symposium 2023"
+      date="Spring 2023"
+      subtitle="First research presentation"
+      thumbnail={urs}
+      artifactPath="scientist/urs"
+      flip
+    />
+    <ArtifactEntry
+      title="Society for Neuroscience (SfN) 2023"
+      date="Autumn 2023"
+      subtitle="Presenting my research at the biggest neuroscience conference in the U.S."
+      thumbnail={sfn23}
+      artifactPath="scientist/sfn23"
+    />
+    <ArtifactEntry
+      title="CSE 340 and Pinpoint 2.0"
+      date="Autumn 2023"
+      subtitle="Creating a reactive framework in a game engine and applying it to Pinpoint's interface"
+      thumbnail={stickman}
+      artifactPath="scientist/stickman"
+      flip
+    />
+    <ArtifactEntry
+      title="Leadership Experiential Learning Activity"
+      date="Winter 2024"
+      subtitle="Guiding neuroscinece labs to integrate my automation tools"
+      artifactPath="scientist/leadership"
+    />
+    <ArtifactEntry
+      title="CSE 512 and Neuroscience Visualization"
+      date="Spring 2024"
+      subtitle="First graduate course and a direct connection to my research"
+      thumbnail={viz}
+      artifactPath="scientist/viz"
+      flip
+    />
+    <ArtifactEntry
+      title="Software Engineering Research"
+      date="Summer 2024 - Autumn 2024"
+      subtitle="Stepping into CSE Research with the Programming Languages and Software Engineering (PLSE) group"
+      artifactPath="scientist/ast-merge-driver"
+    />
+    <ArtifactEntry
+      title="SfN 2024"
+      date="Autumn 2024"
+      subtitle="Returning to the largest Neuroscience conference in the U.S."
+      thumbnail={sfn24}
+      artifactPath="scientist/sfn24"
+      flip
+    />
+    <ArtifactEntry
+      title="Improving 3D Gaussian Splatting's Rasterization Performance"
+      date="Autumn 2024 - Spring 2025"
+      subtitle="CSE Departmental Honors with computer graphics research"
+      thumbnail={splatting}
+      artifactPath="scientist/3dgs"
+      isLast
+    />
+  </ArtifactTimeline>
+</MainLayout>

@@ -5,9 +5,11 @@ import { withBasePath } from "../utils/path.ts";
 
 interface Props {
 	title: string;
+	returnPage?: string;
 }
 
-const { title } = Astro.props;
+const { title, returnPage = "" } = Astro.props;
+const isHome = Astro.url.pathname === withBasePath("");
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -62,8 +64,22 @@ const { title } = Astro.props;
     </div>
 
     <!--Content-->
-    <main>
+    <main class="flex flex-col items-center gap-4">
       <slot />
+
+      {
+        !isHome && (
+          <a href={withBasePath(returnPage)} class="btn btn-primary">
+            Go Back
+          </a>
+        )
+      }
+
+      <article class="prose mx-auto text-center p-4">
+        Built with <a href="https://astro.build/">🚀 Astro</a>; View <a
+          href="https://github.com/kjy5/honors-portfolio">Source Code</a
+        >; © 2025 Kenneth Yang
+      </article>
     </main>
   </body>
 </html>
