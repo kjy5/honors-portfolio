@@ -6,11 +6,15 @@ interface Props {
 }
 
 const { path } = Astro.props;
+
+const fullPath = withBasePath(`${path}.pdf`);
 ---
 
-<embed
-  src={withBasePath(path)}
-  type="application/pdf"
-  width="100%"
-  height="600px"
-/>
+<object data={fullPath} type="application/pdf" width="100%" height="600px">
+  <embed src={fullPath} type="application/pdf" width="100%" height="600px" />
+  <p>
+    Your browser doesn't support rendering PDF's. Please download it <a
+      href={fullPath}>here</a
+    >.
+  </p>
+</object>

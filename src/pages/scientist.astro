@@ -4,6 +4,8 @@ import cosmos from "../assets/scientist/cosmos.avif";
 import maryGates from "../assets/scientist/mary-gates.avif";
 import pinpoint from "../assets/scientist/pinpoint.avif";
 import scientistProfile from "../assets/scientist/scientist-profile.avif";
+import sfn23 from "../assets/scientist/sfn23.avif";
+import stickman from "../assets/scientist/stickman.avif";
 import urs from "../assets/scientist/urs.avif";
 import ArtifactEntry from "../components/ArtifactEntry.astro";
 import ArtifactTimeline from "../components/ArtifactTimeline.astro";
@@ -63,13 +65,21 @@ import MainLayout from "../layouts/MainLayout.astro";
       artifactPath="scientist/urs"
       flip
     />
-    <!--<ArtifactEntry title="SfN 2023" date="Autumn 2023" thumbnail={cosmos} />-->
-    <!--<ArtifactEntry-->
-    <!--  title="CSE 340 and Pinpoint 2.0"-->
-    <!--  date="Autumn 2023"-->
-    <!--  thumbnail={cosmos}-->
-    <!--  flip-->
-    <!--/>-->
+    <ArtifactEntry
+      title="Society for Neuroscience (SfN) 2023"
+      date="Autumn 2023"
+      subtitle="Presenting my research at the biggest neuroscience conference in the US"
+      thumbnail={sfn23}
+      artifactPath="scientist/sfn23"
+    />
+    <ArtifactEntry
+      title="CSE 340 and Pinpoint 2.0"
+      date="Autumn 2023"
+      subtitle="Creating a reactive framework in a game engine and applying it to Pinpoint's interface"
+      thumbnail={stickman}
+      artifactPath="scientist/stickman"
+      flip
+    />
     <!--<ArtifactEntry-->
     <!--  title="Leadership Experiential Learning Activity"-->
     <!--  date="Winter 2024"-->
